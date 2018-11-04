@@ -1,2 +1,4 @@
 bin/~/
 .zsh_profile
+.tmux.conf
+.tmux.conf.local

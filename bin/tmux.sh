@@ -1,5 +1,9 @@
 #!/bin/bash
 brew install tmux
+git clone https://github.com/gpakosz/.tmux.git
+cp .tmux/.tmux.conf ../
+cp .tmux/.tmux.conf.local ../
+rm -rf .tmux
 
 # .tmux/.tmux.conf.local
 # increase history size
