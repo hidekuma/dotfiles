@@ -34,6 +34,7 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 	Plugin 'scrooloose/syntastic'
 	Plugin 'nanotech/jellybeans.vim'	"theme
 	Plugin 'chriskempson/vim-tomorrow-theme' "theme
+	Plugin 'nightsense/snow' "theme
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'terryma/vim-multiple-cursors'
 	Plugin 'rkulla/pydiction'
@@ -51,7 +52,10 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 	let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 	let g:pydiction_menu_height = 10
 	"theme
-	color Tomorrow-Night-Eighties
+  set background=dark
+  let g:airline_theme='snow_dark'
+  let g:lightline = { 'colorscheme': 'snow_dark' }
+	color snow 
 	"color Tomorrow-Night-Blue
 
   nmap ,nt :NERDTree<CR>
@@ -68,8 +72,8 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_auto_colors = 0
   let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-  hi IndentGuidesOdd  ctermbg=black
-  hi IndentGuidesEven ctermbg=black
+  hi IndentGuidesOdd  ctermbg=darkgray
+  hi IndentGuidesEven ctermbg=darkgray
   let g:indent_guides_guide_size = 1 
   let g:indent_guides_start_level = 2
  
