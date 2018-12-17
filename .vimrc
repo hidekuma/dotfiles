@@ -55,8 +55,8 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   set background=dark
   let g:airline_theme='snow_dark'
   let g:lightline = { 'colorscheme': 'snow_dark' }
-	color snow 
-	"color Tomorrow-Night-Blue
+	"color snow 
+	color Tomorrow-Night-Blue
 
   nmap ,nt :NERDTree<CR>
 
