@@ -76,6 +76,9 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   hi IndentGuidesEven ctermbg=white
   let g:indent_guides_guide_size = 1 
   let g:indent_guides_start_level = 2
+
+  "highlight line number
+  hi LineNr ctermfg=white
  
 	"tagbar
 	nmap <F8> :TagbarToggle<CR>
