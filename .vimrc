@@ -19,7 +19,7 @@ set cursorline
 set cursorcolumn
 set encoding=utf-8
 set fileencodings=utf-8,euckr
-
+set backspace=indent,eol,start
 
 if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 	" set vundle
@@ -53,7 +53,7 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 	let g:pydiction_menu_height = 10
 	"theme
   set background=dark
-  let g:airline_theme='snow_dark'
+  let g:airline_theme='snow_light'
   let g:lightline = { 'colorscheme': 'snow_dark' }
 	"color snow 
 	color Tomorrow-Night-Blue
@@ -72,8 +72,8 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_auto_colors = 0
   let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-  hi IndentGuidesOdd  ctermbg=darkgray
-  hi IndentGuidesEven ctermbg=darkgray
+  hi IndentGuidesOdd  ctermbg=white
+  hi IndentGuidesEven ctermbg=white
   let g:indent_guides_guide_size = 1 
   let g:indent_guides_start_level = 2
  
