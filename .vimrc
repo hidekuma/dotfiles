@@ -20,6 +20,7 @@ set cursorcolumn
 set encoding=utf-8
 set fileencodings=utf-8,euckr
 set backspace=indent,eol,start
+set clipboard=unnamed " use OS clipboard -- brew install reattach-to-user-namespace
 
 if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 	" set vundle
@@ -72,14 +73,20 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_auto_colors = 0
   let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-  hi IndentGuidesOdd  ctermbg=white
-  hi IndentGuidesEven ctermbg=white
+  "hi IndentGuidesOdd ctermbg=White
+  "hi IndentGuidesEven ctermbg=LightCyan
   let g:indent_guides_guide_size = 1 
   let g:indent_guides_start_level = 2
 
   "highlight line number
-  hi LineNr ctermfg=white
- 
+  hi LineNr ctermfg=white cterm=bold
+
+  "highlight cursor color
+  set cursorcolumn 
+  set cursorline 
+  hi CursorColumn ctermbg=NONE
+  hi CursorLine ctermbg=Black cterm=bold
+
 	"tagbar
 	nmap <F8> :TagbarToggle<CR>
 
