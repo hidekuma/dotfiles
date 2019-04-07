@@ -7,7 +7,7 @@ set autoindent
 set smartindent
 set ignorecase
 set tabstop=2
-set	shiftwidth=2
+set shiftwidth=2
 set expandtab
 set showcmd
 set showmatch
@@ -44,29 +44,29 @@ endfunction
 autocmd BufReadPost * call Kees_settabs()
 
 if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
-	" set vundle
-	set rtp+=~/.vim/bundle/Vundle.vim
-	call vundle#begin()
+  " set vundle
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 
-	" let Vundle manage Vundle, required
-	Plugin 'VundleVim/Vundle.vim' "basic
-	Plugin 'scrooloose/nerdtree'
-	Plugin 'vim-airline/vim-airline'
-	Plugin 'airblade/vim-gitgutter'
-	Plugin 'scrooloose/syntastic'
-	Plugin 'nanotech/jellybeans.vim'	"theme
-	Plugin 'chriskempson/vim-tomorrow-theme' "theme
-	Plugin 'nightsense/snow' "theme
+  " let Vundle manage Vundle, required
+  Plugin 'VundleVim/Vundle.vim' "basic
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'nanotech/jellybeans.vim'  "theme
+  Plugin 'chriskempson/vim-tomorrow-theme' "theme
+  Plugin 'nightsense/snow' "theme
 
   "Plugin 'Valloric/YouCompleteMe'
-	Plugin 'terryma/vim-multiple-cursors'
-	Plugin 'rkulla/pydiction'
-	Plugin 'tpope/vim-fugitive'
-	Plugin 'kchmck/vim-coffee-script'
-	"Plugin 'Raimondi/delimitMate' "{}
-	Plugin 'majutsushi/tagbar'
-	Plugin 'ctrlpvim/ctrlp.vim'
-	Plugin 'nathanaelkane/vim-indent-guides'
+  Plugin 'terryma/vim-multiple-cursors'
+  Plugin 'rkulla/pydiction'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'kchmck/vim-coffee-script'
+  "Plugin 'Raimondi/delimitMate' "{}
+  Plugin 'majutsushi/tagbar'
+  Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'nathanaelkane/vim-indent-guides'
 
   " Editing utilities
   Plugin 'tpope/vim-surround'
@@ -87,19 +87,19 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   Plugin 'StanAngeloff/php.vim'
   Plugin '2072/PHP-Indenting-for-VIm'
 
-	call vundle#end()            " required
-	filetype plugin indent on    " required
+  call vundle#end()            " required
+  filetype plugin indent on    " required
 
-	"end vundle
-	let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-	let g:pydiction_menu_height = 10
-	"theme
+  "end vundle
+  let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+  let g:pydiction_menu_height = 10
+  "theme
   set background=dark
   let g:airline_theme='snow_light'
   let g:lightline = { 'colorscheme': 'snow_dark' }
-	"color jellybeans
-	"color snow 
-	"color Tomorrow-Night-Blue
+  "color jellybeans
+  "color snow 
+  "color Tomorrow-Night-Blue
   color Tomorrow-Night-Bright
 
   nmap ,nt :NERDTree<CR>
@@ -130,8 +130,8 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   hi CursorColumn ctermbg=NONE
   hi CursorLine ctermbg=Black cterm=bold
 
-	"tagbar
-	nmap <F8> :TagbarToggle<CR>
+  "tagbar
+  nmap <F8> :TagbarToggle<CR>
 
   " When editing a file, always jump to the last cursor position.
   autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
@@ -171,10 +171,10 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
   " not working.. why?
-	"let g:ctrlp_custom_ignore = {
+  "let g:ctrlp_custom_ignore = {
   "  \ 'dir':  '\.git$\\.(__pycache__|node_moudles|DS_Store|tmp|log|logs|gitlab|git|hg|svn)$',
-	"	\ 'file': '\.(swp|pyc|exe|so|dll)$'
-	"\ }
+  " \ 'file': '\.(swp|pyc|exe|so|dll)$'
+  "\ }
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'] 
   "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
   "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
