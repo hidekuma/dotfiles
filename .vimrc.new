@@ -42,6 +42,7 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-repeat'
   Plugin 'terryma/vim-multiple-cursors'
+  Plugin 'mattn/emmet-vim'
 
   " Syntax / Indenting
   Plugin 'scrooloose/syntastic'
@@ -202,23 +203,22 @@ let g:pydiction_menu_height = 10
 nmap ,nt :NERDTree<CR>
 
 " vim-airline
-let g:airline_theme='sol'
-let g:airline_theme_patch_func = 'AirlineThemePatch'
-function! AirlineThemePatch(palette)
-  if g:airline_theme == 'sol'
-    " Current tab should always have hightes optical priority, so don't use
-    " redish colors for modified tabs
-
-    " Color for current tab if modified (darkened blue)
-    let a:palette.tabline.airline_tabmod[3] = 30
-
-    " Color for modified (grey
-    let a:palette.normal_modified.airline_c[3] = 244
-  endif
-endfunction
+"let g:airline_theme='sol'
+"let g:airline_theme_patch_func = 'AirlineThemePatch'
+"function! AirlineThemePatch(palette)
+"  if g:airline_theme == 'sol'
+"    " Current tab should always have hightes optical priority, so don't use
+"    " redish colors for modified tabs
+"
+"    " Color for current tab if modified (darkened blue)
+"    let a:palette.tabline.airline_tabmod[3] = 30
+"
+"    " Color for modified (grey
+"    let a:palette.normal_modified.airline_c[3] = 244
+"  endif
+"endfunction
 let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
-let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer number in tabline
-let g:airline_powerline_fonts = 1                   " Use powerline fonts (requires local font)
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " vim-multiple-cursor
 let g:multi_cursor_use_default_mapping=0
@@ -282,3 +282,20 @@ let g:phpcomplete_mappings = {
    \ 'jump_to_def_vsplit': '<C-W><C-\>',
    \ 'jump_to_def_tabnew': '<C-W><C-[>',
    \}
+
+" emmet
+  let g:user_emmet_settings = {
+  \  'php' : {
+  \    'extends' : 'html',
+  \    'filters' : 'c',
+  \  },
+  \  'xml' : {
+  \    'extends' : 'html',
+  \  },
+  \  'haml' : {
+  \    'extends' : 'html',
+  \  },
+  \  'tpl' : {
+  \    'extends' : 'html',
+  \  },
+  \}
