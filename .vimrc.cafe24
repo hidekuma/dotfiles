@@ -87,6 +87,7 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   Plugin 'mikehaertl/pdv-standalone'
   Plugin 'StanAngeloff/php.vim'
   Plugin '2072/PHP-Indenting-for-VIm'
+  Plugin 'shawncplus/phpcomplete.vim'
 
   call vundle#end()            " required
   filetype plugin indent on    " required
@@ -181,8 +182,15 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 
   let g:ctrlp_working_path_mode = 'ra'
-  let g:ctrlp_by_filename = 1
-  let g:ctrlp_match_window = 'min:4,max:72'
+  "let g:ctrlp_by_filename = 1
+  let g:ctrlp_match_window = 'min:0,max:30'
   
+  " php auto complete
+  let g:phpcomplete_mappings = {
+     \ 'jump_to_def': '<C-]>',
+     \ 'jump_to_def_split': '<C-W><C-]>',
+     \ 'jump_to_def_vsplit': '<C-W><C-\>',
+     \ 'jump_to_def_tabnew': '<C-W><C-[>',
+     \}
 
 endif
