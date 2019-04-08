@@ -32,7 +32,7 @@ autocmd BufNewFile,BufRead *.xt,*.xd setf xml
 autocmd BufNewFile,BufRead *.tpl,*.page setf html
 autocmd FileType html setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
 autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
-autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Function for autodetecting tab settings
 function Kees_settabs()
@@ -181,6 +181,8 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   "let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 
   let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_by_filename = 1
+  let g:ctrlp_match_window = 'min:4,max:72'
   
 
 endif
