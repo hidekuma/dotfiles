@@ -26,7 +26,7 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 
   " Styling
   Plugin 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
-  Plugin 'vim-airline/vim-airline-themes'
+  " Plugin 'vim-airline/vim-airline-themes'
   Plugin 'airblade/vim-gitgutter'
 
   " Movement
@@ -51,6 +51,9 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   Plugin 'groenewege/vim-less'
   Plugin 'pangloss/vim-javascript'
   Plugin 'nathanaelkane/vim-indent-guides'
+
+  " Lint
+  Plugin 'w0rp/ale'
 
   " PHP / Yii
   Plugin 'mikehaertl/pdv-standalone'
@@ -299,3 +302,15 @@ let g:phpcomplete_mappings = {
   \    'extends' : 'html',
   \  },
   \}
+
+  " ALE with autocomp
+  " ????????
+  "let g:ale_fixers = {
+  "\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  "\   'javascript': ['eslint'],
+  "\}
+  "let g:ale_completion_enabled = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" END
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
