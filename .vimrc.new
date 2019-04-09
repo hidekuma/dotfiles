@@ -194,9 +194,8 @@ let g:vim_markdown_folding_disabled=1
 
 " color
 color jellybeans
+color Tomorrow-Night
 "color snow 
-"color Tomorrow-Night-Blue
-"color Tomorrow-Night-Bright
 
 " pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
@@ -303,13 +302,13 @@ let g:phpcomplete_mappings = {
   \  },
   \}
 
-  " ALE with autocomp
-  " ????????
-  "let g:ale_fixers = {
-  "\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-  "\   'javascript': ['eslint'],
-  "\}
-  "let g:ale_completion_enabled = 1
+  " ALE
+  let g:ale_fixers = {
+  \   'javascript': ['eslint', 'prettier'],
+  \   'php': ['php_cs_fixer'],
+  \   'python': ['autopep8', 'yapf']
+  \}
+  let g:ale_completion_enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " END
