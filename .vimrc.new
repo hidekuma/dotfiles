@@ -221,6 +221,7 @@ nmap ,nt :NERDTree<CR>
 "endfunction
 let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#ale#enabled = 1
 
 " vim-multiple-cursor
 let g:multi_cursor_use_default_mapping=0
@@ -304,7 +305,6 @@ let g:phpcomplete_mappings = {
 
   " ALE
   let g:ale_fixers = {
-  \   'javascript': ['eslint', 'prettier'],
   \   'php': ['php_cs_fixer'],
   \   'python': ['autopep8', 'yapf']
   \}
