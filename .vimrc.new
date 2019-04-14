@@ -152,10 +152,10 @@ autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `
 
 " Set some file types by extension
 autocmd BufNewFile,BufRead *.xt,*.xd setf xml
-autocmd BufNewFile,BufRead *.tpl,*.page setf html
+autocmd BufNewFile,BufRead *.tpl,*.page,*.vue setf html
 
 " Global indent settings
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Indenting per file type
 "  - tabstop:       number of spaces inserted for each tab
