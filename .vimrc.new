@@ -36,9 +36,11 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   " Theme
   Plugin 'nanotech/jellybeans.vim'
   Plugin 'chriskempson/vim-tomorrow-theme'
-  Plugin 'nightsense/snow'
+  " Plugin 'nightsense/snow'
+  " Plugin 'ayu-theme/ayu-vim'
 
   " Editing utilities
+  Plugin 'godlygeek/tabular.git'
   Plugin 'tpope/vim-surround'
   Plugin 'tpope/vim-repeat'
   Plugin 'terryma/vim-multiple-cursors'
@@ -193,9 +195,12 @@ let g:vim_markdown_folding_disabled=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " color
+" set termguicolors
+" let ayucolor="light"
+" let ayucolor="mirage"
+" let ayucolor="mirage"
+" color ayu
 color jellybeans
-color Tomorrow-Night
-"color snow 
 
 " pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
@@ -240,11 +245,11 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " highlight line number
-hi LineNr ctermfg=white cterm=bold
+" hi LineNr ctermfg=white cterm=bold
 
 " highlight cursor color
-hi CursorColumn ctermbg=NONE
-hi CursorLine ctermbg=Black cterm=bold
+" hi CursorColumn ctermbg=NONE
+" hi CursorLine ctermbg=Black cterm=bold
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
