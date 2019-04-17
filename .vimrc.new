@@ -47,6 +47,7 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
   Plugin 'mattn/emmet-vim'
 
   " Syntax / Indenting
+  Plugin 'ekalinin/dockerfile.vim'
   Plugin 'scrooloose/syntastic'
   Plugin 'chr4/nginx.vim'
   Plugin 'plasticboy/vim-markdown'
