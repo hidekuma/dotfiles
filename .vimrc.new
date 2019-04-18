@@ -8,9 +8,14 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype off                                       " required by Vundle (re-enabled below)
-if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
+" BEFORE
+" if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
+"   set rtp+=~/.vim/bundle/Vundle.vim
+"   call vundle#begin()
+
+"AFTER
+"v8~
+call plug#begin('~/.vim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -19,65 +24,69 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
   " Basic
-  Plugin 'VundleVim/Vundle.vim'                       " let Vundle manage Vundle, required
+"  Plug 'VundleVim/Vundle.vim'                       " let Vundle manage Vundle, required
 
   " Files & Search
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'majutsushi/tagbar'
+  Plug 'scrooloose/nerdtree'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'majutsushi/tagbar'
 
   " Styling
-  Plugin 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
-  " Plugin 'vim-airline/vim-airline-themes'
-  Plugin 'airblade/vim-gitgutter'
+  Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
+  " Plug 'vim-airline/vim-airline-themes'
+  Plug 'airblade/vim-gitgutter'
 
   " Movement
-  Plugin 'Lokaltog/vim-easymotion'
-  Plugin 'vim-scripts/matchit.zip'
+  Plug 'Lokaltog/vim-easymotion'
+  Plug 'vim-scripts/matchit.zip'
 
   " Theme
-  Plugin 'nanotech/jellybeans.vim'
-  Plugin 'chriskempson/vim-tomorrow-theme'
-  " Plugin 'nightsense/snow'
-  " Plugin 'ayu-theme/ayu-vim'
+  Plug 'nanotech/jellybeans.vim'
+  Plug 'chriskempson/vim-tomorrow-theme'
+  " Plug 'nightsense/snow'
+  " Plug 'ayu-theme/ayu-vim'
 
   " Editing utilities
-  Plugin 'godlygeek/tabular.git'
-  Plugin 'tpope/vim-surround'
-  Plugin 'tpope/vim-repeat'
-  Plugin 'terryma/vim-multiple-cursors'
-  Plugin 'mattn/emmet-vim'
+  Plug 'godlygeek/tabular'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'mattn/emmet-vim'
 
   " Syntax / Indenting
-  Plugin 'ekalinin/dockerfile.vim'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'chr4/nginx.vim'
-  Plugin 'plasticboy/vim-markdown'
-  Plugin 'groenewege/vim-less'
-  Plugin 'pangloss/vim-javascript'
-  Plugin 'nathanaelkane/vim-indent-guides'
+  Plug 'ekalinin/dockerfile.vim'
+  Plug 'scrooloose/syntastic'
+  Plug 'chr4/nginx.vim'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'groenewege/vim-less'
+  Plug 'pangloss/vim-javascript'
+  Plug 'nathanaelkane/vim-indent-guides'
 
   " Lint
-  Plugin 'w0rp/ale'
+  Plug 'w0rp/ale'
 
   " PHP / Yii
-  Plugin 'mikehaertl/pdv-standalone'
-  Plugin 'StanAngeloff/php.vim'
-  Plugin '2072/PHP-Indenting-for-VIm'
-  Plugin 'shawncplus/phpcomplete.vim'
+  Plug 'mikehaertl/pdv-standalone'
+  Plug 'StanAngeloff/php.vim'
+  Plug '2072/PHP-Indenting-for-VIm'
+  Plug 'shawncplus/phpcomplete.vim'
 
   " Python
-  Plugin 'rkulla/pydiction'
+  Plug 'rkulla/pydiction'
 
   " Git
-  Plugin 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
 
   " Auto complete
-  "Plugin 'Valloric/YouCompleteMe'
+  "Plug 'Valloric/YouCompleteMe'
 
-  " End of Vundle plugins
-  call vundle#end()            " required
-endif
+" AFTER
+call plug#end()
+
+" BEFORE
+"  " End of Vundle plugins
+"  call vundle#end()            " required
+"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
