@@ -304,28 +304,32 @@ let g:phpcomplete_mappings = {
    \}
 
 " emmet
-  let g:user_emmet_settings = {
-  \  'php' : {
-  \    'extends' : 'html',
-  \    'filters' : 'c',
-  \  },
-  \  'xml' : {
-  \    'extends' : 'html',
-  \  },
-  \  'haml' : {
-  \    'extends' : 'html',
-  \  },
-  \  'tpl' : {
-  \    'extends' : 'html',
-  \  },
-  \}
+let g:user_emmet_settings = {
+\  'php' : {
+\    'extends' : 'html',
+\    'filters' : 'c',
+\  },
+\  'xml' : {
+\    'extends' : 'html',
+\  },
+\  'haml' : {
+\    'extends' : 'html',
+\  },
+\  'tpl' : {
+\    'extends' : 'html',
+\  },
+\}
 
-  " ALE
-  let g:ale_fixers = {
-  \   'php': ['php_cs_fixer'],
-  \   'python': ['autopep8', 'yapf']
-  \}
-  let g:ale_completion_enabled = 1
+" ALE
+"let g:ale_fixers = {
+"\   'php': ['php_cs_fixer'],
+"\   'python': ['autopep8', 'yapf'],
+"\}
+"
+"let g:ale_completion_enabled = 1
+
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " END
