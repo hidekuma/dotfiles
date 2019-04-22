@@ -212,7 +212,7 @@ let g:vim_markdown_folding_disabled=1
 " let ayucolor="mirage"
 " let ayucolor="mirage"
 " color ayu
-color Tomorrow-Night-Eighties
+color jellybeans
 
 " pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
@@ -294,6 +294,7 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'] 
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window = 'min:0,max:30'
+let g:ctrlp_clear_cache_on_exit = 0
 
 " php auto complete
 let g:phpcomplete_mappings = {
