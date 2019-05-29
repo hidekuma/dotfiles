@@ -155,6 +155,7 @@ set fileencoding=utf-8          " Default for new files
 set termencoding=utf-8          " Terminal encoding
 set fileformats=unix,dos,mac    " support all three, in this order
 set fileformat=unix             " default file format
+set fencs=utf-8,euc-kr          " auto file type check
 
 filetype plugin indent on    " required
 
@@ -333,7 +334,6 @@ nmap <C-F> :FZF<CR>
 "\}
 "
 "let g:ale_completion_enabled = 1
-
 
 
 
