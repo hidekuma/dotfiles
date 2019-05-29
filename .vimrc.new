@@ -321,6 +321,11 @@ let g:user_emmet_settings = {
 \  },
 \}
 
+" fzf
+" have to git clone fzf
+set rtp+=~/.fzf
+nmap <C-F> :FZF<CR>
+
 " ALE
 "let g:ale_fixers = {
 "\   'php': ['php_cs_fixer'],
