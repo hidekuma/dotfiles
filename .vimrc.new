@@ -323,8 +323,10 @@ let g:user_emmet_settings = {
 \}
 
 " fzf
-" have to git clone fzf
-set rtp+=~/.fzf
+" if git
+" set rtp+=~/.fzf
+" if brew
+set rtp+=/usr/local/opt/fzf
 nmap <C-F> :FZF<CR>
 
 " ALE
