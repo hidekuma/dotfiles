@@ -329,6 +329,10 @@ let g:user_emmet_settings = {
 set rtp+=/usr/local/opt/fzf
 nmap <C-F> :FZF<CR>
 
+"set paste
+nmap ,P :set paste<CR>
+nmap ,p :set nopaste<CR>
+
 " ALE
 "let g:ale_fixers = {
 "\   'php': ['php_cs_fixer'],
