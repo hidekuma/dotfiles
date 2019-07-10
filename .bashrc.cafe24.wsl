@@ -211,3 +211,5 @@ export NVM_DIR="$HOME/.nvm"
 # >>>>>>>>>>>>>>>>
 # added by travis gem
 [ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
+
+alias lzd='lazydocker'
