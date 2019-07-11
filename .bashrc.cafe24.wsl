@@ -142,6 +142,12 @@ source ~/.local/bin/virtualenvwrapper.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# for anaconda
+export PATH=~/.pyenv/versions/miniconda3-latest/bin/:$PATH
+
+# for matplotlib
+export DISPLAY='localhost:0.0'
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -213,3 +219,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
 
 alias lzd='lazydocker'
+
