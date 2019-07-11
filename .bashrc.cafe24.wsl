@@ -142,11 +142,6 @@ source ~/.local/bin/virtualenvwrapper.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-# for anaconda
-export PATH=~/.pyenv/versions/miniconda3-latest/bin/:$PATH
-
-# for matplotlib
-export DISPLAY='localhost:0.0'
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -220,3 +215,27 @@ export NVM_DIR="$HOME/.nvm"
 
 alias lzd='lazydocker'
 
+# for anaconda
+export PATH="~/.pyenv/versions/miniconda3-latest/bin/:$PATH"
+
+# for matplotlib
+export DISPLAY='localhost:0.0'
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/hidekuma/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+        . "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/hidekuma/.pyenv/versions/miniconda3-latest/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+alias condaa='conda activate'
+alias condad='conda deactivate'
