@@ -219,7 +219,7 @@ alias lzd='lazydocker'
 export PATH="~/.pyenv/versions/miniconda3-latest/bin/:$PATH"
 
 # for matplotlib
-export DISPLAY='localhost:0.0'
+export DISPLAY=':0'
 
 
 # >>> conda initialize >>>

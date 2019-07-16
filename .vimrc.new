@@ -297,6 +297,9 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window = 'min:0,max:30'
 let g:ctrlp_clear_cache_on_exit = 0
 
+" nerdtree
+let g:NERDTreeWinSize = 50
+
 " php auto complete
 let g:phpcomplete_mappings = {
    \ 'jump_to_def': '<C-]>',
