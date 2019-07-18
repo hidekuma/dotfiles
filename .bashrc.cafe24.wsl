@@ -117,13 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 
-
-
-
-
-
-
-
 # ----------------------------------------
 
 # for docker
@@ -142,11 +135,42 @@ source ~/.local/bin/virtualenvwrapper.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+ 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# added by travis gem
+[ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
+
+# for anaconda
+export PATH="~/.pyenv/versions/miniconda3-latest/bin/:$PATH"
+
+# for matplotlib
+export DISPLAY=':0'
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/hidekuma/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+        . "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/hidekuma/.pyenv/versions/miniconda3-latest/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# ---------- alias -----------
 # for vim
 alias vi='vim'
 
@@ -190,52 +214,14 @@ alias tls='tmux ls'
 alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
 alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
 
+# for anaconda
+alias condaa='conda activate'
+alias condad='conda deactivate'
+
 # for ssh reset ect
 alias rect='ssh-keygen -R ectlocal.cafe24.com'
 
-
-# for virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-#export VIRTUALENVWRAPPER_PYTHON='/c/Python/Python37/python'  # Usage of python3
-#source /usr/local/bin/virtualenvwrapper.sh
-
+# lzd
+alias lzd='lazydocker'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# <<<<<<<<<<< 로딩이 느리니 주석처리.
-# 사용시에만
-export NVM_DIR="$HOME/.nvm"
- [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
- [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
- 
- export PATH="$HOME/.rbenv/bin:$PATH"
- eval "$(rbenv init -)"
-# >>>>>>>>>>>>>>>>
-# added by travis gem
-[ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
-
-alias lzd='lazydocker'
-
-# for anaconda
-export PATH="~/.pyenv/versions/miniconda3-latest/bin/:$PATH"
-
-# for matplotlib
-export DISPLAY=':0'
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hidekuma/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
-        . "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/hidekuma/.pyenv/versions/miniconda3-latest/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-alias condaa='conda activate'
-alias condad='conda deactivate'
