@@ -52,6 +52,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'mattn/emmet-vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'scrooloose/nerdcommenter'
 
   " Syntax / Indenting
   Plug 'ekalinin/dockerfile.vim'
@@ -326,10 +328,14 @@ let g:user_emmet_settings = {
 \}
 
 " fzf
-" if git
-" set rtp+=~/.fzf
-" if brew
-set rtp+=/usr/local/opt/fzf
+if has('macunix')
+    " if brew
+    set rtp+=/usr/local/opt/fzf
+else
+    " if git
+    set rtp+=~/.fzf
+endif
+
 nmap <C-F> :FZF<CR>
 
 "set paste
