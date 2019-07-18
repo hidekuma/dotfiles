@@ -225,3 +225,8 @@ alias rect='ssh-keygen -R ectlocal.cafe24.com'
 alias lzd='lazydocker'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# for fzf search
+vim_fzf() {
+    vim "$(fzf)"
+}
+bind -x '"\C-t": vim_fzf'

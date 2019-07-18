@@ -215,7 +215,7 @@ let g:vim_markdown_folding_disabled=1
 " let ayucolor="mirage"
 " let ayucolor="mirage"
 " color ayu
-color jellybeans
+color Tomorrow-Night-Bright 
 
 " pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
