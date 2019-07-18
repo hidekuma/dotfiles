@@ -225,18 +225,6 @@ alias rect='ssh-keygen -R ectlocal.cafe24.com'
 alias lzd='lazydocker'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# for fzf search
-# Search a file with fzf inside a Tmux pane and then open it in an editor
-fzf_then_open_in_editor() {
-  local file=$(fzf-tmux)
-  # Open the file if it exists
-  if [ -n "$file" ]; then
-    # Use the default editor if it's defined, otherwise Vim
-    ${EDITOR:-vim} "$file"
-  fi
-}
-bind -x '"\C-t": fzf_then_open_in_editor'
-
 condad
 # ------------------------------------- 
 echo '''
