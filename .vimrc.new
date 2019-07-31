@@ -336,7 +336,7 @@ else
     set rtp+=~/.fzf
 endif
 
-nmap <C-F> :FZF<CR>
+nmap <S-F> :FZF<CR>
 
 "set paste
 nmap ,P :set paste<CR>
