@@ -211,11 +211,8 @@ let g:vim_markdown_folding_disabled=1
 
 " color
 " set termguicolors
-" let ayucolor="light"
-" let ayucolor="mirage"
-" let ayucolor="mirage"
-" color ayu
-color Tomorrow-Night-Bright 
+" color Tomorrow-Night-Bright 
+color jellybeans
 
 " pydiction
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
@@ -260,11 +257,13 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " highlight line number
-" hi LineNr ctermfg=white cterm=bold
+" hi LineNr ctermfg=green cterm=bold
 
 " highlight cursor color
 " hi CursorColumn ctermbg=NONE
 " hi CursorLine ctermbg=Black cterm=bold
+
+set term=screen-256color
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
