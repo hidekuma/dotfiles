@@ -147,6 +147,8 @@ eval "$(rbenv init -)"
 
 # for anaconda
 export PATH="$PYENV_ROOT/versions/miniconda3-latest/bin/:$PATH"
+# git submodule error
+export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # for matplotlib
 export DISPLAY=':0'
