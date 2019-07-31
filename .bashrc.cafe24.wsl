@@ -174,10 +174,8 @@ conda deactivate
 # <<< conda initialize <<<
 
 # ---------- alias -----------
-# for vim
-alias vi='vim'
-
 # basic
+alias dotfiles='cd ~/dotfiles'
 alias ll='ls -al'
 alias l='clear && ls -al'
 alias cdd='cd /d/'
@@ -198,6 +196,7 @@ alias dkrp='docker-compose'
 alias gst='git status'
 alias gc='git commit'
 alias gm='git merge'
+alias gr='git reset'
 alias ga='git add'
 alias gaa='git add --all'
 alias gloga='git log --oneline --decorate --color --graph --all'
