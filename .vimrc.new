@@ -263,6 +263,7 @@ let g:indent_guides_start_level = 2
 " hi CursorColumn ctermbg=NONE
 " hi CursorLine ctermbg=Black cterm=bold
 
+" WSL에서 스크롤 내릴때 이상한 배경
 set term=screen-256color
 
 " tagbar
