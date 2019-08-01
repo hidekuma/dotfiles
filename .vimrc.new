@@ -182,6 +182,7 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "  - expandtab:     use spaces instaed of Tab. <c-v><TAB> gives real Tab
 "  - autoindent:    keep indenting of previous line
 autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
 autocmd FileType html setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
 autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
@@ -354,7 +355,7 @@ nmap ,p :set nopaste<CR>
 " ycm
 let g:ycm_key_list_select_completion = ['<C-n>']
 let g:ycm_key_list_previous_completion=['<C-p>']
-let g:ycm_server_python_interpreter = 'python3'
+"let g:ycm_server_python_interpreter = 'python3'
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 1
