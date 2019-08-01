@@ -75,6 +75,7 @@ call plug#begin('~/.vim/plugged')
 
   " Python
   Plug 'rkulla/pydiction'
+  Plug 'heavenshell/vim-pydocstring'
 
   " Git
   Plug 'tpope/vim-fugitive'
