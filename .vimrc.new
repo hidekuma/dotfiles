@@ -33,7 +33,7 @@ call plug#begin('~/.vim/plugged')
 
   " Styling
   Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
-  " Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
 
   " Movement
@@ -43,8 +43,8 @@ call plug#begin('~/.vim/plugged')
   " Theme
   Plug 'nanotech/jellybeans.vim'
   Plug 'chriskempson/vim-tomorrow-theme'
-  " Plug 'nightsense/snow'
-  " Plug 'ayu-theme/ayu-vim'
+  Plug 'sonph/onehalf', {'rtp': 'vim/'}
+  Plug 'NLKNguyen/papercolor-theme'
 
   " Editing utilities
   Plug 'godlygeek/tabular'
@@ -56,7 +56,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdcommenter'
 
   " Syntax / Indenting
-  Plug 'ekalinin/dockerfile.vim'
+  Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
   Plug 'scrooloose/syntastic'
   Plug 'chr4/nginx.vim'
   Plug 'plasticboy/vim-markdown'
@@ -213,35 +213,43 @@ let g:vim_markdown_folding_disabled=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " color
-" set termguicolors
-" color Tomorrow-Night-Bright 
-color jellybeans
+set background=light
+color PaperColor
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'override' : {
+  \         'color00' : ['#080808', '232'],
+  \         'linenumber_bg' : ['#080808', '232']
+  \       }
+  \     }
+  \   },
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     },
+  \     'cpp': {
+  \       'highlight_standard_library': 1
+  \     },
+  \     'c': {
+  \       'highlight_builtins' : 1
+  \     }
+  \   }
+  \ }
+let python_hightlight_all = 1
+
+" vim-airline
+let g:airline_theme='papercolor'
+let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#ale#enabled = 1
 
 " pydiction
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_location = '~/.vim/plugged/pydiction/complete-dict'
 let g:pydiction_menu_height = 10
 
 " nerdtree
 nmap ,nt :NERDTree<CR>
-
-" vim-airline
-"let g:airline_theme='sol'
-"let g:airline_theme_patch_func = 'AirlineThemePatch'
-"function! AirlineThemePatch(palette)
-"  if g:airline_theme == 'sol'
-"    " Current tab should always have hightes optical priority, so don't use
-"    " redish colors for modified tabs
-"
-"    " Color for current tab if modified (darkened blue)
-"    let a:palette.tabline.airline_tabmod[3] = 30
-"
-"    " Color for modified (grey
-"    let a:palette.normal_modified.airline_c[3] = 244
-"  endif
-"endfunction
-let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#ale#enabled = 1
 
 " vim-multiple-cursor
 let g:multi_cursor_use_default_mapping=0
@@ -346,12 +354,7 @@ nmap ,P :set paste<CR>
 nmap ,p :set nopaste<CR>
 
 " ALE
-"let g:ale_fixers = {
-"\   'php': ['php_cs_fixer'],
-"\   'python': ['autopep8', 'yapf'],
-"\}
-"
-"let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 1
 
 " ycm
 let g:ycm_key_list_select_completion = ['<C-n>']
