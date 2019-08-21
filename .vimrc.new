@@ -83,7 +83,7 @@ call plug#begin('~/.vim/plugged')
 
   " Auto complete
   Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --clang-completer'}
-  Plug 'SirVer/ultisnips'
+  "Plug 'SirVer/ultisnips'
 
 " AFTER
 call plug#end()
