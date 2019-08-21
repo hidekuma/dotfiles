@@ -247,6 +247,8 @@ let g:airline#extensions#ale#enabled = 1
 
 " pymode
 let g:pymode_python = 'python3'
+"let g:pymode_virtualenv = 0
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
 
 " pydiction
 let g:pydiction_location = '~/.vim/plugged/pydiction/complete-dict'
