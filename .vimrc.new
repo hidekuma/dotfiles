@@ -266,7 +266,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " vim-easymotion
 hi EasyMotionTarget ctermbg=none ctermfg=darkgreen
-hi EasyMotionShade  ctermbg=none ctermfg=blue
+hi EasyMotionShade  ctermbg=none ctermfg=gray
 hi EasyMotionTarget2First ctermbg=none ctermfg=red
 hi EasyMotionTarget2Second ctermbg=none ctermfg=darkred
 
