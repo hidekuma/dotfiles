@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'majutsushi/tagbar'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 
   " Styling
   Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
