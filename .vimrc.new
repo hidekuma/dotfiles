@@ -66,6 +66,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'groenewege/vim-less'
   Plug 'pangloss/vim-javascript'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'othree/html5.vim'
 
   " Lint
   Plug 'w0rp/ale'
@@ -79,6 +80,9 @@ call plug#begin('~/.vim/plugged')
   " Python
   Plug 'rkulla/pydiction'
   Plug 'heavenshell/vim-pydocstring'
+
+  " Vue
+  Plug 'posva/vim-vue'
 
   " Git
   Plug 'tpope/vim-fugitive'
@@ -152,7 +156,6 @@ set scrolloff=10                " Start scrolling this number of lines from top/
 set hlsearch incsearch
 set cursorline
 set cursorcolumn
-"set clipboard=unnamed " use OS clipboard -- brew install reattach-to-user-namespace
  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File settings
@@ -373,6 +376,7 @@ let g:user_emmet_settings = {
 
 " fzf
 if has('macunix')
+    set clipboard=unnamed " use OS clipboard -- brew install reattach-to-user-namespace
     " if brew
     set rtp+=/usr/local/opt/fzf
 else
@@ -397,6 +401,14 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 0
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filetype_blacklist = {}
+
+" css
+augroup VimCSS3Syntax
+  autocmd!
+
+  autocmd FileType css setlocal iskeyword+=-
+augroup END
+
 
 " ultisnips
 " let g:UltiSnipsExpandTrigger="<Tab>"
