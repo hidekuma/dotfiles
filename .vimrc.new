@@ -223,6 +223,7 @@ let g:vim_markdown_folding_disabled=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " color
+
 " color > onehalflight
 "color onehalfdark
 "let g:airline_theme='onehalflight'
