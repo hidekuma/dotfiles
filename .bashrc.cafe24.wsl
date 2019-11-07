@@ -227,6 +227,20 @@ alias rect='ssh-keygen -R ectlocal.cafe24.com'
 alias lzd='lazydocker'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# k8s
+source <(kubectl completion bash) # bash-completion 패키지를 먼저 설치한 후, bash의 자동 완성을 현재 셸에 설정한다
+
+#kubectx and kubens
+export PATH=~/.kubectx:$PATH
+
+
+#kubectx and kubens
+export PATH=~/.kubectx:$PATH
+source <(kubectl completion bash)
+source <(kubectl completion bash)
+
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+
 # ------------------------------------- 
 echo '''
 ╦ ╦╦╔╦╗╔═╗╦╔═╦ ╦╔╦╗╔═╗
