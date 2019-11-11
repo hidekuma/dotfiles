@@ -287,10 +287,14 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 " vim-easymotion
-hi EasyMotionTarget ctermbg=none ctermfg=darkgreen
-hi EasyMotionShade  ctermbg=none ctermfg=gray
-hi EasyMotionTarget2First ctermbg=none ctermfg=darkred
-hi EasyMotionTarget2Second ctermbg=none ctermfg=darkblue
+"hi EasyMotionTarget ctermbg=none ctermfg=darkgreen
+"hi EasyMotionShade  ctermbg=none ctermfg=gray
+"hi EasyMotionTarget2First ctermbg=none ctermfg=darkred
+"hi EasyMotionTarget2Second ctermbg=none ctermfg=darkblue
+hi link EasyMotionTarget Search
+hi link EasyMotionTarget2First Search
+hi link EasyMotionTarget2Second Search
+hi link EasyMotionShade Comment
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
