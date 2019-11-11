@@ -194,7 +194,8 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "  - autoindent:    keep indenting of previous line
 autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
-autocmd FileType html setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
+autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " PHP settings
