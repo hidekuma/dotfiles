@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
   Plug 'vim-airline/vim-airline-themes'
   Plug 'airblade/vim-gitgutter'
+  Plug 'ap/vim-css-color'
 
   " Movement
   Plug 'Lokaltog/vim-easymotion'
@@ -229,6 +230,9 @@ let g:vim_markdown_folding_disabled=1
 "color onehalfdark
 "let g:airline_theme='onehalflight'
 
+" WSL에서 스크롤 내릴때 이상한 배경
+set term=screen-256color
+
 " color > PaperColor
 set background=light
 color PaperColor
@@ -285,8 +289,20 @@ let g:multi_cursor_quit_key='<Esc>'
 " vim-easymotion
 hi EasyMotionTarget ctermbg=none ctermfg=darkgreen
 hi EasyMotionShade  ctermbg=none ctermfg=gray
-hi EasyMotionTarget2First ctermbg=none ctermfg=red
-hi EasyMotionTarget2Second ctermbg=none ctermfg=darkred
+hi EasyMotionTarget2First ctermbg=none ctermfg=darkred
+hi EasyMotionTarget2Second ctermbg=none ctermfg=darkblue
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion"
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -304,8 +320,6 @@ let g:indent_guides_start_level = 2
 " hi CursorColumn ctermbg=NONE
 " hi CursorLine ctermbg=Black cterm=bold
 
-" WSL에서 스크롤 내릴때 이상한 배경
-set term=screen-256color
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
