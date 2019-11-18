@@ -103,10 +103,3 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.zsh_profile ]; then
     . ~/.zsh_profile
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# for ctags
-alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
-alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
