@@ -228,18 +228,25 @@ alias lzd='lazydocker'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # k8s
-source <(kubectl completion bash) # bash-completion 패키지를 먼저 설치한 후, bash의 자동 완성을 현재 셸에 설정한다
+source <(kubectl completion bash)
 
 #kubectx and kubens
 export PATH=~/.kubectx:$PATH
-
 
 #kubectx and kubens
 export PATH=~/.kubectx:$PATH
 source <(kubectl completion bash)
 source <(kubectl completion bash)
 
+#kube
 export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+
+#terminal color
+export LS_COLORS='ow=34;36'
+
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 # ------------------------------------- 
 echo '''
