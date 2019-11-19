@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
   " Movement
   Plug 'Lokaltog/vim-easymotion'
   Plug 'vim-scripts/matchit.zip'
+  Plug 'psliwka/vim-smoothie'
 
   " Theme
   Plug 'nanotech/jellybeans.vim'
