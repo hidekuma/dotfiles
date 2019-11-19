@@ -4,95 +4,94 @@
 " Email: d.hidekuma@gmail.com
 " Github: https://github.com/hidekuma
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Shared plugin setup for Vundle
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 filetype off                                       " required by Vundle (re-enabled below)
+let s:darwin = has('mac')
 " BEFORE
 " if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
 "   set rtp+=~/.vim/bundle/Vundle.vim
 "   call vundle#begin()
 
-"AFTER
-"v8~
+" AFTER
+" vim 8~
 call plug#begin('~/.vim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle plugins
+" Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-  " Basic
+" Basic
 "  Plug 'VundleVim/Vundle.vim'                       " let Vundle manage Vundle, required
 
-  " Files & Search
-  Plug 'scrooloose/nerdtree'
-  "Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'majutsushi/tagbar'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-  Plug 'junegunn/fzf.vim'
+" Files & Search
+Plug 'scrooloose/nerdtree'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
 
-  " Styling
-  Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'ap/vim-css-color'
+" Styling
+Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-css-color'
 
-  " Movement
-  Plug 'Lokaltog/vim-easymotion'
-  Plug 'vim-scripts/matchit.zip'
-  Plug 'psliwka/vim-smoothie'
+" Movement
+Plug 'Lokaltog/vim-easymotion'
+Plug 'vim-scripts/matchit.zip'
 
-  " Theme
-  Plug 'nanotech/jellybeans.vim'
-  Plug 'chriskempson/vim-tomorrow-theme'
-  Plug 'sonph/onehalf', {'rtp': 'vim/'}
-  Plug 'NLKNguyen/papercolor-theme'
+" Theme
+Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'NLKNguyen/papercolor-theme'
 
-  " Editing utilities
-  Plug 'godlygeek/tabular'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-repeat'
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'mattn/emmet-vim'
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'scrooloose/nerdcommenter'
+" Editing utilities
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
 
-  " Syntax / Indenting
-  Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
-  Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-  Plug 'scrooloose/syntastic'
-  Plug 'chr4/nginx.vim'
-  Plug 'plasticboy/vim-markdown'
-  Plug 'groenewege/vim-less'
-  Plug 'pangloss/vim-javascript'
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'othree/html5.vim'
-  Plug 'Glench/Vim-Jinja2-Syntax'
+" Syntax / Indenting
+Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'scrooloose/syntastic'
+Plug 'chr4/nginx.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'groenewege/vim-less'
+Plug 'pangloss/vim-javascript'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+Plug 'othree/html5.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
-  " Lint
-  Plug 'w0rp/ale'
+" Preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview'  }
 
-  " PHP / Yii
-  Plug 'mikehaertl/pdv-standalone'
-  Plug 'StanAngeloff/php.vim'
-  Plug '2072/PHP-Indenting-for-VIm'
-  Plug 'shawncplus/phpcomplete.vim'
+" Lint
+Plug 'w0rp/ale'
 
-  " Python
-  Plug 'rkulla/pydiction'
-  Plug 'heavenshell/vim-pydocstring'
+" PHP / Yii
+Plug 'mikehaertl/pdv-standalone'
+Plug 'StanAngeloff/php.vim'
+Plug '2072/PHP-Indenting-for-VIm'
+Plug 'shawncplus/phpcomplete.vim'
 
-  " Vue
-  Plug 'posva/vim-vue'
+" Python
+Plug 'rkulla/pydiction'
+Plug 'heavenshell/vim-pydocstring'
 
-  " Git
-  Plug 'tpope/vim-fugitive'
+" Vue
+Plug 'posva/vim-vue'
 
-  " Auto complete
-  Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --clang-completer --js-completer --ts-completer'}
-  Plug 'SirVer/ultisnips'
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Auto complete
+Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --clang-completer --js-completer --ts-completer'}
+Plug 'SirVer/ultisnips'
 
 " AFTER
 call plug#end()
@@ -101,8 +100,6 @@ call plug#end()
 "  " End of Vundle plugins
 "  call vundle#end()            " required
 "endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
@@ -159,10 +156,11 @@ set scrolloff=10                " Start scrolling this number of lines from top/
 set hlsearch incsearch
 set cursorline
 set cursorcolumn
- 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set encoding=utf-8              " Let Vim use utf-8 internally
 set fileencoding=utf-8          " Default for new files
 set termencoding=utf-8          " Terminal encoding
@@ -172,11 +170,16 @@ set fencs=utf-8,euc-kr          " auto file type check
 
 filetype plugin indent on    " required
 
-" Enable syntax highlighting (based on detected filetype)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax Highlighting
 if has("syntax")
     syntax on
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocmd
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " When editing a file, always jump to the last cursor position.
 autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
@@ -199,6 +202,8 @@ autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab 
 autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+" for java
+autocmd BufEnter *.\(c\|cpp\|java\|h\) set et
 
 " PHP settings
 " Let the surround plugin use `-` for <?php ?>
@@ -218,76 +223,78 @@ function Kees_settabs()
 endfunction
 autocmd BufReadPost * call Kees_settabs()
 
-" No folding for markdown files
-let g:vim_markdown_folding_disabled=1
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" ----------------------------------------------------------------------------
 " color
-
-" color > onehalflight
+" ----------------------------------------------------------------------------
 "color onehalfdark
 "let g:airline_theme='onehalflight'
-
-" WSL에서 스크롤 내릴때 이상한 배경
-set term=screen-256color
-
-" color > PaperColor
 set background=light
 color PaperColor
 let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'override' : {
-  \         'color00' : ['#080808', '232'],
-  \         'linenumber_bg' : ['#080808', '232']
-  \       }
-  \     }
-  \   },
-  \   'language': {
-  \     'python': {
-  \       'highlight_builtins' : 1
-  \     },
-  \     'cpp': {
-  \       'highlight_standard_library': 1
-  \     },
-  \     'c': {
-  \       'highlight_builtins' : 1
-  \     }
-  \   }
-  \ }
+            \   'theme': {
+            \     'default.dark': {
+            \       'override' : {
+            \         'color00' : ['#080808', '232'],
+            \         'linenumber_bg' : ['#080808', '232']
+            \       }
+            \     }
+            \   },
+            \   'language': {
+            \     'python': {
+            \       'highlight_builtins' : 1
+            \     },
+            \     'cpp': {
+            \       'highlight_standard_library': 1
+            \     },
+            \     'c': {
+            \       'highlight_builtins' : 1
+            \     }
+            \   }
+            \ }
 let g:airline_theme='papercolor'
 
-" pymode?
-let python_hightlight_all = 1
-
+" ----------------------------------------------------------------------------
 " vim-airline
+" ----------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#ale#enabled = 1
 
+" ----------------------------------------------------------------------------
 " pymode
+" ----------------------------------------------------------------------------
+let python_hightlight_all = 1
 let g:pymode_python = 'python3'
 "let g:pymode_virtualenv = 0
 let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
 
+" ----------------------------------------------------------------------------
 " pydiction
+" ----------------------------------------------------------------------------
 let g:pydiction_location = '~/.vim/plugged/pydiction/complete-dict'
 let g:pydiction_menu_height = 10
 
+" ----------------------------------------------------------------------------
 " nerdtree
+" ----------------------------------------------------------------------------
 nmap ,nt :NERDTree<CR>
 
+" ----------------------------------------------------------------------------
 " vim-multiple-cursor
+" ----------------------------------------------------------------------------
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
+" ----------------------------------------------------------------------------
 " vim-easymotion
+" ----------------------------------------------------------------------------
 "hi EasyMotionTarget ctermbg=none ctermfg=darkgreen
 "hi EasyMotionShade  ctermbg=none ctermfg=gray
 "hi EasyMotionTarget2First ctermbg=none ctermfg=darkred
@@ -308,15 +315,12 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion"
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
-
 " vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-"hi IndentGuidesOdd ctermbg=White
-"hi IndentGuidesEven ctermbg=LightCyan
-let g:indent_guides_guide_size = 1 
-let g:indent_guides_start_level = 2
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_auto_colors = 0
+"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+"let g:indent_guides_guide_size = 1 
+"let g:indent_guides_start_level = 2
 
 " highlight line number
 " hi LineNr ctermfg=green cterm=bold
@@ -325,33 +329,46 @@ let g:indent_guides_start_level = 2
 " hi CursorColumn ctermbg=NONE
 " hi CursorLine ctermbg=Black cterm=bold
 
-
+" ----------------------------------------------------------------------------
 " tagbar
+" ----------------------------------------------------------------------------
 nmap <F8> :TagbarToggle<CR>
 
+" ----------------------------------------------------------------------------
 " tpope/vim-surround
+" ----------------------------------------------------------------------------
 let g:surround_indent = 0           " Make indenting on block selection + S work
 
+" ----------------------------------------------------------------------------
 " StanAngeloff/php.vim
+" ----------------------------------------------------------------------------
 let php_sql_query = 1               " Highlight SQL inside strings
 let php_parent_error_close = 1      " Highlight parent error ] or )
 let php_parent_error_open = 1       " Skip php end tag if there's an unclosed ( or [
 let php_folding = 0                 " No folding
 let php_sync_method = 0             " Sync from start
 
+" ----------------------------------------------------------------------------
 " 2072/PHP-Indenting-for-VIm
+" ----------------------------------------------------------------------------
 let g:PHP_outdentphpescape = 0      " Indent PHP tags as the surrounding non-PHP code
 let g:PHP_noArrowMatching = 1       " Don't align arrows of chained method calls
 let g:PHP_vintage_case_default_indent = 1   " Indent case: and default: in switch()
 
+" ----------------------------------------------------------------------------
 " vim-scripts/matchit
+" ----------------------------------------------------------------------------
 let b:match_ignorecase = 1
 
+" ----------------------------------------------------------------------------
 " PDV (PHP Documentor)
+" ----------------------------------------------------------------------------
 nnoremap <C-K> :call PhpDocSingle()<CR>
 vnoremap <C-K> :call PhpDocRange()<CR>
 
+" ----------------------------------------------------------------------------
 " syntastic
+" ----------------------------------------------------------------------------
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -361,71 +378,70 @@ let syntastic_mode_map = { 'passive_filetypes': ['html']  }
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 
+" ----------------------------------------------------------------------------
 "fzf
+" ----------------------------------------------------------------------------
 nnoremap <C-p> :Files<Cr>
 nmap <S-F> :Rg<CR>
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+            \ { 'fg':      ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Comment'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'border':  ['fg', 'Ignore'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment'] }
 
+
+" ----------------------------------------------------------------------------
 " nerdtree
+" ----------------------------------------------------------------------------
 let g:NERDTreeWinSize = 50
 
+" ----------------------------------------------------------------------------
 " php auto complete
+" ----------------------------------------------------------------------------
 let g:phpcomplete_mappings = {
-   \ 'jump_to_def': '<C-]>',
-   \ 'jump_to_def_split': '<C-W><C-]>',
-   \ 'jump_to_def_vsplit': '<C-W><C-\>',
-   \ 'jump_to_def_tabnew': '<C-W><C-[>',
-   \}
+            \ 'jump_to_def': '<C-]>',
+            \ 'jump_to_def_split': '<C-W><C-]>',
+            \ 'jump_to_def_vsplit': '<C-W><C-\>',
+            \ 'jump_to_def_tabnew': '<C-W><C-[>',
+            \}
 
+" ----------------------------------------------------------------------------
 " emmet
+" ----------------------------------------------------------------------------
 let g:user_emmet_settings = {
-\  'php' : {
-\    'extends' : 'html',
-\    'filters' : 'c',
-\  },
-\  'xml' : {
-\    'extends' : 'html',
-\  },
-\  'haml' : {
-\    'extends' : 'html',
-\  },
-\  'tpl' : {
-\    'extends' : 'html',
-\  },
-\}
+            \  'php' : {
+            \    'extends' : 'html',
+            \    'filters' : 'c',
+            \  },
+            \  'xml' : {
+            \    'extends' : 'html',
+            \  },
+            \  'haml' : {
+            \    'extends' : 'html',
+            \  },
+            \  'tpl' : {
+            \    'extends' : 'html',
+            \  },
+            \}
 
-" fzf
-if has('macunix')
-    set clipboard=unnamed " use OS clipboard -- brew install reattach-to-user-namespace
-    " if brew
-    set rtp+=/usr/local/opt/fzf
-else
-    " if git
-    set rtp+=~/.fzf
-endif
-
-
-"set paste
-nmap ,P :set paste<CR>
-nmap ,p :set nopaste<CR>
-
+" ----------------------------------------------------------------------------
 " ALE
+" ----------------------------------------------------------------------------
 let g:ale_completion_enabled = 1
+let g:ale_lint_delay=1000
 
+" ----------------------------------------------------------------------------
 " ycm
+" ----------------------------------------------------------------------------
 let g:ycm_key_list_select_completion = ['<C-n>']
 let g:ycm_key_list_previous_completion=['<C-p>']
 "let g:ycm_server_python_interpreter = 'python3'
@@ -435,23 +451,72 @@ let g:ycm_complete_in_comments = 0
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filetype_blacklist = {}
 
-" css
-augroup VimCSS3Syntax
-  autocmd!
+" ----------------------------------------------------------------------------
+" ultisnips
+" ----------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<C-x>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories = ['ultisnips']
 
-  autocmd FileType css setlocal iskeyword+=-
+" ----------------------------------------------------------------------------
+" indentline
+" ----------------------------------------------------------------------------
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#616161'
+
+if s:darwin
+    function! MKDPSplit(url)
+        call system('x5050 '.shellescape(a:url))
+    endfunction
+    let g:mkdp_browserfunc = 'MKDPSplit'
+    let g:mkdp_open_to_the_world = 1
+    let g:mkdp_auto_close = 0
+endif
+
+" ----------------------------------------------------------------------------
+" markdown-preview
+" ----------------------------------------------------------------------------
+if s:darwin
+  function! MKDPSplit(url)
+    call system('x5050 '.shellescape(a:url))
+  endfunction
+  let g:mkdp_browserfunc = 'MKDPSplit'
+  let g:mkdp_open_to_the_world = 1
+  let g:mkdp_auto_close = 0
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ETC 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ----------------------------------------------------------------------------
+" No folding for markdown files
+" ----------------------------------------------------------------------------
+let g:vim_markdown_folding_disabled=1
+
+" ----------------------------------------------------------------------------
+" use scrolling down in WSL
+" ----------------------------------------------------------------------------
+set term=screen-256color
+
+" ----------------------------------------------------------------------------
+" Set paste
+" ----------------------------------------------------------------------------
+nmap ,P :set paste<CR>
+nmap ,p :set nopaste<CR>
+
+" ----------------------------------------------------------------------------
+" CSS
+" ----------------------------------------------------------------------------
+augroup VimCSS3Syntax
+    autocmd!
+    autocmd FileType css setlocal iskeyword+=-
 augroup END
 
-
-" ultisnips
- let g:UltiSnipsExpandTrigger="<C-x>"
- let g:UltiSnipsJumpForwardTrigger="<Tab>"
- let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
- let g:UltiSnipsEditSplit="vertical"
- let g:UltiSnipsSnippetDirectories = ['ultisnips']
-
-
+" ----------------------------------------------------------------------------
 " WSL -> window clipboard copy
+" ----------------------------------------------------------------------------
 let s:clip = '/mnt/c/Windows/System32/clip.exe' 
 if executable(s:clip)
     augroup WSLYank
@@ -459,6 +524,18 @@ if executable(s:clip)
         autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
     augroup END
 end
+
+" ----------------------------------------------------------------------------
+" macOS
+" ----------------------------------------------------------------------------
+if s:darwin
+    set clipboard=unnamed " use OS clipboard -- brew install reattach-to-user-namespace
+    " if brew
+    set rtp+=/usr/local/opt/fzf
+else
+    " if git
+    set rtp+=~/.fzf
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
