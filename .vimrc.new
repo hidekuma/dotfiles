@@ -439,6 +439,7 @@ let g:user_emmet_settings = {
 " ----------------------------------------------------------------------------
 let g:ale_completion_enabled = 1
 let g:ale_lint_delay=1000
+let g:ale_open_list = 1
 
 " ----------------------------------------------------------------------------
 " ycm
@@ -464,17 +465,8 @@ let g:UltiSnipsSnippetDirectories = ['ultisnips']
 " ----------------------------------------------------------------------------
 " indentline
 " ----------------------------------------------------------------------------
-let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#616161'
-
-if s:darwin
-    function! MKDPSplit(url)
-        call system('x5050 '.shellescape(a:url))
-    endfunction
-    let g:mkdp_browserfunc = 'MKDPSplit'
-    let g:mkdp_open_to_the_world = 1
-    let g:mkdp_auto_close = 0
-endif
+"let g:indentLine_color_term = 239
+"let g:indentLine_color_gui = '#616161'
 
 " ----------------------------------------------------------------------------
 " markdown-preview
@@ -488,6 +480,17 @@ if s:darwin
   let g:mkdp_auto_close = 0
 endif
 
+" ----------------------------------------------------------------------------
+" Syntastic
+" ----------------------------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

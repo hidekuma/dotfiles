@@ -1,2 +1,2 @@
 let g:ale_fixers = ['google_java_format']
-let b:ale_linters = []
+let b:ale_linters = ['javac', 'checkstyle']
