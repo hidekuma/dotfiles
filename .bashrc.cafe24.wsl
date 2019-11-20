@@ -247,6 +247,9 @@ export LS_COLORS='ow=34;36'
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+#php composer
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
 # ------------------------------------- 
 echo '''
 ╦ ╦╦╔╦╗╔═╗╦╔═╦ ╦╔╦╗╔═╗
