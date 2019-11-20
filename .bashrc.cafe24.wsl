@@ -153,6 +153,9 @@ export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 # for matplotlib
 export DISPLAY=':0'
 
+# for eclim
+export SWT_GTK=0
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi

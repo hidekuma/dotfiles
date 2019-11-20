@@ -483,7 +483,7 @@ let g:user_emmet_settings = {
 " ALE
 " ----------------------------------------------------------------------------
 let g:ale_completion_enabled = 1
-let g:ale_lint_delay=1000
+let g:ale_lint_delay=500
 let g:ale_open_list = 1
 let g:ale_keep_list_window_open=0
 let g:ale_set_quickfix=0
@@ -522,7 +522,7 @@ let g:ultisnips_php_scalar_types = 1
 " indentline
 " ----------------------------------------------------------------------------
 "let g:indentLine_color_term = 239
-"let g:indentLine_color_gui = '#616161'
+"let g:indentLine_color_gui = '#f0f0f0'
 
 " ----------------------------------------------------------------------------
 " markdown-preview
@@ -573,6 +573,11 @@ if executable(s:clip)
         autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
     augroup END
 end
+
+" ----------------------------------------------------------------------------
+" eclim 
+" ----------------------------------------------------------------------------
+let g:EclimCompletionMethod = 'omnifunc'
 
 " ----------------------------------------------------------------------------
 " macOS
