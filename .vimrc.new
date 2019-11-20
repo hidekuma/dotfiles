@@ -521,9 +521,8 @@ let g:ultisnips_php_scalar_types = 1
 " ----------------------------------------------------------------------------
 " indentline
 " ----------------------------------------------------------------------------
-"let g:indentLine_color_term = 239
-"let g:indentLine_color_gui = '#f0f0f0'
-
+let g:indentLine_char = '¦'
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'text', 'sh', 'markdown']
 " ----------------------------------------------------------------------------
 " markdown-preview
 " ----------------------------------------------------------------------------
