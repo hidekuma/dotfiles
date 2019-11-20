@@ -57,7 +57,7 @@ Plug 'scrooloose/nerdcommenter'
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'chr4/nginx.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'groenewege/vim-less'
@@ -272,7 +272,7 @@ let g:airline#extensions#ale#enabled = 1
 let python_hightlight_all = 1
 let g:pymode_python = 'python3'
 "let g:pymode_virtualenv = 0
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes']
 
 " ----------------------------------------------------------------------------
 " pydiction
@@ -400,13 +400,13 @@ nnoremap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
 " extract interface
 nnoremap <silent><Leader>rei :call phpactor#ClassInflect()<CR>
 
-
 "let g:phpactor_executable = '~/.config/nvim/plugged/phpactor/bin/phpactor'
 "function! PHPModify(transformer)
     ":update
     "let l:cmd = "silent !".g:phpactor_executable." class:transform ".expand('%').' --transform='.a:transformer
     "execute l:cmd
 "endfunction
+
 " ----------------------------------------------------------------------------
 " vim-scripts/matchit
 " ----------------------------------------------------------------------------
@@ -415,14 +415,14 @@ let b:match_ignorecase = 1
 " ----------------------------------------------------------------------------
 " syntastic
 " ----------------------------------------------------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let syntastic_mode_map = { 'passive_filetypes': ['html']  }
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+""let syntastic_mode_map = { 'passive_filetypes': ['html']  }
 "let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+""let g:syntastic_auto_loc_list = 1
+""let g:syntastic_check_on_open = 1
+""let g:syntastic_check_on_wq = 0
 
 " ----------------------------------------------------------------------------
 "fzf
@@ -489,7 +489,7 @@ let g:ale_keep_list_window_open=0
 let g:ale_set_quickfix=0
 let g:ale_list_window_size = 5
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"let g:ale_fix_on_save = 1
+
 " PHP
 let g:ale_php_phpcbf_standard='PSR2'
 let g:ale_php_phpcs_standard='phpcs.xml.dist'
@@ -503,7 +503,7 @@ let g:ycm_key_list_previous_completion=['<C-p>']
 "let g:ycm_server_python_interpreter = 'python3'
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings = 1
-let g:ycm_complete_in_comments = 0
+let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filetype_blacklist = {}
 
@@ -536,17 +536,6 @@ if s:darwin
   let g:mkdp_auto_close = 0
 endif
 
-" ----------------------------------------------------------------------------
-" Syntastic
-" ----------------------------------------------------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
