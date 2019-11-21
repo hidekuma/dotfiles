@@ -590,8 +590,11 @@ end
 " eclim 
 " ----------------------------------------------------------------------------
 let g:EclimCompletionMethod = 'omnifunc'
-"let g:EclimJavaValidate = 0
-"autocmd FileType java let g:ale_java_javac_classpath=eclim#Execute('-command java_classpath -p ' . eclim#project#util#GetCurrentProjectName())
+let g:EclimLogLevel = 'error'
+autocmd FileType java nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+autocmd FileType java nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+autocmd FileType java nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
+
 " ----------------------------------------------------------------------------
 " macOS
 " ----------------------------------------------------------------------------
