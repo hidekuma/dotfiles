@@ -95,7 +95,7 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-fugitive'
 
 " Auto complete
-Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --clang-completer --js-completer --ts-completer'}
+Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --clang-completer --js-completer --ts-completer --java-completer'}
 Plug 'SirVer/ultisnips'
 
 " AFTER
