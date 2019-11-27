@@ -82,7 +82,7 @@ Plug 'StanAngeloff/php.vim', {'for': 'php'}
 Plug '2072/PHP-Indenting-for-VIm'
 Plug 'shawncplus/phpcomplete.vim'
 Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
-Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php' }
+"Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php' }
 
 " Python
 Plug 'rkulla/pydiction'
@@ -389,19 +389,14 @@ vnoremap <C-K> :call PhpDocRange()<CR>
 " ----------------------------------------------------------------------------
 " phpactor
 " ----------------------------------------------------------------------------
-" context-aware menu with all functions (ALT-m)
-nnoremap <m-m> :call phpactor#ContextMenu()<cr>
+"nnoremap <m-m> :call phpactor#ContextMenu()<cr>
+"nnoremap gd :call phpactor#GotoDefinition()<CR>
+"nnoremap gr :call phpactor#FindReferences()<CR>
 
-nnoremap gd :call phpactor#GotoDefinition()<CR>
-nnoremap gr :call phpactor#FindReferences()<CR>
-
-" Extract method from selection
-vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-" extract variable
-vnoremap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-nnoremap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-" extract interface
-nnoremap <silent><Leader>rei :call phpactor#ClassInflect()<CR>
+"vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+"vnoremap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+"nnoremap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+"nnoremap <silent><Leader>rei :call phpactor#ClassInflect()<CR>
 
 "let g:phpactor_executable = '~/.vim/plugged/phpactor/bin/phpactor'
 "function! PHPModify(transformer)
