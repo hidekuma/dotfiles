@@ -309,10 +309,10 @@ hi link EasyMotionTarget2First Search
 hi link EasyMotionTarget2Second Search
 hi link EasyMotionShade Comment
 let g:EasyMotion_leader_key=','
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+"map  / <Plug>(easymotion-sn)
+"omap / <Plug>(easymotion-tn)
+"map  n <Plug>(easymotion-next)
+"map  N <Plug>(easymotion-prev)
 map ,l <Plug>(easymotion-lineforward)
 map ,j <Plug>(easymotion-j)
 map ,k <Plug>(easymotion-k)
