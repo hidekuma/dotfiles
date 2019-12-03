@@ -383,8 +383,8 @@ let g:PHP_vintage_case_default_indent = 1   " Indent case: and default: in switc
 " ----------------------------------------------------------------------------
 " PDV (PHP Documentor)
 " ----------------------------------------------------------------------------
-nnoremap <C-K> :call PhpDocSingle()<CR>
-vnoremap <C-K> :call PhpDocRange()<CR>
+autocmd FileType php nnoremap <C-K> :call PhpDocSingle()<CR>
+autocmd FileType php vnoremap <C-K> :call PhpDocRange()<CR>
 
 " ----------------------------------------------------------------------------
 " phpactor
