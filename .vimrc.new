@@ -55,6 +55,7 @@ Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
+Plug 'terryma/vim-expand-region'
 
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
