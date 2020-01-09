@@ -562,7 +562,7 @@ let g:ultisnips_php_scalar_types = 1
 " indentline
 " ----------------------------------------------------------------------------
 let g:indentLine_char = '¦'
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'text', 'sh', 'markdown', 'json']
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'text', 'sh', 'markdown', 'json', 'md']
 
 " ----------------------------------------------------------------------------
 " vim-argwrap
