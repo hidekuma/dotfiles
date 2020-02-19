@@ -548,6 +548,7 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filetype_blacklist = {}
+let g:ycm_python_binary_path = 'python3'
 
 " ----------------------------------------------------------------------------
 " ultisnips
