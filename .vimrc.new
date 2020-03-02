@@ -103,6 +103,7 @@ Plug 'tpope/vim-fugitive'
 " Auto complete
 Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --js-completer --ts-completer --java-completer'}
 Plug 'SirVer/ultisnips'
+Plug 'ervandew/supertab'
 
 " AFTER
 call plug#end()
@@ -549,6 +550,11 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_filetype_blacklist = {}
 let g:ycm_python_binary_path = 'python3'
+
+" ----------------------------------------------------------------------------
+" supertab
+" ----------------------------------------------------------------------------
+let g:SuperTabDefaultCompletionType = "context"
 
 " ----------------------------------------------------------------------------
 " ultisnips

@@ -2,7 +2,7 @@
 # scroll
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 # basic
-set -g default-terminal "xterm-256color" # colors!
+set -g default-terminal "screen" # colors!
 setw -g xterm-keys on
 set -s escape-time 10                     # faster command sequences
 set -sg repeat-time 600                   # increase repeat timeout
