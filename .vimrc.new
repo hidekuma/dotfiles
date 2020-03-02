@@ -45,6 +45,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
 
 " Editing utilities
 Plug 'godlygeek/tabular'
@@ -242,32 +243,34 @@ autocmd BufReadPost * call Kees_settabs()
 " ----------------------------------------------------------------------------
 " color
 " ----------------------------------------------------------------------------
+color gruvbox
+set background=dark
 "color onehalfdark
 "let g:airline_theme='onehalflight'
-set background=light
-color PaperColor
-let g:PaperColor_Theme_Options = {
-            \   'theme': {
-            \     'default.dark': {
-            \       'override' : {
-            \         'color00' : ['#080808', '232'],
-            \         'linenumber_bg' : ['#080808', '232']
-            \       }
-            \     }
-            \   },
-            \   'language': {
-            \     'python': {
-            \       'highlight_builtins' : 1
-            \     },
-            \     'cpp': {
-            \       'highlight_standard_library': 1
-            \     },
-            \     'c': {
-            \       'highlight_builtins' : 1
-            \     }
-            \   }
-            \ }
-let g:airline_theme='papercolor'
+"set background=light
+"color PaperColor
+"let g:PaperColor_Theme_Options = {
+            "\   'theme': {
+            "\     'default.dark': {
+            "\       'override' : {
+            "\         'color00' : ['#080808', '232'],
+            "\         'linenumber_bg' : ['#080808', '232']
+            "\       }
+            "\     }
+            "\   },
+            "\   'language': {
+            "\     'python': {
+            "\       'highlight_builtins' : 1
+            "\     },
+            "\     'cpp': {
+            "\       'highlight_standard_library': 1
+            "\     },
+            "\     'c': {
+            "\       'highlight_builtins' : 1
+            "\     }
+            "\   }
+            "\ }
+"let g:airline_theme='papercolor'
 
 " ----------------------------------------------------------------------------
 " vim-airline
