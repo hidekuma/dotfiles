@@ -455,8 +455,6 @@ function! RipgrepFzf(query, fullscreen)
                 \ --line-number
                 \ --no-heading
                 \ --color=always
-                "\ --colors "path:fg:0,179,0"
-                "\ --colors "match:fg:255,0,43"
                 \ --smart-case %s || true'
     let initial_command = printf(command_fmt, shellescape(a:query))
     let reload_command = printf(command_fmt, '{q}')
