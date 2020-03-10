@@ -371,15 +371,14 @@ let g:vim_php_refactoring_auto_validate_visibility = 1
 let g:vim_php_refactoring_phpdoc = "pdv#DocumentCurrentLine"
 
 let g:vim_php_refactoring_use_default_mapping = 0
-nnoremap <leader>rlv :call PhpRenameLocalVariable()<CR>
-nnoremap <leader>rcv :call PhpRenameClassVariable()<CR>
-nnoremap <leader>rrm :call PhpRenameMethod()<CR>
-nnoremap <leader>reu :call PhpExtractUse()<CR>
-vnoremap <leader>rec :call PhpExtractConst()<CR>
-nnoremap <leader>rep :call PhpExtractClassProperty()<CR>
-nnoremap <leader>rnp :call PhpCreateProperty()<CR>
-nnoremap <leader>rdu :call PhpDetectUnusedUseStatements()<CR>
-nnoremap <leader>rsg :call PhpCreateSettersAndGetters()<CR>
+nnoremap <leader>prlv :call PhpRenameLocalVariable()<CR>
+nnoremap <leader>prcv :call PhpRenameClassVariable()<CR>
+nnoremap <leader>prm :call PhpRenameMethod()<CR>
+nnoremap <leader>peu :call PhpExtractUse()<CR>
+vnoremap <leader>pec :call PhpExtractConst()<CR>
+nnoremap <leader>pep :call PhpExtractClassProperty()<CR>
+nnoremap <leader>pcp :call PhpCreateProperty()<CR>
+nnoremap <leader>pduu :call PhpDetectUnusedUseStatements()<CR>
 
 " ----------------------------------------------------------------------------
 " 2072/PHP-Indenting-for-VIm
@@ -553,7 +552,7 @@ let g:ycm_server_python_interpreter = 'python3'
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 1
-let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_filetype_blacklist = {}
 let g:ycm_python_binary_path = 'python3'
 
