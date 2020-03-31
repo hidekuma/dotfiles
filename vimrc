@@ -74,7 +74,7 @@ Plug 'aklt/plantuml-syntax'
 "Plug 'nathanaelkane/vim-indent-guides'
 
 " Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': ':call mkdp#util#install()', 'for': 'markdown', 'on': 'MarkdownPreview'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
 Plug 'w0rp/ale'
@@ -588,17 +588,6 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 " ----------------------------------------------------------------------------
 let g:diminactive_enable_focus = 1
 
-" ----------------------------------------------------------------------------
-" markdown-preview
-" ----------------------------------------------------------------------------
-if s:darwin
-  function! MKDPSplit(url)
-    call system('x5050 '.shellescape(a:url))
-  endfunction
-  let g:mkdp_browserfunc = 'MKDPSplit'
-  let g:mkdp_open_to_the_world = 1
-  let g:mkdp_auto_close = 0
-endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC 
