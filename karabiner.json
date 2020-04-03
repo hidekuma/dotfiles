@@ -129,7 +129,7 @@
                     }
                 }
             ],
-            "name": "Default profile",
+            "name": "Default",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },
@@ -149,7 +149,89 @@
                     "basic.to_if_held_down_threshold_milliseconds": 500,
                     "mouse_motion_to_scroll.speed": 100
                 },
-                "rules": []
+                "rules": [
+                    {
+                        "description": "Change right_command+hjkl to arrow keys",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
             },
             "devices": [],
             "fn_function_keys": [
@@ -250,7 +332,7 @@
                     }
                 }
             ],
-            "name": "New profile",
+            "name": "LikeHHKB",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },
@@ -258,18 +340,18 @@
             "simple_modifications": [
                 {
                     "from": {
-                        "key_code": "caps_lock"
-                    },
-                    "to": {
-                        "key_code": "left_control"
-                    }
-                },
-                {
-                    "from": {
                         "key_code": "backslash"
                     },
                     "to": {
                         "key_code": "delete_or_backspace"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": {
+                        "key_code": "left_control"
                     }
                 },
                 {
