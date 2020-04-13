@@ -36,6 +36,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'blueyed/vim-diminactive'
 
+" Window
+Plug 'camspiers/lens.vim'
+
 " Movement
 Plug 'Lokaltog/vim-easymotion'
 Plug 'vim-scripts/matchit.zip'
@@ -584,9 +587,14 @@ let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'text', 'sh', 'markdown'
 nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " ----------------------------------------------------------------------------
-" blueyed/vim-diminactive
+" vim-diminactive
 " ----------------------------------------------------------------------------
 let g:diminactive_enable_focus = 1
+
+" ----------------------------------------------------------------------------
+" lens
+" ----------------------------------------------------------------------------
+let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
