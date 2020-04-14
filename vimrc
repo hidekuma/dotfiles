@@ -27,6 +27,7 @@ Plug 'scrooloose/nerdtree'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+
 Plug 'junegunn/fzf.vim'
 
 " Styling
@@ -596,6 +597,11 @@ let g:diminactive_enable_focus = 1
 " ----------------------------------------------------------------------------
 let g:lens#disabled_filetypes = ['fzf']
 
+" ----------------------------------------------------------------------------
+" pydocstring & doq
+" ----------------------------------------------------------------------------
+let g:pydocstring_doq_path = "/Users/hidekuma/.pyenv/shims/doq"
+let g:pydocstring_formatter = 'sphinx'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC 
