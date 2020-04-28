@@ -65,7 +65,7 @@ Plug 'terryma/vim-expand-region'
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
 Plug 'chr4/nginx.vim'
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
 Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
