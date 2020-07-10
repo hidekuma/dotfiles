@@ -146,8 +146,6 @@ eval "$(rbenv init -)"
 # added by travis gem
 [ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
 
-# for anaconda
-export PATH="$PYENV_ROOT/versions/miniconda3-latest/bin/:$PATH"
 # git submodule error
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
@@ -219,10 +217,6 @@ alias tls='tmux ls'
 # for ctags
 alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
 alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
-
-# for anaconda
-alias condaa='conda activate'
-alias condad='conda deactivate'
 
 # for ssh reset ect
 alias rect='ssh-keygen -R ectlocal.cafe24.com'
