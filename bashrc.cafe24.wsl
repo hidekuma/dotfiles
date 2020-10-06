@@ -120,7 +120,8 @@ fi
 # ----------------------------------------
 
 # for docker
-export DOCKER_HOST=tcp://0.0.0.0:2375
+# convert wsl to wsl2
+# export DOCKER_HOST=tcp://0.0.0.0:2375
 sudo mount --bind /mnt/c /c
 sudo mount --bind /mnt/d /d
 
