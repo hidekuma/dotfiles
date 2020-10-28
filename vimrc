@@ -65,7 +65,7 @@ Plug 'terryma/vim-expand-region'
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
 Plug 'chr4/nginx.vim'
-"Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'groenewege/vim-less'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/html5.vim'
@@ -216,8 +216,8 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "  - autoindent:    keep indenting of previous line
 autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
-autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
-autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " for java
 autocmd BufEnter *.\(c\|cpp\|java\|h\) set et

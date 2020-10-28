@@ -118,6 +118,7 @@ fi
 
 
 # ----------------------------------------
+
 # for docker
 export DOCKER_HOST=tcp://0.0.0.0:2375
 sudo mount --bind /mnt/c /c
@@ -145,6 +146,8 @@ eval "$(rbenv init -)"
 # added by travis gem
 [ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
 
+# for anaconda
+export PATH="$PYENV_ROOT/versions/miniconda3-latest/bin/:$PATH"
 # git submodule error
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
@@ -157,6 +160,22 @@ export SWT_GTK=0
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/hidekuma/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+        . "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/hidekuma/.pyenv/versions/miniconda3-latest/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+conda deactivate
+# <<< conda initialize <<<
 
 # ---------- alias -----------
 # basic
@@ -200,6 +219,10 @@ alias tls='tmux ls'
 # for ctags
 alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
 alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
+
+# for anaconda
+alias condaa='conda activate'
+alias condad='conda deactivate'
 
 # for ssh reset ect
 alias rect='ssh-keygen -R ectlocal.cafe24.com'

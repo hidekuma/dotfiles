@@ -21,6 +21,10 @@ alias dkrp=docker-compose
 alias ws='cd ~/Documents'
 alias dotfiles='cd ~/dotfiles'
 alias private='cd ~/Documents/private'
+alias deep='cd ~/Documents/deep'
+
+#conda
+export PATH="$PYENV_ROOT/versions/anaconda3-5.3.1/bin/:$PATH"
 
 #set clipboard=unnamed " use OS clipboard
 
