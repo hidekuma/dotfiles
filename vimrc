@@ -142,6 +142,7 @@ set smarttab
 set showcmd
 set showmatch
 set title
+set conceallevel=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting/Tab settings
@@ -635,6 +636,21 @@ let g:pydocstring_formatter = 'sphinx'
 " No folding for markdown files
 " ----------------------------------------------------------------------------
 let g:vim_markdown_folding_disabled=1
+
+" ----------------------------------------------------------------------------
+" vim-persistent-undo
+" ----------------------------------------------------------------------------
+if has('persistent_undo')
+    let s:vimDir = '$HOME/.vim'
+    let &runtimepath.=','.s:vimDir
+    let s:undoDir = expand(s:vimDir . '/undodir')
+
+    call system('mkdir ' . s:vimDir)
+    call system('mkdir ' . s:undoDir)
+
+    let &undodir = s:undoDir
+    set undofile
+endif
 
 " ----------------------------------------------------------------------------
 " Set paste
