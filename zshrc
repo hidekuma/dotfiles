@@ -103,9 +103,3 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.zsh_profile ]; then
     . ~/.zsh_profile
 fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc'; fi

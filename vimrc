@@ -81,7 +81,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 
 " PHP / Yii
 Plug 'mikehaertl/pdv-standalone'
@@ -93,7 +93,7 @@ Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 
 " Python
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-Plug 'rkulla/pydiction'
+"Plug 'rkulla/pydiction'
 Plug 'heavenshell/vim-pydocstring'
 
 " Go
@@ -106,7 +106,11 @@ Plug 'posva/vim-vue'
 Plug 'tpope/vim-fugitive'
 
 " Auto complete
-Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --js-completer --ts-completer --java-completer'}
+if !s:darwin
+    Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --js-completer --ts-completer --java-completer'}
+else
+    Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
+endif
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 
@@ -247,32 +251,32 @@ autocmd BufReadPost * call Kees_settabs()
 " ----------------------------------------------------------------------------
 " color
 " ----------------------------------------------------------------------------
-"color onehalfdark
-"let g:airline_theme='onehalflight'
-set background=light 
-color PaperColor
-let g:PaperColor_Theme_Options = {
-            \   'theme': {
-            \     'default.dark': {
-            \       'override' : {
-            \         'color00' : ['#080808', '232'],
-            \         'linenumber_bg' : ['#080808', '232']
-            \       }
-            \     }
-            \   },
-            \   'language': {
-            \     'python': {
-            \       'highlight_builtins' : 1
-            \     },
-            \     'cpp': {
-            \       'highlight_standard_library': 1
-            \     },
-            \     'c': {
-            \       'highlight_builtins' : 1
-            \     }
-            \   }
-            \ }
-let g:airline_theme='papercolor'
+color onehalfdark
+let g:airline_theme='onehalfdark'
+set background=dark
+"color PaperColor
+"let g:PaperColor_Theme_Options = {
+            "\   'theme': {
+            "\     'default.dark': {
+            "\       'override' : {
+            "\         'color00' : ['#080808', '232'],
+            "\         'linenumber_bg' : ['#080808', '232']
+            "\       }
+            "\     }
+            "\   },
+            "\   'language': {
+            "\     'python': {
+            "\       'highlight_builtins' : 1
+            "\     },
+            "\     'cpp': {
+            "\       'highlight_standard_library': 1
+            "\     },
+            "\     'c': {
+            "\       'highlight_builtins' : 1
+            "\     }
+            "\   }
+            "\ }
+"let g:airline_theme='papercolor'
 
 " ----------------------------------------------------------------------------
 " vim-airline
@@ -286,14 +290,14 @@ let g:airline#extensions#ale#enabled = 1
 " ----------------------------------------------------------------------------
 let python_hightlight_all = 1
 let g:pymode_python = 'python3'
-"let g:pymode_virtualenv = 0
+"let g:pymode_virtualenv = 1
 let g:pymode_lint_checkers = ['pyflakes']
 
 " ----------------------------------------------------------------------------
 " pydiction
 " ----------------------------------------------------------------------------
-let g:pydiction_location = '~/.vim/plugged/pydiction/complete-dict'
-let g:pydiction_menu_height = 10
+"let g:pydiction_location = '~/.vim/plugged/pydiction/complete-dict'
+"let g:pydiction_menu_height = 10
 
 " ----------------------------------------------------------------------------
 " nerdtree
@@ -595,6 +599,20 @@ let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'text', 'sh', 'markdown'
 nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " ----------------------------------------------------------------------------
+" neovim
+" ----------------------------------------------------------------------------
+if has('nvim')
+    :tnoremap <A-h> <C-\><C-n><C-w>h
+    :tnoremap <A-j> <C-\><C-n><C-w>j
+    :tnoremap <A-k> <C-\><C-n><C-w>k
+    :tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+:nnoremap <A-h> <C-w>h
+:nnoremap <A-j> <C-w>j
+:nnoremap <A-k> <C-w>k
+:nnoremap <A-l> <C-w>l
+
+" ----------------------------------------------------------------------------
 " vim-diminactive
 " ----------------------------------------------------------------------------
 let g:diminactive_enable_focus = 1
@@ -617,11 +635,6 @@ let g:pydocstring_formatter = 'sphinx'
 " No folding for markdown files
 " ----------------------------------------------------------------------------
 let g:vim_markdown_folding_disabled=1
-
-" ----------------------------------------------------------------------------
-" use scrolling down in WSL
-" ----------------------------------------------------------------------------
-set term=screen-256color
 
 " ----------------------------------------------------------------------------
 " Set paste
@@ -667,6 +680,9 @@ if s:darwin
     " if brew
     set rtp+=/usr/local/opt/fzf
 else
+    " use scrolling down in WSL
+    set term=screen-256color
+
     " if git
     set rtp+=~/.fzf
 endif

@@ -5,7 +5,5 @@ brew install cmake
 brew install mysql
 brew install tig
 brew install tree
+brew install git git-lfs
 brew install mysql-connector-c
-
-
-

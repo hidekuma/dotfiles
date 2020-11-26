@@ -1,21 +1,52 @@
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYTHON_CONFIGURE_OPTS="--enable-shared"
-eval "$(pyenv init -)"
-
 echo '''
 ╦ ╦╦╔╦╗╔═╗╦╔═╦ ╦╔╦╗╔═╗
 ╠═╣║ ║║║╣ ╠╩╗║ ║║║║╠═╣
 ╩ ╩╩═╩╝╚═╝╩ ╩╚═╝╩ ╩╩ ╩
 '''
 
+# CHECK PLATFORM
+[ -z ${PLATFORM+x}  ] && export PLATFORM=$(uname -s)
+if [ "$PLATFORM" = 'Darwin'  ]; then
+    # MAC
+    # mysql
+    export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+    export EDITOR=nvim
+else
+    # Else
+    export EDITOR=vim
+fi
+
+export PATH="/usr/local/sbin:$PATH"
+
+# Pyenv (Python)
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+eval "$(pyenv init -)"
+
+# Rbenv (Ruby)
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Jenv (Java)
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# Nvm (Node)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Conda
+export PATH="$PYENV_ROOT/versions/anaconda3-5.3.1/bin/:$PATH"
+
+# Virtualenv & Virtualenv Wrapper
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
 source /usr/local/bin/virtualenvwrapper.sh
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
+# Aliases
+alias vi=$EDITOR
+alias vim=$EDITOR
 alias dkr=docker
 alias dkrp=docker-compose
 alias ws='cd ~/Documents'
@@ -23,20 +54,12 @@ alias dotfiles='cd ~/dotfiles'
 alias private='cd ~/Documents/private'
 alias deep='cd ~/Documents/deep'
 
-#conda
-export PATH="$PYENV_ROOT/versions/anaconda3-5.3.1/bin/:$PATH"
-
-#set clipboard=unnamed " use OS clipboard
-
-#jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# for ctags
+## Ctags
 alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
 alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
 
-export PATH="/usr/local/sbin:$PATH"
+# GCP
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc'; fi
