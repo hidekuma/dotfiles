@@ -49,6 +49,10 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'w0ng/vim-hybrid'
+Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Editing utilities
 Plug 'godlygeek/tabular'
@@ -256,9 +260,11 @@ autocmd BufReadPost * call Kees_settabs()
 " ----------------------------------------------------------------------------
 " color
 " ----------------------------------------------------------------------------
-color onehalfdark
-let g:airline_theme='onehalfdark'
 set background=dark
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme nord
+"let g:airline_theme='onehalfdark'
 "color PaperColor
 "let g:PaperColor_Theme_Options = {
             "\   'theme': {
