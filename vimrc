@@ -263,7 +263,7 @@ autocmd BufReadPost * call Kees_settabs()
 set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-colorscheme nord
+colorscheme iceberg
 "let g:airline_theme='onehalfdark'
 "color PaperColor
 "let g:PaperColor_Theme_Options = {
