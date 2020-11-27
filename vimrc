@@ -61,6 +61,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
+Plug 'KabbAmine/vCoolor.vim' " Color picker
+Plug 'jason0x43/vim-js-indent'
+Plug 'justinmk/vim-sneak'
 
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
@@ -104,6 +107,7 @@ Plug 'posva/vim-vue'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/git-messenger.vim'
 
 " Auto complete
 if !s:darwin
@@ -304,6 +308,11 @@ let g:pymode_lint_checkers = ['pyflakes']
 " nerdtree
 " ----------------------------------------------------------------------------
 nmap ,nt :NERDTree<CR>
+
+" ----------------------------------------------------------------------------
+" git-messenger
+" ----------------------------------------------------------------------------
+nmap gm :GitMessenger<CR>
 
 " ----------------------------------------------------------------------------
 " vim-multiple-cursor
