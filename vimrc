@@ -88,7 +88,9 @@ Plug 'aklt/plantuml-syntax'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
-Plug 'w0rp/ale'
+if s:darwin
+    Plug 'w0rp/ale'
+endif
 
 " PHP / Yii
 Plug 'mikehaertl/pdv-standalone'
@@ -114,11 +116,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
 
 " Auto complete
-if !s:darwin
-    Plug 'valloric/youcompleteme', { 'do': 'python3 ./install.py --js-completer --ts-completer --java-completer'}
-else
-    Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
-endif
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 

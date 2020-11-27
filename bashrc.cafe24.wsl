@@ -119,6 +119,7 @@ fi
 
 # ----------------------------------------
 
+export vi=~/squashfs-root/usr/bin/nvim
 # for docker
 export DOCKER_HOST=tcp://0.0.0.0:2375
 sudo mount --bind /mnt/c /c
@@ -147,7 +148,7 @@ eval "$(rbenv init -)"
 [ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
 
 # for anaconda
-export PATH="$PYENV_ROOT/versions/miniconda3-latest/bin/:$PATH"
+#export PATH="$PYENV_ROOT/versions/miniconda3-latest/bin/:$PATH"
 # git submodule error
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
@@ -163,18 +164,18 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/hidekuma/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
-        . "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/hidekuma/.pyenv/versions/miniconda3-latest/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-conda deactivate
+#__conda_setup="$('/home/hidekuma/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+    #eval "$__conda_setup"
+#else
+    #if [ -f "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+        #. "/home/hidekuma/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+    #else
+        #export PATH="/home/hidekuma/.pyenv/versions/miniconda3-latest/bin:$PATH"
+    #fi
+#fi
+#unset __conda_setup
+#conda deactivate
 # <<< conda initialize <<<
 
 # ---------- alias -----------
