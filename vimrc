@@ -88,9 +88,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
-if s:darwin
-    Plug 'w0rp/ale'
-endif
+Plug 'w0rp/ale'
 
 " PHP / Yii
 Plug 'mikehaertl/pdv-standalone'
