@@ -38,7 +38,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Virtualenv & Virtualenv Wrapper
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Aliases
