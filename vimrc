@@ -708,7 +708,9 @@ if s:darwin
     set rtp+=/usr/local/opt/fzf
 else
     " use scrolling down in WSL
-    set term=screen-256color
+    if !has('nvim')
+        set term=screen-256color
+    endif
 
     " if git
     set rtp+=~/.fzf
