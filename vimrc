@@ -637,7 +637,7 @@ let g:lens#disabled_filetypes = ['fzf']
 " ----------------------------------------------------------------------------
 " pydocstring & doq
 " ----------------------------------------------------------------------------
-let g:pydocstring_doq_path = "/Users/hidekuma/.pyenv/shims/doq"
+let g:pydocstring_doq_path = "~/.pyenv/shims/doq"
 let g:pydocstring_formatter = 'sphinx'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
