@@ -680,13 +680,13 @@ augroup END
 " ----------------------------------------------------------------------------
 " WSL -> window clipboard copy
 " ----------------------------------------------------------------------------
-let s:clip = '/mnt/c/Windows/System32/clip.exe' 
-if executable(s:clip)
-    augroup WSLYank
-        autocmd!
-        autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
-    augroup END
-end
+"let s:clip = '/mnt/c/Windows/System32/clip.exe' 
+"if executable(s:clip)
+    "augroup WSLYank
+        "autocmd!
+        "autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+    "augroup END
+"end
 
 " ----------------------------------------------------------------------------
 " eclim 
@@ -707,7 +707,24 @@ if s:darwin
     " if brew
     set rtp+=/usr/local/opt/fzf
 else
-    " use scrolling down in WSL
+    " https://github.com/equalsraf/win32yank/releases
+    let s:clip = '/mnt/d/win32yank.exe'
+    if executable(s:clip)
+        set clipboard+=unnamedplus
+        let g:clipboard = {
+        \   'name': 'win32yank-wsl',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i --crlf',
+        \      '*': 'win32yank.exe -i --crlf',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o --lf',
+        \      '*': 'win32yank.exe -o --lf',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
+        " use scrolling down in WSL
+    end
     if !has('nvim')
         set term=screen-256color
     endif
