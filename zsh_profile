@@ -25,12 +25,12 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 eval "$(pyenv init -)"
 
 # Rbenv (Ruby)
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
 
 # Jenv (Java)
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
 
 # Nvm (Node)
 export NVM_DIR="$HOME/.nvm"
