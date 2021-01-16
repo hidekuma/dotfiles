@@ -689,17 +689,6 @@ augroup END
 "end
 
 " ----------------------------------------------------------------------------
-" eclim 
-" ----------------------------------------------------------------------------
-let g:EclimCompletionMethod = 'omnifunc'
-"let g:EclimFileTypeValidate = 0
-let g:EclimLogLevel = 'error'
-let g:EclimSignLevel = 'error'
-autocmd FileType java nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
-autocmd FileType java nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
-autocmd FileType java nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
-
-" ----------------------------------------------------------------------------
 " macOS
 " ----------------------------------------------------------------------------
 if s:darwin
