@@ -81,6 +81,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
+Plug 'tikhomirov/vim-glsl'
 "Plug 'scrooloose/syntastic'
 "Plug 'nathanaelkane/vim-indent-guides'
 
@@ -639,6 +640,10 @@ let g:lens#disabled_filetypes = ['fzf']
 " ----------------------------------------------------------------------------
 let g:pydocstring_doq_path = "~/.pyenv/shims/doq"
 let g:pydocstring_formatter = 'sphinx'
+" ----------------------------------------------------------------------------
+" vim-glsl
+" ----------------------------------------------------------------------------
+autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC 
