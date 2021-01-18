@@ -245,6 +245,21 @@ let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palett
 colorscheme iceberg
 
 " ----------------------------------------------------------------------------
+" coc.nvim
+" ----------------------------------------------------------------------------
+let g:coc_global_extensions = [
+    'coc-ultisnips',
+    'coc-fzf-preview',
+    'coc-yaml',
+    'coc-tsserver',
+    'coc-python',
+    'coc-phpls',
+    'coc-json',
+    'coc-html',
+    'coc-css'
+]
+
+" ----------------------------------------------------------------------------
 " vim-airline
 " ----------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
