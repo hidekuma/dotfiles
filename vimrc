@@ -247,17 +247,16 @@ colorscheme iceberg
 " ----------------------------------------------------------------------------
 " coc.nvim
 " ----------------------------------------------------------------------------
-let g:coc_global_extensions = [
-    'coc-ultisnips',
-    'coc-fzf-preview',
-    'coc-yaml',
-    'coc-tsserver',
-    'coc-python',
-    'coc-phpls',
-    'coc-json',
-    'coc-html',
-    'coc-css'
-]
+let g:coc_global_extensions =
+            \ ['coc-ultisnips',
+            \ 'coc-fzf-preview',
+            \ 'coc-yaml',
+            \ 'coc-tsserver',
+            \ 'coc-python',
+            \ 'coc-phpls',
+            \ 'coc-json',
+            \ 'coc-html',
+            \ 'coc-css' ]
 
 " ----------------------------------------------------------------------------
 " vim-airline
