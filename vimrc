@@ -6,28 +6,15 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off                                       " required by Vundle (re-enabled below)
 let s:darwin = has('mac')
-" BEFORE
-" if isdirectory(expand("~/.vim/bundle/Vundle.vim/"))
-"   set rtp+=~/.vim/bundle/Vundle.vim
-"   call vundle#begin()
-
-" AFTER
-" vim 8~
 call plug#begin('~/.vim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Basic
-"  Plug 'VundleVim/Vundle.vim'                       " let Vundle manage Vundle, required
-
 " Files & Search
 Plug 'scrooloose/nerdtree'
-"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-
 Plug 'junegunn/fzf.vim'
 
 " Styling
@@ -82,8 +69,6 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
 Plug 'tikhomirov/vim-glsl'
-"Plug 'scrooloose/syntastic'
-"Plug 'nathanaelkane/vim-indent-guides'
 
 " Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
@@ -121,11 +106,6 @@ Plug 'ervandew/supertab'
 
 " AFTER
 call plug#end()
-
-" BEFORE
-"  " End of Vundle plugins
-"  call vundle#end()            " required
-"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
@@ -195,10 +175,11 @@ set fileformats=unix,dos,mac    " support all three, in this order
 set fileformat=unix             " default file format
 set fencs=utf-8,euc-kr          " auto file type check
 
-filetype plugin indent on    " required
+filetype plugin indent on       " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax Highlighting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("syntax")
     syntax on
 endif
@@ -207,13 +188,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocmd
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" When editing a file, always jump to the last cursor position.
-autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
-
-" Set some file types by extension
-autocmd BufNewFile,BufRead *.xt,*.xd setf xml
-autocmd BufNewFile,BufRead *.tpl,*.page,*.vue setf html
 
 " Global indent settings
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
@@ -231,6 +205,12 @@ autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 
+" When editing a file, always jump to the last cursor position.
+autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
+
+" Set some file types by extension
+autocmd BufNewFile,BufRead *.xt,*.xd setf xml
+autocmd BufNewFile,BufRead *.tpl,*.page,*.vue setf html
 " for java
 autocmd BufEnter *.\(c\|cpp\|java\|h\) set et
 
@@ -263,30 +243,6 @@ set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme iceberg
-"let g:airline_theme='onehalfdark'
-"color PaperColor
-"let g:PaperColor_Theme_Options = {
-            "\   'theme': {
-            "\     'default.dark': {
-            "\       'override' : {
-            "\         'color00' : ['#080808', '232'],
-            "\         'linenumber_bg' : ['#080808', '232']
-            "\       }
-            "\     }
-            "\   },
-            "\   'language': {
-            "\     'python': {
-            "\       'highlight_builtins' : 1
-            "\     },
-            "\     'cpp': {
-            "\       'highlight_standard_library': 1
-            "\     },
-            "\     'c': {
-            "\       'highlight_builtins' : 1
-            "\     }
-            "\   }
-            "\ }
-"let g:airline_theme='papercolor'
 
 " ----------------------------------------------------------------------------
 " vim-airline
@@ -614,20 +570,6 @@ let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'text', 'sh', 'markdown'
 nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " ----------------------------------------------------------------------------
-" neovim
-" ----------------------------------------------------------------------------
-if has('nvim')
-    :tnoremap <A-h> <C-\><C-n><C-w>h
-    :tnoremap <A-j> <C-\><C-n><C-w>j
-    :tnoremap <A-k> <C-\><C-n><C-w>k
-    :tnoremap <A-l> <C-\><C-n><C-w>l
-endif
-:nnoremap <A-h> <C-w>h
-:nnoremap <A-j> <C-w>j
-:nnoremap <A-k> <C-w>k
-:nnoremap <A-l> <C-w>l
-
-" ----------------------------------------------------------------------------
 " vim-diminactive
 " ----------------------------------------------------------------------------
 let g:diminactive_enable_focus = 1
@@ -650,6 +592,32 @@ autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ----------------------------------------------------------------------------
+" ETC mapping keys
+" ----------------------------------------------------------------------------
+if has('nvim')
+    :tnoremap <A-h> <C-\><C-n><C-w>h
+    :tnoremap <A-j> <C-\><C-n><C-w>j
+    :tnoremap <A-k> <C-\><C-n><C-w>k
+    :tnoremap <A-l> <C-\><C-n><C-w>l
+endif
+:nnoremap <A-h> <C-w>h
+:nnoremap <A-j> <C-w>j
+:nnoremap <A-k> <C-w>k
+:nnoremap <A-l> <C-w>l
+
+nmap ,P :set paste<CR>
+nmap ,p :set nopaste<CR>
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
+nmap sh :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+nmap tn :tabnew<Return>
+" window resize
+map <C-w><left> <C-w><
+map <C-w><right> <C-w>>
+map <C-w><up> <C-w>+
+map <C-w><down> <C-w>-
 " ----------------------------------------------------------------------------
 " No folding for markdown files
 " ----------------------------------------------------------------------------
