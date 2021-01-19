@@ -148,7 +148,7 @@ export NVM_DIR="$HOME/.nvm"
 #eval "$(rbenv init -)"
 
 # added by travis gem
-[ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
+#[ -f /home/hidekuma/.travis/travis.sh ] && source /home/hidekuma/.travis/travis.sh
 
 # for anaconda
 #export PATH="$PYENV_ROOT/versions/miniconda3-latest/bin/:$PATH"
@@ -223,8 +223,8 @@ alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
 alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
 
 # for anaconda
-alias condaa='conda activate'
-alias condad='conda deactivate'
+#alias condaa='conda activate'
+#alias condad='conda deactivate'
 
 # for ssh reset ect
 alias rect='ssh-keygen -R ectlocal.cafe24.com'
@@ -250,8 +250,8 @@ export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
 #terminal color
 export LS_COLORS='ow=34;36'
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+#export PATH="$HOME/.jenv/bin:$PATH"
+#eval "$(jenv init -)"
 
 #php composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
