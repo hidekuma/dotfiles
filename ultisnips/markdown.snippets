@@ -1,108 +1,144 @@
-priority -50
+# Markdown
 
-global !p
-def create_table(snip):
-    # retrieving single line from current string and treat it like tabstops count
-    placeholders_string = snip.buffer[snip.line].strip()[2:].split("x",1)
-    rows_amount = int(placeholders_string[0])
-    columns_amount = int(placeholders_string[1])
+# Includes octopress (http://octopress.org/) snippets
 
-    # erase current line
-    snip.buffer[snip.line] = ''
+# The suffix `c` stands for "Clipboard".
 
-    # create anonymous snippet with expected content and number of tabstops
-    anon_snippet_title = ' | '.join(['$' + str(col) for col in range(1,columns_amount+1)]) + "\n"
-    anon_snippet_delimiter = ':-|' * (columns_amount-1) + ":-\n"
-    anon_snippet_body = ""
-    for row in range(1,rows_amount+1):
-        anon_snippet_body += ' | '.join(['$' + str(row*columns_amount+col) for col in range(1,columns_amount+1)]) + "\n"
-    anon_snippet_table = anon_snippet_title + anon_snippet_delimiter + anon_snippet_body
+snippet [
+	[${1:text}](https://${2:address})
+snippet [*
+	[${1:link}](${2:`@*`})
+snippet [c
+	[${1:link}](${2:`@+`})
+snippet ["
+	[${1:text}](https://${2:address} "${3:title}")
+snippet ["*
+	[${1:link}](${2:`@*`} "${3:title}")
+snippet ["c
+	[${1:link}](${2:`@+`} "${3:title}")
+snippet [:
+	[${1:id}]: https://${2:url}
 
-    # expand anonymous snippet
-    snip.expand_anon(anon_snippet_table)
-endglobal
+snippet [:*
+	[${1:id}]: ${2:`@*`}
 
-###########################
-# Sections and Paragraphs #
-###########################
-snippet sec "Section" b
-# ${1:Section Name} #
-$0
-endsnippet
+snippet [:c
+	[${1:id}]: ${2:`@+`}
 
-snippet ssec "Sub Section" b
-## ${1:Section Name} ##
-$0
-endsnippet
+snippet [:"
+	[${1:id}]: https://${2:url} "${3:title}"
 
-snippet sssec "SubSub Section" b
-### ${1:Section Name} ###
-$0
-endsnippet
+snippet [:"*
+	[${1:id}]: ${2:`@*`} "${3:title}"
 
-snippet par "Paragraph" b
-#### ${1:Paragraph Name} ####
-$0
-endsnippet
+snippet [:"c
+	[${1:id}]: ${2:`@+`} "${3:title}"
 
-snippet spar "Paragraph" b
-##### ${1:Paragraph Name} #####
-$0
-endsnippet
+snippet ![
+	![${1:alttext}](${2:/images/image.jpg})
+snippet ![*
+	![${1:alt}](${2:`@*`})
+snippet ![c
+	![${1:alt}](${2:`@+`})
+snippet !["
+	![${1:alttext}](${2:/images/image.jpg} "${3:title}")
+snippet !["*
+	![${1:alt}](${2:`@*`} "${3:title}")
+snippet !["c
+	![${1:alt}](${2:`@+`} "${3:title}")
+snippet ![:
+	![${1:id}]: ${2:url}
 
-###################
-# Text formatting #
-###################
+snippet ![:*
+	![${1:id}]: ${2:`@*`}
 
-snippet * "italics"
-*${1:${VISUAL}}*$0
-endsnippet
+snippet ![:"
+	![${1:id}]: ${2:url} "${3:title}"
 
-snippet ** "bold"
-**${1:${VISUAL}}**$0
-endsnippet
+snippet ![:"*
+	![${1:id}]: ${2:`@*`} "${3:title}"
 
-snippet *** "bold italics"
-***${1:${VISUAL}}***$0
-endsnippet
+snippet ![:"c
+	![${1:id}]: ${2:`@+`} "${3:title}"
 
+snippet <
+	<http://${1:url}>
+snippet <*
+	<`@*`>
+snippet <c
+	<`@+`>
+snippet **
+	**${1:bold}**
+snippet __
+	__${1:bold}__
+snippet ===
+	`repeat('=', strlen(getline(line('.') - 3)))`
 
-################
-# Common stuff #
-################
-snippet link "Link to something"
-[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}})$0
-endsnippet
+	${0}
+snippet -
+	-   ${0}
+snippet ---
+	`repeat('-', strlen(getline(line('.') - 3)))`
 
-snippet img "Image"
-![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
-endsnippet
+	${0}
+snippet blockquote
+	{% blockquote %}
+	${0:quote}
+	{% endblockquote %}
 
-snippet ilc "Inline Code" i
-\`$1\`$0
-endsnippet
+snippet blockquote-author
+	{% blockquote ${1:author}, ${2:title} %}
+	${0:quote}
+	{% endblockquote %}
 
-snippet cbl "Codeblock" b
-\`\`\`
-$1
-\`\`\`
-$0
-endsnippet
+snippet blockquote-link
+	{% blockquote ${1:author} ${2:URL} ${3:link_text} %}
+	${0:quote}
+	{% endblockquote %}
 
-snippet refl "Reference Link"
-[${1:${VISUAL:Text}}][${2:id}]$0
+snippet ```
+	\`\`\`${1}
+	${0:${VISUAL}}
+	\`\`\`
 
-[$2]:${4:http://${3:www.url.com}} "${5:$4}"
-endsnippet
+# Language.
+snippet ```l
+	\`\`\`${1:language}
+	${2:code}
+	\`\`\`
 
-snippet fnt "Footnote"
-[^${1:${VISUAL:Footnote}}]$0
+snippet codeblock-short
+	{% codeblock %}
+	${0:code_snippet}
+	{% endcodeblock %}
 
-[^$1]:${2:Text}
-endsnippet
+snippet codeblock-full
+	{% codeblock ${1:title} lang:${2:language} ${3:URL} ${4:link_text} %}
+	${0:code_snippet}
+	{% endcodeblock %}
 
-pre_expand "create_table(snip)"
-snippet "tb(\d+x\d+)" "Customizable table" br
-endsnippet
+snippet gist-full
+	{% gist ${1:gist_id} ${0:filename} %}
 
-# vim:ft=snippets:
+snippet gist-short
+	{% gist ${0:gist_id} %}
+
+snippet img
+	{% img ${1:class} ${2:URL} ${3:width} ${4:height} ${5:title_text} ${0:alt_text} %}
+
+snippet youtube
+	{% youtube ${0:video_id} %}
+
+snippet tb
+	|  ${0:factors}      |    ${1:a}       |  ${2:b}   	|
+	| ------------- |-------------  | ------- |
+	|    ${3:f1}    |    Y          | N       |
+	|    ${4:f2}    |    Y          | N       |
+
+# The quote should appear only once in the text. It is inherently part of it.
+# See http://octopress.org/docs/plugins/pullquote/ for more info.
+
+snippet pullquote
+	{% pullquote %}
+	${1:text} {" ${2:quote} "} ${0:text}
+	{% endpullquote %}
