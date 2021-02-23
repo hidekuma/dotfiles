@@ -301,9 +301,15 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 " ----------------------------------------------------------------------------
+" vim-sneak
+" ----------------------------------------------------------------------------
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+
+" ----------------------------------------------------------------------------
 " vim-easymotion
 " ----------------------------------------------------------------------------
-"hi EasyMotionTarget ctermbg=none ctermfg=darkgreen
+"hi EasyMotionTarget cterbg=none ctermfg=darkgreen
 "hi EasyMotionShade  ctermbg=none ctermfg=gray
 "hi EasyMotionTarget2First ctermbg=none ctermfg=darkred
 "hi EasyMotionTarget2Second ctermbg=none ctermfg=darkblue
