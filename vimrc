@@ -30,6 +30,7 @@ Plug 'camspiers/lens.vim'
 " Movement
 Plug 'Lokaltog/vim-easymotion'
 Plug 'vim-scripts/matchit.zip'
+Plug 'justinmk/vim-sneak'
 
 " Theme
 Plug 'nanotech/jellybeans.vim'
@@ -54,7 +55,6 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker
 Plug 'jason0x43/vim-js-indent'
-Plug 'justinmk/vim-sneak'
 
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
