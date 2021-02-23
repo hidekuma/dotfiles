@@ -247,13 +247,14 @@ colorscheme iceberg
 " ----------------------------------------------------------------------------
 " coc.nvim
 " ----------------------------------------------------------------------------
+"let g:python3_host_prog = '/Users/hyunlang/miniconda3/bin/python'
 let g:coc_global_extensions =
             \ ['coc-ultisnips',
             \ 'coc-fzf-preview',
             \ 'coc-yaml',
+            \ 'coc-git',
             \ 'coc-tsserver',
             \ 'coc-python',
-            \ 'coc-phpls',
             \ 'coc-json',
             \ 'coc-html',
             \ 'coc-css' ]

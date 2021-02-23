@@ -1,4 +1,18 @@
 {
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+    "suggest.noselect": false,
+    "suggest.echodocSupport": true,
+    "codeLens.enable": true,
+    "signature.enable": true,
+    "suggest.preferCompleteThanJumpPlaceholder": true,
+    "tsserver.implicitProjectConfig.experimentalDecorators": true,
+    "python.venvFolders": [".pyenv","~/.virtualenvs"],
+    "python.workspaceSymbols.exclusionPatterns": [],
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": true,
     "languageserver": {
     }
 }
