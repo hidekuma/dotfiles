@@ -102,6 +102,7 @@ Plug 'rhysd/git-messenger.vim'
 " Auto complete
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 
 " AFTER
