@@ -9,10 +9,12 @@
     "signature.enable": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
-    "python.venvFolders": [".pyenv","~/.virtualenvs"],
+    "python.venvFolders": ["~/.pyenv","~/.virtualenvs", "envs", ".pyenv", ".direnv"],
+    "python.venvPath": "~/.virtualenvs",
     "python.workspaceSymbols.exclusionPatterns": [],
     "python.jediEnabled": false,
     "python.linting.pylintEnabled": true,
+    "python.linting.pylamaEnabled": false,
     "languageserver": {
     }
 }
