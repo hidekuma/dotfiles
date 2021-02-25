@@ -433,7 +433,8 @@ let b:match_ignorecase = 1
 " ----------------------------------------------------------------------------
 "fzf
 " ----------------------------------------------------------------------------
-nnoremap <C-P> :Files<Cr>
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <C-P> :GitFiles<CR>
 nmap <S-F> :Rg<CR>
 let g:fzf_colors =
     \ { 'fg':      ['fg', 'Normal'],
