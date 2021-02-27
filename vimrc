@@ -433,8 +433,8 @@ let b:match_ignorecase = 1
 " ----------------------------------------------------------------------------
 "fzf
 " ----------------------------------------------------------------------------
-nnoremap <silent> <leader>p :Files<CR>
-nnoremap <C-P> :GitFiles<CR>
+nnoremap <silent> <leader>p :GitFiles<CR>
+nnoremap <C-P> :Files<CR>
 nmap <S-F> :Rg<CR>
 let g:fzf_colors =
     \ { 'fg':      ['fg', 'Normal'],
@@ -569,6 +569,17 @@ let g:ycm_python_binary_path = 'python3'
 " supertab
 " ----------------------------------------------------------------------------
 let g:SuperTabDefaultCompletionType = "context"
+
+" ----------------------------------------------------------------------------
+" ultisnips
+" ----------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<C-x>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories = ['ultisnips']
+" PHP7
+let g:ultisnips_php_scalar_types = 1
 
 " ----------------------------------------------------------------------------
 " indentline
