@@ -16,5 +16,9 @@
     "python.linting.pylintEnabled": true,
     "python.linting.pylamaEnabled": false,
     "languageserver": {
-    }
+    },
+    "html.format.enable": true,
+    "html.validate.scripts": true,
+    "html.validate.styles": true,
+    "html.autoClosingTags": true
 }

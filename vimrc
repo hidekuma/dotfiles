@@ -571,17 +571,6 @@ let g:ycm_python_binary_path = 'python3'
 let g:SuperTabDefaultCompletionType = "context"
 
 " ----------------------------------------------------------------------------
-" ultisnips
-" ----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<C-x>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories = ['ultisnips']
-" PHP7
-let g:ultisnips_php_scalar_types = 1
-
-" ----------------------------------------------------------------------------
 " indentline
 " ----------------------------------------------------------------------------
 let g:indentLine_char = '¦'
