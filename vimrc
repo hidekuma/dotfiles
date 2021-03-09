@@ -164,6 +164,10 @@ set scrolloff=10                " Start scrolling this number of lines from top/
 set hlsearch incsearch
 set cursorline
 set cursorcolumn
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File settings
