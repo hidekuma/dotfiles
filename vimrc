@@ -86,6 +86,7 @@ Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
 
 " Python
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
 "Plug 'rkulla/pydiction'
 Plug 'heavenshell/vim-pydocstring'
 
@@ -278,8 +279,9 @@ let g:airline#extensions#ale#enabled = 1
 " ----------------------------------------------------------------------------
 let python_hightlight_all = 1
 let g:pymode_python = 'python3'
-"let g:pymode_virtualenv = 1
+let g:pymode_virtualenv = 1
 let g:pymode_lint_checkers = ['pyflakes']
+let g:pymode_rope = 1
 
 " ----------------------------------------------------------------------------
 " pydiction
