@@ -312,7 +312,7 @@ let g:multi_cursor_quit_key='<Esc>'
 " vim-sneak
 " ----------------------------------------------------------------------------
 map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+map <leader>f <Plug>Sneak_S
 
 " ----------------------------------------------------------------------------
 " vim-easymotion
