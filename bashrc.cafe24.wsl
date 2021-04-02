@@ -124,7 +124,6 @@ alias vi='nvim'
 alias vim='nvim'
 
 # for docker
-export DOCKER_HOST=tcp://0.0.0.0:2375
 sudo mount --bind /mnt/c /c
 sudo mount --bind /mnt/d /d
 
