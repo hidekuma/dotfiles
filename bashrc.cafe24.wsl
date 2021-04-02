@@ -200,7 +200,8 @@ alias dkrp='docker-compose'
 # checks to see if we are in a windows or linux dir
 function isWinDir {
   case $PWD/ in
-    /mnt/*) return $(true);;
+    /d/*) return $(true);;
+    /c/*) return $(true);;
     *) return $(false);;
   esac
 }
