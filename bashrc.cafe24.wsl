@@ -214,6 +214,7 @@ function git {
     /usr/bin/git "$@"
   fi
 }
+
 alias gst='git status'
 alias gc='git commit'
 alias gm='git merge'

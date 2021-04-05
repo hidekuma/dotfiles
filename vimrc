@@ -281,7 +281,11 @@ let python_hightlight_all = 1
 let g:pymode_python = 'python3'
 let g:pymode_virtualenv = 1
 let g:pymode_lint_checkers = ['pyflakes']
-let g:pymode_rope = 1
+
+if s:darwin
+    let g:pymode_rope = 1
+endif
+
 
 " ----------------------------------------------------------------------------
 " pydiction
