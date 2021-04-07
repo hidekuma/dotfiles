@@ -124,7 +124,7 @@ alias vi='nvim'
 alias vim='nvim'
 
 # for docker
-sudo mount --bind /mnt/c /c
+#sudo mount --bind /mnt/c /c
 sudo mount --bind /mnt/d /d
 
 # for python
@@ -155,7 +155,7 @@ export NVM_DIR="$HOME/.nvm"
 export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 
 # for matplotlib
-export DISPLAY=':0'
+#export DISPLAY=':0'
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -202,7 +202,7 @@ function isWinDir {
   case $PWD/ in
     /d/*) return $(true);;
     /c/*) return $(true);;
-    /mnt/c/*) return $(true);;
+    #/mnt/c/*) return $(true);;
     /mnt/d/*) return $(true);;
     *) return $(false);;
   esac
