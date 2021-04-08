@@ -263,6 +263,7 @@ let g:coc_global_extensions =
             \ 'coc-git',
             \ 'coc-tsserver',
             \ 'coc-python',
+            \ 'coc-java',
             \ 'coc-json',
             \ 'coc-html',
             \ 'coc-css' ]
