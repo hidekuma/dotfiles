@@ -22,25 +22,16 @@ Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each 
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
-Plug 'blueyed/vim-diminactive'
 
 " Window
 Plug 'camspiers/lens.vim'
 
 " Movement
 Plug 'Lokaltog/vim-easymotion'
-Plug 'vim-scripts/matchit.zip'
-Plug 'justinmk/vim-sneak'
 
 " Theme
-Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'w0ng/vim-hybrid'
-Plug 'arcticicestudio/nord-vim'
 Plug 'cocopon/iceberg.vim'
-Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Editing utilities
 Plug 'godlygeek/tabular'
@@ -54,20 +45,18 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker
-Plug 'jason0x43/vim-js-indent'
 
 " Syntax / Indenting
-Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
-Plug 'chr4/nginx.vim'
+" TODO:Check
+Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles. 
+" TODO:Check
 Plug 'plasticboy/vim-markdown'
-Plug 'groenewege/vim-less'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/html5.vim'
-Plug 'Glench/Vim-Jinja2-Syntax'
+"Plug 'pangloss/vim-javascript'
+"Plug 'othree/html5.vim'
+"Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'Yggdroot/indentLine'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'scrooloose/vim-slumlord'
-Plug 'aklt/plantuml-syntax'
+"Plug 'scrooloose/vim-slumlord' "Plantuml
+"Plug 'aklt/plantuml-syntax'
 Plug 'tikhomirov/vim-glsl'
 
 " Preview
@@ -76,25 +65,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 " Lint
 Plug 'w0rp/ale'
 
-" PHP / Yii
-Plug 'mikehaertl/pdv-standalone'
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
-Plug '2072/PHP-Indenting-for-VIm'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
-"Plug 'phpactor/phpactor', { 'do': ':call phpactor#Update()', 'for': 'php' }
-
 " Python
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
-"Plug 'rkulla/pydiction'
-Plug 'heavenshell/vim-pydocstring'
-
-" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
-
-" Vue
-Plug 'posva/vim-vue'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -104,7 +76,6 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
 
 " AFTER
 call plug#end()
@@ -124,19 +95,13 @@ set noerrorbells                " don't make noise
 set novisualbell                " don't blink
 set t_Co=256                    " Enable 256 color mode
 set exrc                        " Scan working dir for .vimrc
-set autoindent smartindent
-set smarttab
-set showcmd
-set showmatch
-set title
-set conceallevel=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting/Tab settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set formatoptions=tcrqn         " autowrap and comments (see :h 'fo-table)
-set autoindent                  " keep indent on next line and make BS work with indenting
+set autoindent smartindent      " keep indent on next line and make BS work with indenting
 set wrap                        " wrap lines that exceed screen
 set smarttab                    " Make Tab work fine with spaces
 set showmatch                   " show matching brackets
@@ -145,6 +110,9 @@ set hlsearch                    " highlight search phrase matches (reset with :n
 set incsearch                   " do highlight as you type you search phrase
 set list                        " show tabs, trailings spaces, ...
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
+set showcmd
+set title
+set conceallevel=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -162,7 +130,6 @@ set report=0                    " always report how many lines where changed
 set fillchars=vert:\ ,stl:\ ,stlnc:\    " make the splitters between windows be blank
 set laststatus=2                " always show the status line
 set scrolloff=10                " Start scrolling this number of lines from top/bottom
-set hlsearch incsearch
 set cursorline
 set cursorcolumn
 set foldenable
@@ -217,26 +184,15 @@ autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `
 " Set some file types by extension
 autocmd BufNewFile,BufRead *.xt,*.xd setf xml
 autocmd BufNewFile,BufRead *.tpl,*.page,*.vue setf html
+
 " for java
 autocmd BufEnter *.\(c\|cpp\|java\|h\) set et
 
-" PHP settings
-" Let the surround plugin use `-` for <?php ?>
-autocmd FileType php let b:surround_45 = "<?php \r ?>"
-" Let the surround plugin use `=` for <?= ?>
-autocmd FileType php let b:surround_61 = "<?= \r ?>"
-" Fix javascript word boundaries (erratically activated for PHP files): exclude $
-autocmd FileType php setlocal iskeyword-=$
-
-" Function for autodetecting tab settings
-function Kees_settabs()
-    if len(filter(getbufline(winbufnr(0), 1, "$"), 'v:val =~ "^\\t"')) > len(filter(getbufline(winbufnr(0), 1, "$"), 'v:val =~ "^ "'))
-        set noet
-    else
-        set et
-    endif
-endfunction
-autocmd BufReadPost * call Kees_settabs()
+" CSS
+augroup VimCSS3Syntax
+    autocmd!
+    autocmd FileType css setlocal iskeyword+=-
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
@@ -246,8 +202,6 @@ autocmd BufReadPost * call Kees_settabs()
 " color
 " ----------------------------------------------------------------------------
 set background=dark
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme iceberg
 
 " ----------------------------------------------------------------------------
@@ -275,6 +229,14 @@ let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#ale#enabled = 1
 
+
+" ----------------------------------------------------------------------------
+" vim-gitgutter
+" ----------------------------------------------------------------------------
+if !s:darwin
+    let g:gitgutter_git_executable = 'git.exe'
+endif
+
 " ----------------------------------------------------------------------------
 " pymode
 " ----------------------------------------------------------------------------
@@ -286,13 +248,6 @@ let g:pymode_lint_checkers = ['pyflakes']
 if s:darwin
     let g:pymode_rope = 1
 endif
-
-
-" ----------------------------------------------------------------------------
-" pydiction
-" ----------------------------------------------------------------------------
-"let g:pydiction_location = '~/.vim/plugged/pydiction/complete-dict'
-"let g:pydiction_menu_height = 10
 
 " ----------------------------------------------------------------------------
 " nerdtree
@@ -312,12 +267,6 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-" ----------------------------------------------------------------------------
-" vim-sneak
-" ----------------------------------------------------------------------------
-map f <Plug>Sneak_s
-map <leader>f <Plug>Sneak_S
 
 " ----------------------------------------------------------------------------
 " vim-easymotion
@@ -343,20 +292,6 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion"
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
-" vim-indent-guides
-"let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_auto_colors = 0
-"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-"let g:indent_guides_guide_size = 1 
-"let g:indent_guides_start_level = 2
-
-" highlight line number
-" hi LineNr ctermfg=green cterm=bold
-
-" highlight cursor color
-" hi CursorColumn ctermbg=NONE
-" hi CursorLine ctermbg=Black cterm=bold
-
 " ----------------------------------------------------------------------------
 " tagbar
 " ----------------------------------------------------------------------------
@@ -366,82 +301,6 @@ nmap <F8> :TagbarToggle<CR>
 " tpope/vim-surround
 " ----------------------------------------------------------------------------
 let g:surround_indent = 0           " Make indenting on block selection + S work
-
-" ----------------------------------------------------------------------------
-" StanAngeloff/php.vim
-" ----------------------------------------------------------------------------
-let php_sql_query = 1               " Highlight SQL inside strings
-let php_parent_error_close = 1      " Highlight parent error ] or )
-let php_parent_error_open = 1       " Skip php end tag if there's an unclosed ( or [
-let php_folding = 0                 " No folding
-let php_sync_method = 0             " Sync from start
-
-" ----------------------------------------------------------------------------
-" vim-php-refactoring-toolbox
-" ----------------------------------------------------------------------------
-let g:vim_php_refactoring_default_property_visibility = 'private'
-let g:vim_php_refactoring_default_method_visibility = 'private'
-let g:vim_php_refactoring_auto_validate_visibility = 1
-let g:vim_php_refactoring_phpdoc = "pdv#DocumentCurrentLine"
-
-let g:vim_php_refactoring_use_default_mapping = 0
-nnoremap <leader>prlv :call PhpRenameLocalVariable()<CR>
-nnoremap <leader>prcv :call PhpRenameClassVariable()<CR>
-nnoremap <leader>prm :call PhpRenameMethod()<CR>
-nnoremap <leader>peu :call PhpExtractUse()<CR>
-vnoremap <leader>pec :call PhpExtractConst()<CR>
-nnoremap <leader>pep :call PhpExtractClassProperty()<CR>
-nnoremap <leader>pcp :call PhpCreateProperty()<CR>
-nnoremap <leader>pduu :call PhpDetectUnusedUseStatements()<CR>
-
-" ----------------------------------------------------------------------------
-" 2072/PHP-Indenting-for-VIm
-" ----------------------------------------------------------------------------
-let g:PHP_outdentphpescape = 0      " Indent PHP tags as the surrounding non-PHP code
-let g:PHP_noArrowMatching = 1       " Don't align arrows of chained method calls
-let g:PHP_vintage_case_default_indent = 1   " Indent case: and default: in switch()
-
-" ----------------------------------------------------------------------------
-" PDV (PHP Documentor)
-" ----------------------------------------------------------------------------
-autocmd FileType php nnoremap <C-K> :call PhpDocSingle()<CR>
-autocmd FileType php vnoremap <C-K> :call PhpDocRange()<CR>
-
-" ----------------------------------------------------------------------------
-" phpactor
-" ----------------------------------------------------------------------------
-"nnoremap <m-m> :call phpactor#ContextMenu()<cr>
-"nnoremap gd :call phpactor#GotoDefinition()<CR>
-"nnoremap gr :call phpactor#FindReferences()<CR>
-
-"vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
-"vnoremap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-"nnoremap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-"nnoremap <silent><Leader>rei :call phpactor#ClassInflect()<CR>
-
-"let g:phpactor_executable = '~/.vim/plugged/phpactor/bin/phpactor'
-"function! PHPModify(transformer)
-    ":update
-    "let l:cmd = "silent !".g:phpactor_executable." class:transform ".expand('%').' --transform='.a:transformer
-    "execute l:cmd
-"endfunction
-
-" ----------------------------------------------------------------------------
-" vim-scripts/matchit
-" ----------------------------------------------------------------------------
-let b:match_ignorecase = 1
-
-" ----------------------------------------------------------------------------
-" syntastic
-" ----------------------------------------------------------------------------
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-""let syntastic_mode_map = { 'passive_filetypes': ['html']  }
-"let g:syntastic_always_populate_loc_list = 1
-""let g:syntastic_auto_loc_list = 1
-""let g:syntastic_check_on_open = 1
-""let g:syntastic_check_on_wq = 0
 
 " ----------------------------------------------------------------------------
 "fzf
@@ -496,16 +355,6 @@ command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 let g:NERDTreeWinSize = 30
 
 " ----------------------------------------------------------------------------
-" php auto complete
-" ----------------------------------------------------------------------------
-let g:phpcomplete_mappings = {
-            \ 'jump_to_def': '<C-]>',
-            \ 'jump_to_def_split': '<C-W><C-]>',
-            \ 'jump_to_def_vsplit': '<C-W><C-\>',
-            \ 'jump_to_def_tabnew': '<C-W><C-[>',
-            \}
-
-" ----------------------------------------------------------------------------
 " emmet
 " ----------------------------------------------------------------------------
 let g:user_emmet_settings = {
@@ -551,37 +400,27 @@ endfunction
 
 set statusline=%{LinterStatus()}
 
-" PHP
-let g:ale_php_phpcbf_standard='PSR2'
-let g:ale_php_phpcs_standard='phpcs.xml.dist'
-let g:ale_php_phpmd_ruleset='phpmd.xml'
-
 " ----------------------------------------------------------------------------
 " ycm
 " ----------------------------------------------------------------------------
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-let g:ycm_use_clangd = 0
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion=['<C-p>']
-"let g:ycm_server_python_interpreter
-let g:ycm_python_interpreter_path = ''
-let g:ycm_python_sys_path = []
-let g:ycm_extra_conf_vim_data = [
-  \  'g:ycm_python_interpreter_path',
-  \  'g:ycm_python_sys_path'
-  \]
-let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_filetype_blacklist = {}
-let g:ycm_python_binary_path = 'python3'
-
-" ----------------------------------------------------------------------------
-" supertab
-" ----------------------------------------------------------------------------
-let g:SuperTabDefaultCompletionType = "context"
+"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+"let g:ycm_use_clangd = 0
+"let g:ycm_key_list_select_completion = ['<C-n>']
+"let g:ycm_key_list_previous_completion=['<C-p>']
+""let g:ycm_server_python_interpreter
+"let g:ycm_python_interpreter_path = ''
+"let g:ycm_python_sys_path = []
+"let g:ycm_extra_conf_vim_data = [
+  "\  'g:ycm_python_interpreter_path',
+  "\  'g:ycm_python_sys_path'
+  "\]
+"let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"let g:ycm_complete_in_strings = 1
+"let g:ycm_complete_in_comments = 1
+"let g:ycm_min_num_of_chars_for_completion = 2
+"let g:ycm_filetype_blacklist = {}
+"let g:ycm_python_binary_path = 'python3'
 
 " ----------------------------------------------------------------------------
 " ultisnips
@@ -597,29 +436,28 @@ let g:ultisnips_php_scalar_types = 1
 " ----------------------------------------------------------------------------
 " indentline
 " ----------------------------------------------------------------------------
-let g:indentLine_char = '¦'
+let g:indentLine_char = '┊'
 let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'text', 'sh', 'markdown', 'json', 'md']
 
 " ----------------------------------------------------------------------------
 " vim-argwrap
 " ----------------------------------------------------------------------------
 nnoremap <silent> <leader>a :ArgWrap<CR>
+" ----------------------------------------------------------------------------
+" vim-markdown
+" ----------------------------------------------------------------------------
+let g:vim_markdown_folding_disabled=1
 
-" ----------------------------------------------------------------------------
-" vim-diminactive
-" ----------------------------------------------------------------------------
-let g:diminactive_enable_focus = 1
 
 " ----------------------------------------------------------------------------
 " lens
 " ----------------------------------------------------------------------------
 let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'coc-explorer']
+let g:lens#height_resize_max = 20
+let g:lens#height_resize_min = 5
+let g:lens#width_resize_max = 80
+let g:lens#width_resize_min = 20
 
-" ----------------------------------------------------------------------------
-" pydocstring & doq
-" ----------------------------------------------------------------------------
-let g:pydocstring_doq_path = "~/.pyenv/shims/doq"
-let g:pydocstring_formatter = 'sphinx'
 " ----------------------------------------------------------------------------
 " vim-glsl
 " ----------------------------------------------------------------------------
@@ -649,15 +487,16 @@ nmap <Tab> :tabnext<Return>
 nmap sh :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 nmap tn :tabnew<Return>
+
 " window resize
 map <C-w><left> <C-w><
 map <C-w><right> <C-w>>
 map <C-w><up> <C-w>+
 map <C-w><down> <C-w>-
-" ----------------------------------------------------------------------------
-" No folding for markdown files
-" ----------------------------------------------------------------------------
-let g:vim_markdown_folding_disabled=1
+
+" set paste
+nmap ,P :set paste<CR>
+nmap ,p :set nopaste<CR>
 
 " ----------------------------------------------------------------------------
 " vim-persistent-undo
@@ -673,31 +512,6 @@ if has('persistent_undo')
     let &undodir = s:undoDir
     set undofile
 endif
-
-" ----------------------------------------------------------------------------
-" Set paste
-" ----------------------------------------------------------------------------
-nmap ,P :set paste<CR>
-nmap ,p :set nopaste<CR>
-
-" ----------------------------------------------------------------------------
-" CSS
-" ----------------------------------------------------------------------------
-augroup VimCSS3Syntax
-    autocmd!
-    autocmd FileType css setlocal iskeyword+=-
-augroup END
-
-" ----------------------------------------------------------------------------
-" WSL -> window clipboard copy
-" ----------------------------------------------------------------------------
-"let s:clip = '/mnt/c/Windows/System32/clip.exe' 
-"if executable(s:clip)
-    "augroup WSLYank
-        "autocmd!
-        "autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
-    "augroup END
-"end
 
 " ----------------------------------------------------------------------------
 " macOS
