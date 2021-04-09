@@ -1,8 +1,4 @@
 {
-    "diagnostic.errorSign": "✖",
-    "diagnostic.warningSign": "⚠",
-    "diagnostic.infoSign": "ℹ",
-    "diagnostic.hintSign": "➤",
     "suggest.noselect": false,
     "suggest.echodocSupport": true,
     "codeLens.enable": true,
