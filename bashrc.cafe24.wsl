@@ -207,13 +207,14 @@ function isWinDir {
     *) return $(false);;
   esac
 }
+
 # wrap the git command to either run windows git or linux
 function git {
   if isWinDir
   then
     git.exe "$@"
   else
-    /usr/bin/git "$@"
+    command git "$@"
   fi
 }
 
@@ -251,6 +252,12 @@ alias rect='ssh-keygen -R ectlocal.cafe24.com'
 
 # lzd
 alias lzd='lazydocker'
+
+# lg
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # k8s
