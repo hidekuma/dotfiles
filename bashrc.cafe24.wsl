@@ -257,6 +257,7 @@ alias lzd='lazydocker'
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+alias lg='lazygit'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -289,3 +290,4 @@ echo '''
 ╠═╣║ ║║║╣ ╠╩╗║ ║║║║╠═╣
 ╩ ╩╩═╩╝╚═╝╩ ╩╚═╝╩ ╩╩ ╩
 '''
+cd ~
