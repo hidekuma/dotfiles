@@ -386,7 +386,7 @@ let g:airline#extensions#ale#enabled = 1
 " vim-gitgutter
 " ----------------------------------------------------------------------------
 if !s:darwin
-    let g:gitgutter_git_executable = '/mnt/c/Program Files/Git/cmd/git.exe'
+    let g:gitgutter_git_executable = 'git.exe'
 endif
 
 " ----------------------------------------------------------------------------
