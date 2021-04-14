@@ -8,16 +8,6 @@
     "python.venvPath": "~/.virtualenvs",
     "python.linting.pylintEnabled": true,
     "python.linting.pylamaEnabled": false,
-    "languageserver": {
-        "intelephense": {
-            "command": "intelephense",
-            "args": ["--stdio"],
-            "filetypes": ["php"],
-            "initializationOptions": {
-                "storagePath": "/tmp/intelephense"
-            }
-        }
-    },
     "html.format.enable": true,
     "html.validate.scripts": true,
     "html.validate.styles": true,
