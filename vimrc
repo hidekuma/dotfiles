@@ -386,7 +386,7 @@ let g:airline#extensions#ale#enabled = 1
 " vim-gitgutter
 " ----------------------------------------------------------------------------
 if !s:darwin
-    let g:gitgutter_git_executable = 'git.exe'
+    let g:gitgutter_git_executable = '/mnt/c/Program Files/Git/cmd/git.exe'
 endif
 
 " ----------------------------------------------------------------------------
@@ -654,15 +654,17 @@ nmap ,p :set nopaste<CR>
 " vim-persistent-undo
 " ----------------------------------------------------------------------------
 if has('persistent_undo')
-    let s:vimDir = '$HOME/.vim'
-    let &runtimepath.=','.s:vimDir
-    let s:undoDir = expand(s:vimDir . '/undodir')
+    if s:darwin
+        let s:vimDir = '$HOME/.vim'
+        let &runtimepath.=','.s:vimDir
+        let s:undoDir = expand(s:vimDir . '/undodir')
 
-    call system('mkdir ' . s:vimDir)
-    call system('mkdir ' . s:undoDir)
+        call system('mkdir ' . s:vimDir)
+        call system('mkdir ' . s:undoDir)
 
-    let &undodir = s:undoDir
-    set undofile
+        let &undodir = s:undoDir
+        set undofile
+    endif
 endif
 
 " ----------------------------------------------------------------------------
