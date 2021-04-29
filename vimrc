@@ -125,7 +125,7 @@ set conceallevel=0
 
 set wildmenu                    " Show suggestions on TAB for some commands
 set ruler                       " Always show current positions along the bottom
-set cmdheight=2                 " the command bar is 2 high
+set cmdheight=1                 " the command bar is 2 high
 set number                      " turn on line numbers
 set lazyredraw                  " do not redraw while running macros (much faster)
 set backspace=indent,eol,start  " make backspace work normal
@@ -493,6 +493,9 @@ let g:fzf_colors =
 
 function! RipgrepFzf(query, fullscreen)
     let command_fmt = 'rg
+                \ --hidden
+                \ --follow
+                \ --glob "!.git/*"
                 \ --column
                 \ --line-number
                 \ --no-heading
@@ -500,22 +503,21 @@ function! RipgrepFzf(query, fullscreen)
                 \ --smart-case %s || true'
     let initial_command = printf(command_fmt, shellescape(a:query))
     let reload_command = printf(command_fmt, '{q}')
-    let spec = {'options': ['--no-color', '--layout=reverse', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    let spec = {'options': ['--layout=reverse', '--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
-"function! s:fzf_statusline()
-  "" Override statusline as you like
-  "highlight fzf1 ctermfg=161 ctermbg=251
-  "highlight fzf2 ctermfg=23 ctermbg=251
-  "highlight fzf3 ctermfg=237 ctermbg=251
-  "setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
-"endfunction
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
 
-"autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 " ----------------------------------------------------------------------------
 " nerdtree
