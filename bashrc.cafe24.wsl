@@ -130,7 +130,7 @@ sudo mount --bind /mnt/d /d
 # for python
 alias python='python3'
 alias pip='pip3'
-export WORKON_HOME=~/.pyenv/versions
+export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'  # Usage of python3
 source ~/.local/bin/virtualenvwrapper.sh 
 
@@ -139,6 +139,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 export NVM_DIR="$HOME/.nvm"
  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -158,10 +163,6 @@ export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
 # for matplotlib
 #export DISPLAY=':0'
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

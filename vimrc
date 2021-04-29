@@ -294,7 +294,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Python Provider
 let g:loaded_python_provider = 0
 if !s:darwin
-    let g:python3_host_prog='/home/hidekuma/.pyenv/shims/python3'
+    let g:python3_host_prog='~/.virtualenvs/neovim3.8/bin/python'
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
