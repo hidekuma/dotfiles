@@ -46,10 +46,8 @@ alias vi=$EDITOR
 alias vim=$EDITOR
 alias dkr=docker
 alias dkrp=docker-compose
-alias ws='cd ~/Documents'
+alias ws='cd ~/Documents/workspace'
 alias dotfiles='cd ~/dotfiles'
-alias private='cd ~/Documents/private'
-alias deep='cd ~/Documents/deep'
 
 ## Ctags
 alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
