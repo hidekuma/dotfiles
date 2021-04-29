@@ -291,7 +291,8 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
-" Python version
+" Python Provider
+let g:loaded_python_provider = 0
 if !s:darwin
     let g:python3_host_prog='/home/hidekuma/.pyenv/shims/python3'
 endif
