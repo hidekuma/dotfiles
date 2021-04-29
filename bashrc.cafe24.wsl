@@ -130,7 +130,7 @@ sudo mount --bind /mnt/d /d
 # for python
 alias python='python3'
 alias pip='pip3'
-export WORKON_HOME=~/.virtualenvs
+export WORKON_HOME=~/.pyenv/versions
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'  # Usage of python3
 source ~/.local/bin/virtualenvwrapper.sh 
 
