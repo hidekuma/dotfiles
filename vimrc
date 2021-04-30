@@ -6,6 +6,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off                                       " required by Vundle (re-enabled below)
 let s:darwin = has('mac')
+let s:windows = has('win32') || has('win64')
 call plug#begin('~/.vim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
