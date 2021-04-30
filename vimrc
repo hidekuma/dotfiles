@@ -66,7 +66,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 Plug 'w0rp/ale'
 
 " Python
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -407,14 +407,14 @@ endif
 " ----------------------------------------------------------------------------
 " pymode
 " ----------------------------------------------------------------------------
-let python_hightlight_all = 1
-let g:pymode_python = 'python3'
-let g:pymode_virtualenv = 1
-let g:pymode_lint_checkers = ['pyflakes']
+"let python_hightlight_all = 1
+"let g:pymode_python = 'python3'
+"let g:pymode_virtualenv = 1
+"let g:pymode_lint_checkers = ['pyflakes']
 
-if !s:darwin
-    let g:pymode = 0
-endif
+"if !s:darwin
+    "let g:pymode = 0
+"endif
 
 " ----------------------------------------------------------------------------
 " nerdtree
