@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files & Search
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
@@ -462,7 +462,7 @@ let g:EasyMotion_use_smartsign_us = 1
 " ----------------------------------------------------------------------------
 " tagbar
 " ----------------------------------------------------------------------------
-nmap <F8> :TagbarToggle<CR>
+"nmap <F8> :TagbarToggle<CR>
 
 " ----------------------------------------------------------------------------
 " tpope/vim-surround
