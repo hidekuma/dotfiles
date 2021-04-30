@@ -293,9 +293,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Python Provider
 let g:loaded_python_provider = 0
-if !s:darwin
-    let g:python3_host_prog='~/.virtualenvs/neovim3.8/bin/python'
-endif
+let g:python3_host_prog='~/.virtualenvs/neovim3.9/bin/python'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux settings
