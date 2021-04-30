@@ -474,9 +474,10 @@ let g:surround_indent = 0           " Make indenting on block selection + S work
 " ----------------------------------------------------------------------------
 "fzf
 " ----------------------------------------------------------------------------
-nnoremap <silent> <leader>p :GitFiles<CR>
-nnoremap <C-P> :Files<CR>
-nmap <S-F> :Rg<CR>
+map <leader>p :GitFiles<CR>
+map <C-P> :Files<CR>
+map <leader>b :Buffers<cr>
+map <S-F> :Rg<CR>
 let g:fzf_colors =
     \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
