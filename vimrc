@@ -47,16 +47,9 @@ Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker
 
 " Syntax / Indenting
-" TODO:Check
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles. 
-" TODO:Check
 Plug 'plasticboy/vim-markdown'
-"Plug 'pangloss/vim-javascript'
-"Plug 'othree/html5.vim'
-"Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'Yggdroot/indentLine'
-"Plug 'scrooloose/vim-slumlord' "Plantuml
-"Plug 'aklt/plantuml-syntax'
 Plug 'tikhomirov/vim-glsl'
 
 " Preview
@@ -74,7 +67,6 @@ Plug 'rhysd/git-messenger.vim'
 
 " Auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " AFTER
@@ -377,6 +369,7 @@ colorscheme iceberg
 nnoremap <space>e :CocCommand explorer<CR>
 let g:coc_global_extensions =
             \ ['coc-ultisnips',
+            \ 'coc-snippets',
             \ 'coc-fzf-preview',
             \ 'coc-explorer',
             \ 'coc-yaml',
@@ -385,9 +378,44 @@ let g:coc_global_extensions =
             \ 'coc-pyright',
             \ 'coc-phpls',
             \ 'coc-java',
+            \ 'coc-eslint',
             \ 'coc-json',
             \ 'coc-html',
             \ 'coc-css' ]
+
+" ----------------------------------------------------------------------------
+" coc-snippets
+" ----------------------------------------------------------------------------
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 " ----------------------------------------------------------------------------
 " vim-airline
@@ -595,13 +623,13 @@ let g:user_emmet_settings = {
 " ----------------------------------------------------------------------------
 " ultisnips
 " ----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<C-x>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories = ['ultisnips']
+"let g:UltiSnipsExpandTrigger="<C-x>"
+"let g:UltiSnipsJumpForwardTrigger="<Tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+"let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsSnippetDirectories = ['ultisnips']
 " PHP7
-let g:ultisnips_php_scalar_types = 1
+"let g:ultisnips_php_scalar_types = 1
 
 " ----------------------------------------------------------------------------
 " indentline
