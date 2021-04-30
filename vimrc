@@ -412,8 +412,8 @@ let g:pymode_python = 'python3'
 let g:pymode_virtualenv = 1
 let g:pymode_lint_checkers = ['pyflakes']
 
-if s:darwin
-    let g:pymode_rope = 1
+if !s:darwin
+    let g:pymode = 0
 endif
 
 " ----------------------------------------------------------------------------
