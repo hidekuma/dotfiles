@@ -19,7 +19,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
 " Styling
-Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window 
+Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
@@ -48,7 +48,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker
 
 " Syntax / Indenting
-Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles. 
+Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
 Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
 Plug 'tikhomirov/vim-glsl'
@@ -663,7 +663,7 @@ let g:lens#width_resize_min = 20
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ETC 
+" ETC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ----------------------------------------------------------------------------
 " ETC mapping keys
@@ -713,6 +713,12 @@ if has('persistent_undo')
         set undofile
     endif
 endif
+
+
+" ----------------------------------------------------------------------------
+" Automatically removing all trailing whitespace
+" ----------------------------------------------------------------------------
+autocmd BufWritePre * %s/\s\+$//e
 
 " ----------------------------------------------------------------------------
 " macOS
