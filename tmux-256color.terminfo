@@ -1,0 +1,3 @@
+# tic tmux-256color.terminfo
+tmux-256color|screen with 256 colors and italic,
+ use=screen-256color,
