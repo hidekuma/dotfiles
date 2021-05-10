@@ -57,7 +57,7 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 
 " Python
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
