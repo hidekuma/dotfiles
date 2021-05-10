@@ -70,6 +70,9 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 
+" Debug
+Plug 'puremourning/vimspector'
+
 " AFTER
 call plug#end()
 
@@ -354,6 +357,12 @@ augroup VimCSS3Syntax
     autocmd FileType css setlocal iskeyword+=-
 augroup END
 
+" vim-glsl
+autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
+
+" Automatically removing all trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -463,6 +472,17 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+" ----------------------------------------------------------------------------
+" vimspector
+" ----------------------------------------------------------------------------
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-java-debug' ]
+let g:vimspector_enable_mappings = 'HUMAN'
+
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
 
 " ----------------------------------------------------------------------------
 " vim-easymotion
@@ -657,10 +677,6 @@ let g:lens#height_resize_min = 5
 let g:lens#width_resize_max = 80
 let g:lens#width_resize_min = 20
 
-" ----------------------------------------------------------------------------
-" vim-glsl
-" ----------------------------------------------------------------------------
-autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC
@@ -713,12 +729,6 @@ if has('persistent_undo')
         set undofile
     endif
 endif
-
-
-" ----------------------------------------------------------------------------
-" Automatically removing all trailing whitespace
-" ----------------------------------------------------------------------------
-autocmd BufWritePre * %s/\s\+$//e
 
 " ----------------------------------------------------------------------------
 " macOS
