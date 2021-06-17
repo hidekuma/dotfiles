@@ -64,6 +64,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   tmux
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,7 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -f ~/.zsh_profile ]; then
     . ~/.zsh_profile
