@@ -391,6 +391,7 @@ let g:coc_global_extensions =
             \ 'coc-eslint',
             \ 'coc-json',
             \ 'coc-html',
+            \ 'coc-svelte',
             \ 'coc-css' ]
 
 " ----------------------------------------------------------------------------
