@@ -233,7 +233,8 @@ alias glog='git log --oneline --decorate --color --graph'
 alias gco='git checkout'
 alias gb='git branch'
 alias gcb='git branch | fzf -m | xargs git checkout'
-alias gmb='git merge | fzf -m | xargs git checkout'
+alias gmb='git branch | fzf -m | xargs git merge'
+alias gdb='git branch | fzf -m | xargs git branch -D'
 alias gp='git push'
 alias gf='git fetch'
 alias gl='git pull'
@@ -294,4 +295,3 @@ echo '''
 ╠═╣║ ║║║╣ ╠╩╗║ ║║║║╠═╣
 ╩ ╩╩═╩╝╚═╝╩ ╩╚═╝╩ ╩╩ ╩
 '''
-cd ~
