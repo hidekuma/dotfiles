@@ -364,8 +364,8 @@ autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 autocmd BufWritePre *.py %s/\s\+$//e
 
 " cp file path
-nmap cp :let @" = expand("%")<cr>
-nmap cP :let @" = expand("%:p")<cr>
+nmap cp :let @+ = expand("%")<cr>
+nmap cP :let @+ = expand("%:p")<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
