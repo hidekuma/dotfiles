@@ -361,7 +361,10 @@ augroup END
 autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " Automatically removing all trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre *.py %s/\s\+$//e
+
+" cp file path
+nmap cp :let @" = expand("%")<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
