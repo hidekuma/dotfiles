@@ -41,6 +41,8 @@ export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 source /usr/local/bin/virtualenvwrapper.sh
 
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Aliases
 alias vi=$EDITOR
 alias vim=$EDITOR

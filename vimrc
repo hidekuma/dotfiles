@@ -52,6 +52,7 @@ Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for doc
 Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
 Plug 'tikhomirov/vim-glsl'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
@@ -435,6 +436,10 @@ let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#ale#enabled = 1
 
+" ----------------------------------------------------------------------------
+" vim-svelte
+" ----------------------------------------------------------------------------
+"let g:svelte_preprocessors = ['typescript']
 
 " ----------------------------------------------------------------------------
 " vim-gitgutter

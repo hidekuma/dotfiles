@@ -107,3 +107,5 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/hidekuma/.sdkman"
 [[ -s "/Users/hidekuma/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/hidekuma/.sdkman/bin/sdkman-init.sh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
