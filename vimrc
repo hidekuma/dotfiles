@@ -448,9 +448,9 @@ let g:airline#extensions#ale#enabled = 1
 " ----------------------------------------------------------------------------
 " vim-gitgutter
 " ----------------------------------------------------------------------------
-if !s:darwin
-    let g:gitgutter_git_executable = 'git.exe'
-endif
+"if !s:darwin
+    "let g:gitgutter_git_executable = 'git.exe'
+"endif
 
 " ----------------------------------------------------------------------------
 " pymode
