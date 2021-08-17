@@ -11,5 +11,6 @@
     "html.format.enable": true,
     "html.validate.scripts": true,
     "html.validate.styles": true,
-    "html.autoClosingTags": true
+    "html.autoClosingTags": true,
+    "coc.preferences.jumpCommand": "split"
 }
