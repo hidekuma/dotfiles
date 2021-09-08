@@ -235,11 +235,11 @@ alias gb='git branch'
 alias gcb='git branch | fzf -m | xargs git checkout'
 alias gmb='git branch | fzf -m | xargs git merge'
 alias gdb='git branch | fzf -m | xargs git branch -D'
-alias gpob='git branch | fzf -m | xargs git push --set-upstream origin'
 alias gp='git push'
 alias gf='git fetch'
 alias gl='git pull'
 alias gd='git diff'
+alias ghf='git ls-files -v | grep "^h" | cut -c3-'
 
 # for tmux
 alias tat='tmux attach'
