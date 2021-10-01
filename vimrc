@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each 
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
+Plug 'blueyed/vim-diminactive'
 
 " Window
 Plug 'camspiers/lens.vim'
@@ -46,6 +47,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker
+Plug 'bitc/vim-bad-whitespace'
 
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
@@ -116,7 +118,7 @@ set title
 set conceallevel=0
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -438,6 +440,12 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" ----------------------------------------------------------------------------
+" vim-diminactive
+" ----------------------------------------------------------------------------
+let g:diminactive_enable_focus = 1
+let g:diminactive_use_syntax = 1
 
 " ----------------------------------------------------------------------------
 " vim-airline
