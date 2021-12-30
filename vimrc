@@ -43,7 +43,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker
@@ -61,6 +61,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
 "Plug 'w0rp/ale'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " Python
 "Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -461,6 +462,13 @@ let g:airline#extensions#ale#enabled = 1
 "let g:svelte_preprocessors = ['typescript']
 
 " ----------------------------------------------------------------------------
+" vim-prettier
+" ----------------------------------------------------------------------------
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat_require_pragma = 0
+au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
+
+" ----------------------------------------------------------------------------
 " vim-gitgutter
 " ----------------------------------------------------------------------------
 "if !s:darwin
@@ -482,57 +490,53 @@ let g:airline#extensions#ale#enabled = 1
 " ----------------------------------------------------------------------------
 " context_filetype
 " ----------------------------------------------------------------------------
-" if !exists('g:context_filetype#same_filetypes')
-"   let g:context_filetype#filetypes = {}
-" endif
+ if !exists('g:context_filetype#same_filetypes')
+   let g:context_filetype#filetypes = {}
+ endif
 
-" let g:context_filetype#filetypes.svelte =
-" \ [
-" \   {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
-" \   {
-" \     'filetype': 'typescript',
-" \     'start': '<script\%( [^>]*\)\? \%(ts\|lang="\%(ts\|typescript\)"\)\%( [^>]*\)\?>',
-" \     'end': '',
-" \   },
-" \   {'filetype' : 'css', 'start' : '<style \?.*>', 'end' : '</style>'},
-" \ ]
+ let g:context_filetype#filetypes.svelte =
+ \ [
+ \   {'filetype' : 'javascript', 'start' : '<script \?.*>', 'end' : '</script>'},
+ \   {
+ \     'filetype': 'typescript',
+ \     'start': '<script\%( [^>]*\)\? \%(ts\|lang="\%(ts\|typescript\)"\)\%( [^>]*\)\?>',
+ \     'end': '',
+ \   },
+ \   {'filetype' : 'css', 'start' : '<style \?.*>', 'end' : '</style>'},
+ \ ]
 
-" let g:ft = ''
-
-
+let g:ft = ''
 " ----------------------------------------------------------------------------
 " NERDCommenter settings
 " ----------------------------------------------------------------------------
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right': '-->' } }
+let g:NERDDefaultAlign = 'left'
 
-" let g:NERDSpaceDelims = 1
-" let g:NERDCompactSexyComs = 1
-" let g:NERDCustomDelimiters = { 'html': { 'left': '' } }
+fu! NERDCommenter_before()
+  if (&ft == 'html') || (&ft == 'svelte')
+  let g:ft = &ft
+  let cfts = context_filetype#get_filetypes()
+  if len(cfts) > 0
+    if cfts[0] == 'svelte'
+      let cft = 'html'
+    elseif cfts[0] == 'scss'
+      let cft = 'css'
+    else
+      let cft = cfts[0]
+    endif
+    exe 'setf ' . cft
+    endif
+  endif
+endfu
 
-" let g:NERDDefaultAlign = 'left'
-
-" fu! NERDCommenter_before()
-"   if (&ft == 'html') || (&ft == 'svelte')
-"     let g:ft = &ft
-"     let cfts = context_filetype#get_filetypes()
-"     if len(cfts) > 0
-"       if cfts[0] == 'svelte'
-"         let cft = 'html'
-"       elseif cfts[0] == 'scss'
-"         let cft = 'css'
-"       else
-"         let cft = cfts[0]
-"       endif
-"       exe 'setf ' . cft
-"     endif
-"   endif
-" endfu
-
-" fu! NERDCommenter_after()
-"   if (g:ft == 'html') || (g:ft == 'svelte')
-"     exec 'setf ' . g:ft
-"     let g:ft = ''
-"   endif
-" endfu
+fu! NERDCommenter_after()
+  if (g:ft == 'html') || (g:ft == 'svelte')
+  exec 'setf ' . g:ft
+  let g:ft = ''
+  endif
+endfu
 
 " ----------------------------------------------------------------------------
 " nerdtree
