@@ -12,5 +12,6 @@
     "html.validate.scripts": true,
     "html.validate.styles": true,
     "html.autoClosingTags": true,
-    "svelte.enable-ts-plugin": true
+    "svelte.enable-ts-plugin": true,
+    "java.home": "~/.jenv/versions/cocjavahome"
 }
