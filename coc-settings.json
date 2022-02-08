@@ -13,5 +13,13 @@
     "html.validate.styles": true,
     "html.autoClosingTags": true,
     "svelte.enable-ts-plugin": true,
-    "java.home": "~/.jenv/versions/cocjavahome"
+    "java.home": "~/.jenv/versions/cocjavahome",
+    "java.trace.server": "verbose",
+    "java.configuration.updateBuildConfiguration":"automatic",
+    "java.referencesCodeLens.enabled": true,
+    "java.format.enabled": true,
+    "java.project.resourceFilters": [
+        "node_modules",
+        ".git"
+    ]
 }
