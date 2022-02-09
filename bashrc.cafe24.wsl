@@ -124,9 +124,9 @@ alias vi='nvim'
 alias vim='nvim'
 
 # for docker
-#sudo mount --bind /mnt/c /c
+sudo mount --bind /mnt/c /c
 sudo mount --bind /mnt/d /d
-export DOCKER_HOST=tcp://0.0.0.0:2375
+# export DOCKER_HOST=tcp://0.0.0.0:2375
 
 # for python
 alias python='python3'
@@ -188,9 +188,10 @@ alias ll='ls -al'
 alias l='clear && ls -al'
 alias cdd='cd /d/'
 alias ws='cd /d/workspace'
-alias solup='cd /d/workspace/solup'
-alias echost='cd /d/workspace/solup/echost'
-alias 12r='cd /d/workspace/solup/12r'
+alias nws='cd ~/workspace'
+alias solup='cd ~/workspace/solup_2022'
+alias echost='cd /d/workspace/solup_2022/echost'
+alias 12r='cd /d/workspace/solup_2022/12r'
 alias private='cd /d/workspace/private'
 alias ..='cd ..'
 alias ..2='.. && ..'
@@ -206,21 +207,20 @@ function isWinDir {
   case $PWD/ in
     /d/*) return $(true);;
     /c/*) return $(true);;
-    #/mnt/c/*) return $(true);;
-    /mnt/d/*) return $(true);;
+    /mnt/*) return $(true);;
     *) return $(false);;
   esac
 }
 
 # wrap the git command to either run windows git or linux
-#function git {
-  #if isWinDir
-  #then
-    #git.exe "$@"
-  #else
-    #command git "$@"
-  #fi
-#}
+function git {
+  if isWinDir
+  then
+    git.exe "$@"
+  else
+    command git "$@"
+  fi
+}
 
 alias gst='git status'
 alias gc='git commit'
