@@ -5,9 +5,10 @@
     "signature.enable": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
+    "python.formatting.provider": "black",
     "python.venvPath": "~/.virtualenvs",
     "python.linting.pylintEnabled": true,
-    "python.linting.pylamaEnabled": false,
+    "python.linting.pylamaEnabled": true,
     "html.format.enable": true,
     "html.validate.scripts": true,
     "html.validate.styles": true,
@@ -15,11 +16,8 @@
     "svelte.enable-ts-plugin": true,
     "java.home": "~/.jenv/versions/cocjavahome",
     "java.trace.server": "verbose",
-    "java.configuration.updateBuildConfiguration":"automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "java.referencesCodeLens.enabled": true,
     "java.format.enabled": true,
-    "java.project.resourceFilters": [
-        "node_modules",
-        ".git"
-    ]
+    "java.project.resourceFilters": ["node_modules", ".git"]
 }

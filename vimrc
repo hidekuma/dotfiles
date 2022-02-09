@@ -401,6 +401,7 @@ let g:coc_global_extensions =
             \ 'coc-git',
             \ 'coc-tsserver',
             \ 'coc-pyright',
+            \ 'coc-tabnine',
             \ 'coc-phpls',
             \ 'coc-java',
             \ 'coc-eslint',
