@@ -301,6 +301,11 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 let g:loaded_python_provider = 0
 let g:python3_host_prog='~/.virtualenvs/neovim3.9/bin/python'
 
+" Python doq
+nmap <silent> ga <Plug>(coc-codeaction-line)
+xmap <silent> ga <Plug>(coc-codeaction-selected)
+nmap <silent> gA <Plug>(coc-codeaction)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -401,6 +406,7 @@ let g:coc_global_extensions =
             \ 'coc-git',
             \ 'coc-tsserver',
             \ 'coc-pyright',
+            \ 'coc-pydocstring',
             \ 'coc-tabnine',
             \ 'coc-phpls',
             \ 'coc-java',
