@@ -64,7 +64,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " Python
-"Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Git
 Plug 'tpope/vim-fugitive'
