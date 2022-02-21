@@ -118,6 +118,7 @@ fi
 
 
 # ----------------------------------------
+alias k='kubectl'
 
 # for vim
 alias vi='nvim'
@@ -268,14 +269,8 @@ alias lg='lazygit'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # k8s
-source <(kubectl completion bash)
-
 #kubectx and kubens
 export PATH=~/.kubectx:$PATH
-
-#kubectx and kubens
-export PATH=~/.kubectx:$PATH
-source <(kubectl completion bash)
 source <(kubectl completion bash)
 
 #kube
