@@ -1,0 +1,100 @@
+echo '''
+╦ ╦╦╔╦╗╔═╗╦╔═╦ ╦╔╦╗╔═╗
+╠═╣║ ║║║╣ ╠╩╗║ ║║║║╠═╣
+╩ ╩╩═╩╝╚═╝╩ ╩╚═╝╩ ╩╩ ╩
+'''
+
+# Else
+# for docker WSL2
+export EDITOR=nvim
+sudo mount --bind /mnt/c /c
+sudo mount --bind /mnt/d /d
+alias ws='cd /d/workspace'
+alias nws='cd ~/workspace'
+alias solup='cd ~/workspace/solup_2022'
+
+alias python='python3'
+alias pip='pip3'
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'  # Usage of python3
+source ~/.local/bin/virtualenvwrapper.sh
+#php composer
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# for git
+# checks to see if we are in a windows or linux dir
+function isWinDir {
+  case $PWD/ in
+    /d/*) return $(true);;
+    /c/*) return $(true);;
+    /mnt/*) return $(true);;
+    *) return $(false);;
+  esac
+}
+
+# wrap the git command to either run windows git or linux
+function git {
+  if isWinDir
+  then
+    git.exe "$@"
+  else
+    command git "$@"
+  fi
+}
+
+export PATH="/usr/local/sbin:$PATH"
+
+# for tmux
+alias tat='tmux attach'
+alias tls='tmux ls'
+
+# lzd
+alias lzd='lazydocker'
+
+# lg
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+alias lg='lazygit'
+
+# Kubectl
+alias k='kubectl'
+# complete -F __start_kubectl k
+
+# export PATH=~/.kubectx:$PATH
+# source <(kubectl completion bash)
+
+#kube
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+
+
+# Pyenv (Python)
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PYTHON_CONFIGURE_OPTS="--enable-shared"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# Jenv (Java)
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# Nvm (Node)
+export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export GIT_INTERNAL_GETTEXT_TEST_FALLBACKS=1
+
+# Aliases
+alias vi=$EDITOR
+alias vim=$EDITOR
+alias dkr=docker
+alias dkrp=docker-compose
+alias dotfiles='cd ~/dotfiles'
+
+## Ctags
+alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
+alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"

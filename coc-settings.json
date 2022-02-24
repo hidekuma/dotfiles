@@ -1,4 +1,15 @@
 {
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnSaveFiletypes": [
+        "json",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "yaml",
+        "java",
+        "python"
+    ],
     "suggest.noselect": false,
     "suggest.echodocSupport": true,
     "codeLens.enable": true,
@@ -18,11 +29,13 @@
     "java.trace.server": "verbose",
     "java.maxConcurrentBuilds": 1,
     "java.completion.enabled": true,
-    "java.autobuild.enabled": true,
     "javascript.format.enabled": true,
+    "java.import.maven.enabled": true,
     "java.import.gradle.enabled": true,
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "java.referencesCodeLens.enabled": true,
     "java.format.enabled": true,
-    "java.project.resourceFilters": ["node_modules", ".git"]
+    "java.autobuild.enabled": true,
+    "java.project.resourceFilters": [
+        "node_modules",
+        ".git"
+    ]
 }
