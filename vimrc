@@ -4,7 +4,7 @@
 " Email: d.hidekuma@gmail.com
 " Github: https://github.com/hidekuma
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype off                                       " required by Vundle (re-enabled below)
+filetype off
 let s:darwin = has('mac')
 let s:windows = has('win32') || has('win64')
 call plug#begin('~/.vim/plugged')
@@ -64,7 +64,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " Python
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -485,14 +485,15 @@ au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
 " ----------------------------------------------------------------------------
 " pymode
 " ----------------------------------------------------------------------------
-"let python_hightlight_all = 1
-"let g:pymode_python = 'python3'
-"let g:pymode_virtualenv = 1
-"let g:pymode_lint_checkers = ['pyflakes']
+" let python_hightlight_all = 1
+" let g:pymode_python = 'python3'
+" let g:pymode_virtualenv = 1
+" let g:pymode_lint_checkers = []
+" let g:pymode_lint_checkers = ['pyflakes']
 
-"if !s:darwin
-    "let g:pymode = 0
-"endif
+" if !s:darwin
+"     let g:pymode = 0
+" endif
 
 " ----------------------------------------------------------------------------
 " context_filetype
@@ -709,28 +710,6 @@ let g:user_emmet_settings = {
 "endfunction
 
 "set statusline=%{LinterStatus()}
-
-" ----------------------------------------------------------------------------
-" ycm
-" ----------------------------------------------------------------------------
-"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-"let g:ycm_use_clangd = 0
-"let g:ycm_key_list_select_completion = ['<C-n>']
-"let g:ycm_key_list_previous_completion=['<C-p>']
-""let g:ycm_server_python_interpreter
-"let g:ycm_python_interpreter_path = ''
-"let g:ycm_python_sys_path = []
-"let g:ycm_extra_conf_vim_data = [
-  "\  'g:ycm_python_interpreter_path',
-  "\  'g:ycm_python_sys_path'
-  "\]
-"let g:ycm_global_ycm_extra_conf = '~/global_extra_conf.py'
-"let g:ycm_collect_identifiers_from_comments_and_strings = 1
-"let g:ycm_complete_in_strings = 1
-"let g:ycm_complete_in_comments = 1
-"let g:ycm_min_num_of_chars_for_completion = 2
-"let g:ycm_filetype_blacklist = {}
-"let g:ycm_python_binary_path = 'python3'
 
 " ----------------------------------------------------------------------------
 " ultisnips

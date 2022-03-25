@@ -16,9 +16,12 @@
     "signature.enable": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
+    "python.formatting.blackArgs": ["--fast"],
+    "python.sortImports.args": ["--profile", "black"],
     "python.formatting.provider": "black",
+    "python.formatting.blackPath": "~/.virtualenvs/neovim3.9/bin/black",
+    "python.sortImports.path": "~/.virtualenvs/neovim3.9/bin/isort",
     "python.venvPath": "~/.virtualenvs",
-    "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "html.format.enable": true,
     "html.validate.scripts": true,
@@ -34,8 +37,5 @@
     "java.import.gradle.enabled": true,
     "java.format.enabled": true,
     "java.autobuild.enabled": true,
-    "java.project.resourceFilters": [
-        "node_modules",
-        ".git"
-    ]
+    "java.project.resourceFilters": ["node_modules", ".git"]
 }
