@@ -286,6 +286,14 @@ eval "$(jenv init -)"
 #php composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
+# apache for WSL2 (forword proxy)
+if [ -z "$http_proxy" ]; then
+  export http_proxy=http://$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):9090
+  export https_proxy=${http_proxy}
+  export HTTP_PROXY=${http_proxy}
+  export HTTP_PROXY=${https_proxy}
+fi
+
 # -------------------------------------
 echo '''
 ╦ ╦╦╔╦╗╔═╗╦╔═╦ ╦╔╦╗╔═╗
