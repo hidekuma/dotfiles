@@ -56,7 +56,7 @@ source ~/.local/bin/virtualenvwrapper.sh
 alias vi=$EDITOR
 alias vim=$EDITOR
 alias dkr=nerdctl
-alias dkrp=docker-compose
+alias dkrp='nerdctl compose'
 alias ws='cd ~/Documents/workspace'
 alias dotfiles='cd ~/dotfiles'
 alias k=kubectl
