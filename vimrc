@@ -190,6 +190,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
+" GoBack : C-o
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gs :split<CR><Plug>(coc-definition)
 nmap <silent> gv :vsplit<CR><Plug>(coc-definition)
@@ -382,6 +383,9 @@ autocmd BufWritePre *.py %s/\s\+$//e
 " cp file path
 nmap cp :let @+ = expand("%")<cr>
 nmap cP :let @+ = expand("%:p")<cr>
+
+" cursor matching words
+autocmd CursorMoved * exe printf('match CocListBlueBlack /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
@@ -637,6 +641,8 @@ function! RipgrepFzf(query, fullscreen)
                 \ --hidden
                 \ --follow
                 \ --glob "!.git/*"
+                \ --glob "!.gitlab*"
+                \ --glob "!node_modules*"
                 \ --column
                 \ --line-number
                 \ --no-heading
