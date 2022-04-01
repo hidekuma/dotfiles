@@ -31,6 +31,10 @@ Plug 'camspiers/lens.vim'
 " Movement
 Plug 'Lokaltog/vim-easymotion'
 
+" Tag
+" Plug 'ludovicchabant/vim-gutentags' "  run ctags when save file
+" Plug 'preservim/tagbar'
+
 " Theme
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'cocopon/iceberg.vim'
@@ -607,7 +611,7 @@ let g:EasyMotion_use_smartsign_us = 1
 " ----------------------------------------------------------------------------
 " tagbar
 " ----------------------------------------------------------------------------
-"nmap <F8> :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
 
 " ----------------------------------------------------------------------------
 " tpope/vim-surround
@@ -765,11 +769,15 @@ if has('nvim')
     :tnoremap <S-j> <C-\><C-n><C-w>j
     :tnoremap <S-k> <C-\><C-n><C-w>k
     :tnoremap <S-l> <C-\><C-n><C-w>l
+    :tnoremap <C-c> <C-\><C-n><C-w>c
 endif
 :nnoremap <S-h> <C-w>h
 :nnoremap <S-j> <C-w>j
 :nnoremap <S-k> <C-w>k
 :nnoremap <S-l> <C-w>l
+:nnoremap <C-c> <C-w>c
+
+
 
 nmap ,P :set paste<CR>
 nmap ,p :set nopaste<CR>
