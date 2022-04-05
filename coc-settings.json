@@ -28,6 +28,8 @@
     "html.autoClosingTags": true,
     "svelte.enable-ts-plugin": true,
     "java.home": "~/.jenv/versions/cocjavahome",
+    "java.referencesCodeLens.enabled": true,
+    "java.implementationsCodeLens.enabled": true,
     "java.trace.server": "verbose",
     "java.maxConcurrentBuilds": 1,
     "java.completion.enabled": true,
