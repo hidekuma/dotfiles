@@ -1,7 +1,6 @@
 {
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnSaveFiletypes": [
-        "json",
         "html",
         "css",
         "javascript",
@@ -37,5 +36,7 @@
     "java.import.gradle.enabled": true,
     "java.format.enabled": true,
     "java.autobuild.enabled": true,
-    "java.project.resourceFilters": ["node_modules", ".git"]
+    "java.completion.guessMethodArguments": true,
+    "java.codeGeneration.generateComments": true,
+    "java.project.resourceFilters": ["node_modules", ".git", "*.class"]
 }
