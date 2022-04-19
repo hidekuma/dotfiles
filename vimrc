@@ -417,7 +417,6 @@ let g:coc_global_extensions =
             \ 'coc-tsserver',
             \ 'coc-pyright',
             \ 'coc-pydocstring',
-            \ 'coc-tabnine',
             \ 'coc-phpls',
             \ 'coc-java',
             \ 'coc-eslint',
