@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'blueyed/vim-diminactive'
+Plug 'ryanoasis/vim-devicons'
 
 " Window
 Plug 'camspiers/lens.vim'
@@ -313,6 +314,13 @@ nmap <silent> ga <Plug>(coc-codeaction-line)
 xmap <silent> ga <Plug>(coc-codeaction-selected)
 nmap <silent> gA <Plug>(coc-codeaction)
 
+" coc-translator
+" popup
+" nmap <Leader>t <Plug>(coc-translator-p)
+" vmap <Leader>t <Plug>(coc-translator-pv)
+" echo
+" nmap <Leader>e <Plug>(coc-translator-e)
+" vmap <Leader>e <Plug>(coc-translator-ev)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -391,7 +399,7 @@ nmap cp :let @+ = expand("%")<cr>
 nmap cP :let @+ = expand("%:p")<cr>
 
 " cursor matching words
-autocmd CursorMoved * exe printf('match CocListBlueBlack /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+" autocmd CursorMoved * exe printf('match CocListBlueBlack /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
@@ -416,6 +424,8 @@ let g:coc_global_extensions =
             \ 'coc-git',
             \ 'coc-tsserver',
             \ 'coc-pyright',
+            \ 'coc-kotlin',
+            \ 'coc-tabnine',
             \ 'coc-pydocstring',
             \ 'coc-phpls',
             \ 'coc-java',
