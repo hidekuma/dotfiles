@@ -27,8 +27,8 @@ Plug 'blueyed/vim-diminactive'
 Plug 'tmux-plugins/vim-tmux-focus-events' "  with vim-diminactive (tmux)
 
 " Window
-Plug 'camspiers/animate.vim' " vim pane resizing
-Plug 'camspiers/lens.vim'
+" Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim' " vim pane resizing
 
 " Movement
 Plug 'Lokaltog/vim-easymotion'
