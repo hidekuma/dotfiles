@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files & Search
 Plug 'scrooloose/nerdtree'
-Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/context_filetype.vim' " check file type
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
@@ -22,11 +22,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-css-color'
+Plug 'ap/vim-css-color' " color preview
 Plug 'blueyed/vim-diminactive'
-Plug 'ryanoasis/vim-devicons'
+Plug 'tmux-plugins/vim-tmux-focus-events' "  with vim-diminactive (tmux)
 
 " Window
+Plug 'camspiers/animate.vim' " vim pane resizing
 Plug 'camspiers/lens.vim'
 
 " Movement
@@ -58,7 +59,7 @@ Plug 'bitc/vim-bad-whitespace'
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
 Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
-Plug 'tikhomirov/vim-glsl'
+" Plug 'tikhomirov/vim-glsl'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " Preview
@@ -66,7 +67,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
 "Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " Python
 " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -389,7 +390,7 @@ augroup VimCSS3Syntax
 augroup END
 
 " vim-glsl
-autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
+" autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre *.py %s/\s\+$//e
@@ -473,14 +474,18 @@ let g:coc_snippet_next = '<tab>'
 " vim-diminactive
 " ----------------------------------------------------------------------------
 let g:diminactive_enable_focus = 1
-let g:diminactive_use_syntax = 1
+" let g:diminactive_use_syntax = 1
 
 " ----------------------------------------------------------------------------
 " vim-airline
 " ----------------------------------------------------------------------------
+let g:airline_theme='atomic'
 let g:airline#extensions#tabline#enabled = 1        " Enhanced top tabline
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#ale#enabled = 1
+let g:airline_powerline_fonts=1
+" let g:airline#extensions#ale#enabled = 1
 
 " ----------------------------------------------------------------------------
 " vim-svelte
@@ -573,7 +578,7 @@ nmap ,nt :NERDTree<CR>
 " ----------------------------------------------------------------------------
 " git-messenger
 " ----------------------------------------------------------------------------
-nmap gm :GitMessenger<CR>
+nmap gm <Plug>(git-messenger)
 
 " ----------------------------------------------------------------------------
 " vim-multiple-cursor
