@@ -50,6 +50,11 @@ export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
 source ~/.local/bin/virtualenvwrapper.sh
 
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/joseph/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
 # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
@@ -60,6 +65,7 @@ alias dkrp='nerdctl compose'
 alias ws='cd ~/Documents/workspace'
 alias dotfiles='cd ~/dotfiles'
 alias k=kubectl
+alias ta='tmux attach'
 
 ## Ctags
 alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
