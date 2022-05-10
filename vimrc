@@ -794,6 +794,7 @@ endif
 :nnoremap <C-c> <C-w>c
 
 
+nmap <leader>r :!python %<CR>
 
 nmap ,P :set paste<CR>
 nmap ,p :set nopaste<CR>
