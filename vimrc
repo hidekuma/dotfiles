@@ -25,6 +25,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color' " color preview
 Plug 'blueyed/vim-diminactive'
 Plug 'tmux-plugins/vim-tmux-focus-events' "  with vim-diminactive (tmux)
+" Plug 'ryanoasis/vim-devicons'
 
 " Window
 " Plug 'camspiers/animate.vim'

@@ -69,6 +69,10 @@ alias ws='cd ~/Documents/workspace'
 alias dotfiles='cd ~/dotfiles'
 alias k=kubectl
 alias ta='tmux attach'
+alias cat='bat'
+alias ls="lsd --no-symlink"
+alias ll="lsd -l --no-symlink"
+alias lt="lsd --tree --no-symlink"
 
 ## Ctags
 # alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
