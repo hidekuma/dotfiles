@@ -54,6 +54,7 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker
 Plug 'bitc/vim-bad-whitespace'
+Plug 'udalov/kotlin-vim' " with coc-kotlin
 
 " Syntax / Indenting
 Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
