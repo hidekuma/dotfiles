@@ -68,7 +68,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
 "Plug 'w0rp/ale'
-" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " Python
 " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
