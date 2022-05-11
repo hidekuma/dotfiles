@@ -103,6 +103,10 @@ if [ -f ~/.zsh_profile ]; then
     . ~/.zsh_profile
 fi
 
+if [ -f ~/.zsh_profile.custom ]; then
+    . ~/.zsh_profile.custom
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/hidekuma/.sdkman"
 [[ -s "/Users/hidekuma/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/hidekuma/.sdkman/bin/sdkman-init.sh"
