@@ -4,6 +4,12 @@
     "diagnostic.infoSign": "ℹ",
     "diagnostic.hintSign": "➤",
     "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnSaveFiletypes": [
+        "kt",
+        "yaml",
+        "java",
+        "python"
+    ],
     "suggest.noselect": false,
     "codeLens.enable": true,
     "signature.enable": true,
