@@ -4,7 +4,8 @@
   "diagnostic.infoSign": "ℹ",
   "diagnostic.hintSign": "➤",
   "tabnine.enablePreselect": false,
-  "tabnine.priority": -1,
+  "tabnine.priority": 1,
+  "tabnine.limit": 5,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "kt",
