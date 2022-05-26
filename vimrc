@@ -69,7 +69,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
 "Plug 'w0rp/ale'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " Python
 " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -80,7 +80,7 @@ Plug 'rhysd/git-messenger.vim'
 
 " Auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets' " for coc-snippets
 
 " Debug
 Plug 'puremourning/vimspector'
@@ -284,6 +284,9 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
+" Custom vim command
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
@@ -430,6 +433,7 @@ let g:coc_global_extensions =
             \ 'coc-kotlin',
             \ 'coc-tabnine',
             \ 'coc-pydocstring',
+            \ 'coc-prettier',
             \ 'coc-phpls',
             \ 'coc-java',
             \ 'coc-eslint',
@@ -441,36 +445,11 @@ let g:coc_global_extensions =
 " ----------------------------------------------------------------------------
 " coc-snippets
 " ----------------------------------------------------------------------------
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
 
 " ----------------------------------------------------------------------------
 " vim-diminactive
@@ -497,9 +476,9 @@ let g:airline_powerline_fonts=1
 " ----------------------------------------------------------------------------
 " vim-prettier
 " ----------------------------------------------------------------------------
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat_require_pragma = 0
-au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
+" let g:prettier#quickfix_enabled = 0
+" let g:prettier#autoformat_require_pragma = 0
+" au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
 
 " ----------------------------------------------------------------------------
 " vim-gitgutter
