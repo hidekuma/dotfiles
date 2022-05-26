@@ -36,6 +36,12 @@
   "python.venvPath": "~/.virtualenvs",
   "svelte.enable-ts-plugin": true,
   "java.home": "~/.jenv/versions/cocjavahome",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "~/.jenv/versions/11"
+    }
+  ],
   "java.referencesCodeLens.enabled": true,
   "java.implementationsCodeLens.enabled": true,
   "java.trace.server": "verbose",
