@@ -63,6 +63,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
 " Plug 'tikhomirov/vim-glsl'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'hashivim/vim-terraform'
 
 " Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
