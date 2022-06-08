@@ -43,10 +43,11 @@
     },
     {
       "name": "JavaSE-17",
-      "path": "~/.jenv/versions/17"
+      "path": "~/.jenv/versions/17",
+      "default": true
     }
   ],
-  "java.referencesCodeLens.enabled": true,
+  "java.referencesCodeLens.enabled": false,
   "java.implementationsCodeLens.enabled": true,
   "java.trace.server": "verbose",
   "java.maxConcurrentBuilds": 1,

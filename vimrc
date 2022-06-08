@@ -762,16 +762,16 @@ let g:lens#width_resize_min = 20
 " ETC mapping keys
 " ----------------------------------------------------------------------------
 if has('nvim')
-    :tnoremap <S-h> <C-\><C-n><C-w>h
-    :tnoremap <S-j> <C-\><C-n><C-w>j
-    :tnoremap <S-k> <C-\><C-n><C-w>k
-    :tnoremap <S-l> <C-\><C-n><C-w>l
+    :tnoremap <A-h> <C-\><C-n><C-w>h
+    :tnoremap <A-j> <C-\><C-n><C-w>j
+    :tnoremap <A-k> <C-\><C-n><C-w>k
+    :tnoremap <A-l> <C-\><C-n><C-w>l
     :tnoremap <C-c> <C-\><C-n><C-w>c
 endif
-:nnoremap <S-h> <C-w>h
-:nnoremap <S-j> <C-w>j
-:nnoremap <S-k> <C-w>k
-:nnoremap <S-l> <C-w>l
+:nnoremap <A-h> <C-w>h
+:nnoremap <A-j> <C-w>j
+:nnoremap <A-k> <C-w>k
+:nnoremap <A-l> <C-w>l
 :nnoremap <C-c> <C-w>c
 
 
