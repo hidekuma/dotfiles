@@ -63,8 +63,10 @@ export PATH="/Users/joseph/.rd/bin:$PATH"
 # Aliases
 alias vi=$EDITOR
 alias vim=$EDITOR
-alias dkr=nerdctl
-alias dkrp='nerdctl compose'
+alias dkr=docker
+alias dkrp='docker-compose'
+# alias dkr=nerdctl
+# alias dkrp='nerdctl compose'
 alias ws='cd ~/Documents/workspace'
 alias dotfiles='cd ~/dotfiles'
 alias k=kubectl
