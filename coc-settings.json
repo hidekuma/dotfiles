@@ -58,5 +58,14 @@
   "java.autobuild.enabled": true,
   "java.completion.guessMethodArguments": true,
   "java.codeGeneration.generateComments": true,
-  "java.project.resourceFilters": ["node_modules", ".git", "*.class"]
+  "java.project.resourceFilters": ["node_modules", ".git", "*.class"],
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }
