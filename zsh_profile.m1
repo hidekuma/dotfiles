@@ -66,6 +66,7 @@ alias vim=$EDITOR
 alias dkr=docker
 alias dkrp='docker-compose'
 alias tf='terraform'
+alias tfp='terraform plan'
 # alias dkr=nerdctl
 # alias dkrp='nerdctl compose'
 alias ws='cd ~/Documents/workspace'
