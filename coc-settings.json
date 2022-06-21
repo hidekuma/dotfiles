@@ -22,6 +22,7 @@
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "tsserver.implicitProjectConfig.experimentalDecorators": true,
   "pyright.disableDiagnostics": false,
+  "pyright.organizeimports.provider": "isort",
   "python.formatting.blackArgs": ["--fast"],
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.virtualenvs/neovim3.9/bin/black",
