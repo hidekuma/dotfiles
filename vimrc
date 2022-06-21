@@ -53,7 +53,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
-Plug 'KabbAmine/vCoolor.vim' " Color picker
+Plug 'KabbAmine/vCoolor.vim' " Color picker alt R
 Plug 'bitc/vim-bad-whitespace'
 Plug 'udalov/kotlin-vim' " with coc-kotlin
 
