@@ -67,7 +67,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
 
 " Lint
 "Plug 'w0rp/ale'
