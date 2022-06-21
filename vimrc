@@ -25,7 +25,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color' " color preview
 Plug 'blueyed/vim-diminactive'
 Plug 'tmux-plugins/vim-tmux-focus-events' "  with vim-diminactive (tmux)
-" Plug 'ryanoasis/vim-devicons'
 
 " Window
 " Plug 'camspiers/animate.vim'
@@ -48,7 +47,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'FooSoft/vim-argwrap'
@@ -58,24 +57,13 @@ Plug 'bitc/vim-bad-whitespace'
 Plug 'udalov/kotlin-vim' " with coc-kotlin
 
 " Syntax / Indenting
-Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
+" Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
 Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
-" Plug 'tikhomirov/vim-glsl'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'hashivim/vim-terraform'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent' " python indent especially dict
-
-" Preview
-" Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
-
-" Lint
-"Plug 'w0rp/ale'
-" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-
-" Python
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -323,13 +311,10 @@ nmap <silent> ga <Plug>(coc-codeaction-line)
 xmap <silent> ga <Plug>(coc-codeaction-selected)
 nmap <silent> gA <Plug>(coc-codeaction)
 
-" coc-translator
-" popup
-" nmap <Leader>t <Plug>(coc-translator-p)
-" vmap <Leader>t <Plug>(coc-translator-pv)
-" echo
-" nmap <Leader>e <Plug>(coc-translator-e)
-" vmap <Leader>e <Plug>(coc-translator-ev)
+" coc-yank
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+hi HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tmux settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -373,7 +358,7 @@ set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "  - shiftwidth:    number of spaces for indentation (e.g. > and < )
 "  - expandtab:     use spaces instaed of Tab. <c-v><TAB> gives real Tab
 "  - autoindent:    keep indenting of previous line
-autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
+" autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent
 autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType svelte setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -397,9 +382,6 @@ augroup VimCSS3Syntax
     autocmd FileType css setlocal iskeyword+=-
 augroup END
 
-" vim-glsl
-" autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
-
 " cursor matching words
 " autocmd CursorMoved * exe printf('match CocListBlueBlack /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -422,23 +404,27 @@ let g:coc_global_extensions =
             \ 'coc-snippets',
             \ 'coc-fzf-preview',
             \ 'coc-explorer',
-            \ 'coc-yaml',
-            \ 'coc-git',
-            \ 'coc-tsserver',
-            \ 'coc-pyright',
-            \ 'coc-cfn-lint',
             \ 'coc-highlight',
-            \ 'coc-kotlin',
-            \ 'coc-tabnine',
-            \ 'coc-pydocstring',
-            \ 'coc-prettier',
-            \ 'coc-phpls',
-            \ 'coc-htmldjango',
+            \ 'coc-yank',
+            \ 'coc-sql',
             \ 'coc-java',
+            \ 'coc-kotlin',
+            \ 'coc-git',
+            \ 'coc-docker',
+            \ 'coc-pyright',
+            \ 'coc-pydocstring',
+            \ 'coc-cfn-lint',
+            \ 'coc-tabnine',
+            \ 'coc-emmet',
+            \ 'coc-prettier',
             \ 'coc-eslint',
-            \ 'coc-json',
+            \ 'coc-tsserver',
+            \ 'coc-htmldjango',
             \ 'coc-html',
+            \ 'coc-htmlhint',
             \ 'coc-svelte',
+            \ 'coc-json',
+            \ 'coc-yaml',
             \ 'coc-css' ]
 
 " ----------------------------------------------------------------------------
@@ -471,38 +457,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts=1
 " let g:airline#extensions#ale#enabled = 1
-
-" ----------------------------------------------------------------------------
-" vim-svelte
-" ----------------------------------------------------------------------------
-"let g:svelte_preprocessors = ['typescript']
-
-" ----------------------------------------------------------------------------
-" vim-prettier
-" ----------------------------------------------------------------------------
-" let g:prettier#quickfix_enabled = 0
-" let g:prettier#autoformat_require_pragma = 0
-" au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
-
-" ----------------------------------------------------------------------------
-" vim-gitgutter
-" ----------------------------------------------------------------------------
-"if !s:darwin
-    "let g:gitgutter_git_executable = 'git.exe'
-"endif
-
-" ----------------------------------------------------------------------------
-" pymode
-" ----------------------------------------------------------------------------
-" let python_hightlight_all = 1
-" let g:pymode_python = 'python3'
-" let g:pymode_virtualenv = 1
-" let g:pymode_lint_checkers = []
-" let g:pymode_lint_checkers = ['pyflakes']
-
-" if !s:darwin
-"     let g:pymode = 0
-" endif
 
 " ----------------------------------------------------------------------------
 " context_filetype
@@ -588,19 +542,7 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 " ----------------------------------------------------------------------------
 " vim-easymotion
 " ----------------------------------------------------------------------------
-"hi EasyMotionTarget cterbg=none ctermfg=darkgreen
-"hi EasyMotionShade  ctermbg=none ctermfg=gray
-"hi EasyMotionTarget2First ctermbg=none ctermfg=darkred
-"hi EasyMotionTarget2Second ctermbg=none ctermfg=darkblue
-hi link EasyMotionTarget Search
-hi link EasyMotionTarget2First Search
-hi link EasyMotionTarget2Second Search
-hi link EasyMotionShade Comment
 let g:EasyMotion_leader_key=','
-"map  / <Plug>(easymotion-sn)
-"omap / <Plug>(easymotion-tn)
-"map  n <Plug>(easymotion-next)
-"map  N <Plug>(easymotion-prev)
 map ,l <Plug>(easymotion-lineforward)
 map ,j <Plug>(easymotion-j)
 map ,k <Plug>(easymotion-k)
@@ -675,63 +617,6 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " nerdtree
 " ----------------------------------------------------------------------------
 let g:NERDTreeWinSize = 30
-
-" ----------------------------------------------------------------------------
-" emmet
-" ----------------------------------------------------------------------------
-let g:user_emmet_settings = {
-            \  'php' : {
-            \    'extends' : 'html',
-            \    'filters' : 'c',
-            \  },
-            \  'xml' : {
-            \    'extends' : 'html',
-            \  },
-            \  'haml' : {
-            \    'extends' : 'html',
-            \  },
-            \  'tpl' : {
-            \    'extends' : 'html',
-            \  },
-            \}
-
-" ----------------------------------------------------------------------------
-" ALE
-" ----------------------------------------------------------------------------
-"let g:ale_sign_error = '>>'
-"let g:ale_sign_warning = '--'
-"let g:ale_completion_enabled = 1
-"let g:ale_open_list = 1
-"let g:ale_keep_list_window_open=0
-"let g:ale_set_quickfix=0
-"let g:ale_list_window_size = 5
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"let g:ale_lint_delay = 1500
-"function! LinterStatus() abort
-    "let l:counts = ale#statusline#Count(bufnr(''))
-
-    "let l:all_errors = l:counts.error + l:counts.style_error
-    "let l:all_non_errors = l:counts.total - l:all_errors
-
-    "return l:counts.total == 0 ? 'OK' : printf(
-    "\   '%dW %dE',
-    "\   all_non_errors,
-    "\   all_errors
-    "\)
-"endfunction
-
-"set statusline=%{LinterStatus()}
-
-" ----------------------------------------------------------------------------
-" ultisnips
-" ----------------------------------------------------------------------------
-"let g:UltiSnipsExpandTrigger="<C-x>"
-"let g:UltiSnipsJumpForwardTrigger="<Tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-"let g:UltiSnipsEditSplit="vertical"
-"let g:UltiSnipsSnippetDirectories = ['ultisnips']
-" PHP7
-"let g:ultisnips_php_scalar_types = 1
 
 " ----------------------------------------------------------------------------
 " indentline
