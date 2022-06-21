@@ -64,7 +64,7 @@ Plug 'Yggdroot/indentLine'
 " Plug 'tikhomirov/vim-glsl'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'hashivim/vim-terraform'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent' " python indent especially dict
 
 " Preview
