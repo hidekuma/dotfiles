@@ -65,6 +65,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'Vimjas/vim-python-pep8-indent' " python indent especially dict
 
 " Preview
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
@@ -430,7 +431,6 @@ let g:coc_global_extensions =
             \ 'coc-kotlin',
             \ 'coc-tabnine',
             \ 'coc-pydocstring',
-            \ 'coc-spell-checker',
             \ 'coc-prettier',
             \ 'coc-phpls',
             \ 'coc-htmldjango',
