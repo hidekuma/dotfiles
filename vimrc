@@ -401,10 +401,6 @@ augroup END
 " Automatically removing all trailing whitespace
 autocmd BufWritePre *.py %s/\s\+$//e
 
-" cp file path
-nmap cp :let @+ = expand("%")<cr>
-nmap cP :let @+ = expand("%:p")<cr>
-
 " cursor matching words
 " autocmd CursorMoved * exe printf('match CocListBlueBlack /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -777,9 +773,6 @@ endif
 
 
 nmap <leader>r :!python %<CR>
-
-nmap ,P :set paste<CR>
-nmap ,p :set nopaste<CR>
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 nmap sh :split<Return><C-w>w
@@ -795,6 +788,11 @@ map <C-w><down> <C-w>-
 " set paste
 nmap ,P :set paste<CR>
 nmap ,p :set nopaste<CR>
+
+" cp file path
+nmap cp :let @+ = expand("%")<cr>
+nmap cP :let @+ = expand("%:p")<cr>
+
 
 " ----------------------------------------------------------------------------
 " vim-persistent-undo

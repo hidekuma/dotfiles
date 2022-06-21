@@ -13,8 +13,6 @@
     "js",
     "yaml",
     "java",
-    "python",
-    "html",
     "json"
   ],
   "suggest.noselect": false,
@@ -22,7 +20,7 @@
   "signature.enable": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "tsserver.implicitProjectConfig.experimentalDecorators": true,
-  "pyright.disableDiagnostics": true,
+  "pyright.disableDiagnostics": false,
   "python.formatting.blackArgs": ["--fast"],
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.virtualenvs/neovim3.9/bin/black",
