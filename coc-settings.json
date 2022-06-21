@@ -6,6 +6,7 @@
   "tabnine.enablePreselect": false,
   "tabnine.priority": 1,
   "tabnine.limit": 5,
+  "colors.filetypes": ["*"],
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "kt",

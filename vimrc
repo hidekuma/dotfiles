@@ -64,6 +64,7 @@ Plug 'Yggdroot/indentLine'
 " Plug 'tikhomirov/vim-glsl'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'hashivim/vim-terraform'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }  }
@@ -398,9 +399,6 @@ augroup END
 " vim-glsl
 " autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
-" Automatically removing all trailing whitespace
-autocmd BufWritePre *.py %s/\s\+$//e
-
 " cursor matching words
 " autocmd CursorMoved * exe printf('match CocListBlueBlack /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -427,17 +425,26 @@ let g:coc_global_extensions =
             \ 'coc-git',
             \ 'coc-tsserver',
             \ 'coc-pyright',
+            \ 'coc-cfn-lint',
+            \ 'coc-highlight',
             \ 'coc-kotlin',
             \ 'coc-tabnine',
             \ 'coc-pydocstring',
+            \ 'coc-spell-checker',
             \ 'coc-prettier',
             \ 'coc-phpls',
+            \ 'coc-htmldjango',
             \ 'coc-java',
             \ 'coc-eslint',
             \ 'coc-json',
             \ 'coc-html',
             \ 'coc-svelte',
             \ 'coc-css' ]
+
+" ----------------------------------------------------------------------------
+" coc-snippets
+" ----------------------------------------------------------------------------
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " ----------------------------------------------------------------------------
 " coc-snippets
@@ -793,6 +800,8 @@ nmap ,p :set nopaste<CR>
 nmap cp :let @+ = expand("%")<cr>
 nmap cP :let @+ = expand("%:p")<cr>
 
+" Automatically removing all trailing whitespace
+autocmd BufWritePre *.py %s/\s\+$//e
 
 " ----------------------------------------------------------------------------
 " vim-persistent-undo
