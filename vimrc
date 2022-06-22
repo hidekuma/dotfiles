@@ -126,6 +126,7 @@ set wildmenu                    " Show suggestions on TAB for some commands
 set ruler                       " Always show current positions along the bottom
 set cmdheight=1                 " the command bar is 2 high
 set number                      " turn on line numbers
+set relativenumber              " turn on relativenumber
 set lazyredraw                  " do not redraw while running macros (much faster)
 set backspace=indent,eol,start  " make backspace work normal
 set whichwrap+=<,>,h,l          " make cursor keys and h,l wrap over line endings
