@@ -687,7 +687,7 @@ nmap cp :let @+ = expand("%")<cr>
 nmap cP :let @+ = expand("%:p")<cr>
 
 " Automatically removing all trailing whitespace
-autocmd BufWritePre *.py %s/\s\+$//e
+" autocmd BufWritePre *.py %s/\s\+$//e
 
 " ----------------------------------------------------------------------------
 " vim-persistent-undo
