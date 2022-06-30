@@ -26,9 +26,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color' " color preview
 Plug 'blueyed/vim-diminactive'
 Plug 'tmux-plugins/vim-tmux-focus-events' "  with vim-diminactive (tmux)
+Plug 'itchyny/vim-cursorword' " display cursor position
 
 " Window
-" Plug 'camspiers/animate.vim'
+Plug 'camspiers/animate.vim'
 Plug 'camspiers/lens.vim' " vim pane resizing
 
 " Movement
