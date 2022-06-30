@@ -19,6 +19,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
 " Styling
+" Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
