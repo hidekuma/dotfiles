@@ -80,6 +80,7 @@ alias cat='bat'
 alias ls="lsd --icon never"
 alias ll="lsd -l --icon never"
 alias lt="lsd --tree --icon never"
+alias lg="lazygit"
 
 
 # for auto completion of kubectx, kubens
