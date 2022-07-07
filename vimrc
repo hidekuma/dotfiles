@@ -34,6 +34,7 @@ Plug 'camspiers/lens.vim' " vim pane resizing
 
 " Movement
 Plug 'Lokaltog/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Tag
 " Plug 'ludovicchabant/vim-gutentags' "  run ctags when save file
@@ -649,22 +650,32 @@ let g:lens#width_resize_min = 20
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ETC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" ----------------------------------------------------------------------------
+" christoomey/vim-tmux-navigator
+" ----------------------------------------------------------------------------
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
+
 " ----------------------------------------------------------------------------
 " ETC mapping keys
 " ----------------------------------------------------------------------------
 if has('nvim')
-    :tnoremap <A-h> <C-\><C-n><C-w>h
-    :tnoremap <A-j> <C-\><C-n><C-w>j
-    :tnoremap <A-k> <C-\><C-n><C-w>k
-    :tnoremap <A-l> <C-\><C-n><C-w>l
+"     :tnoremap <A-h> <C-\><C-n><C-w>h
+"     :tnoremap <A-j> <C-\><C-n><C-w>j
+"     :tnoremap <A-k> <C-\><C-n><C-w>k
+"     :tnoremap <A-l> <C-\><C-n><C-w>l
     :tnoremap <C-c> <C-\><C-n><C-w>c
 endif
-:nnoremap <A-h> <C-w>h
-:nnoremap <A-j> <C-w>j
-:nnoremap <A-k> <C-w>k
-:nnoremap <A-l> <C-w>l
+" :nnoremap <A-h> <C-w>h
+" :nnoremap <A-j> <C-w>j
+" :nnoremap <A-k> <C-w>k
+" :nnoremap <A-l> <C-w>l
 :nnoremap <C-c> <C-w>c
-
 
 nmap <leader>r :!python %<CR>
 nmap <S-Tab> :tabprev<Return>
