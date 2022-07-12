@@ -18,6 +18,9 @@ Plug 'Shougo/context_filetype.vim' " check file type
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
+" Translators
+Plug 'voldikss/vim-translator'
+
 " Styling
 " Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'          " nice statusline at the bottom of each window
@@ -645,6 +648,23 @@ let g:lens#height_resize_max = 20
 let g:lens#height_resize_min = 5
 let g:lens#width_resize_max = 80
 let g:lens#width_resize_min = 20
+
+" ----------------------------------------------------------------------------
+" vim-translator
+" ----------------------------------------------------------------------------
+let g:translator_target_lang = "ko"
+""" Configuration example
+" Echo translation in the cmdline
+nmap <silent> <Leader>t <Plug>Translate
+vmap <silent> <Leader>t <Plug>TranslateV
+" Display translation in a window
+nmap <silent> <Leader>w <Plug>TranslateW
+vmap <silent> <Leader>w <Plug>TranslateWV
+" Replace the text with translation
+nmap <silent> <Leader>r <Plug>TranslateR
+vmap <silent> <Leader>r <Plug>TranslateRV
+" Translate the text in clipboard
+nmap <silent> <Leader>x <Plug>TranslateX
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
