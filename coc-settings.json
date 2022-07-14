@@ -41,7 +41,8 @@
   "java.configuration.runtimes": [
     {
       "name": "JavaSE-11",
-      "path": "~/.jenv/versions/11"
+      "path": "~/.jenv/versions/11",
+      "default": true
     },
     {
       "name": "JavaSE-17",
