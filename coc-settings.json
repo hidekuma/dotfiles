@@ -15,6 +15,7 @@
     "yaml",
     "java",
     "json",
+    "jsonc",
     "python"
   ],
   "suggest.noselect": false,
@@ -37,6 +38,7 @@
   "python.linting.mypyEnabled": true,
   "python.venvPath": "~/.virtualenvs",
   "svelte.enable-ts-plugin": true,
+  "java.home": "~/.jenv/versions/11",
   "java.configuration.runtimes": [
     {
       "name": "JavaSE-11",
@@ -61,6 +63,10 @@
   "java.codeGeneration.generateComments": true,
   "java.project.resourceFilters": ["node_modules", ".git", "*.class"],
   "languageserver": {
+    "kotlin": {
+      "command": "~/lsp/kotlin/server/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
+    },
     "terraform": {
       "command": "terraform-ls",
       "args": ["serve"],

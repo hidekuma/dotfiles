@@ -60,7 +60,6 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'terryma/vim-expand-region'
 Plug 'KabbAmine/vCoolor.vim' " Color picker alt R
 Plug 'bitc/vim-bad-whitespace'
-Plug 'udalov/kotlin-vim' " with coc-kotlin
 
 " Syntax / Indenting
 " Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'} " Syntax highlighting for dockerfiles.
@@ -70,6 +69,8 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent' " python indent especially dict
+" Plug 'udalov/kotlin-vim' " with coc-kotlin
+Plug 'sheerun/vim-polyglot'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -78,6 +79,7 @@ Plug 'rhysd/git-messenger.vim'
 " Auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets' " for coc-snippets
+
 
 " Debug
 Plug 'puremourning/vimspector'
@@ -415,7 +417,6 @@ let g:coc_global_extensions =
             \ 'coc-yank',
             \ 'coc-sql',
             \ 'coc-java',
-            \ 'coc-kotlin',
             \ 'coc-git',
             \ 'coc-docker',
             \ 'coc-pyright',
