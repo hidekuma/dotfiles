@@ -37,7 +37,6 @@
   "python.linting.mypyEnabled": true,
   "python.venvPath": "~/.virtualenvs",
   "svelte.enable-ts-plugin": true,
-  "java.home": "~/.jenv/versions/cocjavahome",
   "java.configuration.runtimes": [
     {
       "name": "JavaSE-11",
@@ -46,8 +45,7 @@
     },
     {
       "name": "JavaSE-17",
-      "path": "~/.jenv/versions/17",
-      "default": true
+      "path": "~/.jenv/versions/17"
     }
   ],
   "java.referencesCodeLens.enabled": false,
