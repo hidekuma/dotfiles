@@ -1,0 +1,5 @@
+vim.api.nvim_set_var("multi_cursor_use_default_mapping", 0)
+vim.api.nvim_set_var("multi_cursor_next_ke", "<C-n>")
+vim.api.nvim_set_var("multi_cursor_prev_key", "<C-p>")
+vim.api.nvim_set_var("multi_cursor_skip_key", "<C-x>")
+vim.api.nvim_set_var("multi_cursor_quit_key", "<Esc>")

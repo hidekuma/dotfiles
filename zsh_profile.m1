@@ -77,9 +77,9 @@ alias dotfiles='cd ~/dotfiles'
 alias k=kubectl
 alias ta='tmux attach'
 alias cat='bat'
-alias ls="lsd --icon never"
-alias ll="lsd -l --icon never"
-alias lt="lsd --tree --icon never"
+alias ls="lsd"
+alias ll="lsd -l"
+alias lt="lsd --tree"
 alias lg="lazygit"
 
 
