@@ -16,7 +16,7 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast", "--quite", "--" } }),
 		formatting.stylua,
-		formatting.isort,
+		-- formatting.isort,
 		diagnostics.mypy
 		--formatting.autopepe8,
 		--diagnostics.pylint,
