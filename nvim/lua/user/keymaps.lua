@@ -74,8 +74,8 @@ keymap("n", "<C-c>", "<C-w>c", opts)
 
 -- Else
 keymap("n", "<leader>r", ":!python %<CR>", opts)
-keymap("n", "<Tab>", ":bnext<CR>", opts)
-keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
+keymap("n", "<Tab>", ":tabNext<CR>", opts)
+keymap("n", "<S-Tab>", ":tabPrev<CR>", opts)
 keymap("n", "sh", ":split<Return><C-w>w", opts)
 keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
 keymap("n", "tn", ":tabnew<Return>", opts)
