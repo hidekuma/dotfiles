@@ -15,4 +15,5 @@ keymap("v", "<Leader>w", "<Plug>TranslateWV", opts)
 -- keymap("v", "<Leader>r", "<Plug>TranslateRV", opts)
 
 -- " Translate the text in clipboard
-keymap("n", "<Leader>x", "<Plug>TranslateX", opts)
+-- keymap("n", "<Leader>x", "<Plug>TranslateX", opts)
+

@@ -94,6 +94,6 @@ keymap("n", "<C-w><down>", " <C-w>-", opts)
 
 -- cp file path
 keymap("n", "cp", ":let @+ = expand('%')<cr>", opts)
-keymap("n", "cP", ":let @+ = expand('%p')<cr>", opts)
+-- keymap("n", "cP", ":let @+ = expand('%p')<cr>", opts)
 
 keymap("t", "<C-c>", ":let @+ = expand('%p')<cr>", opts)

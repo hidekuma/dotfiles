@@ -67,7 +67,6 @@ return packer.startup(function(use)
 	use("Lokaltog/vim-easymotion")
 	use("christoomey/vim-tmux-navigator")
 
-
 	-- Plugin manager
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
@@ -78,6 +77,7 @@ return packer.startup(function(use)
 	use("tpope/vim-repeat")
 	use("tpope/vim-eunuch")
 	use("terryma/vim-multiple-cursors")
+	use { "kkoomen/vim-doge", run = ':call doge#install()' }
 	-- " Plug 'mattn/emmet-vim'
 	--Plug 'jiangmiao/auto-pairs'
 	-- use("preservim/nerdcommenter")
@@ -98,7 +98,7 @@ return packer.startup(function(use)
 
 	use({ "moll/vim-bbye" })
 	use({ "nvim-lualine/lualine.nvim" })
-	use({ "akinsho/toggleterm.nvim" })
+	-- use({ "akinsho/toggleterm.nvim" })
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "lewis6991/impatient.nvim" })
 	use({ "lukas-reineke/indent-blankline.nvim" })
@@ -153,11 +153,7 @@ return packer.startup(function(use)
 	-- Git
 	use("airblade/vim-gitgutter")
 	use("tpope/vim-fugitive")
-	-- use("rhysd/git-messenger.vim")
-	use {
-		'lewis6991/gitsigns.nvim',
-		-- tag = 'release' -- To use the latest release
-	}
+	use { 'lewis6991/gitsigns.nvim', }
 
 
 
