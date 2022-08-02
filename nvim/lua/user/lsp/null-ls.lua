@@ -1,3 +1,4 @@
+local lspconfig = require 'lspconfig'
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
 	return
@@ -14,14 +15,15 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.black.with({ extra_args = { "--fast", "--quite", "--" } }),
+		formatting.black,
 		formatting.stylua,
 		-- formatting.isort,
-		diagnostics.mypy
+		diagnostics.mypy,
 		--formatting.autopepe8,
-		--diagnostics.pylint,
-		--diagnostics.djlint,
+		-- diagnostics.pylint,
+		-- diagnostics.djlint,
 	},
+	root_dir = lspconfig.util.root_pattern(".null-ls-root", "Makefile", ".git", "pyproject.toml"),
 	-- you can reuse a shared lspconfig on_attach callback here
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
