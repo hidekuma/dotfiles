@@ -17,7 +17,9 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black,
 		formatting.stylua,
-		diagnostics.ktlint,
+		diagnostics.ktlint.with({
+			method = null_ls.methods.DIAGNOSTICS_ON_SAVE
+		}),
 		-- formatting.isort,
 		diagnostics.mypy,
 		--formatting.autopepe8,
@@ -34,7 +36,7 @@ null_ls.setup({
 				buffer = bufnr,
 				callback = function()
 					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-					vim.lsp.buf.format({ async = true })
+					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end
