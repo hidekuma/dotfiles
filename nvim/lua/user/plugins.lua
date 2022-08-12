@@ -44,7 +44,6 @@ return packer.startup(function(use)
 
 	-- Files & Search
 	-- use("Shougo/context_filetype.vim")
-
 	-- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 	use("junegunn/fzf")
 	use("junegunn/fzf.vim")
@@ -53,12 +52,11 @@ return packer.startup(function(use)
 	use("voldikss/vim-translator")
 
 	-- Styling
-	-- use("vim-airline/vim-airline")
-	--use("vim-airline/vim-airline-themes")
 	use("ap/vim-css-color") -- color preview
-	use("blueyed/vim-diminactive")
+	use("sunjon/shade.nvim")
 	use("tmux-plugins/vim-tmux-focus-events") --  with vim-diminactive (tmux)
 	use("itchyny/vim-cursorword") -- display cursor position
+	use("rcarriga/nvim-notify")
 
 	-- Window
 	use("camspiers/lens.vim") -- vim pane resizing
@@ -70,7 +68,6 @@ return packer.startup(function(use)
 	-- Plugin manager
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
-
 	-- Editing utilities
 	use("godlygeek/tabular")
 	use("tpope/vim-surround")
@@ -79,11 +76,11 @@ return packer.startup(function(use)
 	use("terryma/vim-multiple-cursors")
 	use { "kkoomen/vim-doge", run = ':call doge#install()' }
 	-- " Plug 'mattn/emmet-vim'
-	--Plug 'jiangmiao/auto-pairs'
-	-- use("preservim/nerdcommenter")
 	use("FooSoft/vim-argwrap")
 	use("terryma/vim-expand-region")
 	use("bitc/vim-bad-whitespace")
+	use("winston0410/cmd-parser.nvim")
+	use("winston0410/range-highlight.nvim")
 
 	-- ETC
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
@@ -91,7 +88,7 @@ return packer.startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 	-- Finder
-	use({ "kyazdani42/nvim-web-devicons" })
+	use({ "kyazdani42/nvim-web-devicons", opt = true })
 	use({ "kyazdani42/nvim-tree.lua" })
 	use({ "akinsho/bufferline.nvim" })
 
@@ -111,20 +108,18 @@ return packer.startup(function(use)
 
 	-- Syntax / Indenting
 	use({ "plasticboy/vim-markdown" })
-	-- use({ "Yggdroot/indentLine"})
 	-- Plug 'evanleck/vim-svelte', {'branch': 'main'}
 	use({ "hashivim/vim-terraform" })
 	use({ "Vimjas/vim-python-pep8-indent" })
-	--use({ "udalov/kotlin-vim"})
 	use({ "sheerun/vim-polyglot" })
 
-	-- Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	-- Plug 'honza/vim-snippets' " for coc-snippets
+	-- Treesitter
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
+	-- Buffer
+	use { "luukvbaal/stabilize.nvim" }
 
-	-- Plug 'puremourning/vimspector'
-
-	-- cmp plugins
+	-- Cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
 	use({ "hrsh7th/cmp-path" }) -- path completions
@@ -132,7 +127,7 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "hrsh7th/cmp-cmdline" })
 
-	-- snippets
+	-- Snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
@@ -145,15 +140,10 @@ return packer.startup(function(use)
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
 
-	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-
 	-- Git
 	use("airblade/vim-gitgutter")
 	use("tpope/vim-fugitive")
 	use { 'lewis6991/gitsigns.nvim', }
-
-
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

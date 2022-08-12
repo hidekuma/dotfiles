@@ -21,7 +21,7 @@ null_ls.setup({
 			method = null_ls.methods.DIAGNOSTICS_ON_SAVE
 		}),
 		-- formatting.isort,
-		diagnostics.mypy,
+		-- diagnostics.mypy,
 		--formatting.autopepe8,
 		-- diagnostics.pylint,
 		-- diagnostics.djlint,
