@@ -81,7 +81,7 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	require("notify")(client.name .. " is starting...")
+	-- require("notify")(client.name .. " is starting...")
 	-- TODO: refactor this into a method that checks if string in list
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false
