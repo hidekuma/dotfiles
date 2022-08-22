@@ -57,6 +57,17 @@ return packer.startup(function(use)
 	use("tmux-plugins/vim-tmux-focus-events") --  with vim-diminactive (tmux)
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			local saga = require("lspsaga")
+
+			saga.init_lsp_saga({
+				-- your configuration
+			})
+		end,
+	})
 
 	-- Window
 	use("camspiers/lens.vim") -- vim pane resizing
@@ -133,8 +144,9 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	--[[ use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer ]]
+	use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" }
+
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters
 
 	-- Telescope

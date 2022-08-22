@@ -1,4 +1,4 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, lsp_installer = pcall(require, "mason")
 if not status_ok then
 	return
 end
@@ -13,10 +13,14 @@ local servers = {
 	"kotlin_language_server",
 	"tsserver"
 }
+require("mason-lspconfig").setup({
+	ensure_installed = servers,
+	automatic_installaion = false
+})
 
 lsp_installer.setup({
-	ensure_installed = servers,
-	automatic_installaion = true
+	--[[ ensure_installed = servers, ]]
+	--[[ automatic_installaion = true ]]
 })
 
 for _, server in pairs(servers) do
