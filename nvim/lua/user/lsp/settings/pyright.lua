@@ -1,4 +1,4 @@
 local lspconfig = require("lspconfig")
 return {
-	root_dir = lspconfig.util.root_pattern(".py.root"),
+	root_dir = lspconfig.util.root_pattern(".project.root"),
 }
