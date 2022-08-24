@@ -101,6 +101,7 @@ return packer.startup(function(use)
 
 	-- Finder
 	use({ "kyazdani42/nvim-tree.lua" })
+	use("airblade/vim-rooter")
 
 	use({ "moll/vim-bbye" })
 	use({ "nvim-lualine/lualine.nvim" })
