@@ -40,6 +40,9 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
+	-- Plugin manager
+	use("wbthomason/packer.nvim") -- Have packer manage itself
+
 	-- My plugins here
 
 	-- Files & Search
@@ -57,27 +60,28 @@ return packer.startup(function(use)
 	use("tmux-plugins/vim-tmux-focus-events") --  with vim-diminactive (tmux)
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
-	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		config = function()
-			local saga = require("lspsaga")
-
-			saga.init_lsp_saga({
-				-- your configuration
-			})
-		end,
-	})
+	use({ "kyazdani42/nvim-web-devicons", opt = true })
+	--[[ use({ ]]
+	-- XXX
+	--[[ 	"glepnir/lspsaga.nvim", ]]
+	--[[ 	branch = "main", ]]
+	--[[ 	config = function() ]]
+	--[[ 		local saga = require("lspsaga") ]]
+	--[[]]
+	--[[ 		saga.init_lsp_saga({ ]]
+	--[[ 			-- your configuration ]]
+	--[[ 		}) ]]
+	--[[ 	end, ]]
+	--[[ }) ]]
 
 	-- Window
 	use("camspiers/lens.vim") -- vim pane resizing
+	use({ "SmiteshP/nvim-navic" }) -- XXX
+	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
 
 	-- Movement
 	use("Lokaltog/vim-easymotion")
 	use("christoomey/vim-tmux-navigator")
-
-	-- Plugin manager
-	use("wbthomason/packer.nvim") -- Have packer manage itself
 
 	-- Editing utilities
 	use("godlygeek/tabular")
@@ -85,23 +89,18 @@ return packer.startup(function(use)
 	use("tpope/vim-repeat")
 	use("tpope/vim-eunuch")
 	use("terryma/vim-multiple-cursors")
-	use { "kkoomen/vim-doge", run = ':call doge#install()' }
 	-- " Plug 'mattn/emmet-vim'
 	use("FooSoft/vim-argwrap")
 	use("terryma/vim-expand-region")
 	use("bitc/vim-bad-whitespace")
 	use("winston0410/cmd-parser.nvim")
 	use("winston0410/range-highlight.nvim")
-
-	-- ETC
 	use({ "windwp/nvim-autopairs" }) -- Autopairs, integrates with both cmp and treesitter
 	use({ "numToStr/Comment.nvim" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 	-- Finder
-	use({ "kyazdani42/nvim-web-devicons", opt = true })
 	use({ "kyazdani42/nvim-tree.lua" })
-	use({ "akinsho/bufferline.nvim" })
 
 	use({ "moll/vim-bbye" })
 	use({ "nvim-lualine/lualine.nvim" })
@@ -128,7 +127,7 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
 	-- Buffer
-	use { "luukvbaal/stabilize.nvim" }
+	use({ "luukvbaal/stabilize.nvim" })
 
 	-- Cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -144,18 +143,18 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
-	--[[ use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer ]]
-	use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" }
+	use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
 
+	-- Format and Linter
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters
 
 	-- Telescope
-	use({ "nvim-telescope/telescope.nvim" })
+	use("nvim-telescope/telescope.nvim")
 
 	-- Git
 	use("airblade/vim-gitgutter")
 	use("tpope/vim-fugitive")
-	use { 'lewis6991/gitsigns.nvim', }
+	use("lewis6991/gitsigns.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
