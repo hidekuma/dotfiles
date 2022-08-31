@@ -16,15 +16,14 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		--[[ formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }), ]]
 		formatting.black,
 		formatting.stylua,
-		formatting.prettier,
 		diagnostics.ktlint.with({
 			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
 		}),
 		diagnostics.djlint,
-		diagnostics.eslint_d,
+		--[[ diagnostics.eslint_d, ]]
 		code_actions.gitsigns,
 		--[[ formatting.isort, ]]
 		-- diagnostics.mypy,
