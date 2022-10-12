@@ -24,9 +24,9 @@ null_ls.setup({
 		}),
 		diagnostics.djlint,
 		--[[ diagnostics.eslint_d, ]]
-		code_actions.gitsigns,
+		--[[ code_actions.gitsigns, ]]
 		--[[ formatting.isort, ]]
-		-- diagnostics.mypy,
+		diagnostics.mypy,
 	},
 	root_dir = lspconfig.util.root_pattern(".null-ls-root", "Makefile", ".git", "pyproject.toml"),
 	-- you can reuse a shared lspconfig on_attach callback here
