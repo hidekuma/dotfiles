@@ -6,16 +6,24 @@ end
 local lspconfig = require("lspconfig")
 
 local servers = {
+	"marksman",
 	"jsonls",
+	"dockerls",
+	"eslint",
+	"gradle_ls",
+	"groovyls",
+	"cssls",
 	"sumneko_lua",
 	"pyright",
 	"jdtls",
+	"sqlls",
+	"yamlls",
 	"kotlin_language_server",
-	"tsserver"
+	"tsserver",
 }
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
-	automatic_installaion = false
+	automatic_installaion = true,
 })
 
 lsp_installer.setup({

@@ -103,12 +103,13 @@ local mappings = {
 		i = { "<cmd>PackerInstall<cr>", "Install" },
 		s = { "<cmd>PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
+
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
 	g = {
 		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		--[[ g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" }, ]]
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -152,7 +153,7 @@ local mappings = {
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+		--[[ q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" }, ]]
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
