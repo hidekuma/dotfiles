@@ -1,32 +1,47 @@
+-- plugins
+require("user.plugins")
+
+-- basic options
 require("user.options")
 require("user.keymaps")
-require("user.plugins")
+require("user.autocommands")
+
+-- lsp and auto complete
 require("user.cmp")
 require("user.lsp")
+
+-- finder
 require("user.telescope")
-require("user.treesitter")
+require("user.fzf")
+
+-- editing utils
 require("user.autopairs")
 require("user.comment")
-require("user.gitsigns")
-require("user.nvim-tree")
-require("user.bufferline")
-require("user.lualine")
--- require "user.toggleterm"
-require("user.project")
-require("user.impatient")
 require("user.indentline")
-require("user.alpha")
-require("user.whichkey")
-require("user.autocommands")
--- require "user.shade"
-require("user.vim-tmux-navigator")
-require("user.vim-argwrap")
 require("user.vim-translator")
-require("user.vim-easymotion")
-require("user.fzf")
 require("user.range-hightlight")
+require("user.vim-easymotion")
 require("user.stabilize")
+require("user.vim-argwrap")
+
+-- git, project
+require("user.gitsigns")
 require("user.vim-rooter")
 
--- colorsheme
-require("user.nightfox")
+-- navigator
+require("user.nvim-tree")
+require("user.project")
+require("user.alpha")
+require("user.vim-tmux-navigator")
+
+-- style
+require("user.treesitter")
+require("user.lualine")
+require("user.colorscheme")
+
+-- commands
+require("user.whichkey")
+
+-- else
+-- require "user.toggleterm"
+require("user.impatient")

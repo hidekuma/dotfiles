@@ -43,11 +43,7 @@ return packer.startup(function(use)
 	-- Plugin manager
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 
-	-- My plugins here
-
 	-- Files & Search
-	-- use("Shougo/context_filetype.vim")
-	-- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 	use("junegunn/fzf")
 	use("junegunn/fzf.vim")
 
@@ -56,8 +52,7 @@ return packer.startup(function(use)
 
 	-- Styling
 	use("ap/vim-css-color") -- color preview
-	use("sunjon/shade.nvim")
-	use("tmux-plugins/vim-tmux-focus-events") --  with vim-diminactive (tmux)
+	--[[ use("sunjon/shade.nvim") ]]
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
 	use({ "kyazdani42/nvim-web-devicons", opt = true })
@@ -76,11 +71,13 @@ return packer.startup(function(use)
 
 	-- Window
 	use("camspiers/lens.vim") -- vim pane resizing
-	use({ "SmiteshP/nvim-navic" }) -- XXX
-	use({ "akinsho/bufferline.nvim", tag = "v2.*" })
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- Movement
 	use("Lokaltog/vim-easymotion")
+	use("tmux-plugins/vim-tmux-focus-events")
+
+	-- Navigation
 	use("christoomey/vim-tmux-navigator")
 
 	-- Editing utilities
@@ -102,7 +99,6 @@ return packer.startup(function(use)
 	-- Finder
 	use({ "kyazdani42/nvim-tree.lua" })
 	use("airblade/vim-rooter")
-
 	use({ "moll/vim-bbye" })
 	use({ "nvim-lualine/lualine.nvim" })
 	-- use({ "akinsho/toggleterm.nvim" })
@@ -114,9 +110,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("EdenEast/nightfox.nvim")
-	use("lunarvim/darkplus.nvim")
 	use({ "folke/tokyonight.nvim" })
-	use("cocopon/iceberg.vim")
 
 	-- Syntax / Indenting
 	use({ "plasticboy/vim-markdown" })

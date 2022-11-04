@@ -80,15 +80,12 @@ local function lsp_keymaps(bufnr)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format{async=true}' ]])
 end
 
-local navic = require("nvim-navic")
 M.on_attach = function(client, bufnr)
 	-- require("notify")(client.name .. " is starting...")
 	-- TODO: refactor this into a method that checks if string in list
 	if client.name == "tsserver" then
 		client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
 	end
-
-	navic.attach(client, bufnr)
 
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
