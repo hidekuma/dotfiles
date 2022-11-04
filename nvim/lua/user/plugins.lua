@@ -113,6 +113,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 
 	-- Colorschemes
+	use("EdenEast/nightfox.nvim")
 	use("lunarvim/darkplus.nvim")
 	use({ "folke/tokyonight.nvim" })
 	use("cocopon/iceberg.vim")
