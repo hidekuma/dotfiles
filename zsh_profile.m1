@@ -86,6 +86,9 @@ alias lg="lazygit"
 # for auto completion of kubectx, kubens
 autoload -U compinit && compinit
 
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
+
 ## Ctags
 # alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
 # alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
