@@ -27,6 +27,7 @@ require("user.vim-argwrap")
 -- git, project
 require("user.gitsigns")
 require("user.vim-rooter")
+require("user.bufferline")
 
 -- navigator
 require("user.nvim-tree")
