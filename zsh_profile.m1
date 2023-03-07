@@ -89,6 +89,10 @@ autoload -U compinit && compinit
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
 
+# iterm2 > preference > key mapping > option + [left | right] -> send [D | C]
+bindkey "^[D" backward-word # ⌥←
+bindkey "^[C" forward-word # ⌥→
+
 ## Ctags
 # alias ctagsphp='ctags -R --fields=+aimlS --languages=php'
 # alias ctagspy="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags . $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")"
