@@ -13,7 +13,7 @@ local servers = {
 	"gradle_ls",
 	"groovyls",
 	"cssls",
-	"sumneko_lua",
+	"lua_ls",
 	"pyright",
 	"jdtls",
 	"sqlls",
@@ -22,7 +22,7 @@ local servers = {
 	"tsserver",
 }
 require("mason-lspconfig").setup({
-	ensure_installed = servers,
+	--[[ ensure_installed = servers, ]]
 	automatic_installaion = true,
 })
 
