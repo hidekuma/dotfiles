@@ -113,7 +113,7 @@ return packer.startup(function(use)
 	use({ "folke/tokyonight.nvim" })
 
 	-- Syntax / Indenting
-	use({ "plasticboy/vim-markdown" })
+	-- use({ "plasticboy/vim-markdown" })
 	-- Plug 'evanleck/vim-svelte', {'branch': 'main'}
 	use({ "hashivim/vim-terraform" })
 	use({ "Vimjas/vim-python-pep8-indent" })
