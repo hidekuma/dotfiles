@@ -68,7 +68,6 @@ return packer.startup(function(use)
 	--[[ 		}) ]]
 	--[[ 	end, ]]
 	--[[ }) ]]
-
 	-- Window
 	use("camspiers/lens.vim") -- vim pane resizing
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
@@ -140,6 +139,14 @@ return packer.startup(function(use)
 
 	-- LSP
 	use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
+	-- DAP
+	-- NOTE: LSP 묶음 뒤에 와야함
+	use({
+		"mfussenegger/nvim-dap",
+		"jay-babu/mason-nvim-dap.nvim",
+	})
+	-- DAP UI
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- Format and Linter
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- for formatters and linters

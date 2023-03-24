@@ -6,9 +6,13 @@ require("user.options")
 require("user.keymaps")
 require("user.autocommands")
 
+-- notify
+require("user.notify")
+
 -- lsp and auto complete
 require("user.cmp")
 require("user.lsp")
+require("user.dap")
 
 -- finder
 require("user.telescope")
