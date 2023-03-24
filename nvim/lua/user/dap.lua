@@ -8,6 +8,7 @@ end
 
 dap.set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
 
+--[[ Commands ]]
 vim.fn.sign_define("DapBreakpoint", { text = "🐞" })
 -- Start debugging session
 vim.keymap.set("n", "<localleader>ds", function()
@@ -37,38 +38,104 @@ vim.keymap.set("n", "<localleader>de", function()
 	require("notify")("Debugger session ended", "warn")
 end)
 
+local func_python = function()
+	local cwd = vim.fn.getcwd()
+	if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+		return cwd .. "/venv/bin/python"
+	elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+		return cwd .. "/.venv/bin/python"
+	elseif vim.fn.executable(os.getenv("VIRTUAL_ENV") .. "/bin/python") == 1 then
+		return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+	else
+		return "/usr/bin/python"
+	end
+end
+
 dap.adapters.python = {
 	type = "executable",
 	command = vim.fn.stdpath("data") .. "/mason/bin/debugpy-adapter",
-	--[[ args = {
-		"--host",
-		"localhost",
-		"--port",
-		"${port}",
-	}, ]]
 }
+--[[ dap.adapters.python = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = vim.fn.stdpath("data") .. "/mason/bin/debugpy",
+		args = {
+			"--listen",
+			"localhost:${port}",
+		},
+	},
+} ]]
 dap.configurations = {
 	python = {
 		{
 			type = "python",
+			name = "Launch Python File",
 			request = "launch",
-			name = "launch File",
 			program = "${file}", -- This configuration will launch the current file if used.
-			pythonPath = function()
-				local cwd = vim.fn.getcwd()
-				if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-					return cwd .. "/venv/bin/python"
-				elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-					return cwd .. "/.venv/bin/python"
-				elseif vim.fn.executable(os.getenv("VIRTUAL_ENV") .. "/bin/python") == 1 then
-					return os.getenv("VIRTUAL_ENV") .. "/bin/python"
-				else
-					return "/usr/bin/python"
-				end
-			end,
-			--[[ executable = { ]]
-			--[[ 	command = "~/.local/share/nvim/mason/bin/debugpy-adapter", ]]
-			--[[ }, ]]
+			pythonPath = func_python,
+		},
+		--[[ {
+			type = "python",
+			name = "Attach (Pick Process)",
+			request = "attach",
+			mode = "local",
+			processId = require("dap.utils").pick_proecess,
+			-- processId = "${command:pickProcess}",
+		}, ]]
+		--[[ {
+			type = "python",
+			name = "Attach (127.0.0.1:9598)",
+			request = "attach",
+			mode = "remote",
+			port = "9598",
+		}, ]]
+		--[[ {
+			type = "python",
+			name = "Attach(:9598)",
+			request = "attach",
+			port = "9598",
+			host = "localhost",
+			mode = "remote",
+		}, ]]
+
+		{
+			type = "python",
+			name = "Project(Django): runserver",
+			request = "launch",
+			program = "manage.py",
+			args = {
+				"runserver",
+				"9898",
+			},
+			pythonPath = func_python,
+			--[[ pathMappings = {
+				{
+					localRoot = "${workspaceFolder}",
+					remoteRoot = "/app",
+				},
+			}, ]]
+		},
+		{
+			type = "python",
+			name = "Project(FastAPI): server.main:app",
+			request = "launch",
+			module = "uvicorn",
+			--[[ jinja = true, -- ?? 동작할랑가 ]]
+			--[[ justMyCode = true, -- ?? 동작할랑가 ]]
+			args = {
+				"server.main:app",
+				--[[ "--reload", ]]
+				"--port",
+				"9898",
+			},
+			pythonPath = func_python,
+			--[[ pathMappings = {
+				{
+					localRoot = "${workspaceFolder}",
+					remoteRoot = "/app",
+				},
+			}, ]]
 		},
 	},
 }

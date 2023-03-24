@@ -56,6 +56,7 @@ return packer.startup(function(use)
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
 	use({ "kyazdani42/nvim-web-devicons", opt = true })
+
 	--[[ use({ ]]
 	-- XXX
 	--[[ 	"glepnir/lspsaga.nvim", ]]
