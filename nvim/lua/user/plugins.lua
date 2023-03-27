@@ -51,7 +51,7 @@ return packer.startup(function(use)
 	use("voldikss/vim-translator")
 
 	-- Styling
-	use("ap/vim-css-color") -- color preview
+	use("ap/vim-css-color")      -- color preview
 	--[[ use("sunjon/shade.nvim") ]]
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
@@ -126,16 +126,16 @@ return packer.startup(function(use)
 	use({ "luukvbaal/stabilize.nvim" })
 
 	-- Cmp plugins
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
+	use({ "hrsh7th/nvim-cmp" })  -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	use({ "hrsh7th/cmp-path" }) -- path completions
+	use({ "hrsh7th/cmp-path" })  -- path completions
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "hrsh7th/cmp-cmdline" })
 
 	-- Snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
+	use({ "L3MON4D3/LuaSnip" })            --snippet engine
+	use({ "saadparwaiz1/cmp_luasnip" })    -- snippet completions
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
