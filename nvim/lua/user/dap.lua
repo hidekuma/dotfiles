@@ -145,7 +145,11 @@ require("mason-nvim-dap").setup({
 })
 
 ui.setup({
-	icons = { expanded = "▾", collapsed = "▸" },
+	icons = {
+		expanded = "▾",
+		collapsed = "▸",
+		current_frame = "-",
+	},
 	mappings = {
 		open = "o",
 		remove = "d",
@@ -170,6 +174,10 @@ ui.setup({
 			size = 0.3,
 			position = "bottom",
 		},
+	},
+	controls = {
+		element = "repl",
+		enabled = false,
 	},
 	floating = {
 		max_height = nil,
