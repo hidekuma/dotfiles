@@ -55,7 +55,7 @@ return packer.startup(function(use)
 	--[[ use("sunjon/shade.nvim") ]]
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
-	use({ "kyazdani42/nvim-web-devicons", opt = true })
+	use("nvim-tree/nvim-web-devicons")
 
 	--[[ use({ ]]
 	-- XXX
@@ -71,7 +71,7 @@ return packer.startup(function(use)
 	--[[ }) ]]
 	-- Window
 	use("camspiers/lens.vim") -- vim pane resizing
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
 	-- Movement
 	use("Lokaltog/vim-easymotion")
@@ -124,7 +124,7 @@ return packer.startup(function(use)
 
 	-- Buffer
 	use({ "luukvbaal/stabilize.nvim" })
-
+	--[[ use({ "romgrk/barbar.nvim", requires = "nvim-tree/nvim-web-devicons" }) ]]
 	-- Cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
@@ -161,6 +161,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 
 	-- Git
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("airblade/vim-gitgutter")
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
