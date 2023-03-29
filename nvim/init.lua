@@ -13,6 +13,7 @@ require("user.notify")
 require("user.cmp")
 require("user.lsp")
 require("user.dap")
+require("user.neodev")
 
 -- finder
 require("user.telescope")
