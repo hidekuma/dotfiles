@@ -17,13 +17,12 @@ local diagnostics = {
 	always_visible = true,
 }
 
-local diff = {
+--[[ local diff = {
 	"diff",
 	colored = false,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-	cond = hide_in_width
-}
-
+	cond = hide_in_width,
+} ]]
 local mode = {
 	"mode",
 	fmt = function(str)
@@ -71,15 +70,6 @@ lualine.setup({
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
 	},
-	sections = {
-		lualine_a = { branch, diagnostics },
-		lualine_b = { mode },
-		lualine_c = { "filename" },
-		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
-	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
@@ -88,6 +78,21 @@ lualine.setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = {},
-	extensions = {},
+	sections = {
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", diagnostics },
+		lualine_c = { "tabs", "filename" },
+		lualine_x = { "encoding", spaces, "fileformat", "filetype" },
+		lualine_y = { progress },
+		lualine_z = { "location" },
+	},
+	tabline = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { "filename", "lsp_progress" },
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
+	},
+	extensions = { "fzf", "fugitive" },
 })

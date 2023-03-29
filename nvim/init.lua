@@ -50,3 +50,6 @@ require("user.whichkey")
 -- else
 -- require "user.toggleterm"
 require("user.impatient")
+
+-- ai
+require("user.tabnine")

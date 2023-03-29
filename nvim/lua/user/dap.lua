@@ -103,10 +103,11 @@ dap.configurations = {
 			type = "python",
 			name = "Project(Django): runserver",
 			request = "launch",
-			program = "manage.py",
+			program = vim.fn.getcwd() .. "/manage.py",
 			args = {
 				"runserver",
 				"9898",
+				"--noreload",
 			},
 			pythonPath = func_python,
 			--[[ pathMappings = {
