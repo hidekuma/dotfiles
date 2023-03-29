@@ -13,21 +13,55 @@ local diagnostics = null_ls.builtins.diagnostics
 -- local completion = null_ls.builtins.completion
 local code_actions = null_ls.builtins.code_actions
 local completion = null_ls.builtins.completion
+local utils = require("null-ls.utils")
+
+local func_python = function()
+	local cwd = vim.fn.getcwd()
+	if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+		return cwd .. "/venv/bin/python"
+	elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+		return cwd .. "/.venv/bin/python"
+	elseif vim.fn.executable(os.getenv("VIRTUAL_ENV") .. "/bin/python") == 1 then
+		return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+	else
+		return "/usr/bin/python"
+	end
+end
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		--[[ formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }), ]]
+		-- python
 		formatting.black,
+		formatting.isort,
+		-- NOTE
+		-- install mypy plugins if you want like bottom.
+		--[[ /Users/joseph/.local/share/nvim/mason/packages/mypy/venv/bin/python -m pip install mypy ]]
+		--[[ diagnostics.mypy.with({
+			extra_args = {},
+			runtime_condition = function(params)
+				return utils.path.exists(params.bufname)
+			end,
+		}), ]]
+		diagnostics.djlint,
+
+		-- lua
 		formatting.stylua,
+		-- kotlin
+		-- so slow..
+		--[[ formatting.ktlint, ]]
 		diagnostics.ktlint.with({
 			method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
 		}),
-		diagnostics.djlint,
+		-- json
+		formatting.jq,
+		-- javascript
+		--[[ formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }), ]]
 		--[[ diagnostics.eslint_d, ]]
+		-- markdown
+		formatting.markdownlint,
+		-- git
 		--[[ code_actions.gitsigns, ]]
-		formatting.isort,
-		--[[ diagnostics.mypy, ]]
 	},
 	root_dir = lspconfig.util.root_pattern(".null-ls-root", "Makefile", ".git", "pyproject.toml"),
 	-- you can reuse a shared lspconfig on_attach callback here

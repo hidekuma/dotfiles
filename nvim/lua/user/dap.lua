@@ -147,25 +147,25 @@ ui.setup({
 	},
 	expand_lines = vim.fn.has("nvim-0.7"),
 	layouts = {
-		{
-			elements = {
-				"scopes",
-			},
-			size = 0.3,
-			position = "right",
-		},
+		--[[ { ]]
+		--[[ 	elements = { ]]
+		--[[ 		"scopes", ]]
+		--[[ 	}, ]]
+		--[[ 	size = 0.2, ]]
+		--[[ 	position = "right", ]]
+		--[[ }, ]]
 		{
 			elements = {
 				"repl",
-				"breakpoints",
+				--[[ "breakpoints", ]]
 			},
-			size = 0.3,
+			size = 0.2,
 			position = "bottom",
 		},
 	},
 	controls = {
 		element = "repl",
-		enabled = false,
+		enabled = true,
 	},
 	floating = {
 		max_height = nil,
