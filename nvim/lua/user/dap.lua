@@ -51,9 +51,17 @@ local func_python = function()
 	end
 end
 
-dap.adapters.python = {
-	type = "executable",
-	command = vim.fn.stdpath("data") .. "/mason/bin/debugpy-adapter",
+dap.adapters = {
+	-- Python adapter
+	python = {
+		type = "executable",
+		command = vim.fn.stdpath("data") .. "/mason/bin/debugpy-adapter",
+	},
+	-- Kotlin adapter
+	kotlin = {
+		type = "executable",
+		command = vim.fn.stdpath("data") .. "/mason/bin/kotlin-debug-adapter",
+	},
 }
 --[[ dap.adapters.python = {
 	type = "server",
@@ -67,6 +75,7 @@ dap.adapters.python = {
 	},
 } ]]
 dap.configurations = {
+	-- Python configurations
 	python = {
 		{
 			type = "python",
@@ -75,30 +84,6 @@ dap.configurations = {
 			program = "${file}", -- This configuration will launch the current file if used.
 			pythonPath = func_python,
 		},
-		--[[ {
-			type = "python",
-			name = "Attach (Pick Process)",
-			request = "attach",
-			mode = "local",
-			processId = require("dap.utils").pick_proecess,
-			-- processId = "${command:pickProcess}",
-		}, ]]
-		--[[ {
-			type = "python",
-			name = "Attach (127.0.0.1:9598)",
-			request = "attach",
-			mode = "remote",
-			port = "9598",
-		}, ]]
-		--[[ {
-			type = "python",
-			name = "Attach(:9598)",
-			request = "attach",
-			port = "9598",
-			host = "localhost",
-			mode = "remote",
-		}, ]]
-
 		{
 			type = "python",
 			name = "Project(Django): runserver",
@@ -110,20 +95,12 @@ dap.configurations = {
 				"--noreload",
 			},
 			pythonPath = func_python,
-			--[[ pathMappings = {
-				{
-					localRoot = "${workspaceFolder}",
-					remoteRoot = "/app",
-				},
-			}, ]]
 		},
 		{
 			type = "python",
 			name = "Project(FastAPI): server.main:app",
 			request = "launch",
 			module = "uvicorn",
-			--[[ jinja = true, -- ?? 동작할랑가 ]]
-			--[[ justMyCode = true, -- ?? 동작할랑가 ]]
 			args = {
 				"server.main:app",
 				--[[ "--reload", ]]
@@ -131,18 +108,28 @@ dap.configurations = {
 				"9898",
 			},
 			pythonPath = func_python,
-			--[[ pathMappings = {
-				{
-					localRoot = "${workspaceFolder}",
-					remoteRoot = "/app",
-				},
+			--[[ autoReload = {
+				enable = true,
 			}, ]]
+		},
+	},
+	-- Kotlin configurations
+	kotlin = {
+		{
+			type = "kotlin",
+			name = "Project(Kotlin): runserver",
+			request = "launch",
+			module = vim.fn.getcwd() .. "/gradlew",
+			args = {
+				"bootRun",
+			},
 		},
 	},
 }
 
+-- mason-nvim-dap setup
 require("mason-nvim-dap").setup({
-	ensure_installed = { "python" },
+	ensure_installed = { "python", "kotlin", "javadbg" },
 })
 
 ui.setup({

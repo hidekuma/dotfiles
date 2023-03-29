@@ -52,4 +52,4 @@ require("user.whichkey")
 require("user.impatient")
 
 -- ai
-require("user.tabnine")
+--[[ require("user.tabnine") ]]
