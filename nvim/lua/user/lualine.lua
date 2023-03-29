@@ -81,18 +81,17 @@ lualine.setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", diagnostics },
-		lualine_c = { "tabs", "filename" },
-		lualine_x = { "encoding", spaces, "fileformat", "filetype" },
+		lualine_c = { "filename", "lsp_progress" },
+		lualine_x = { "tabnine", "encoding", spaces, "fileformat", "filetype" },
 		lualine_y = { progress },
 		lualine_z = { "location" },
 	},
 	tabline = {
-		lualine_a = {},
+		lualine_a = { "buffers" },
 		lualine_b = {},
-		lualine_c = { "filename", "lsp_progress" },
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
-		lualine_z = {},
+		lualine_z = { "tabs" },
 	},
-	extensions = { "fzf", "fugitive" },
 })
