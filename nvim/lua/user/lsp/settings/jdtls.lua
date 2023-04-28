@@ -1,3 +1,3 @@
 return {
-    filetypes = { "java" }
+    filetypes = { "java" },
 }

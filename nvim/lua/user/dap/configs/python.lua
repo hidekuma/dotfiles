@@ -47,4 +47,20 @@ return {
 				enable = true,
 			}, ]]
 	},
+	{
+		type = "python",
+		name = "Project(FastAPI): src.main:app",
+		request = "launch",
+		module = "uvicorn",
+		args = {
+			"src.main:app",
+			--[[ "--reload", ]]
+			"--port",
+			"9899",
+		},
+		pythonPath = func_python,
+		--[[ autoReload = {
+				enable = true,
+			}, ]]
+	},
 }
