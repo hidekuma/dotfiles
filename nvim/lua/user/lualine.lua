@@ -70,11 +70,11 @@ lualine.setup({
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
 	},
-	inactive_sections = {
+	winbar = {
 		lualine_a = {},
 		lualine_b = {},
 		lualine_c = { "filename" },
-		lualine_x = { "location" },
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
