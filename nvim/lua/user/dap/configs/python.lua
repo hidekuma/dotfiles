@@ -21,7 +21,7 @@ return {
 	},
 	{
 		type = "python",
-		name = "Project(Django): runserver",
+		name = "Project(Django): runserver 9898",
 		request = "launch",
 		program = vim.fn.getcwd() .. "/manage.py",
 		args = {
@@ -33,7 +33,7 @@ return {
 	},
 	{
 		type = "python",
-		name = "Project(FastAPI): server.main:app",
+		name = "Project(FastAPI): server.main:app 9898",
 		request = "launch",
 		module = "uvicorn",
 		args = {
@@ -49,7 +49,7 @@ return {
 	},
 	{
 		type = "python",
-		name = "Project(FastAPI): src.main:app",
+		name = "Project(FastAPI): src.main:app 9899",
 		request = "launch",
 		module = "uvicorn",
 		args = {
