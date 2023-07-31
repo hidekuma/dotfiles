@@ -134,7 +134,7 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-cmdline" })
 
 	-- Copilot
-	--[[ use({ "github/copilot.vim" }) ]]
+	use({ "github/copilot.vim" })
 	-- Tabnine
 	--[[ use({ "codota/tabnine-nvim", run = "./dl_binaries.sh" }) ]]
 	-- Snippets
