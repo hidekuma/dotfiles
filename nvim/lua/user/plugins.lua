@@ -101,7 +101,7 @@ return packer.startup(function(use)
 	use("airblade/vim-rooter")
 	use({ "moll/vim-bbye" })
 	use({ "nvim-lualine/lualine.nvim" })
-	-- use({ "akinsho/toggleterm.nvim" })
+	use({ "akinsho/toggleterm.nvim" })
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "lewis6991/impatient.nvim" })
 	use({ "lukas-reineke/indent-blankline.nvim" })
@@ -133,6 +133,18 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "hrsh7th/cmp-cmdline" })
 
+	-- ChatGPT
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup({})
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
 	-- Copilot
 	use({ "github/copilot.vim" })
 	-- Tabnine

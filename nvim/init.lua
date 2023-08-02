@@ -49,7 +49,7 @@ require("user.colorscheme")
 require("user.whichkey")
 
 -- else
--- require "user.toggleterm"
+require("user.toggleterm")
 require("user.impatient")
 
 -- ai
