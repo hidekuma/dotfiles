@@ -58,6 +58,9 @@ source ~/.local/bin/virtualenvwrapper.sh
 export PATH="/Users/joseph/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+# OPEN AI
+export OPENAI_API_HOST="api.openai.com"
+
 # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
