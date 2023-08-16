@@ -55,7 +55,7 @@ return packer.startup(function(use)
 	--[[ use("sunjon/shade.nvim") ]]
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
-	use("nvim-tree/nvim-web-devicons")
+	-- use("nvim-tree/nvim-web-devicons")
 
 	--[[ use({ ]]
 	-- XXX
@@ -97,7 +97,12 @@ return packer.startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 	-- Finder
-	use({ "kyazdani42/nvim-tree.lua" })
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional
+		},
+	}
 	use("airblade/vim-rooter")
 	use({ "moll/vim-bbye" })
 	use({ "nvim-lualine/lualine.nvim" })

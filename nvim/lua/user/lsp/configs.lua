@@ -53,36 +53,5 @@ for _, server in pairs(servers) do
 	if has_custom_opts then
 		opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
 	end
-	if server == "pylsp" then
-		opts['filetypes'] = { "python" }
-		opts['settings'] = {
-			-- configurationSources = { "flake8" },
-			formatCommand = { "isort" },
-			pylsp = {
-				plugins = {
-					-- formatter options
-					black = { enabled = true },
-					-- autopep8 = { enabled = false },
-					-- yapf = { enabled = false },
-					-- linter options
-					-- pylint = { enabled = false, executable = "pylint" },
-					-- ruff = { enabled = false },
-					-- pyflakes = { enabled = false },
-					-- pycodestyle = { enabled = false },
-					-- type checker
-					-- pylsp_mypy = {
-					--   enabled = true,
-					--   overrides = { "--python-executable", py_path, true },
-					--   report_progress = true,
-					--   live_mode = false
-					-- },
-					-- auto-completion options
-					-- jedi_completion = { fuzzy = true },
-					-- import sorting
-					isort = { enabled = true }
-				}
-			}
-		}
-	end
 	lspconfig[server].setup(opts)
 end
