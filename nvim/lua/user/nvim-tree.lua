@@ -3,10 +3,11 @@ if not status_ok then
 	return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-	return
-end
+-- 업데이트 후 커맨드 못찾아서 제거처리
+-- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+-- if not config_status_ok then
+-- 	return
+-- end
 
 --
 -- This function has been generated from your
