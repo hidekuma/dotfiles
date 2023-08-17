@@ -5,8 +5,8 @@ return {
   settings = {
     python = {
       analysis = {
-        diagnosticMode = "openFilesOnly",
-        -- diagnosticMode = "workspace",
+        -- diagnosticMode = "openFilesOnly",
+        diagnosticMode = "workspace",
         autoSearchPaths = true,
         useLibraryCodeForTypes = true
       },
