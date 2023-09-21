@@ -36,6 +36,7 @@ return {
                 },
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
+                mccabe = { enabled = false },
                 -- rope_autoimport = { enabled = true },
             }
         }
