@@ -192,7 +192,7 @@ local mappings = {
 		name = "Test",
 		p = { "<cmd>lua require('rest-nvim').run(true)<cr>", "Http: preview" },
 		t = { "<cmd>lua require('rest-nvim').run()<cr>", "Http: run the request" },
-		l = { "<cmd>lua require('rest-nvim').run()<cr>", "Http: re-run the last" }
+		l = { "<cmd>lua require('rest-nvim').last()<cr>", "Http: re-run the last" }
 	}
 }
 
