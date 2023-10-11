@@ -51,7 +51,7 @@ return packer.startup(function(use)
 	use("voldikss/vim-translator")
 
 	-- Styling
-	use("ap/vim-css-color") -- color preview
+	use("ap/vim-css-color")      -- color preview
 	--[[ use("sunjon/shade.nvim") ]]
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
@@ -109,7 +109,7 @@ return packer.startup(function(use)
 	use({ "akinsho/toggleterm.nvim" })
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "lewis6991/impatient.nvim" })
-	use({ "lukas-reineke/indent-blankline.nvim" })
+	use({ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.8" })
 	use({ "goolord/alpha-nvim" })
 	use("folke/which-key.nvim")
 
@@ -131,9 +131,9 @@ return packer.startup(function(use)
 	use({ "luukvbaal/stabilize.nvim" })
 	--[[ use({ "romgrk/barbar.nvim", requires = "nvim-tree/nvim-web-devicons" }) ]]
 	-- Cmp plugins
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
+	use({ "hrsh7th/nvim-cmp" })  -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	use({ "hrsh7th/cmp-path" }) -- path completions
+	use({ "hrsh7th/cmp-path" })  -- path completions
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "hrsh7th/cmp-cmdline" })
@@ -155,8 +155,8 @@ return packer.startup(function(use)
 	-- Tabnine
 	--[[ use({ "codota/tabnine-nvim", run = "./dl_binaries.sh" }) ]]
 	-- Snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
-	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
+	use({ "L3MON4D3/LuaSnip" })            --snippet engine
+	use({ "saadparwaiz1/cmp_luasnip" })    -- snippet completions
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
@@ -181,6 +181,51 @@ return packer.startup(function(use)
 	use("airblade/vim-gitgutter")
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
+
+	-- Test
+	use {
+		"rest-nvim/rest.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("rest-nvim").setup({
+				-- Open request results in a horizontal split
+				result_split_horizontal = false,
+				-- Keep the http file buffer above|left when split horizontal|vertical
+				result_split_in_place = false,
+				-- Skip SSL verification, useful for unknown certificates
+				skip_ssl_verification = false,
+				-- Encode URL before making request
+				encode_url = true,
+				-- Highlight request on run
+				highlight = {
+					enabled = true,
+					timeout = 150,
+				},
+				result = {
+					-- toggle showing URL, HTTP info, headers at top the of result window
+					show_url = true,
+					-- show the generated curl command in case you want to launch
+					-- the same request via the terminal (can be verbose)
+					show_curl_command = false,
+					show_http_info = true,
+					show_headers = true,
+					-- executables or functions for formatting response body [optional]
+					-- set them to false if you want to disable them
+					formatters = {
+						json = "jq",
+						html = function(body)
+							return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
+						end
+					},
+				},
+				-- Jump to request line on run
+				jump_to_request = false,
+				env_file = '.env',
+				custom_dynamic_variables = {},
+				yank_dry_run = true,
+			})
+		end
+	}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

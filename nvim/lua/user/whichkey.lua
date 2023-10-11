@@ -178,7 +178,7 @@ local mappings = {
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
-	t = {
+	T = {
 		name = "Terminal",
 		-- n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
 		-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
@@ -188,6 +188,12 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
+	t = {
+		name = "Test",
+		p = { "<cmd>lua require('rest-nvim').run(true)<cr>", "Http: preview" },
+		t = { "<cmd>lua require('rest-nvim').run()<cr>", "Http: run the request" },
+		l = { "<cmd>lua require('rest-nvim').run()<cr>", "Http: re-run the last" }
+	}
 }
 
 which_key.setup(setup)
