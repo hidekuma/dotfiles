@@ -82,7 +82,7 @@ alias ta='tmux attach'
 alias cat='bat'
 alias ls="lsd"
 alias ll="lsd -l"
-alias lt="lsd --tree"
+alias lt="lsd --tree -I '__pycache__' -I 'node_modules'"
 alias lg="lazygit"
 
 
