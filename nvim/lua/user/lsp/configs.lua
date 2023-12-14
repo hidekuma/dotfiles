@@ -1,11 +1,9 @@
-local status_ok, lsp_installer = pcall(require, "mason")
+local status_ok, mason = pcall(require, "mason")
 if not status_ok then
 	return
 end
 
-local lspconfig = require("lspconfig")
-
-local servers = {
+local SERVERS = {
 	"marksman",
 	"jsonls",
 	"dockerls",
@@ -16,21 +14,23 @@ local servers = {
 	"lua_ls",
 	"pyright",
 	"pylsp",
-	"jdtls",
+	-- "jdtls", java 11 버전 지원을 위해 수동으로 설치진행 MasonInstall jdtls@0.57
 	"sqlls",
 	"yamlls",
 	"kotlin_language_server",
 	"tsserver",
 }
+
+
+mason.setup()
 require("mason-lspconfig").setup({
-	--[[ ensure_installed = servers, ]]
-	automatic_installaion = true,
+	ensure_installed = SERVERS,
+	automatic_installaion = {
+		exclude = "jdtls"
+	},
 })
 
-lsp_installer.setup({
-	--[[ ensure_installed = servers, ]]
-	--[[ automatic_installaion = true ]]
-})
+local lspconfig = require("lspconfig")
 
 -- local venv_path = os.getenv('VIRTUAL_ENV')
 -- local py_path = nil
@@ -41,7 +41,7 @@ lsp_installer.setup({
 -- 	py_path = vim.g.python3_host_prog
 -- end
 
-for _, server in pairs(servers) do
+for _, server in pairs(SERVERS) do
 	local opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
 		capabilities = require("user.lsp.handlers").capabilities,
