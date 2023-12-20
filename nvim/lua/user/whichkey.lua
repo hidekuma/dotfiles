@@ -81,21 +81,12 @@ local opts = {
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["A"] = { "<cmd>ArgWrap<cr>", "ArgWrap" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{})<cr>",
-		"Buffers",
-	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["Q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["ff"] = {
-		"<cmd>Telescope find_files <CR>",
-		"Find files",
-	},
-	--[[ ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" }, ]]
-	["F"] = { "<cmd>:Telescope live_grep <CR>", "Find Text" },
+	-- ["F"] = { "<cmd>:Telescope live_grep <CR>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	p = {
 		name = "Packer",
@@ -124,17 +115,10 @@ local mappings = {
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-		u = {
-			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-			"Undo Stage Hunk",
-		},
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+		u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
+		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
-		},
+		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 	},
 	l = {
 		name = "LSP",
@@ -167,9 +151,10 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
-	s = {
-		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+	f = {
+		name = "Find",
+		f = { "<cmd>Telescope find_files <CR>", "Find files", },
+		F = { "<cmd>Telescope live_grep <CR>", "Find files", },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -177,6 +162,7 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
+		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 	},
 	T = {
 		name = "Terminal",
