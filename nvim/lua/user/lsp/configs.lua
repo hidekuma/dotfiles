@@ -34,12 +34,18 @@ local lspconfig = require("lspconfig")
 
 -- local venv_path = os.getenv('VIRTUAL_ENV')
 -- local py_path = nil
--- -- decide which python executable to use for mypy
+-- decide which python executable to use for mypy
 -- if venv_path ~= nil then
 -- 	py_path = venv_path .. "/bin/python3"
 -- else
 -- 	py_path = vim.g.python3_host_prog
 -- end
+
+vim.api.nvim_exec(
+	[[
+	let g:loaded_python_provider = 0
+	let g:python3_host_prog='~/.virtualenvs/neovim3.9/bin/python'
+]], true)
 
 for _, server in pairs(SERVERS) do
 	local opts = {

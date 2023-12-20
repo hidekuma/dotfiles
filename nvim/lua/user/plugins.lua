@@ -160,6 +160,8 @@ return packer.startup(function(use)
 
 	-- LSP
 	use({ "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig" })
+	-- InteliJ ide
+	-- use({ "beeender/Comrade" })
 	-- DAP
 	-- NOTE: LSP 묶음 뒤에 와야함
 	use({
