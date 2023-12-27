@@ -12,7 +12,8 @@ return {
         useLibraryCodeForTypes = true,
         autoImportCompletions = true,
         diagnosticSeverityOverrides = {
-          reportGeneralTypeIssues = "information"
+          reportGeneralTypeIssues = "information",
+          reportIncompatibleMethodOverride = "information"
         }
       },
     },
