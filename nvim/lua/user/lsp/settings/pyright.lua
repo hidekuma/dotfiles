@@ -13,7 +13,8 @@ return {
         autoImportCompletions = true,
         diagnosticSeverityOverrides = {
           reportGeneralTypeIssues = "information",
-          reportIncompatibleMethodOverride = "information"
+          reportIncompatibleMethodOverride = "information",
+          reportIncompatibleVariableOverride = "information"
         }
       },
     },
