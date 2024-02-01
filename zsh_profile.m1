@@ -68,6 +68,7 @@ alias vi=$EDITOR
 alias vim=$EDITOR
 alias dkr=docker
 alias dkrp='docker-compose'
+alias tg='terragrunt'
 alias tf='terraform'
 alias tfp='terraform plan'
 alias tfw='terraform workspace'
