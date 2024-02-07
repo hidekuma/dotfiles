@@ -1,6 +1,6 @@
 #!/bin/bash
 brew install python3
-pip3 install virtualenv virtualenvwrapper
+pip3 install --user virtualenv virtualenvwrapper
 mkdir ~/.virtualenvs
 echo "export WORKON_HOME=~/.virtualenvs" >> ../.zsh_profile
 echo "export VIRTUALENVWRAPPER_PYTHON=$(which python3)" >> ../.zsh_profile

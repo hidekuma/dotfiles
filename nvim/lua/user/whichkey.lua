@@ -96,15 +96,15 @@ local mappings = {
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
-	G = {
-		name = "ChatGPT",
-		e = {
-			function()
-				require("chatgpt").edit_with_instructions()
-			end,
-			"Edit with instructions",
-		},
-	},
+	-- G = {
+	-- 	name = "ChatGPT",
+	-- 	e = {
+	-- 		function()
+	-- 			require("chatgpt").edit_with_instructions()
+	-- 		end,
+	-- 		"Edit with instructions",
+	-- 	},
+	-- },
 	g = {
 		name = "Git",
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },

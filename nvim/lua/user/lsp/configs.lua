@@ -9,7 +9,7 @@ local SERVERS = {
 	"dockerls",
 	"eslint",
 	"gradle_ls",
-	"groovyls",
+	-- "groovyls",
 	"cssls",
 	"lua_ls",
 	"pyright",
