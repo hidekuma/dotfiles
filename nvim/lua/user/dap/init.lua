@@ -1,4 +1,4 @@
-local dap_ok, dap = pcall(require, "dap")
+local dap_ok, dap = pcall(require, "mason-nvim-dap")
 local dap_ui_ok, _ = pcall(require, "dapui")
 
 if not (dap_ok and dap_ui_ok) then
@@ -6,7 +6,6 @@ if not (dap_ok and dap_ui_ok) then
 	return
 end
 
-dap.set_log_level("INFO") -- Helps when configuring DAP, see logs with :DapShowLog
 
 require("user.dap.configs")
 require("user.dap.commands")
