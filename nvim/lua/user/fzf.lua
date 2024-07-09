@@ -1,5 +1,5 @@
 vim.api.nvim_exec(
-  [[
+	[[
 let g:fzf_colors =
     \ { 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
@@ -45,7 +45,7 @@ endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 ]],
-  true)
+	true)
 
 local opts = { noremap = false, silent = true }
 local keymap = vim.api.nvim_set_keymap

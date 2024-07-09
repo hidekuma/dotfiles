@@ -12,7 +12,7 @@ require("user.notify")
 -- lsp and auto complete
 require("user.cmp")
 require("user.lsp")
-require("user.dap")
+-- require("user.dap")
 require("user.neodev")
 
 -- finder
