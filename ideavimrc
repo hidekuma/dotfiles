@@ -1,0 +1,202 @@
+" Action list 는 https://gist.github.com/zchee/9c78f91cc5ad771c1f5d 참고
+" https://github.com/JetBrains/ideavim/discussions/303?sort=top
+
+" leader key
+let mapleader = ' '
+
+" redo
+noremap U <C-r>
+
+" map black whole register
+noremap \ "_
+
+" paste over without overwriting default register
+xnoremap p P
+
+" sync Vim clipboard with OS clipboard
+set clipboard^=unnamed,unnamedplus
+
+# 한 줄 삭제 시 레지스터에 저장시키지 않기 (dd 는 레지스터에 저장)
+map <leader>d "_dd
+
+" jump between angle brackets
+set matchpairs+=<:>
+
+" smart line joining
+set ideajoin
+
+" open config
+noremap <leader>cc :edit ~/.ideavimrc<cr>
+
+" source config
+noremap <leader>cs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+
+" highlight search results
+set hlsearch
+
+" remove search highlights
+nnoremap <Esc> :nohlsearch<cr>
+
+" case-insensitive search
+set ignorecase
+
+" enable case-sensitive search when uppercased letter is present
+set smartcase
+
+" search while typing
+set incsearch
+
+" relative line numbers
+set relativenumber
+
+" consider camelCase and snake_case words when jumping between words
+
+" move to the beginning of the next word
+map w [w
+
+" move to the end of the next word
+map e ]w
+
+" move to the beginning of the previous word
+map b [b
+
+" move to the end of the previous word
+map <S-b> ]b
+
+" go to the left split
+map <C-h> <C-w>h
+
+" go to the bottom split
+map <C-j> <C-w>j
+
+" go to the top split
+map <C-k> <C-w>k
+
+" go to the right split
+map <C-l> <C-w>l
+
+" buffer (buffer < window < tab)
+nmap <leader>xx <Action>(CloseContent)
+nmap <leader>xa <Action>(CloseAllEditors)
+nmap <leader>xo <Action>(CloseAllEditorsButActive)
+nmap <leader>xp <Action>(CloseAllUnpinnedEditors)
+
+" tab
+map <leader>sh <Action>(SplitHorizontally)
+map <leader>sv <Action>(SplitVertically)
+map <leader>wu <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+map <leader>ff <Action>(GotoFile)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fc <Action>(RecentChangedFiles)
+map <leader>sc <Action>(GotoClass)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>sa <Action>(GotoAction)
+map <leader>sg <Action>(FindInPath)
+map <leader>sr <Action>(ReplaceInPath)
+nmap <leader>sf <Action>(ShowFilePath)
+nmap <leader>hh <Action>(LocalHistory.ShowHistory)
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gy <Action>(GotoTypeDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gt <Action>(GotoTest)
+map <leader>gm <Action>(GotoSuperMethod)
+map <leader>gl <Action>(GotoLine)
+
+map <leader>su <Action>(ShowUsages)
+map <leader>s<S-u> <Action>(FindUsages)
+map <S-k> <Action>(QuickImplementations)
+map <leader>hi <Action>(ShowHoverInfo)
+map <leader>oo <Action>(FileStructurePopup)
+
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+map ]e <Action>(GotoNextError)
+map [e <Action>(GotoPreviousError)
+map <leader>lc <Action>(JumpToLastChange)
+map <leader>ll <Action>(RecentLocations)
+nmap <S-Tab> <Action>(PreviousTab)
+nmap <Tab> <Action>(NextTab)
+map [m <Action>(MethodUp)
+map ]m <Action>(MethodDown)
+" Next change, prev change 는 IDE 키보드 설정에서 변경함
+
+map <leader><leader> <Action>(ReformatCode)
+map <leader>oi <Action>(OptimizeImports)
+map <leader>ra <Action>(RearrangeCode)
+
+" code
+map gcc <Action>(CommentByLineComment)
+map <leader>C <Action>(CommentByBlockComment)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>se <Action>(ShowErrorDescription)
+map <leader>om <Action>(OverrideMethods)
+map <leader>im <Action>(ImplementMethods)
+map <leader>fc <Action>(ReformatCode)
+map <leader>ic <Action>(InspectCode)
+map <leader>so <Action>(SelectAllOccurrences)
+map <leader>sw <Action>(SurroundWith)
+map <S-space> <Action>(Generate)
+" 자동 완성 시키는 건 그냥 command shift enter 로 ide 에서 제공하는 기능 사용해도 될 듯
+map <C-[> <Action>(EditorCompleteStatement)
+
+" git
+map <leader>hr <Action>(Vcs.RollbackChangedLines)
+map <leader>gb <Action>(Annotate)
+
+" run
+nmap <leader>rc <Action>(ContextRun)
+nmap <leader>rx <Action>(chooseRunConfiguration)
+nmap <leader>rr <Action>(Rerun)
+nmap <leader>rt <Action>(RunTests)
+nmap <leader>rs <Action>(Stop)
+
+" debug
+nmap <leader>dc <Action>(ContextDebug)
+nmap <leader>dx <Action>(Debug)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>de <Action>(EditBreakpoint)
+nmap <leader>dv <Action>(ViewBreakpoints)
+
+" zen
+nmap <leader>z <Action>(ToggleZenMode)
+
+" hierarchy
+nmap <leader>hc <Action>(CallHierarchy)
+nmap <leader>hm <Action>(MethodHierarchy)
+nmap <leader>ht <Action>(TypeHierarchy)
+
+" terminal
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+nmap <leader>tc <Action>(Terminal.OpenInTerminal)
+
+" bookmark
+nmap mm <Action>(ToggleBookmark)
+nmap ms <Action>(ShowBookmarks)
+
+" todo
+nmap <leader>to <Action>(ActivateTODOToolWindow)
+
+" string manipulate (required idea plugin: String Manipulation)
+nmap <leader>ss <Action>(osmedile.intellij.stringmanip.PopupChoiceAction)
+
+" Lazygit (required idea plugin: LazyGit in Editor Terminal)
+nmap <leader>lg <Action>(LazyGit.Open)
+
+" which-key
+set which-key
+set notimeout
+let g:WhichKey_FontSize = 14
+let g:WhichKey_PrefixColor = "#a403fe"
+let g:WhichKey_CommandColor = "#01ffff"
+let g:WhichKey_PrefixStyle = "bold"
+let g:WhichKey_KeyStyle = "italic"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_ShowTypedSequence = "false"
