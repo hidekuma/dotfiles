@@ -4,9 +4,9 @@ local M = {}
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
-		{ name = "DiagnosticSignWarn",  text = "" },
-		{ name = "DiagnosticSignHint",  text = "" },
-		{ name = "DiagnosticSignInfo",  text = "" },
+		{ name = "DiagnosticSignWarn", text = "" },
+		{ name = "DiagnosticSignHint", text = "" },
+		{ name = "DiagnosticSignInfo", text = "" },
 	}
 
 	for _, sign in ipairs(signs) do
@@ -83,7 +83,7 @@ end
 M.on_attach = function(client, bufnr)
 	--[[ require("notify")(client.name .. " is starting...") ]]
 	-- TODO: refactor this into a method that checks if string in list
-	if client.name == "tsserver" then
+	if client.name == "ts_ls" then
 		client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
 	end
 

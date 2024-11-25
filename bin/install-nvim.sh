@@ -1,7 +1,9 @@
 #!/bin/bash
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-./squashfs-root/usr/bin/nvim
-sudo mv squashfs-root /
-sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+
+# v0.10.2
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-macos-x86_64.tar.gz                                                                                                               130↵
+chmod u+x nvim-macos-x86_64.tar.gz
+tar xzf nvim-macos-x86_64.tar.gz
+# ./nvim-macos-x86_64/bin/nvim
+mv nvim-macos-x86_64 ~/
+sudo ln -sf ~/nvim-macos-x86_64/bin/nvim /usr/local/bin/nvim

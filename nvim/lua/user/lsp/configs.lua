@@ -18,7 +18,7 @@ local SERVERS = {
 	"sqlls",
 	"yamlls",
 	"kotlin_language_server",
-	"tsserver",
+	"ts_ls"
 }
 
 
