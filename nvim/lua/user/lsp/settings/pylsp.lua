@@ -9,6 +9,9 @@ else
 end
 
 
+-- log py_path
+print("py_path: " .. py_path)
+
 -- NOTE
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
 -- ~/.local/share/nvim/mason/bin/pylsp 이쪽에 들어가서 서드파티black 을 pip install 해줘야 black formatting 사용가능
@@ -18,13 +21,21 @@ end
 return {
     settings = {
         pylsp = {
-            -- cmd = { "~/.local/share/nvim/mason/bin/pylsp", "--log-file=~/pylsp.log" },
-            -- cmd = { '/home/eash/scratch/.local/nvim/lsp_servers/pylsp/venv/bin/pylsp', '-v', '-v', '--log-file', '/home/eash/pylsp.log' },
+            -- cmd = { '~/.local/share/nvim/mason/bin/pylsp', '-v', '-v', '--log-file', '/home/eash/pylsp.log' },
             -- cmd_env = {
             --     VIRTUAL_ENV = ".venv",
             --     PATH = lsputil.path.join(".venv", "bin") .. ":" .. vim.env.PATH,
             -- },
+            pycodestyle = {
+                ignore = { "W391" },
+            }
             plugins = {
+                jedi = {
+                    enabled = true,
+                    environment = {
+                        extra_paths = { py_path }
+                    }
+                }
                 black = { enabled = true },
                 isort = { enabled = true },
                 -- type checker
@@ -37,7 +48,7 @@ return {
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
                 mccabe = { enabled = false },
-                -- rope_autoimport = { enabled = true },
+                rope_autoimport = { enabled = true },
             }
         }
     },

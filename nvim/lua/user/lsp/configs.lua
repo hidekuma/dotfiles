@@ -44,7 +44,7 @@ local lspconfig = require("lspconfig")
 vim.api.nvim_exec(
 	[[
 	let g:loaded_python_provider = 0
-	let g:python3_host_prog='~/.virtualenvs/neovim3.9/bin/python'
+	let g:python3_host_prog='~/.virtualenvs/neovim3.12/bin/python'
 ]], true)
 
 for _, server in pairs(SERVERS) do
