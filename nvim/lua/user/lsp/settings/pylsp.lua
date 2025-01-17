@@ -45,9 +45,6 @@ return {
                     report_progress = true,
                     live_mode = false
                 },
-                pyflakes = { enabled = false },
-                pycodestyle = { enabled = false },
-                mccabe = { enabled = false },
                 rope_autoimport = { enabled = true },
             }
         }
