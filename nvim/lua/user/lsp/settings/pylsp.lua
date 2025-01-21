@@ -31,20 +31,11 @@ return {
             }
             plugins = {
                 jedi = {
-                    enabled = true,
                     environment = {
                         extra_paths = { py_path }
                     }
-                }
-                black = { enabled = true },
-                isort = { enabled = true },
-                -- type checker
-                pylsp_mypy = {
-                    enabled = true,
-                    overrides = { "--python-executable", py_path, true },
-                    report_progress = true,
-                    live_mode = false
                 },
+                jedi_completion = { enabled = true },
                 rope_autoimport = { enabled = true },
             }
         }
