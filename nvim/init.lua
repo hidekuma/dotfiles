@@ -31,7 +31,7 @@ require("user.vim-argwrap")
 
 -- git, project
 require("user.gitsigns")
-require("user.vim-rooter")
+-- require("user.vim-rooter")
 -- lualine과 겹침
 --[[ require("user.barbar") ]]
 -- navigator

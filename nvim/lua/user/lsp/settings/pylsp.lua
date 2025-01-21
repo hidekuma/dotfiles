@@ -21,11 +21,6 @@ print("py_path: " .. py_path)
 return {
     settings = {
         pylsp = {
-            -- cmd = { '~/.local/share/nvim/mason/bin/pylsp', '-v', '-v', '--log-file', '/home/eash/pylsp.log' },
-            -- cmd_env = {
-            --     VIRTUAL_ENV = ".venv",
-            --     PATH = lsputil.path.join(".venv", "bin") .. ":" .. vim.env.PATH,
-            -- },
             pycodestyle = {
                 ignore = { "W391" },
             }

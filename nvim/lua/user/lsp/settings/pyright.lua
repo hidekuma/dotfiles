@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 -- local python_path = vim.fn.exepath("python") -- 현재 Neovim에서 실행 중인 Python 경로
 
 return {
-  root_dir = lspconfig.util.root_pattern(".project.root", "pyproject.toml", ".git"),
+  -- root_dir = lspconfig.util.root_pattern(".project.root", "pyproject.toml", ".git"),
   settings = {
     python = {
       -- pythonPath = python_path,
