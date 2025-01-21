@@ -32,8 +32,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv init --path)"
 
 # Rbenv (Ruby)
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # Jenv (Java)
 export PATH="$HOME/.jenv/bin:$PATH"
