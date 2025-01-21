@@ -31,9 +31,7 @@ return {
             }
             plugins = {
                 jedi = {
-                    environment = {
-                        extra_paths = { py_path }
-                    }
+                    extra_paths = { py_path }
                 },
                 jedi_completion = { enabled = true },
                 rope_autoimport = { enabled = true },
