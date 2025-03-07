@@ -14,7 +14,7 @@ fi
 if [ "$PLATFORM" = 'Darwin'  ]; then
     # MAC
     # mysql
-    export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+    # export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
     export EDITOR=nvim
 else
     # Else
@@ -36,8 +36,8 @@ eval "$(pyenv init --path)"
 # eval "$(rbenv init -)"
 
 # Jenv (Java)
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 # Nvm (Node)
 export NVM_DIR="$HOME/.nvm"
@@ -55,11 +55,11 @@ source ~/.local/bin/virtualenvwrapper.sh
 
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/joseph/.rd/bin:$PATH"
+# export PATH="/Users/joseph/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # OPEN AI
-export OPENAI_API_HOST="api.openai.com"
+# export OPENAI_API_HOST="api.openai.com"
 
 # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -103,6 +103,6 @@ bindkey "^[C" forward-word # ⌥→
 
 # GCP
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/hidekuma/Documents/google-cloud-sdk/completion.zsh.inc'; fi
