@@ -1,5 +1,10 @@
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
+	return
+end
+
+local mason_lsp_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lsp_ok then
 	return
 end
 
@@ -23,14 +28,10 @@ local SERVERS = {
 
 
 mason.setup()
-require("mason-lspconfig").setup({
+mason_lspconfig.setup({
 	ensure_installed = SERVERS,
-	automatic_installaion = {
-		exclude = "jdtls"
-	},
+	automatic_enable = false,
 })
-
-local lspconfig = require("lspconfig")
 
 -- local venv_path = os.getenv('VIRTUAL_ENV')
 -- local py_path = nil
@@ -47,10 +48,15 @@ vim.api.nvim_exec(
 	let g:python3_host_prog='~/.virtualenvs/neovim3.12/bin/python'
 ]], true)
 
-for _, server in pairs(SERVERS) do
+local handlers = require("user.lsp.handlers")
+if not handlers then
+	return
+end
+
+local function configure(server)
 	local opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
+		on_attach = handlers.on_attach,
+		capabilities = handlers.capabilities,
 		flags = {
 			debounce_text_changes = 200,
 		},
@@ -59,5 +65,24 @@ for _, server in pairs(SERVERS) do
 	if has_custom_opts then
 		opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
 	end
-	lspconfig[server].setup(opts)
+	local ok, err = pcall(vim.lsp.config, server, opts)
+	if not ok then
+		vim.notify(
+			string.format("Failed to configure LSP server %s via vim.lsp.config(): %s", server, err),
+			vim.log.levels.ERROR
+		)
+		return
+	end
+
+	local enabled, enable_err = pcall(vim.lsp.enable, server)
+	if not enabled then
+		vim.notify(
+			string.format("Failed to enable LSP server %s via vim.lsp.enable(): %s", server, enable_err),
+			vim.log.levels.ERROR
+		)
+	end
+end
+
+for _, server in ipairs(SERVERS) do
+	configure(server)
 end

@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 local venv_path = os.getenv('VIRTUAL_ENV')
 local py_path = nil
 -- decide which python executable to use for mypy
