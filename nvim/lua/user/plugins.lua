@@ -109,7 +109,7 @@ return packer.startup(function(use)
 	use({ "akinsho/toggleterm.nvim" })
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "lewis6991/impatient.nvim" })
-	use({ "lukas-reineke/indent-blankline.nvim", tag = "v2.20.8" })
+	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "goolord/alpha-nvim" })
 	use("folke/which-key.nvim")
 

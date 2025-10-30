@@ -1,3 +1,5 @@
+require("user.compat")
+
 -- plugins
 require("user.plugins")
 
