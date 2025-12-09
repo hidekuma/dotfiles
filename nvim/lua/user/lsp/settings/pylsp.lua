@@ -17,6 +17,8 @@ print("py_path: " .. py_path)
 -- 2023/09/14 updated 경로 변경됨, 재설치
 -- pip install python-lsp-black
 -- /Users/joseph/.local/share/nvim/mason/packages/python-lsp-server/venv
+--  ~/.local/share/nvim/mason/packages/python-lsp-server/venv/bin/pip install pylsp-rope
+
 return {
     settings = {
         pylsp = {

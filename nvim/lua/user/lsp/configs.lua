@@ -8,6 +8,12 @@ if not mason_lsp_ok then
 	return
 end
 
+local lsp_config_api = vim.lsp and vim.lsp.config
+local lsp_enable = vim.lsp and vim.lsp.enable
+if not lsp_config_api or not lsp_enable then
+	return
+end
+
 local SERVERS = {
 	"marksman",
 	"jsonls",
@@ -65,19 +71,20 @@ local function configure(server)
 	if has_custom_opts then
 		opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
 	end
-	local ok, err = pcall(vim.lsp.config, server, opts)
+
+	local ok, err = pcall(lsp_config_api, server, opts)
 	if not ok then
 		vim.notify(
-			string.format("Failed to configure LSP server %s via vim.lsp.config(): %s", server, err),
+			string.format("Failed to configure %s: %s", server, err),
 			vim.log.levels.ERROR
 		)
 		return
 	end
 
-	local enabled, enable_err = pcall(vim.lsp.enable, server)
+	local enabled, enable_err = pcall(lsp_enable, server)
 	if not enabled then
 		vim.notify(
-			string.format("Failed to enable LSP server %s via vim.lsp.enable(): %s", server, enable_err),
+			string.format("Failed to enable %s: %s", server, enable_err),
 			vim.log.levels.ERROR
 		)
 	end
