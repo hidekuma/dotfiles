@@ -21,6 +21,7 @@ else
     export EDITOR=vim
 fi
 
+export FZF_TMUX=1
 export PATH="/usr/local/sbin:$PATH"
 
 # Pyenv (Python)
