@@ -24,7 +24,7 @@ return {
         pylsp = {
             pycodestyle = {
                 ignore = { "W391" },
-            }
+            },
             plugins = {
                 jedi = {
                     extra_paths = { py_path }
