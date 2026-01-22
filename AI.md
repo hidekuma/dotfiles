@@ -171,9 +171,11 @@ Claude가 응답할 때 다음 심볼을 사용하여 30-50% 토큰 절약:
 
 사용 가능한 스킬들 (`~/.config/opencode/skills/`에 위치):
 
-### React Best Practices
-**이름**: `vercel-react-best-practices`
-**설명**: React와 Next.js 성능 최적화 가이드라인 (Vercel Engineering)
+### ⚛️ React & Performance
+
+**React Best Practices** (`react-best-practices`)
+- React와 Next.js 성능 최적화 가이드라인 (Vercel Engineering)
+- 45개 규칙, 8개 카테고리
 
 **사용 시기**:
 - React 컴포넌트나 Next.js 페이지 작성
@@ -181,7 +183,7 @@ Claude가 응답할 때 다음 심볼을 사용하여 30-50% 토큰 절약:
 - 성능 이슈 코드 리뷰
 - 번들 크기나 로드 시간 최적화
 
-**카테고리** (우선순위별):
+**주요 카테고리** (우선순위별):
 1. ⚡ **Eliminating Waterfalls** (CRITICAL) - `async-*`
    - `async-defer-await`: await을 실제 사용하는 브랜치로 이동
    - `async-parallel`: 독립적 작업에 Promise.all() 사용
@@ -197,33 +199,25 @@ Claude가 응답할 때 다음 심볼을 사용하여 30-50% 토큰 절약:
    - `server-cache-lru`: LRU 캐시로 cross-request 캐싱
    - `server-parallel-fetching`: 컴포넌트 재구성으로 fetch 병렬화
 
-4. 🌐 **Client-Side Data Fetching** (MEDIUM-HIGH) - `client-*`
-   - `client-swr-dedup`: SWR로 자동 요청 중복 제거
-
-5. 🔄 **Re-render Optimization** (MEDIUM) - `rerender-*`
-   - `rerender-memo`: 비용 높은 작업을 memoized 컴포넌트로 추출
-   - `rerender-dependencies`: effect에 primitive 의존성 사용
-
-6. 🎨 **Rendering Performance** (MEDIUM) - `rendering-*`
-7. ⚡ **JavaScript Performance** (LOW-MEDIUM) - `js-*`
-8. 🧩 **Advanced Patterns** (LOW) - `advanced-*`
-
-**참조**: `skills/react-best-practices/SKILL.md`
+4. 🔄 **Re-render Optimization** (MEDIUM) - `rerender-*`
+5. 🎨 **Rendering Performance** (MEDIUM) - `rendering-*`
+6. ⚡ **JavaScript Performance** (LOW-MEDIUM) - `js-*`
 
 ---
 
-### Web Design Guidelines
-**이름**: `web-design-guidelines`
-**설명**: 웹 인터페이스 베스트 프랙티스에 대한 UI 코드 리뷰
+### 🎨 UI/UX & Design
+
+**Web Design Guidelines** (`web-design-guidelines`)
+- 웹 인터페이스 베스트 프랙티스 UI 코드 리뷰
+- 100+ 규칙 체크
 
 **트리거**:
 - "Review my UI"
 - "Check accessibility"
 - "Audit design"
 - "Review UX"
-- "Check my site against best practices"
 
-**카테고리**:
+**주요 카테고리**:
 - ♿ Accessibility (aria-labels, semantic HTML, keyboard handlers)
 - 🎯 Focus States (visible focus, focus-visible patterns)
 - 📝 Forms (autocomplete, validation, error handling)
@@ -231,107 +225,19 @@ Claude가 응답할 때 다음 심볼을 사용하여 30-50% 토큰 절약:
 - 📐 Typography (curly quotes, ellipsis, tabular-nums)
 - 🖼️ Images (dimensions, lazy loading, alt text)
 - ⚡ Performance (virtualization, layout thrashing, preconnect)
-- 🧭 Navigation & State (URL reflects state, deep-linking)
 - 🌓 Dark Mode & Theming (color-scheme, theme-color meta)
 - 📱 Touch & Interaction (touch-action, tap-highlight)
 - 🌍 Locale & i18n (Intl.DateTimeFormat, Intl.NumberFormat)
 
 **사용법**:
-1. 최신 가이드라인 fetch: `https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md`
+1. 최신 가이드라인 fetch
 2. 지정된 파일 읽기
-3. 모든 규칙에 대해 체크
-4. `file:line` 포맷으로 결과 출력
-
-**참조**: `skills/web-design-guidelines/SKILL.md`
+3. 모든 규칙 체크
+4. `file:line` 포맷으로 출력
 
 ---
 
-### Vercel Deploy
-**이름**: `vercel-deploy`
-**설명**: Vercel에 앱과 웹사이트를 즉시 배포. 인증 불필요 - claimable deployment 방식
-
-**트리거**:
-- "Deploy my app"
-- "Deploy this to production"
-- "Push this live"
-- "Deploy and give me the link"
-
-**기능**:
-- 40+ 프레임워크 자동 감지 (`package.json`에서)
-- Preview URL (라이브 사이트) + Claim URL (소유권 이전) 반환
-- 정적 HTML 프로젝트 자동 처리
-- `node_modules`, `.git` 제외
-
-**작동 방식**:
-1. 프로젝트를 tarball로 패키징
-2. 프레임워크 감지 (Next.js, Vite, Astro 등)
-3. 배포 서비스에 업로드
-4. Preview URL과 Claim URL 반환
-
-**지원 프레임워크**:
-- React: Next.js, Gatsby, CRA, Remix
-- Vue: Nuxt, Vitepress, Vuepress
-- Svelte: SvelteKit
-- 기타: Astro, Angular, Solid, Express, Hono 등
-
-**참조**: `skills/claude.ai/vercel-deploy-claimable/SKILL.md`
-
----
-
----
-
-## 🎨 Anthropic Agent Skills
-
-Anthropic의 공식 스킬들 (`~/.config/opencode/anthropic-skills/skills/`):
-
-### 🎨 Creative & Design
-
-**Algorithmic Art** (`algorithmic-art`)
-- p5.js로 알고리즘 아트 생성
-- 시드 랜덤, 플로우 필드, 파티클 시스템
-- 트리거: "generative art", "algorithmic art", "flow fields"
-
-**Canvas Design** (`canvas-design`)
-- 아름다운 시각 아트를 .png/.pdf로 생성
-- 디자인 철학 기반 포스터/아트 제작
-- 트리거: "create a poster", "piece of art", "design"
-
-**Frontend Design** (`frontend-design`)
-- 고품질 프론트엔드 인터페이스 생성
-- 독창적이고 프로덕션급 UI/UX
-- 트리거: "build web components", "landing page", "dashboard"
-- ⚠️ 일반적인 "AI slop" 미학 회피 (centered layouts, purple gradients, Inter font)
-
-**Theme Factory** (`theme-factory`)
-- 10개 프리셋 테마 + 커스텀 테마 생성
-- 슬라이드, 문서, 리포트, 랜딩 페이지에 적용
-- 컬러 팔레트 + 폰트 페어링
-
-**Slack GIF Creator** (`slack-gif-creator`)
-- Slack 최적화 애니메이션 GIF 생성
-- 크기: 128x128 (emoji) / 480x480 (message)
-- FPS: 10-30, 3초 이하 권장
-
----
-
-### 💼 Enterprise & Communication
-
-**Brand Guidelines** (`brand-guidelines`)
-- Anthropic 공식 브랜드 컬러 & 타이포그래피 적용
-- 트리거: "brand colors", "style guidelines", "corporate identity"
-
-**Internal Comms** (`internal-comms`)
-- 내부 커뮤니케이션 작성 (3P 업데이트, 뉴스레터, FAQ 등)
-- 트리거: "status report", "leadership update", "incident report"
-
-**Doc Co-authoring** (`doc-coauthoring`)
-- 문서 공동 작성 워크플로우
-- 3단계: Context Gathering → Refinement → Reader Testing
-- 트리거: "write documentation", "draft proposal", "create spec"
-
----
-
-### 🛠️ Development & Technical
+### 🛠️ Development Tools
 
 **MCP Builder** (`mcp-builder`)
 - 고품질 MCP 서버 생성 가이드
@@ -342,35 +248,21 @@ Anthropic의 공식 스킬들 (`~/.config/opencode/anthropic-skills/skills/`):
 - 복잡한 다중 컴포넌트 HTML 아티팩트 생성
 - 스택: React 18 + TypeScript + Vite + Tailwind + shadcn/ui
 - 상태 관리, 라우팅, shadcn/ui 컴포넌트 필요 시 사용
+- ⚠️ "AI slop" 회피 원칙 적용
 
 **WebApp Testing** (`webapp-testing`)
 - Playwright로 로컬 웹앱 테스트
 - 프론트엔드 기능 검증, UI 디버깅, 스크린샷, 브라우저 로그
+- 헬퍼 스크립트: `scripts/with_server.py`
 
 **Skill Creator** (`skill-creator`)
 - 새로운 스킬 생성 가이드
 - 트리거: "create a new skill", "update existing skill"
 
----
-
-### 📄 Document Skills (Proprietary)
-
-**DOCX** (`docx`)
-- Word 문서 생성/편집/분석
-- Tracked changes, comments, formatting preservation
-
-**PDF** (`pdf`)
-- PDF 텍스트/표 추출, 생성, 병합/분할
-- 폼 작성 지원
-
-**PPTX** (`pptx`)
-- PowerPoint 프레젠테이션 생성/편집/분석
-- 레이아웃, 코멘트, 스피커 노트
-
-**XLSX** (`xlsx`)
-- Excel 스프레드시트 생성/편집/분석
-- 수식, 포맷, 데이터 분석, 시각화
-- ⚠️ ZERO formula errors 원칙
+**Vercel Deploy** (`claude.ai/vercel-deploy-claimable`)
+- Vercel에 즉시 배포 (인증 불필요)
+- 40+ 프레임워크 자동 감지
+- Preview URL + Claim URL 반환
 
 ---
 
@@ -385,15 +277,12 @@ Anthropic의 공식 스킬들 (`~/.config/opencode/anthropic-skills/skills/`):
 # UI/UX 감사
 이 페이지를 web-design-guidelines로 체크해줘
 
-# 배포
-이 앱을 Vercel에 배포해줘
-
-# 알고리즘 아트
-algorithmic-art를 사용해서 flow field 생성해줘
-
 # 프론트엔드 디자인
 frontend-design으로 독창적인 랜딩 페이지 만들어줘
 
-# 문서 생성
-docx 스킬로 회사 제안서를 작성해줘
+# 웹앱 테스트
+webapp-testing으로 이 로컬 서버를 테스트해줘
+
+# 배포
+이 앱을 Vercel에 배포해줘
 ```
