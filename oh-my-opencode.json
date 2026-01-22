@@ -22,6 +22,9 @@
     },
     "multimodal-looker": {
       "model": "google-vertex/gemini-3-flash-preview"
+    },
+    "code-reviewer": {
+      "model": "google-vertex/gemini-3-pro-preview"
     }
   }
 }
