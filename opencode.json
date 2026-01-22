@@ -33,13 +33,30 @@
       ],
       "enabled": true
     },
-    "terraform": {
-      "command": "docker",
-      "args": [
+    "awslabs.aws-knowledge": {
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws",
+      "enabled": false
+    },
+    "awslabs.aws-terraform": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "awslabs.terraform-mcp-server@latest"
+      ],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "enabled": false
+    },
+    "hashicorp.terraform": {
+      "type": "local",
+      "command": [
+        "docker",
         "run",
         "-i",
         "--rm",
-        "hashicorp/terraform-mcp-server:0.2.3"
+        "hashicorp/terraform-mcp-server:latest"
       ],
       "enabled": false
     }
