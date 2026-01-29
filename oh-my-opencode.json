@@ -12,7 +12,8 @@
       "model": "google-vertex/gemini-3-flash-preview"
     },
     "oracle": {
-      "model": "google-vertex/gemini-3-flash-preview"
+      "model": "github-copilot/claude-sonnet-4.5",
+      "comment": "무료 모델 사용으로 변경 - 복잡한 분석도 Sonnet으로 충분"
     },
     "frontend-ui-ux-engineer": {
       "model": "google-vertex/gemini-3-pro-preview"
