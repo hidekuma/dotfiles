@@ -17,7 +17,7 @@
         "serena",
         "start-mcp-server"
       ],
-      "enabled": true
+      "enabled": false
     },
     "context7": {
       "type": "remote",
