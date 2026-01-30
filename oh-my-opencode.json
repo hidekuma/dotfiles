@@ -1,38 +1,91 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "google_auth": false,
+  "sisyphus_agent": {
+    "disabled": false,
+    "planner_enabled": true,
+    "replace_plan": true
+  },
   "agents": {
     "sisyphus": {
       "model": "github-copilot/claude-sonnet-4.5",
-      "comment": "메인 에이전트 - GitHub Copilot 무료"
+      "temperature": 0.3
     },
-    "librarian": {
-      "model": "github-copilot/gpt-5-mini",
-      "comment": "라이브러리 조사 - 빠르고 효율적인 무료 모델"
+    "prometheus": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.1
     },
-    "explore": {
-      "model": "github-copilot/gpt-5-mini",
-      "comment": "코드베이스 탐색 - 빠른 검색용 무료 모델"
+    "metis": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.2
+    },
+    "momus": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.3
+    },
+    "atlas": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.2
     },
     "oracle": {
       "model": "openai/gpt-5.2-codex",
-      "comment": "고난이도 분석 - 최고 성능 유료 모델 (필요시에만)"
+      "temperature": 0.5
     },
-    "frontend-ui-ux-engineer": {
-      "model": "github-copilot/claude-sonnet-4.5",
-      "comment": "프론트엔드 작업 - Claude의 코드 생성 능력 활용 (무료)"
-    },
-    "document-writer": {
+    "explore": {
       "model": "github-copilot/gpt-5-mini",
-      "comment": "문서 작성 - 빠른 무료 모델로 충분"
+      "temperature": 0.1
+    },
+    "librarian": {
+      "model": "opencode/big-pickle",
+      "temperature": 0.1
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3-flash-preview",
-      "comment": "멀티미디어 분석 - Gemini의 비전 능력 활용 (무료)"
-    },
-    "code-reviewer": {
-      "model": "github-copilot/claude-sonnet-4.5",
-      "comment": "코드 리뷰 - Claude의 분석 능력 활용 (무료)"
+      "model": "github-copilot/gemini-3-flash-preview"
     }
-  }
+  },
+  "categories": {
+    "ultrabrain": {
+      "model": "openai/gpt-5.2-codex",
+      "temperature": 0.1
+    },
+    "business-logic": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.1
+    },
+    "visual-engineering": {
+      "model": "github-copilot/claude-sonnet-4.5",
+      "temperature": 0.7
+    },
+    "artistry": {
+      "model": "github-copilot/claude-opus-4.5",
+      "temperature": 0.9
+    },
+    "general": {
+      "model": "github-copilot/claude-sonnet-4.5"
+    },
+    "unspecified-high": {
+      "model": "github-copilot/claude-sonnet-4.5"
+    },
+    "quick": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "writing": {
+      "model": "github-copilot/gpt-5-mini"
+    },
+    "unspecified-low": {
+      "model": "github-copilot/gpt-5-mini"
+    }
+  },
+  "background_task": {
+    "defaultConcurrency": 5,
+    "providerConcurrency": {
+      "github-copilot": 10,
+      "opencode": 5,
+      "openai": 3
+    }
+  },
+  "disabled_hooks": [
+    "startup-toast"
+  ],
+  "disabled_skills": []
 }
