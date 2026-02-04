@@ -136,7 +136,8 @@
     "context7@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "github@claude-plugins-official": false,
-    "everything-claude-code@everything-claude-code": true
+    "everything-claude-code@everything-claude-code": true,
+    "plannotator@plannotator": true
   },
   "verbose": false,
   "PreToolUse": [

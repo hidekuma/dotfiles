@@ -4,3 +4,6 @@ bin/~/
 .DS_store
 
 .nvimlog
+
+# OMC state (session-specific, not for git)
+.omc/
