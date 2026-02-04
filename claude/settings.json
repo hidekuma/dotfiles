@@ -140,21 +140,8 @@
   "verbose": false,
   "PreToolUse": [
     {
-      "matcher": "Write|Edit",
-      "hooks": [
-        {
-          "type": "prompt",
-          "prompt": "Validate file write safety. Check: 1) No system paths (/etc, /usr, /bin), 2) No credentials/secrets in content, 3) No path traversal (../). Return 'approve' if safe."
-        }
-      ]
-    },
-    {
       "matcher": "Bash",
       "hooks": [
-        {
-          "type": "prompt",
-          "prompt": "Validate bash command safety. Check: 1) No destructive operations (rm -rf /, format), 2) No privilege escalation (sudo), 3) No unauthorized network access. Return 'approve' if safe."
-        },
         {
           "type": "command",
           "command": "node -e \"let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const cmd=i.tool_input?.command||'';if(/npm run dev|pnpm dev|yarn dev/.test(cmd)&&!process.env.TMUX){console.error('[Hook] Consider running dev server in tmux for session persistence')}console.log(d)})\""
@@ -171,15 +158,13 @@
           "command": "node -e \"const fs=require('fs');let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const p=i.tool_input?.file_path;if(p&&/\\.(ts|tsx)$/.test(p)&&fs.existsSync(p)){const c=fs.readFileSync(p,'utf8');if(/console\\.log/.test(c))console.error('[Hook] WARNING: console.log found - remove before commit')}console.log(d)})\""
         }
       ]
-    }
-  ],
-  "Stop": [
+    },
     {
-      "matcher": "*",
+      "matcher": "Task",
       "hooks": [
         {
-          "type": "prompt",
-          "prompt": "Before completing, verify: 1) If code was modified, were tests run? 2) Are there any TODO comments left behind? 3) Is CLAUDE.md updated if a new pattern/rule was discovered?"
+          "type": "command",
+          "command": "osascript -e 'display notification \"Agent 작업 완료\" with title \"Claude Code\" sound name \"Glass\"'"
         }
       ]
     }
