@@ -1,6 +1,6 @@
 ---
 name: explain
-description: Generate visual explanation of code or architecture. Creates HTML presentation or ASCII diagrams.
+description: 코드/아키텍처 시각적 설명 생성. HTML 프레젠테이션 또는 ASCII 다이어그램 생성.
 ---
 
 Create a visual explanation of the specified code or system:

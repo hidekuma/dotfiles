@@ -1,6 +1,6 @@
 ---
 name: techdebt
-description: Find and fix technical debt. Run at end of session to clean up.
+description: 기술 부채 탐지 및 수정. 세션 종료 시 정리용으로 실행.
 ---
 
 Scan the codebase for technical debt:

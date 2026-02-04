@@ -1,6 +1,6 @@
 ---
 name: plan
-description: Start complex task with planning phase. Forces structured thinking before implementation.
+description: 복잡한 작업을 계획 단계로 시작. 구현 전 구조화된 사고를 강제함.
 ---
 
 Enter plan mode. Before implementing anything:

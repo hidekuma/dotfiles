@@ -1,6 +1,6 @@
 ---
 name: review
-description: Trigger strict code review mode. Acts as a senior engineer reviewing the current changes.
+description: 엄격한 코드 리뷰 모드. 시니어 엔지니어 관점으로 변경사항 검토.
 ---
 
 Act as a senior staff engineer performing a strict code review.

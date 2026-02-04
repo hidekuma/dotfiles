@@ -1,6 +1,6 @@
 ---
 name: fix-ci
-description: Automatically fix failing CI tests. Just say "/fix-ci" and let Claude handle it.
+description: 실패한 CI 테스트 자동 수정. "/fix-ci"만 입력하면 자동 처리.
 ---
 
 Fix the failing CI tests:

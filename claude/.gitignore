@@ -1,0 +1,24 @@
+# 로컬 전용 - 민감 정보 포함 (OAuth, userID)
+claude.json
+
+# 런타임 상태 - 세션별 데이터
+.omc/
+
+# 순환 심볼릭 링크 방지
+agents/agents
+commands/commands
+
+# 로컬 설정 오버라이드
+*.local.json
+settings.local.json
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
+# 에디터 임시 파일
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
