@@ -1,0 +1,129 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1770172136485,
+  "projectRoot": "/Users/joseph/dotfiles",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "bin"
+    ],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "ai": {
+      "path": "ai",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1770172136470,
+      "keyFiles": []
+    },
+    "bin": {
+      "path": "bin",
+      "purpose": "Executable scripts",
+      "fileCount": 17,
+      "lastAccessed": 1770172136470,
+      "keyFiles": [
+        "convert-nvim.sh",
+        "install-fonts.sh",
+        "install-nvim.sh",
+        "install-nvm.sh",
+        "install-pyenv-ubuntu.sh"
+      ]
+    },
+    "claude": {
+      "path": "claude",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1770172136470,
+      "keyFiles": [
+        "CLAUDE.md",
+        "README.md",
+        "claude.json",
+        "settings.json",
+        "setup.sh"
+      ]
+    },
+    "complex_modifications": {
+      "path": "complex_modifications",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1770172136470,
+      "keyFiles": [
+        "escape_to_en.json"
+      ]
+    },
+    "django": {
+      "path": "django",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1770172136470,
+      "keyFiles": [
+        "setup.cfg"
+      ]
+    },
+    "lua": {
+      "path": "lua",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1770172136471,
+      "keyFiles": []
+    },
+    "nvim": {
+      "path": "nvim",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1770172136471,
+      "keyFiles": [
+        "LICENSE",
+        "README.md",
+        "init.lua"
+      ]
+    },
+    "opencode": {
+      "path": "opencode",
+      "purpose": null,
+      "fileCount": 6,
+      "lastAccessed": 1770172136471,
+      "keyFiles": [
+        "MODES.md",
+        "OPENCODE.md.backup",
+        "OPTIMIZATION.md",
+        "README.md",
+        "SCRIPTS.md"
+      ]
+    },
+    "themes": {
+      "path": "themes",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1770172136471,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}

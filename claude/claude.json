@@ -86,7 +86,10 @@
     "tengu_cache_plum_violet": true,
     "tengu_cork_m4q": false,
     "tengu_plank_river_frost": "user_intent",
-    "tengu_file_write_optimization": false
+    "tengu_file_write_optimization": false,
+    "tengu_sm_compact": false,
+    "tengu_compact_cache_prefix": true,
+    "tengu_compact_streaming_retry": false
   },
   "mcpServers": {
     "sequential-thinking": {
@@ -230,7 +233,7 @@
   },
   "clientDataCache": {
     "data": {},
-    "timestamp": 1770171258939
+    "timestamp": 1770172096777
   },
   "autoUpdatesProtectedForNative": true
 }
