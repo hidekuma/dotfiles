@@ -1,0 +1,202 @@
+{
+  "numStartups": 2,
+  "installMethod": "global",
+  "customApiKeyResponses": {
+    "approved": [],
+    "rejected": [
+      "694DVt3LjIw-yHZUtAAA"
+    ]
+  },
+  "tipsHistory": {
+    "new-user-warmup": 1,
+    "plan-mode-for-complex-tasks": 1,
+    "terminal-setup": 1,
+    "memory-command": 1,
+    "theme-command": 1,
+    "status-line": 1,
+    "prompt-queue": 2,
+    "enter-to-steer-in-relatime": 2,
+    "todo-list": 2,
+    "install-github-app": 2,
+    "install-slack-app": 2,
+    "drag-and-drop-images": 2,
+    "paste-images-mac": 2,
+    "double-esc-code-restore": 2
+  },
+  "promptQueueUseCount": 2,
+  "showExpandedTodos": true,
+  "cachedGrowthBookFeatures": {
+    "tengu_1p_event_batch_config": {
+      "scheduledDelayMillis": 5000,
+      "maxExportBatchSize": 200,
+      "maxQueueSize": 8192
+    },
+    "tengu_scratch": true,
+    "tengu_disable_bypass_permissions_mode": false,
+    "tengu_claudeai_mcp_connectors": false,
+    "tengu_log_segment_events": false,
+    "tengu_log_datadog_events": true,
+    "tengu_pid_based_version_locking": true,
+    "tengu_event_sampling_config": {},
+    "tengu_tool_pear": false,
+    "tengu_keybinding_customization": false,
+    "tengu_thinkback": false,
+    "tengu_tool_search_unsupported_models": [
+      "haiku"
+    ],
+    "tengu_sumi": true,
+    "tengu_ant_attribution_header_new": true,
+    "enhanced_telemetry_beta": false,
+    "tengu_c4w_usage_limit_notifications_enabled": true,
+    "tengu-top-of-feed-tip": {
+      "tip": "",
+      "color": ""
+    },
+    "tengu_react_vulnerability_warning": false,
+    "tengu_code_diff_cli": true,
+    "tengu_post_compact_survey": false,
+    "tengu_streaming_tool_execution2": true,
+    "tengu_session_memory": false,
+    "tengu_permission_explainer": true,
+    "tengu_bash_haiku_prefetch": true,
+    "tengu_brass_pebble": false,
+    "tengu_marble_anvil": true,
+    "tengu_scarf_coffee": false,
+    "tengu_keybinding_customization_release": true,
+    "tengu_oboe": false,
+    "tengu_pr_status_cli": true,
+    "tengu_system_prompt_global_cache": true,
+    "tengu_attribution_header": true,
+    "tengu_workout": false,
+    "tengu_marble_kite": false,
+    "tengu_vinteuil_phrase": false,
+    "tengu_coral_fern": false,
+    "tengu_cache_plum_violet": true,
+    "tengu_cork_m4q": false,
+    "tengu_plank_river_frost": "user_intent"
+  },
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    }
+  },
+  "userID": "eb226c56ba0e73f67050478d7d3c89b78a54d1bad6e2667b40563bbb4b34e60d",
+  "firstStartTime": "2026-02-04T01:15:41.844Z",
+  "sonnet45MigrationComplete": true,
+  "sonnet45MigrationTimestamp": 1770167741846,
+  "opus45MigrationComplete": true,
+  "opusProMigrationComplete": true,
+  "thinkingMigrationComplete": true,
+  "cachedChromeExtensionInstalled": false,
+  "changelogLastFetched": 1770169085066,
+  "oauthAccount": {
+    "accountUuid": "fd968f7a-8977-4775-8388-393406ff53bd",
+    "emailAddress": "joseph.jeong@kakaopiccoma.com",
+    "organizationUuid": "aaea2a84-82bb-4b82-8ae3-83aaa460b2c3",
+    "hasExtraUsageEnabled": false,
+    "displayName": "joseph",
+    "organizationRole": "user",
+    "workspaceRole": null,
+    "organizationName": "Content Data Dev."
+  },
+  "claudeCodeFirstTokenDate": "2026-02-04T01:27:34.076507Z",
+  "hasCompletedOnboarding": true,
+  "lastOnboardingVersion": "2.1.14",
+  "projects": {
+    "/Users/joseph/dotfiles": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 2,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0.6345265,
+      "lastAPIDuration": 53424,
+      "lastAPIDurationWithoutRetries": 42662,
+      "lastToolDuration": 5001,
+      "lastDuration": 647661,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 1681,
+      "lastTotalOutputTokens": 1605,
+      "lastTotalCacheCreationInputTokens": 75842,
+      "lastTotalCacheReadInputTokens": 242536,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 1666,
+          "outputTokens": 131,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 0.002321
+        },
+        "claude-opus-4-5-20251101": {
+          "inputTokens": 15,
+          "outputTokens": 1474,
+          "cacheReadInputTokens": 242536,
+          "cacheCreationInputTokens": 75842,
+          "webSearchRequests": 0,
+          "costUSD": 0.6322055
+        }
+      },
+      "lastSessionId": "b7a60ccc-a20e-45d0-b02f-799ef5e068b0"
+    }
+  },
+  "githubRepoPaths": {
+    "hidekuma/dotfiles": [
+      "/Users/joseph/dotfiles"
+    ]
+  },
+  "s1mAccessCache": {
+    "aaea2a84-82bb-4b82-8ae3-83aaa460b2c3": {
+      "hasAccess": false,
+      "hasAccessNotAsDefault": true,
+      "timestamp": 1770168479497
+    }
+  },
+  "lastReleaseNotesSeen": "2.1.31",
+  "hasShownS1MWelcomeV2": {
+    "aaea2a84-82bb-4b82-8ae3-83aaa460b2c3": true
+  },
+  "hasShownOpus45Notice": {
+    "aaea2a84-82bb-4b82-8ae3-83aaa460b2c3": true
+  },
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": true,
+  "skillUsage": {
+    "oh-my-claudecode:omc-setup": {
+      "usageCount": 1,
+      "lastUsedAt": 1770168493312
+    },
+    "oh-my-claudecode:hud": {
+      "usageCount": 1,
+      "lastUsedAt": 1770168675876
+    }
+  },
+  "clientDataCache": {
+    "data": {},
+    "timestamp": 1770169580469
+  }
+}

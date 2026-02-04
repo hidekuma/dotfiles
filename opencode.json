@@ -3,7 +3,7 @@
   "autoupdate": true,
   "plugin": [
     "oh-my-opencode",
-    "opencode-antigravity-auth@1.4.1",
+    "opencode-antigravity-auth@1.4.3",
     "opencode-openai-codex-auth",
     "@franlol/opencode-md-table-formatter@0.0.3"
   ],

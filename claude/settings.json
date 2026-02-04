@@ -1,0 +1,86 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(bun:*)",
+      "Bash(pnpm:*)",
+      "Bash(yarn:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(rg:*)",
+      "Bash(fd:*)",
+      "Bash(curl:*)",
+      "Bash(which:*)",
+      "Bash(echo:*)",
+      "Bash(pwd:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "LS"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(sudo:*)",
+      "Bash(chmod 777:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "oh-my-claudecode@omc": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true,
+    "learning-output-style@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "everything-claude-code@everything-claude-code": true
+  },
+  "verbose": false,
+  "PreToolUse": [
+    {
+      "matcher": "Write|Edit",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "Validate file write safety. Check: 1) No system paths (/etc, /usr, /bin), 2) No credentials/secrets in content, 3) No path traversal (../). Return 'approve' if safe."
+        }
+      ]
+    },
+    {
+      "matcher": "Bash",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "Validate bash command safety. Check: 1) No destructive operations (rm -rf /, format), 2) No privilege escalation (sudo), 3) No unauthorized network access. Return 'approve' if safe."
+        }
+      ]
+    }
+  ],
+  "Stop": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "Before completing, verify: 1) If code was modified, were tests run? 2) Are there any TODO comments left behind? 3) Is CLAUDE.md updated if a new pattern/rule was discovered?"
+        }
+      ]
+    }
+  ]
+}
