@@ -319,15 +319,11 @@ install_plugins() {
         "typescript-lsp@claude-plugins-official"
         "code-review@claude-plugins-official"
         "explanatory-output-style@claude-plugins-official"
-        "learning-output-style@claude-plugins-official"
         "commit-commands@claude-plugins-official"
         "security-guidance@claude-plugins-official"
         "feature-dev@claude-plugins-official"
-        "pr-review-toolkit@claude-plugins-official"
         "serena@claude-plugins-official"
         "context7@claude-plugins-official"
-        "playwright@claude-plugins-official"
-        "github@claude-plugins-official"
     )
 
     for plugin in "${plugins[@]}"; do

@@ -76,18 +76,14 @@ dotfiles/claude/
 - **code-review** - 코드 리뷰
 - **commit-commands** - Git 커밋 자동화
 - **feature-dev** - 기능 개발 가이드
-- **pr-review-toolkit** - PR 리뷰 도구
 
 ### 스타일
 - **explanatory-output-style** - 설명적 출력
-- **learning-output-style** - 학습 모드
 - **security-guidance** - 보안 가이드
 
 ### MCP
 - **context7** - 최신 문서 조회
-- **playwright** - 브라우저 자동화
-- **serena** - (선택적 활성화)
-- **github** - (선택적 활성화)
+- **serena** - 심볼릭 코드 분석
 
 ## 설정 커스터마이징
 

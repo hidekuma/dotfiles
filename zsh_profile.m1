@@ -91,6 +91,7 @@ alias lg="lazygit"
 
 # claude
 alias c='claude'
+alias cds='claude -dangerously-skip-permissions'
 
 
 # for auto completion of kubectx, kubens
