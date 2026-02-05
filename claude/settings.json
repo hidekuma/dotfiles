@@ -159,7 +159,7 @@
       "mcp__plugin_oh-my-claudecode_t__lsp_code_action_resolve",
       "mcp__plugin_oh-my-claudecode_t__ast_grep_search",
       "mcp__plugin_oh-my-claudecode_t__ast_grep_replace",
-      "mcp__plugin_oh-my-claudecode_t__python_repl",
+      "mcp__plugin_oh-my-claudecode_t__python_repl"
     ],
     "deny": [
       "Bash(rm -rf /)",
