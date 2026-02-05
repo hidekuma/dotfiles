@@ -1,6 +1,23 @@
 local M = {}
 
--- TODO: backfill this to template
+-- LSP servers that should not provide document formatting
+local disabled_formatters = {
+	"ts_ls",
+}
+
+--- Check if a value exists in a list
+---@param list table
+---@param value any
+---@return boolean
+local function list_contains(list, value)
+	for _, v in ipairs(list) do
+		if v == value then
+			return true
+		end
+	end
+	return false
+end
+
 M.setup = function()
 	local signs = {
 		[vim.diagnostic.severity.ERROR] = "",
@@ -96,10 +113,9 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	--[[ require("notify")(client.name .. " is starting...") ]]
-	-- TODO: refactor this into a method that checks if string in list
-	if client.name == "ts_ls" then
-		client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+	-- Disable formatting for specific LSP servers
+	if list_contains(disabled_formatters, client.name) then
+		client.server_capabilities.documentFormattingProvider = false
 	end
 
 	lsp_keymaps(bufnr)

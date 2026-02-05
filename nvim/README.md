@@ -1,4 +1,6 @@
-# TODO
+# Neovim Setup Notes
+
+## Plugins to Consider
 
 - use({ "beeender/Comrade" })
     - https://plugins.jetbrains.com/plugin/12153-comrade-neovim
