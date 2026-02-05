@@ -55,20 +55,7 @@ return packer.startup(function(use)
 	--[[ use("sunjon/shade.nvim") ]]
 	use("itchyny/vim-cursorword") -- display cursor position
 	use("rcarriga/nvim-notify")
-	-- use("nvim-tree/nvim-web-devicons")
 
-	--[[ use({ ]]
-	-- XXX
-	--[[ 	"glepnir/lspsaga.nvim", ]]
-	--[[ 	branch = "main", ]]
-	--[[ 	config = function() ]]
-	--[[ 		local saga = require("lspsaga") ]]
-	--[[]]
-	--[[ 		saga.init_lsp_saga({ ]]
-	--[[ 			-- your configuration ]]
-	--[[ 		}) ]]
-	--[[ 	end, ]]
-	--[[ }) ]]
 	-- Window
 	use("camspiers/lens.vim") -- vim pane resizing
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })

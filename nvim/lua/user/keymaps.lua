@@ -85,11 +85,6 @@ keymap("n", "<C-w><right>", " <C-w>>", opts)
 keymap("n", "<C-w><up>", " <C-w>+", opts)
 keymap("n", "<C-w><down>", " <C-w>-", opts)
 
--- set paste
--- TODO
--- keymap("n", ",p", ":set paste<CR>", opts)
--- keymap("n", ",P", ":set nopaste<CR>", opts)
-
 -- cp file path
 keymap("n", "cp", ":let @+ = expand('%')<cr>", opts)
 -- keymap("n", "cP", ":let @+ = expand('%p')<cr>", opts)

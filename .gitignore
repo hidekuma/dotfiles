@@ -2,6 +2,7 @@ bin/~/
 *.swp
 *pyc
 .DS_store
+.mypy_cache/
 
 .nvimlog
 
