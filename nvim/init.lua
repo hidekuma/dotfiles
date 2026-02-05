@@ -56,4 +56,4 @@ require("user.impatient")
 
 -- ai
 --[[ require("user.tabnine") ]]
-require("user.copilot")
+--[[ require("user.copilot") ]]

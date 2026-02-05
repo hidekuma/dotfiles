@@ -150,7 +150,7 @@ return packer.startup(function(use)
 	-- 	},
 	-- })
 	-- Copilot
-	use({ "github/copilot.vim" })
+	-- use({ "github/copilot.vim" })
 	-- Tabnine
 	--[[ use({ "codota/tabnine-nvim", run = "./dl_binaries.sh" }) ]]
 	-- Snippets
