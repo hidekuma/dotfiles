@@ -10,26 +10,29 @@
 
 ### PreToolUse
 
-| Hook | 기능 |
-|------|------|
-| tmux reminder | 장시간 명령어(npm, pnpm, yarn, cargo 등)에 tmux 사용 제안 |
-| git push review | push 전 Zed에서 리뷰 열기 |
-| doc blocker | 불필요한 .md/.txt 파일 생성 차단 |
+| Hook | Matcher | 기능 |
+|------|---------|------|
+| tmux reminder | Bash | `npm run dev`, `pnpm dev`, `yarn dev` 실행 시 tmux 세션이 아니면 경고 |
 
 ### PostToolUse
 
-| Hook | 기능 |
-|------|------|
-| PR creation | PR URL 및 GitHub Actions 상태 로깅 |
-| Prettier | JS/TS 파일 편집 후 자동 포맷팅 |
-| TypeScript check | .ts/.tsx 편집 후 tsc 실행 |
-| console.log warning | 편집된 파일의 console.log 경고 |
+| Hook | Matcher | 기능 |
+|------|---------|------|
+| console.log warning | Edit | .ts/.tsx 파일 수정 후 console.log 발견 시 경고 |
+| Task notification | Task | Agent 작업 완료 시 macOS 알림 |
 
 ### Stop
 
-| Hook | 기능 |
-|------|------|
-| console.log audit | 세션 종료 전 수정된 모든 파일의 console.log 검사 |
+(현재 활성화된 Stop hook 없음)
+
+## 추가 권장 Hooks
+
+| Hook | Type | 기능 | 추가 방법 |
+|------|------|------|----------|
+| git push review | PreToolUse:Bash | push 전 diff 리뷰 | git push 패턴 감지 |
+| doc blocker | PreToolUse:Write | 불필요한 .md 생성 차단 | Write matcher |
+| TypeScript check | PostToolUse:Edit | TS 파일 수정 후 tsc 실행 | Edit matcher + .ts 조건 |
+| Prettier format | PostToolUse:Edit | JS/TS 수정 후 자동 포맷 | Edit matcher |
 
 ## 자동 승인 권한
 
