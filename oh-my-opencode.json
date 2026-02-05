@@ -8,23 +8,23 @@
   },
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.3
     },
     "prometheus": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.1
     },
     "metis": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.2
     },
     "momus": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.3
     },
     "atlas": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.2
     },
     "oracle": {
@@ -32,15 +32,15 @@
       "temperature": 0.5
     },
     "explore": {
-      "model": "github-copilot/gpt-5-mini",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.1
     },
     "librarian": {
-      "model": "opencode/big-pickle",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.1
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "openai/gpt-5.2-codex"
     }
   },
   "categories": {
@@ -49,38 +49,36 @@
       "temperature": 0.1
     },
     "business-logic": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.1
     },
     "visual-engineering": {
-      "model": "github-copilot/claude-sonnet-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.7
     },
     "artistry": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "openai/gpt-5.2-codex",
       "temperature": 0.9
     },
     "general": {
-      "model": "github-copilot/claude-sonnet-4.5"
+      "model": "openai/gpt-5.2-codex"
     },
     "unspecified-high": {
-      "model": "github-copilot/claude-sonnet-4.5"
+      "model": "openai/gpt-5.2-codex"
     },
     "quick": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "openai/gpt-5.2-codex"
     },
     "writing": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "openai/gpt-5.2-codex"
     },
     "unspecified-low": {
-      "model": "github-copilot/gpt-5-mini"
+      "model": "openai/gpt-5.2-codex"
     }
   },
   "background_task": {
     "defaultConcurrency": 5,
     "providerConcurrency": {
-      "github-copilot": 10,
-      "opencode": 5,
       "openai": 3
     }
   },

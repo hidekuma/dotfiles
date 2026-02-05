@@ -3,7 +3,6 @@
   "autoupdate": true,
   "plugin": [
     "oh-my-opencode",
-    "opencode-antigravity-auth@1.4.3",
     "opencode-openai-codex-auth",
     "@franlol/opencode-md-table-formatter@0.0.3"
   ],
@@ -62,73 +61,14 @@
     }
   },
   "provider": {
-    "google": {
-      "name": "Google",
-      "models": {
-        "antigravity-gemini-3-pro-high": {
-          "name": "Gemini 3 Pro High (Antigravity)",
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65535
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        },
-        "antigravity-gemini-3-pro-low": {
-          "name": "Gemini 3 Pro Low (Antigravity)",
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65535
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        },
-        "antigravity-gemini-3-flash": {
-          "name": "Gemini 3 Flash (Antigravity)",
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 65536
-          },
-          "modalities": {
-            "input": [
-              "text",
-              "image",
-              "pdf"
-            ],
-            "output": [
-              "text"
-            ]
-          }
-        }
-      }
-    },
     "openai": {
       "name": "OpenAI",
       "models": {
-        "gpt-5.2": {
-          "name": "GPT 5.2 (OAuth)",
+        "gpt-4.1": {
+          "name": "GPT 4.1 (OAuth)",
           "limit": {
-            "context": 272000,
-            "output": 128000
+            "context": 1047576,
+            "output": 32768
           },
           "modalities": {
             "input": [
@@ -140,11 +80,11 @@
             ]
           }
         },
-        "gpt-5.2-codex": {
-          "name": "GPT 5.2 Codex (OAuth)",
+        "o3": {
+          "name": "o3 (OAuth)",
           "limit": {
-            "context": 272000,
-            "output": 128000
+            "context": 200000,
+            "output": 100000
           },
           "modalities": {
             "input": [
@@ -156,11 +96,11 @@
             ]
           }
         },
-        "gpt-5.1-codex-max": {
-          "name": "GPT 5.1 Codex Max (OAuth)",
+        "codex-mini": {
+          "name": "Codex Mini (OAuth)",
           "limit": {
-            "context": 272000,
-            "output": 128000
+            "context": 1047576,
+            "output": 32768
           },
           "modalities": {
             "input": [
