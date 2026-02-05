@@ -1,33 +1,5 @@
 # 성능 최적화 가이드
 
-## 모델 선택 전략
-
-### 작업별 최적 모델
-
-| 작업 유형 | 권장 모델 | 이유 |
-|---------|----------|------|
-| **탐색/검색** | Gemini 3 Flash | 빠르고 저렴, 충분한 품질 |
-| **간단한 코드 작성** | Claude Sonnet 4.5 | 균형잡힌 성능/비용 |
-| **복잡한 리팩토링** | Gemini 3 Pro | 깊은 추론 필요 |
-| **아키텍처 설계** | GPT 5.2 Codex | 최고 품질 필요 |
-| **문서 작성** | Gemini 3 Flash | 속도 중요 |
-
-### Agent 모델 매핑
-
-```json
-{
-  "agents": {
-    "sisyphus": "github-copilot/claude-sonnet-4.5",
-    "librarian": "google-vertex/gemini-3-flash-preview",
-    "explore": "google-vertex/gemini-3-flash-preview",
-    "oracle": "google-vertex/gemini-3-pro-preview",
-    "frontend-ui-ux-engineer": "google-vertex/gemini-3-pro-preview",
-    "code-reviewer": "google-vertex/gemini-3-pro-preview",
-    "document-writer": "google-vertex/gemini-3-flash-preview"
-  }
-}
-```
-
 ## 컨텍스트 윈도우 관리
 
 ### Critical Rule: 80 도구 제한
@@ -332,7 +304,6 @@ npm run build -- --analyze
 ## 체크리스트
 
 성능 최적화 시:
-- [ ] 적절한 모델 선택 (작업에 맞게)
 - [ ] MCP 도구 80개 미만
 - [ ] 컨텍스트 효율적 구조
 - [ ] 병렬 처리 활용
