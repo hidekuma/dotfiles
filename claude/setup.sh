@@ -291,25 +291,11 @@ install_lsp() {
     fi
 }
 
-install_plannotator_cli() {
-    log_info "Plannotator CLI 설치 중..."
-
-    if [[ "$DRY_RUN" == true ]]; then
-        log_dry "curl -fsSL https://plannotator.ai/install.sh | bash"
-    else
-        curl -fsSL https://plannotator.ai/install.sh | bash 2>/dev/null || true
-        log_success "  → plannotator CLI"
-    fi
-}
-
 install_plugins() {
     if ! check_claude_cli; then
         log_warn "Claude CLI가 없어 플러그인 설치를 건너뜁니다"
         return
     fi
-
-    # Plannotator CLI 설치 (플러그인 전에)
-    install_plannotator_cli
 
     log_info "Marketplace 추가 중..."
 
@@ -321,7 +307,6 @@ install_plugins() {
         claude plugin marketplace add https://github.com/anthropics/claude-plugins-official 2>/dev/null || true
         claude plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode 2>/dev/null || true
         claude plugin marketplace add https://github.com/affaan-m/everything-claude-code 2>/dev/null || true
-        claude plugin marketplace add https://github.com/backnotprop/plannotator 2>/dev/null || true
         log_success "  → Marketplace 추가 완료"
     fi
 
@@ -331,7 +316,6 @@ install_plugins() {
     local plugins=(
         "oh-my-claudecode@omc"
         "everything-claude-code@everything-claude-code"
-        "plannotator@plannotator"
         "typescript-lsp@claude-plugins-official"
         "code-review@claude-plugins-official"
         "explanatory-output-style@claude-plugins-official"
