@@ -303,10 +303,12 @@ install_plugins() {
         log_dry "claude plugin marketplace add https://github.com/anthropics/claude-plugins-official"
         log_dry "claude plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode"
         log_dry "claude plugin marketplace add https://github.com/affaan-m/everything-claude-code"
+        log_dry "claude plugin marketplace add ykdojo/claude-code-tips"
     else
         claude plugin marketplace add https://github.com/anthropics/claude-plugins-official 2>/dev/null || true
         claude plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode 2>/dev/null || true
         claude plugin marketplace add https://github.com/affaan-m/everything-claude-code 2>/dev/null || true
+        claude plugin marketplace add ykdojo/claude-code-tips 2>/dev/null || true
         log_success "  → Marketplace 추가 완료"
     fi
 
@@ -324,6 +326,7 @@ install_plugins() {
         "feature-dev@claude-plugins-official"
         "serena@claude-plugins-official"
         "context7@claude-plugins-official"
+        "dx@ykdojo"
     )
 
     for plugin in "${plugins[@]}"; do

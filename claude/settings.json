@@ -182,7 +182,8 @@
     "feature-dev@claude-plugins-official": true,
     "serena@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
-    "everything-claude-code@everything-claude-code": true
+    "everything-claude-code@everything-claude-code": true,
+    "dx@ykdojo": true
   },
   "verbose": false,
   "PreToolUse": [
