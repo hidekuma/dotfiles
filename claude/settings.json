@@ -180,7 +180,7 @@
     "explanatory-output-style@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
-    "serena@claude-plugins-official": true,
+    "serena@claude-plugins-official": false,
     "context7@claude-plugins-official": true,
     "everything-claude-code@everything-claude-code": true,
     "dx@ykdojo": true
