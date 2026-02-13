@@ -197,6 +197,12 @@
       ]
     }
   ],
+  "Stop": [
+    {
+      "type": "command",
+      "command": "osascript -e 'display notification \"응답 완료 — 터미널을 확인하세요\" with title \"Claude Code\" sound name \"Glass\"'"
+    }
+  ],
   "PostToolUse": [
     {
       "matcher": "Edit",
