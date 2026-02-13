@@ -38,9 +38,10 @@ dotfiles/claude/
 │   └── planner.md
 ├── commands/           # 워크플로우 명령어
 │   ├── explain.md
+│   ├── fix-ci.md
+│   ├── harness.md
 │   ├── plan.md
 │   ├── review.md
-│   ├── fix-ci.md
 │   └── techdebt.md
 └── rules/              # 코딩 규칙 (한국어)
     ├── coding-style.md # 코딩 스타일
