@@ -37,3 +37,11 @@ snacks.setup({
 
 -- Replace vim.notify with snacks notifier
 vim.notify = snacks.notifier.notify
+
+-- Disable vim-bad-whitespace on dashboard (causes red bars on padding lines)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "snacks_dashboard",
+	callback = function()
+		vim.cmd("HideBadWhitespace")
+	end,
+})
