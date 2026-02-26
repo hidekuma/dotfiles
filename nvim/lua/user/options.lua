@@ -53,6 +53,7 @@ local options = {
 	tabstop = 2, -- insert 2 spaces for a tab
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+	splitkeep = "screen", -- stabilize window on split (replaces stabilize.nvim)
 	sidescrolloff = 8,
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
 }

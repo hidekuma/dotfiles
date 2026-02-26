@@ -8,12 +8,19 @@ require("user.options")
 require("user.keymaps")
 require("user.autocommands")
 
--- notify
-require("user.notify")
+-- snacks (dashboard, notifier)
+require("user.snacks")
 
 -- lsp and auto complete
 require("user.cmp")
 require("user.lsp")
+
+-- formatter and linter
+require("user.conform")
+require("user.lint")
+
+-- diagnostics
+require("user.trouble")
 
 -- finder
 require("user.telescope")
@@ -21,19 +28,15 @@ require("user.fzf")
 
 -- editing utils
 require("user.autopairs")
-require("user.comment")
+require("user.flash")
 require("user.indentline")
 require("user.vim-translator")
-require("user.range-hightlight")
-require("user.vim-easymotion")
-require("user.stabilize")
 require("user.vim-argwrap")
 
 -- git, project
 require("user.gitsigns")
 require("user.nvim-tree")
 require("user.project")
-require("user.alpha")
 require("user.vim-tmux-navigator")
 
 -- style

@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local mappings = {
-	{ "<leader>a",  "<cmd>Alpha<cr>",                                                   desc = "Alpha" },
+	{ "<leader>a",  function() require("snacks").dashboard() end,                        desc = "Dashboard" },
 	{ "<leader>A",  "<cmd>ArgWrap<cr>",                                                 desc = "ArgWrap" },
 	{ "<leader>e",  "<cmd>NvimTreeToggle<cr>",                                          desc = "Explorer" },
 	{ "<leader>w",  "<cmd>w!<CR>",                                                      desc = "Save" },
@@ -20,7 +20,7 @@ local mappings = {
 	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>",                           desc = "Code Action" },
 	{ "<leader>ld", "<cmd>Telescope diagnostics bufnr=0<cr>",                           desc = "Document Diagnostics" },
 	{ "<leader>lw", "<cmd>Telescope diagnostics<cr>",                                   desc = "Workspace Diagnostics" },
-	{ "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>",                desc = "Format" },
+	{ "<leader>lf", function() require("conform").format({ async = true }) end,          desc = "Format" },
 	{ "<leader>li", "<cmd>Mason<cr>",                                                   desc = "Info" },
 	{ "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<CR>",                          desc = "Next Diagnostic" },
 	{ "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>",                          desc = "Prev Diagnostic" },
@@ -49,6 +49,9 @@ local mappings = {
 	{ "<leader>fk", "<cmd>Telescope keymaps<cr>",                                       desc = "Keymaps" },
 	{ "<leader>fC", "<cmd>Telescope commands<cr>",                                      desc = "Commands" },
 	{ "<leader>fb", "<cmd>Telescope buffers<cr>",                                       desc = "Buffers" },
+	{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",                               desc = "Diagnostics" },
+	{ "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",                  desc = "Buffer Diagnostics" },
+	{ "<leader>xs", "<cmd>Trouble symbols toggle<cr>",                                   desc = "Symbols" },
 	{ "<leader>Tp", "<cmd>lua _PYTHON_TOGGLE()<cr>",                                    desc = "Python" },
 	{ "<leader>Tf", "<cmd>ToggleTerm direction=float<cr>",                              desc = "Float" },
 	{ "<leader>Th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>",                 desc = "Horizontal" },

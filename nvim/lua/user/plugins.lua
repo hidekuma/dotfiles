@@ -31,14 +31,16 @@ require("lazy").setup({
 	-- Styling
 	"ap/vim-css-color",
 	"itchyny/vim-cursorword",
-	"rcarriga/nvim-notify",
+
+	-- Snacks (dashboard, notifier, and more)
+	"folke/snacks.nvim",
 
 	-- Window
 	"camspiers/lens.vim",
 	{ "akinsho/bufferline.nvim", tag = "v3.*", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
 	-- Movement
-	"Lokaltog/vim-easymotion",
+	"folke/flash.nvim",
 	"tmux-plugins/vim-tmux-focus-events",
 
 	-- Navigation
@@ -49,15 +51,10 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
 	"tpope/vim-eunuch",
-	"terryma/vim-multiple-cursors",
 	"FooSoft/vim-argwrap",
 	"terryma/vim-expand-region",
 	"bitc/vim-bad-whitespace",
-	"winston0410/cmd-parser.nvim",
-	"winston0410/range-highlight.nvim",
 	"windwp/nvim-autopairs",
-	"numToStr/Comment.nvim",
-	"JoosepAlviste/nvim-ts-context-commentstring",
 
 	-- Finder
 	{ "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
@@ -67,7 +64,6 @@ require("lazy").setup({
 	"akinsho/toggleterm.nvim",
 	"ahmedkhalf/project.nvim",
 	"lukas-reineke/indent-blankline.nvim",
-	"goolord/alpha-nvim",
 	"folke/which-key.nvim",
 
 	-- Colorschemes
@@ -76,14 +72,9 @@ require("lazy").setup({
 
 	-- Syntax / Indenting
 	"hashivim/vim-terraform",
-	"Vimjas/vim-python-pep8-indent",
-	"sheerun/vim-polyglot",
 
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-
-	-- Buffer
-	"luukvbaal/stabilize.nvim",
 
 	-- Cmp plugins
 	"hrsh7th/nvim-cmp",
@@ -103,12 +94,18 @@ require("lazy").setup({
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
 
+	-- Formatter & Linter
+	"stevearc/conform.nvim",
+	"mfussenegger/nvim-lint",
+
+	-- Diagnostics UI
+	"folke/trouble.nvim",
+
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim", tag = "0.1.5", dependencies = { "nvim-lua/plenary.nvim" } },
+	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- Git
 	{ "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-	"airblade/vim-gitgutter",
 	"tpope/vim-fugitive",
 	"lewis6991/gitsigns.nvim",
 })
