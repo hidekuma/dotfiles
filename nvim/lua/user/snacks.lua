@@ -9,9 +9,6 @@ snacks.setup({
 		style = "compact",
 	},
 	dashboard = {
-		wo = {
-			winhighlight = "BadWhitespace:Normal",
-		},
 		preset = {
 			header = table.concat({
 				"╦ ╦╦╔╦╗╔═╗╦╔═╦ ╦╔╦╗╔═╗",
@@ -31,8 +28,8 @@ snacks.setup({
 		},
 		sections = {
 			{ section = "header" },
-			{ section = "keys", gap = 1, padding = 1 },
-			{ section = "recent_files", limit = 5, padding = 1 },
+			{ section = "keys", gap = 1 },
+			{ section = "recent_files", limit = 5 },
 			{ section = "startup" },
 		},
 	},
