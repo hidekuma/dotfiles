@@ -41,18 +41,32 @@ eval "$(pyenv init --path)"
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-# Nvm (Node Version Manager)
+# Nvm (Node Version Manager) — lazy loaded for fast startup
 export NVM_DIR="$HOME/.nvm"
 
-# Homebrew 설치 경로 기준 (Apple Silicon: /opt/homebrew)
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # nvm 로드
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # 자동완성
+_load_nvm() {
+  unset -f nvm node npm npx corepack
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+}
 
-# Virtualenv & Virtualenv Wrapper
+for cmd in nvm node npm npx corepack; do
+  eval "${cmd}() { _load_nvm; ${cmd} \"\$@\" }"
+done
+
+# Virtualenv & Virtualenv Wrapper — lazy loaded for fast startup
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
-source ~/.local/bin/virtualenvwrapper.sh
+
+_load_virtualenvwrapper() {
+  unset -f workon mkvirtualenv rmvirtualenv deactivate
+  export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+  export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
+  source ~/.local/bin/virtualenvwrapper.sh
+}
+
+for cmd in workon mkvirtualenv rmvirtualenv deactivate; do
+  eval "${cmd}() { _load_virtualenvwrapper; ${cmd} \"\$@\" }"
+done
 
 # claude
 export ENABLE_EXPERIMENTAL_MCP_CLI=true
@@ -95,7 +109,7 @@ alias cds='claude -dangerously-skip-permissions'
 
 
 # for auto completion of kubectx, kubens
-autoload -U compinit && compinit
+# NOTE: compinit is already called by oh-my-zsh, skip duplicate
 
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
