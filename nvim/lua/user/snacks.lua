@@ -9,6 +9,9 @@ snacks.setup({
 		style = "compact",
 	},
 	dashboard = {
+		wo = {
+			winhighlight = "BadWhitespace:Normal",
+		},
 		preset = {
 			header = table.concat({
 				"╦ ╦╦╔╦╗╔═╗╦╔═╦ ╦╔╦╗╔═╗",
@@ -38,10 +41,11 @@ snacks.setup({
 -- Replace vim.notify with snacks notifier
 vim.notify = snacks.notifier.notify
 
--- Disable vim-bad-whitespace on dashboard (causes red bars on padding lines)
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "snacks_dashboard",
+-- Clear match highlights on dashboard (vim-bad-whitespace causes red bars)
+vim.api.nvim_create_autocmd("BufWinEnter", {
 	callback = function()
-		vim.cmd("HideBadWhitespace")
+		if vim.bo.filetype == "snacks_dashboard" then
+			vim.fn.clearmatches()
+		end
 	end,
 })
