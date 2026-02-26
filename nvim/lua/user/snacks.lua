@@ -41,11 +41,15 @@ snacks.setup({
 -- Replace vim.notify with snacks notifier
 vim.notify = snacks.notifier.notify
 
--- Clear match highlights on dashboard (vim-bad-whitespace causes red bars)
-vim.api.nvim_create_autocmd("BufWinEnter", {
+-- vim-bad-whitespace uses 2match (not matchadd), must clear explicitly
+vim.api.nvim_create_autocmd({ "VimEnter", "BufWinEnter" }, {
 	callback = function()
-		if vim.bo.filetype == "snacks_dashboard" then
-			vim.fn.clearmatches()
-		end
+		vim.defer_fn(function()
+			if vim.bo.filetype == "snacks_dashboard" then
+				vim.cmd("match none")
+				vim.cmd("2match none")
+				vim.cmd("3match none")
+			end
+		end, 50)
 	end,
 })
