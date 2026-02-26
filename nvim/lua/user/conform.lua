@@ -24,6 +24,7 @@ conform.setup({
 		kotlin = { "ktlint" },
 		lua = { "stylua" },
 		sh = { "shfmt" },
+		["_"] = { "trim_whitespace" },
 	},
 	default_format_opts = {
 		lsp_format = "fallback",

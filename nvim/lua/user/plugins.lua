@@ -53,7 +53,6 @@ require("lazy").setup({
 	"tpope/vim-eunuch",
 	"FooSoft/vim-argwrap",
 	"terryma/vim-expand-region",
-	"bitc/vim-bad-whitespace",
 	"windwp/nvim-autopairs",
 
 	-- Finder
