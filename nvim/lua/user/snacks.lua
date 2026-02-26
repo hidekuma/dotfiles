@@ -41,15 +41,13 @@ snacks.setup({
 -- Replace vim.notify with snacks notifier
 vim.notify = snacks.notifier.notify
 
--- vim-bad-whitespace uses 2match (not matchadd), must clear explicitly
-vim.api.nvim_create_autocmd({ "VimEnter", "BufWinEnter" }, {
+-- vim-bad-whitespace uses 2match; vim.schedule runs before screen render
+vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
 	callback = function()
-		vim.defer_fn(function()
-			if vim.bo.filetype == "snacks_dashboard" then
-				vim.cmd("match none")
+		if vim.bo.filetype == "snacks_dashboard" then
+			vim.schedule(function()
 				vim.cmd("2match none")
-				vim.cmd("3match none")
-			end
-		end, 50)
+			end)
+		end
 	end,
 })
