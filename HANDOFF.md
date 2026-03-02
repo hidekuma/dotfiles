@@ -41,24 +41,39 @@ Maintain and improve a personal dotfiles repository that manages development env
    - WhichKey: Packer commands → Lazy commands
    - `nvim/README.md`: removed stale Comrade/packer references
 
+### Completed (Session 3)
+
+1. **Telescope ft_to_lang fix** (`78bb8d1`)
+   - Updated telescope.nvim to `5255aa2` (Neovim 0.11 compatible)
+   - Removed stale `vim-bad-whitespace` entry from `lazy-lock.json`
+
+2. **pyenv lazy loading** (`78bb8d1`)
+   - Added `$PYENV_ROOT/shims` directly to PATH (instant python/pip access)
+   - Deferred `pyenv init -` to first `pyenv` command invocation
+   - ~285ms saved per shell startup
+
+3. **shellcheck fixes** (`2c21297`, -53 lines)
+   - Removed dead `detect_os`, `detect_package_manager` functions
+   - Removed unused `OS_TYPE`, `PACKAGE_MANAGER` variables
+   - Fixed SC2155: separated `local` declaration from assignment
+   - Both `install.sh` and `claude/setup.sh` pass shellcheck clean
+
 ## What Worked
 
 - Lazy loading pattern for shell tools — function wrapper + `unset -f` on first call
 - lazy.nvim migration was smooth — existing `pcall(require, ...)` config pattern is fully compatible
 - `zprof` quickly identified exact bottlenecks (nvm 55%, virtualenvwrapper 15%, compinit 25%)
+- Direct shims PATH insertion for pyenv — avoids `eval` cost while keeping python/pip immediately available
 
 ## What Didn't Work
 
-- `gh` CLI not authenticated — couldn't investigate Dependabot alert programmatically
-- Otherwise nothing blocked either session
+- `gh` CLI not authenticated — couldn't investigate Dependabot alert (sessions 2 & 3)
+- Otherwise nothing blocked any session
 
 ## Next Steps
 
 - **Dependabot alert** — 1 moderate vulnerability on GitHub (needs `gh auth login` first)
-- **Neovim plugin audit** — `stabilize.nvim` superseded by Neovim 0.9+ `splitkeep`, `vim-polyglot` may conflict with treesitter
-- **pyenv lazy loading** — not yet lazy loaded (relatively fast, but could save ~50ms more)
-- **shellcheck fixes** — CI may flag existing scripts on next push; fix as needed
-- **First nvim launch** — user needs to run `rm -rf ~/.local/share/nvim/site/pack/packer` then open nvim for lazy.nvim bootstrap
+- **zsh_profile.m1 shellcheck** — file uses zsh syntax so shellcheck (bash/sh only) can't lint it; consider `zsh -n` syntax check in CI
 
 ## Key Files
 
@@ -73,5 +88,5 @@ Maintain and improve a personal dotfiles repository that manages development env
 | `nvim/lua/user/plugins.lua` | lazy.nvim plugin specs (~50 plugins) |
 | `nvim/lua/user/whichkey.lua` | Keybindings (Lazy commands on `<leader>p`) |
 | `zshrc` | Oh-My-Zsh bootstrap |
-| `zsh_profile.m1` | Apple Silicon profile (lazy-loaded nvm/virtualenvwrapper) |
+| `zsh_profile.m1` | Apple Silicon profile (lazy-loaded nvm/virtualenvwrapper/pyenv) |
 | `.github/workflows/shellcheck.yml` | Shell script CI |
