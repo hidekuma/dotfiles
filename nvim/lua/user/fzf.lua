@@ -53,7 +53,7 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<leader>p", ":GitFiles<CR>", opts)
 keymap("", "<C-P>", ":Files<CR>", opts)
 -- keymap("", "<leader>b", ":Buffers<CR>", opts)
-keymap("", "<S-F>", ":Rg<CR>", opts)
+keymap("n", "<C-f>", ":Rg<CR>", opts)
 
 vim.cmd [[
   augroup _fzf_custom_esc
