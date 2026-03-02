@@ -25,13 +25,17 @@ fi
 export FZF_TMUX=1
 export PATH="/usr/local/sbin:$PATH"
 
-# Pyenv (Python)
+# Pyenv (Python) — lazy loaded for fast startup
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
-eval "$(pyenv init -)"
-# pyenv 2~
-eval "$(pyenv init --path)"
+
+_load_pyenv() {
+  unset -f pyenv
+  eval "$(command pyenv init - zsh)"
+}
+
+pyenv() { _load_pyenv; pyenv "$@" }
 
 # Rbenv (Ruby)
 # export PATH="$HOME/.rbenv/bin:$PATH"
