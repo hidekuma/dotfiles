@@ -58,22 +58,37 @@ Maintain and improve a personal dotfiles repository that manages development env
    - Fixed SC2155: separated `local` declaration from assignment
    - Both `install.sh` and `claude/setup.sh` pass shellcheck clean
 
+4. **Rg keybinding fix** (`4d46373`)
+   - `<S-F>` was overridden by flash.nvim (uppercase `F` = backward char find)
+   - Remapped `:Rg` from `<S-F>` to `<C-f>` in normal mode
+
+### Completed (Session 4)
+
+1. **CI lint fix** (`d5f1000`)
+   - shellcheck was failing on every push — zsh files can't be parsed by shellcheck (bash/sh only)
+   - Renamed workflow `shellcheck` → `lint-shell`, split into two parallel jobs:
+     - `shellcheck` job: `.sh` files only (`ignore_names` excludes zsh files)
+     - `zsh-syntax` job: `zsh -n` parse check for `zshrc` and `zsh_profile*`
+   - All 4 zsh files pass `zsh -n` locally
+
 ## What Worked
 
 - Lazy loading pattern for shell tools — function wrapper + `unset -f` on first call
 - lazy.nvim migration was smooth — existing `pcall(require, ...)` config pattern is fully compatible
 - `zprof` quickly identified exact bottlenecks (nvm 55%, virtualenvwrapper 15%, compinit 25%)
 - Direct shims PATH insertion for pyenv — avoids `eval` cost while keeping python/pip immediately available
+- Checking `map <key>` in headless nvim to diagnose keybinding conflicts (flash.nvim overriding `<S-F>`)
+- `ignore_names` in `ludeeus/action-shellcheck` to exclude non-bash files from shellcheck scanning
 
 ## What Didn't Work
 
-- `gh` CLI not authenticated — couldn't investigate Dependabot alert (sessions 2 & 3)
-- Otherwise nothing blocked any session
+- `gh` CLI not authenticated — couldn't investigate Dependabot alert (sessions 2 & 3; resolved in session 4)
+- `<S-F>` keybinding — Neovim treats `<S-F>` as uppercase `F`, which conflicts with flash.nvim char motion
+- shellcheck on zsh files — zsh one-liner functions `f() { cmd; }` are unparseable by shellcheck
 
 ## Next Steps
 
-- **Dependabot alert** — 1 moderate vulnerability on GitHub (needs `gh auth login` first)
-- **zsh_profile.m1 shellcheck** — file uses zsh syntax so shellcheck (bash/sh only) can't lint it; consider `zsh -n` syntax check in CI
+- No outstanding issues — Dependabot alert #1 (black ReDoS) already fixed, CI lint fix pushed (`d5f1000`)
 
 ## Key Files
 
@@ -86,7 +101,8 @@ Maintain and improve a personal dotfiles repository that manages development env
 | `claude/commands/` | Slash commands (7 files) |
 | `nvim/init.lua` | Neovim module loader (27 modules) |
 | `nvim/lua/user/plugins.lua` | lazy.nvim plugin specs (~50 plugins) |
+| `nvim/lua/user/fzf.lua` | fzf keybindings (`<C-P>` files, `<C-f>` Rg, `<leader>p` git files) |
 | `nvim/lua/user/whichkey.lua` | Keybindings (Lazy commands on `<leader>p`) |
 | `zshrc` | Oh-My-Zsh bootstrap |
 | `zsh_profile.m1` | Apple Silicon profile (lazy-loaded nvm/virtualenvwrapper/pyenv) |
-| `.github/workflows/shellcheck.yml` | Shell script CI |
+| `.github/workflows/shellcheck.yml` | Shell lint CI (shellcheck + zsh -n) |
