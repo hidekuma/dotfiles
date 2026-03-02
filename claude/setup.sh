@@ -33,8 +33,6 @@ MINIMAL=false
 VERBOSE=false
 
 # 환경 변수
-OS_TYPE=""
-PACKAGE_MANAGER=""
 
 # 색상 코드
 COLOR_RESET="\033[0m"
@@ -78,53 +76,6 @@ log_verbose() {
 # 환경 감지 함수
 # ============================================================================
 
-detect_os() {
-    log_verbose "운영체제 감지 중..."
-
-    case "$(uname -s)" in
-        Darwin)
-            OS_TYPE="macos"
-            log_verbose "macOS 감지됨"
-            ;;
-        Linux)
-            OS_TYPE="linux"
-            log_verbose "Linux 감지됨"
-            ;;
-        *)
-            log_error "지원하지 않는 운영체제입니다: $(uname -s)"
-            exit 1
-            ;;
-    esac
-}
-
-detect_package_manager() {
-    log_verbose "패키지 매니저 감지 중..."
-
-    if [[ "$OS_TYPE" == "macos" ]]; then
-        if command -v brew &> /dev/null; then
-            PACKAGE_MANAGER="brew"
-            log_verbose "Homebrew 감지됨"
-        else
-            log_warn "Homebrew가 설치되어 있지 않습니다"
-            PACKAGE_MANAGER="none"
-        fi
-    elif [[ "$OS_TYPE" == "linux" ]]; then
-        if command -v apt-get &> /dev/null; then
-            PACKAGE_MANAGER="apt"
-            log_verbose "apt 감지됨"
-        elif command -v dnf &> /dev/null; then
-            PACKAGE_MANAGER="dnf"
-            log_verbose "dnf 감지됨"
-        elif command -v yum &> /dev/null; then
-            PACKAGE_MANAGER="yum"
-            log_verbose "yum 감지됨"
-        else
-            log_warn "지원하는 패키지 매니저를 찾을 수 없습니다"
-            PACKAGE_MANAGER="none"
-        fi
-    fi
-}
-
 check_claude_cli() {
     log_verbose "Claude CLI 설치 확인 중..."
 
@@ -143,7 +94,8 @@ check_claude_cli() {
 # ============================================================================
 
 backup_existing() {
-    local backup_dir="$HOME/.claude.backup.$(date +%Y%m%d_%H%M%S)"
+    local backup_dir
+    backup_dir="$HOME/.claude.backup.$(date +%Y%m%d_%H%M%S)"
 
     if [[ ! -d "$CLAUDE_HOME" ]]; then
         log_verbose "백업할 기존 설정이 없습니다"
@@ -479,9 +431,7 @@ main() {
         echo ""
     fi
 
-    # 2. 환경 감지
-    detect_os
-    detect_package_manager
+    # 2. Claude CLI 확인
     check_claude_cli || true
 
     # 3. Uninstall 모드
