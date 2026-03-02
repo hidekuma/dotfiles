@@ -1,4 +1,4 @@
-name: shellcheck
+name: lint-shell
 
 on:
   push:
@@ -21,3 +21,21 @@ jobs:
         with:
           scandir: '.'
           severity: warning
+          ignore_names: >-
+            zshrc
+            zsh_profile
+            zsh_profile.m1
+            zsh_profile.window
+
+  zsh-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check zsh syntax (zsh -n)
+        run: |
+          for f in zshrc zsh_profile zsh_profile.m1 zsh_profile.window; do
+            if [ -f "$f" ]; then
+              echo "Checking $f..."
+              zsh -n "$f"
+            fi
+          done
