@@ -78,6 +78,13 @@ Maintain and improve a personal dotfiles repository that manages development env
    - `Notification` 훅 추가 — Claude 응답 완료 후 사용자 입력 대기 시 macOS 알림 + Glass 사운드
    - `Stop` 훅은 세션 종료 전용 메시지로 변경
 
+### Completed (Session 6)
+
+1. **Hooks format fix** (`5b6e9f1`)
+   - 훅 이벤트(`PreToolUse`, `Notification`, `Stop`, `PostToolUse`)가 settings.json root level에 있어서 `Notification` 훅이 동작하지 않았음
+   - 모든 훅을 `"hooks": {}` 최상위 키 아래로 이동 — Claude Code 공식 포맷 준수
+   - `Notification` 훅 정상 동작 확인 (응답 완료 시 macOS 알림 + Glass 사운드)
+
 ## What Worked
 
 - Lazy loading pattern for shell tools — function wrapper + `unset -f` on first call
@@ -87,6 +94,7 @@ Maintain and improve a personal dotfiles repository that manages development env
 - Checking `map <key>` in headless nvim to diagnose keybinding conflicts (flash.nvim overriding `<S-F>`)
 - `ignore_names` in `ludeeus/action-shellcheck` to exclude non-bash files from shellcheck scanning
 - Claude Code `Notification` 훅 vs `Stop` 훅 — `Stop`은 세션 종료 시만, `Notification`이 응답 완료 알림에 적합
+- Claude Code hooks는 settings.json root level이 아닌 `"hooks": {}` 키 안에 넣어야 정상 동작
 
 ## What Didn't Work
 
@@ -96,8 +104,7 @@ Maintain and improve a personal dotfiles repository that manages development env
 
 ## Next Steps
 
-- Notification 훅 변경 커밋/푸시 필요 (`claude/settings.json`)
-- 그 외 미해결 이슈 없음
+- 미해결 이슈 없음
 
 ## Key Files
 
