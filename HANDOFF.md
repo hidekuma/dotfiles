@@ -71,6 +71,13 @@ Maintain and improve a personal dotfiles repository that manages development env
      - `zsh-syntax` job: `zsh -n` parse check for `zshrc` and `zsh_profile*`
    - All 4 zsh files pass `zsh -n` locally
 
+### Completed (Session 5)
+
+1. **Claude Code notification fix**
+   - `Stop` 훅만 있어서 세션 종료 시에만 알림이 울렸음
+   - `Notification` 훅 추가 — Claude 응답 완료 후 사용자 입력 대기 시 macOS 알림 + Glass 사운드
+   - `Stop` 훅은 세션 종료 전용 메시지로 변경
+
 ## What Worked
 
 - Lazy loading pattern for shell tools — function wrapper + `unset -f` on first call
@@ -79,6 +86,7 @@ Maintain and improve a personal dotfiles repository that manages development env
 - Direct shims PATH insertion for pyenv — avoids `eval` cost while keeping python/pip immediately available
 - Checking `map <key>` in headless nvim to diagnose keybinding conflicts (flash.nvim overriding `<S-F>`)
 - `ignore_names` in `ludeeus/action-shellcheck` to exclude non-bash files from shellcheck scanning
+- Claude Code `Notification` 훅 vs `Stop` 훅 — `Stop`은 세션 종료 시만, `Notification`이 응답 완료 알림에 적합
 
 ## What Didn't Work
 
@@ -88,7 +96,8 @@ Maintain and improve a personal dotfiles repository that manages development env
 
 ## Next Steps
 
-- No outstanding issues — Dependabot alert #1 (black ReDoS) already fixed, CI lint fix pushed (`d5f1000`)
+- Notification 훅 변경 커밋/푸시 필요 (`claude/settings.json`)
+- 그 외 미해결 이슈 없음
 
 ## Key Files
 
