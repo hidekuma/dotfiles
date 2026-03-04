@@ -85,6 +85,18 @@ Maintain and improve a personal dotfiles repository that manages development env
    - 모든 훅을 `"hooks": {}` 최상위 키 아래로 이동 — Claude Code 공식 포맷 준수
    - `Notification` 훅 정상 동작 확인 (응답 완료 시 macOS 알림 + Glass 사운드)
 
+### Completed (Session 7)
+
+1. **`/rhandoff` 스킬 생성** (`claude/commands/rhandoff.md`)
+   - HANDOFF.md를 읽고 세션 컨텍스트를 요약하는 슬래시 명령어
+   - 세션 번호, 완료 내역, 미해결 이슈를 자동 정리
+
+2. **알림 정리 — Stop hook만 유지**
+   - `Notification` 훅(응답 완료) 제거, `PostToolUse Task` 훅(Agent 완료) 제거
+   - `Stop` 훅(세션 종료)만 남김 — 사용자 요청
+   - `terminal-notifier` 시도했으나 macOS 알림 권한 미부여로 동작 안 함 → `osascript`로 유지
+   - macOS 시스템 설정에서 Script Editor 알림 스타일을 "임시(배너)"로, 알림 센터 체크 해제 → 자동 사라짐 확인
+
 ## What Worked
 
 - Lazy loading pattern for shell tools — function wrapper + `unset -f` on first call
@@ -95,12 +107,14 @@ Maintain and improve a personal dotfiles repository that manages development env
 - `ignore_names` in `ludeeus/action-shellcheck` to exclude non-bash files from shellcheck scanning
 - Claude Code `Notification` 훅 vs `Stop` 훅 — `Stop`은 세션 종료 시만, `Notification`이 응답 완료 알림에 적합
 - Claude Code hooks는 settings.json root level이 아닌 `"hooks": {}` 키 안에 넣어야 정상 동작
+- macOS 알림 설정에서 "알림 센터" 체크 해제 → 배너만 뜨고 알림 센터에 안 쌓임
 
 ## What Didn't Work
 
 - `gh` CLI not authenticated — couldn't investigate Dependabot alert (sessions 2 & 3; resolved in session 4)
 - `<S-F>` keybinding — Neovim treats `<S-F>` as uppercase `F`, which conflicts with flash.nvim char motion
 - shellcheck on zsh files — zsh one-liner functions `f() { cmd; }` are unparseable by shellcheck
+- `terminal-notifier` — 설치돼 있어도 macOS 알림 권한이 없으면 무음으로 실패 (exit 0이지만 알림 안 뜸)
 
 ## Next Steps
 
