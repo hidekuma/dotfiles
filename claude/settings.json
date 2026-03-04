@@ -168,24 +168,6 @@
       "Bash(chown:*)"
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "node /Users/joseph/.claude/hud/omc-hud.mjs"
-  },
-  "enabledPlugins": {
-    "oh-my-claudecode@omc": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "explanatory-output-style@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true,
-    "feature-dev@claude-plugins-official": true,
-    "serena@claude-plugins-official": false,
-    "context7@claude-plugins-official": true,
-    "everything-claude-code@everything-claude-code": true,
-    "dx@ykdojo": true
-  },
-  "verbose": false,
   "hooks": {
     "PreToolUse": [
       {
@@ -203,7 +185,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "TMUX_TARGET=$(/opt/homebrew/bin/tmux display-message -p '#S:#I'); /opt/homebrew/bin/tmux select-window -t $TMUX_TARGET; terminal-notifier -title \"Claude Code [$(basename $PWD)]\" -message \"입력 대기 중\" -sound Glass -activate com.googlecode.iterm2"
+            "command": "/opt/homebrew/bin/tmux display-message -p -t $TMUX_PANE '#S:#I' > /tmp/claude-tmux-jump; terminal-notifier -title \"Claude Code [$(basename $PWD)]\" -message \"입력 대기 중\" -sound Glass -activate com.googlecode.iterm2"
           }
         ]
       }
@@ -213,7 +195,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "TMUX_TARGET=$(/opt/homebrew/bin/tmux display-message -p '#S:#I'); /opt/homebrew/bin/tmux select-window -t $TMUX_TARGET; terminal-notifier -title \"Claude Code [$(basename $PWD)]\" -message \"세션 종료\" -sound Glass -activate com.googlecode.iterm2"
+            "command": "/opt/homebrew/bin/tmux display-message -p -t $TMUX_PANE '#S:#I' > /tmp/claude-tmux-jump; terminal-notifier -title \"Claude Code [$(basename $PWD)]\" -message \"세션 종료\" -sound Glass -activate com.googlecode.iterm2"
           }
         ]
       }
@@ -229,5 +211,23 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node /Users/joseph/.claude/hud/omc-hud.mjs"
+  },
+  "enabledPlugins": {
+    "oh-my-claudecode@omc": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "explanatory-output-style@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "serena@claude-plugins-official": false,
+    "context7@claude-plugins-official": true,
+    "everything-claude-code@everything-claude-code": true,
+    "dx@ykdojo": true
+  },
+  "verbose": false
 }
