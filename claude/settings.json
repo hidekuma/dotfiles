@@ -203,7 +203,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"입력 대기 중\" with title \"Claude Code\" sound name \"Glass\"'"
+            "command": "afplay /System/Library/Sounds/Glass.aiff & osascript -e 'display notification \"입력 대기 중\" with title \"Claude Code\"'"
           }
         ]
       }
