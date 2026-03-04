@@ -97,6 +97,18 @@ Maintain and improve a personal dotfiles repository that manages development env
    - `terminal-notifier` 시도했으나 macOS 알림 권한 미부여로 동작 안 함 → `osascript`로 유지
    - macOS 시스템 설정에서 Script Editor 알림 스타일을 "임시(배너)"로, 알림 센터 체크 해제 → 자동 사라짐 확인
 
+### Completed (Session 8)
+
+1. **Notification 훅 복원 + 안정화** (`9a1bee7`)
+   - 사용자 입력 대기 시(권한 승인, 질문, 응답 완료) macOS 알림이 안 오는 문제
+   - `osascript` 알림 사운드가 macOS 권한에 의존 → `afplay`로 직접 Glass.aiff 재생 (권한 무관)
+   - `osascript`는 배너 표시 전용으로 병행
+
+2. **알림에 프로젝트명 표시** (`4d2ff38`)
+   - 알림 타이틀을 `"Claude Code"` → `"Claude Code [프로젝트명]"`으로 변경
+   - `$(basename $PWD)`로 현재 프로젝트 디렉토리명 동적 삽입
+   - 복수 세션 운영 시 어떤 세션에서 알림이 왔는지 구분 가능
+
 ## What Worked
 
 - Lazy loading pattern for shell tools — function wrapper + `unset -f` on first call
@@ -108,6 +120,8 @@ Maintain and improve a personal dotfiles repository that manages development env
 - Claude Code `Notification` 훅 vs `Stop` 훅 — `Stop`은 세션 종료 시만, `Notification`이 응답 완료 알림에 적합
 - Claude Code hooks는 settings.json root level이 아닌 `"hooks": {}` 키 안에 넣어야 정상 동작
 - macOS 알림 설정에서 "알림 센터" 체크 해제 → 배너만 뜨고 알림 센터에 안 쌓임
+- `afplay`로 사운드 직접 재생 — macOS 알림 권한과 무관하게 확실히 소리남
+- `$(basename $PWD)`로 알림 타이틀에 프로젝트명 동적 삽입 — 복수 세션 구분
 
 ## What Didn't Work
 
