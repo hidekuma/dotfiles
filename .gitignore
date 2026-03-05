@@ -5,6 +5,7 @@ bin/~/
 .mypy_cache/
 
 .nvimlog
+nvim/plugin/packer_compiled.lua
 
 # OMC state (session-specific, not for git)
 .omc/
