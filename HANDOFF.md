@@ -4,7 +4,7 @@
 
 Maintain and improve a personal dotfiles repository that manages development environment configuration (Zsh, Neovim, tmux, Claude Code, OpenCode, Karabiner) across macOS and Linux.
 
-## Previous Sessions (1-6)
+## Previous Sessions (1-8)
 
 | Session | Key Accomplishments |
 |---------|-------------------|
@@ -14,16 +14,8 @@ Maintain and improve a personal dotfiles repository that manages development env
 | 4 | CI lint 수정 (shellcheck→bash only, zsh-syntax 분리) |
 | 5 | Claude Code Notification 훅 추가 (응답 완료 알림) |
 | 6 | Hooks format 수정 (`"hooks": {}` 키 아래로 이동) |
-
-## Completed (Session 7)
-
-1. **`/rhandoff` 스킬 생성** — HANDOFF.md 기반 세션 시작 명령어
-2. **알림 정리** — Stop 훅만 유지, Notification/PostToolUse 제거
-
-## Completed (Session 8)
-
-1. **Notification 훅 복원** — `afplay`로 사운드 직접 재생 (macOS 권한 무관)
-2. **알림에 프로젝트명 표시** — `$(basename $PWD)` 동적 삽입
+| 7 | `/rhandoff` 스킬 생성, 알림 정리 (Stop 훅만 유지) |
+| 8 | Notification 훅 복원 (`afplay` 사운드), 알림에 프로젝트명 표시 |
 
 ## Completed (Session 9)
 
@@ -34,6 +26,11 @@ Maintain and improve a personal dotfiles repository that manages development env
    - `notify-jump.sh` 스크립트 + `switch-client -t` (크로스 세션 지원)
 2. **기술 부채 수정** — tmux.conf, notify-jump.sh 하드코딩 경로 제거
 3. **`/rhandoff` 개선** — 실행 시 HANDOFF.md 자동 정리 (오래된 세션 압축, 해결된 이슈 제거)
+
+## Completed (Session 10)
+
+1. **OMC usage API rate limit loop 수정 PR** ([#1347](https://github.com/Yeachan-Heo/oh-my-claudecode/pull/1347))
+   - Closed — upstream dev에서 exponential backoff로 이미 해결됨
 
 ## What Worked
 
