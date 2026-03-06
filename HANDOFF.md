@@ -4,7 +4,7 @@
 
 Maintain and improve a personal dotfiles repository that manages development environment configuration (Zsh, Neovim, tmux, Claude Code, OpenCode, Karabiner) across macOS and Linux.
 
-## Previous Sessions (1-8)
+## Previous Sessions (1-10)
 
 | Session | Key Accomplishments |
 |---------|-------------------|
@@ -16,21 +16,8 @@ Maintain and improve a personal dotfiles repository that manages development env
 | 6 | Hooks format 수정 (`"hooks": {}` 키 아래로 이동) |
 | 7 | `/rhandoff` 스킬 생성, 알림 정리 (Stop 훅만 유지) |
 | 8 | Notification 훅 복원 (`afplay` 사운드), 알림에 프로젝트명 표시 |
-
-## Completed (Session 9)
-
-1. **알림 클릭 → tmux 세션 점프** (`c02e73e`)
-   - `terminal-notifier` + `-activate com.googlecode.iterm2` 조합
-   - `$TMUX_PANE`으로 Claude Code 실제 윈도우 캡처 (선택된 윈도우가 아닌 실행 중인 윈도우)
-   - `/tmp/claude-tmux-jump` 파일 기반 + tmux `client-focus-in` 훅으로 deferred switch
-   - `notify-jump.sh` 스크립트 + `switch-client -t` (크로스 세션 지원)
-2. **기술 부채 수정** — tmux.conf, notify-jump.sh 하드코딩 경로 제거
-3. **`/rhandoff` 개선** — 실행 시 HANDOFF.md 자동 정리 (오래된 세션 압축, 해결된 이슈 제거)
-
-## Completed (Session 10)
-
-1. **OMC usage API rate limit loop 수정 PR** ([#1347](https://github.com/Yeachan-Heo/oh-my-claudecode/pull/1347))
-   - Closed — upstream dev에서 exponential backoff로 이미 해결됨
+| 9 | 알림 클릭→tmux 점프, notify-jump.sh, 기술 부채 수정, `/rhandoff` 자동 정리 |
+| 10 | OMC rate limit PR #1347 (upstream에서 이미 해결, closed) |
 
 ## What Worked
 
