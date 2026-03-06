@@ -3,7 +3,9 @@ You are delegating a task to Codex CLI running in a tmux split pane.
 ## Instructions
 
 1. Parse the user's input: $ARGUMENTS
-2. Check if it starts with `--safe` flag
+2. Determine the prompt:
+   - **If `$ARGUMENTS` is non-empty**: use it as the prompt (check if it starts with `--safe` flag)
+   - **If `$ARGUMENTS` is empty**: summarize the current conversation's last user request/task in 1-2 concise English sentences. This summary becomes the prompt.
 3. Run the delegate script via Bash (do NOT use run_in_background — the script itself runs in a tmux pane):
 
 ```
