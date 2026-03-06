@@ -227,7 +227,8 @@
     "serena@claude-plugins-official": false,
     "context7@claude-plugins-official": true,
     "everything-claude-code@everything-claude-code": true,
-    "dx@ykdojo": true
+    "dx@ykdojo": true,
+    "pyright-lsp@claude-plugins-official": true
   },
   "verbose": false
 }
