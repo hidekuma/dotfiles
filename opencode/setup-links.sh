@@ -37,7 +37,8 @@ create_symlink() {
     local target=$2
     
     if [ -L "$target" ]; then
-        local current_link=$(readlink "$target")
+        local current_link
+        current_link=$(readlink "$target")
         if [ "$current_link" = "$source" ]; then
             print_info "이미 존재: $target -> $source"
             return 0
@@ -60,7 +61,8 @@ create_symlink() {
         read -p "    백업 후 링크를 생성하시겠습니까? (y/N): " -n 1 -r
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]; then
-            local backup="${target}.backup.$(date +%Y%m%d-%H%M%S)"
+            local backup
+            backup="${target}.backup.$(date +%Y%m%d-%H%M%S)"
             mv "$target" "$backup"
             print_info "백업 생성: $backup"
         else
