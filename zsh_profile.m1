@@ -110,7 +110,6 @@ alias lg="lazygit"
 # claude
 alias c='claude'
 alias cds='claude -dangerously-skip-permissions'
-tts() { if [ -f ~/.claude-tts ]; then rm ~/.claude-tts && echo "TTS OFF"; else touch ~/.claude-tts && echo "TTS ON"; fi }
 
 
 # for auto completion of kubectx, kubens
