@@ -185,7 +185,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "tmux select-window -t $TMUX_PANE 2>/dev/null; terminal-notifier -title \"Claude Code [$(basename $PWD)]\" -message \"입력 대기 중\" -sound Glass -activate com.googlecode.iterm2; ~/dotfiles/claude/scripts/claude-tts.sh &"
+            "command": "~/dotfiles/claude/scripts/notify.sh"
           }
         ]
       }
@@ -195,7 +195,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "terminal-notifier -title \"Claude Code [$(basename $PWD)]\" -message \"세션 종료\" -sound Glass -activate com.googlecode.iterm2"
+            "command": "~/dotfiles/claude/scripts/notify-stop.sh"
           }
         ]
       }
