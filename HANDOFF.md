@@ -19,26 +19,25 @@ Maintain and improve a personal dotfiles repository that manages development env
 | 9 | 알림 클릭→tmux 점프, notify-jump.sh, 기술 부채 수정, `/rhandoff` 자동 정리 |
 | 10 | OMC rate limit PR #1347 (upstream에서 이미 해결, closed) |
 | 11 | tmux 점프 수정: client-focus-in → eager select-window, notify-jump.sh 삭제 |
+| 12 | 알림 훅을 외부 스크립트로 분리 (notify.sh, notify-stop.sh) — 세션 재시작 없이 수정 가능 |
 
 ## What Worked
 
 - Lazy loading pattern for shell tools — function wrapper + `unset -f` on first call
-- `zprof`로 쉘 시작 병목 진단 (nvm 55%, virtualenvwrapper 15%, compinit 25%)
 - Claude Code hooks는 `"hooks": {}` 키 안에 넣어야 정상 동작
-- **settings.json 훅 변경은 세션 재시작 필요** (캐싱됨, 핫리로드 안 됨)
+- **settings.json 훅 변경은 세션 재시작 필요** (캐싱됨, 핫리로드 안 됨) → 외부 스크립트로 분리하면 해결
 - `terminal-notifier -activate`는 훅에서 동작 (macOS가 직접 처리)
-- `$TMUX_PANE`으로 Claude Code 실제 윈도우 캡처 (`display-message -p`는 현재 선택된 윈도우 반환)
-- Eager `select-window -t $TMUX_PANE` — 알림 발생 시 즉시 윈도우 전환 (deferred보다 안정적)
+- `$TMUX_PANE`으로 Claude Code 실제 윈도우 캡처
 
 ## What Didn't Work
 
 - `terminal-notifier -execute` — 훅 서브프로세스에서 동작 안 함 (프로세스 종료 후 콜백 불가)
-- tmux `client-focus-in` — tmux 3.5a + iTerm2에서 미발동 (focus escape sequence 전달 안 됨)
-- `switch-client` in notification hook — 다른 세션 작업 중 강제 전환됨 (제거함)
+- tmux `client-focus-in` — tmux 3.5a + iTerm2에서 미발동
+- `switch-client` in notification hook — 다른 세션 작업 중 강제 전환됨
 
 ## Next Steps
 
-- 미해결 이슈 없음
+- tmux 윈도우 점프가 실제 알림 시 동작하는지 확인 필요 (수동 테스트에서는 성공, 실제 훅 발동 시 미확인)
 
 ## Key Files
 
@@ -47,6 +46,8 @@ Maintain and improve a personal dotfiles repository that manages development env
 | `install.sh` | Unified bootstrap (symlinks, zsh, nvim, tmux, claude, tools) |
 | `claude/setup.sh` | Claude Code installer (plugins, LSP, symlinks) |
 | `claude/settings.json` | Permissions, hooks, plugins |
+| `claude/scripts/notify.sh` | Notification hook script (알림 + tmux 점프) |
+| `claude/scripts/notify-stop.sh` | Stop hook script (세션 종료 알림) |
 | `claude/commands/` | Slash commands (rhandoff 등) |
 | `tmux.conf` | tmux 설정 |
 | `nvim/init.lua` | Neovim module loader (27 modules) |
