@@ -109,6 +109,7 @@ alias lg="lazygit"
 
 # claude
 alias c='claude'
+alias cw='claude --worktree'
 alias cds='claude -dangerously-skip-permissions'
 
 
