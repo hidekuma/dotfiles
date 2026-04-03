@@ -168,67 +168,31 @@
       "Bash(chown:*)"
     ]
   },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node -e \"let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const cmd=i.tool_input?.command||'';if(/npm run dev|pnpm dev|yarn dev/.test(cmd)&&!process.env.TMUX){console.error('[Hook] Consider running dev server in tmux for session persistence')}console.log(d)})\""
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/dotfiles/claude/scripts/notify.sh"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/dotfiles/claude/scripts/notify-stop.sh"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node -e \"const fs=require('fs');let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const p=i.tool_input?.file_path;if(p&&/\\.(ts|tsx)$/.test(p)&&fs.existsSync(p)){const c=fs.readFileSync(p,'utf8');if(/console\\.log/.test(c))console.error('[Hook] WARNING: console.log found - remove before commit')}console.log(d)})\""
-          }
-        ]
-      }
-    ]
-  },
+  "hooks": {},
   "statusLine": {
     "type": "command",
-    "command": "/opt/homebrew/bin/node $HOME/.claude/hud/omc-hud.mjs 2>/dev/null"
+    "command": "bash -c 'plugin_dir=$(ls -d \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | awk -F/ '\"'\"'{ print $(NF-1) \"\\t\" $(0) }'\"'\"' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-); exec \"/opt/homebrew/bin/bun\" --env-file /dev/null \"${plugin_dir}src/index.ts\"'"
   },
   "enabledPlugins": {
-    "oh-my-claudecode@omc": true,
     "typescript-lsp@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "explanatory-output-style@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
-    "feature-dev@claude-plugins-official": true,
-    "serena@claude-plugins-official": false,
     "context7@claude-plugins-official": true,
-    "everything-claude-code@everything-claude-code": true,
     "dx@ykdojo": true,
-    "pyright-lsp@claude-plugins-official": true
+    "pyright-lsp@claude-plugins-official": true,
+    "claude-hud@claude-hud": true,
+    "oh-my-claudecode@omc": true
   },
-  "verbose": false
+  "extraKnownMarketplaces": {
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    }
+  },
+  "autoUpdatesChannel": "stable",
+  "verbose": false,
+  "env": {
+    "CLAUDE_CODE_NO_FLICKER": "1"
+  }
 }

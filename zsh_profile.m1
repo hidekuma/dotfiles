@@ -48,15 +48,20 @@ pyenv() { _load_pyenv; pyenv "$@" }
 # Nvm (Node Version Manager) — lazy loaded for fast startup
 export NVM_DIR="$HOME/.nvm"
 
-_load_nvm() {
-  unset -f nvm node npm npx corepack
+# Add nvm's default node to PATH immediately (no wrapper functions, no recursion)
+if [ -d "$NVM_DIR/versions/node" ]; then
+  _nvm_default_dir="$NVM_DIR/versions/node/$(ls -1 "$NVM_DIR/versions/node" | sort -V | tail -1)/bin"
+  [ -d "$_nvm_default_dir" ] && export PATH="$_nvm_default_dir:$PATH"
+  unset _nvm_default_dir
+fi
+
+# Only lazy-load nvm command itself (rarely used interactively)
+nvm() {
+  unset -f nvm
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  nvm "$@"
 }
-
-for cmd in nvm node npm npx corepack; do
-  eval "${cmd}() { _load_nvm; ${cmd} \"\$@\" }"
-done
 
 # Virtualenv & Virtualenv Wrapper — lazy loaded for fast startup
 export WORKON_HOME=~/.virtualenvs

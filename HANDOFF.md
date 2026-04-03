@@ -46,8 +46,6 @@ Maintain and improve a personal dotfiles repository that manages development env
 | `install.sh` | Unified bootstrap (symlinks, zsh, nvim, tmux, claude, tools) |
 | `claude/setup.sh` | Claude Code installer (plugins, LSP, symlinks) |
 | `claude/settings.json` | Permissions, hooks, plugins |
-| `claude/scripts/notify.sh` | Notification hook script (알림 + tmux 점프) |
-| `claude/scripts/notify-stop.sh` | Stop hook script (세션 종료 알림) |
 | `claude/commands/` | Slash commands (rhandoff 등) |
 | `tmux.conf` | tmux 설정 |
 | `nvim/init.lua` | Neovim module loader (27 modules) |

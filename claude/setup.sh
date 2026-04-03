@@ -142,9 +142,7 @@ create_symlinks() {
     local items=(
         "settings.json"
         "CLAUDE.md"
-        "agents"
         "commands"
-        "rules"
     )
 
     for item in "${items[@]}"; do
@@ -195,9 +193,7 @@ remove_symlinks() {
     local items=(
         "settings.json"
         "CLAUDE.md"
-        "agents"
         "commands"
-        "rules"
     )
 
     for item in "${items[@]}"; do
@@ -254,12 +250,10 @@ install_plugins() {
     if [[ "$DRY_RUN" == true ]]; then
         log_dry "claude plugin marketplace add https://github.com/anthropics/claude-plugins-official"
         log_dry "claude plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode"
-        log_dry "claude plugin marketplace add https://github.com/affaan-m/everything-claude-code"
         log_dry "claude plugin marketplace add ykdojo/claude-code-tips"
     else
         claude plugin marketplace add https://github.com/anthropics/claude-plugins-official 2>/dev/null || true
         claude plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode 2>/dev/null || true
-        claude plugin marketplace add https://github.com/affaan-m/everything-claude-code 2>/dev/null || true
         claude plugin marketplace add ykdojo/claude-code-tips 2>/dev/null || true
         log_success "  → Marketplace 추가 완료"
     fi
@@ -269,15 +263,10 @@ install_plugins() {
     # 플러그인 목록
     local plugins=(
         "oh-my-claudecode@omc"
-        "everything-claude-code@everything-claude-code"
         "typescript-lsp@claude-plugins-official"
-        "code-review@claude-plugins-official"
-        "explanatory-output-style@claude-plugins-official"
         "commit-commands@claude-plugins-official"
-        "security-guidance@claude-plugins-official"
-        "feature-dev@claude-plugins-official"
-        "serena@claude-plugins-official"
         "context7@claude-plugins-official"
+        "pyright-lsp@claude-plugins-official"
         "dx@ykdojo"
     )
 
@@ -300,9 +289,7 @@ verify_installation() {
     local items=(
         "settings.json"
         "CLAUDE.md"
-        "agents"
         "commands"
-        "rules"
     )
 
     echo ""
@@ -318,7 +305,7 @@ verify_installation() {
     echo ""
 
     # 순환 심볼릭 링크 확인
-    if [[ -e "$DOTFILES_CLAUDE_DIR/agents/agents" ]] || [[ -e "$DOTFILES_CLAUDE_DIR/commands/commands" ]]; then
+    if [[ -e "$DOTFILES_CLAUDE_DIR/commands/commands" ]]; then
         log_error "순환 심볼릭 링크가 감지되었습니다!"
         all_ok=false
     fi
@@ -363,9 +350,7 @@ show_help() {
 심볼릭 링크 매핑:
   dotfiles/claude/settings.json  →  ~/.claude/settings.json
   dotfiles/claude/CLAUDE.md      →  ~/.claude/CLAUDE.md
-  dotfiles/claude/agents/        →  ~/.claude/agents/
   dotfiles/claude/commands/      →  ~/.claude/commands/
-  dotfiles/claude/rules/         →  ~/.claude/rules/
 
 주의사항:
   • claude.json은 심볼릭 링크되지 않습니다 (로컬 전용, 민감정보 포함)
