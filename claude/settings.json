@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_NO_FLICKER": "1"
+  },
   "permissions": {
     "allow": [
       "Bash(git:*)",
@@ -180,7 +183,9 @@
     "dx@ykdojo": true,
     "pyright-lsp@claude-plugins-official": true,
     "claude-hud@claude-hud": true,
-    "oh-my-claudecode@omc": true
+    "oh-my-claudecode@omc": true,
+    "codex@openai-codex": true,
+    "telegram@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "claude-hud": {
@@ -188,11 +193,14 @@
         "source": "github",
         "repo": "jarrodwatts/claude-hud"
       }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
     }
   },
   "autoUpdatesChannel": "stable",
-  "verbose": false,
-  "env": {
-    "CLAUDE_CODE_NO_FLICKER": "1"
-  }
+  "verbose": false
 }
