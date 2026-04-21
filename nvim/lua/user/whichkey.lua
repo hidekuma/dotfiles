@@ -56,6 +56,7 @@ local mappings = {
 	{ "<leader>Tf", "<cmd>ToggleTerm direction=float<cr>",                              desc = "Float" },
 	{ "<leader>Th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>",                 desc = "Horizontal" },
 	{ "<leader>Tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>",                   desc = "Vertical" },
+	{ "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>",                                   desc = "Markdown Preview" },
 }
 
 wk.add(mappings)
