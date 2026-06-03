@@ -37,7 +37,7 @@ require("lazy").setup({
 
 	-- Window
 	"camspiers/lens.vim",
-	{ "akinsho/bufferline.nvim", tag = "v3.*", dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{ "akinsho/bufferline.nvim", version = "v3.*", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
 	-- Movement
 	"folke/flash.nvim",

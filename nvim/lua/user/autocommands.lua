@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
       return
     end
 
-    vim.lsp.buf.format({ async = false, bufnr = args.buf })
+    vim.lsp.buf.format({ async = false, bufnr = args.buf, timeout_ms = 5000 })
   end,
 })
 
