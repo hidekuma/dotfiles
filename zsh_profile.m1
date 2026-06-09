@@ -68,9 +68,12 @@ export WORKON_HOME=~/.virtualenvs
 
 _load_virtualenvwrapper() {
   unset -f workon mkvirtualenv rmvirtualenv deactivate
-  export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-  export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
-  source ~/.local/bin/virtualenvwrapper.sh
+  # Use an isolated venv so virtualenvwrapper is unaffected by the active
+  # `python3` (Homebrew bumps it to new EXTERNALLY-MANAGED versions where the
+  # module isn't installed). Create with: bin/install-virtualenv.sh
+  export VIRTUALENVWRAPPER_PYTHON=~/.local/venvwrapper/bin/python
+  export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/venvwrapper/bin/virtualenv
+  source ~/.local/venvwrapper/bin/virtualenvwrapper.sh
 }
 
 for cmd in workon mkvirtualenv rmvirtualenv deactivate; do
