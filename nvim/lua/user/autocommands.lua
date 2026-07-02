@@ -2,7 +2,7 @@ vim.cmd [[
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
+    autocmd TextYankPost * silent!lua vim.hl.on_yank({higroup = 'Visual', timeout = 200})
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
   augroup end
@@ -37,47 +37,8 @@ vim.cmd [[
 ]]
 
 
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.format { async = true }
--- augroup end
-vim.api.nvim_create_augroup('AutoFormatting', {})
-local function should_format(bufnr)
-  if vim.g.disable_autoformat then
-    return false
-  end
-
-  if vim.b[bufnr].disable_autoformat then
-    return false
-  end
-
-  local bufname = vim.api.nvim_buf_get_name(bufnr)
-  if bufname == "" then
-    return false
-  end
-
-  local disable_markers = { ".nvim-disable-format", ".disable-format", ".noformat" }
-  local dir = vim.fs.dirname(bufname)
-  local found = vim.fs.find(disable_markers, {
-    path = dir,
-    upward = true,
-    stop = vim.loop.os_homedir(),
-  })
-
-  return vim.tbl_isempty(found)
-end
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = 'AutoFormatting',
-  callback = function(args)
-    if not should_format(args.buf) then
-      return
-    end
-
-    vim.lsp.buf.format({ async = false, bufnr = args.buf, timeout_ms = 5000 })
-  end,
-})
-
+-- Format-on-save runs through conform (user/conform.lua); the commands below
+-- toggle the flags conform's format_on_save callback checks.
 vim.api.nvim_create_user_command('AutoFormatToggle', function()
   local bufnr = vim.api.nvim_get_current_buf()
   vim.b[bufnr].disable_autoformat = not vim.b[bufnr].disable_autoformat

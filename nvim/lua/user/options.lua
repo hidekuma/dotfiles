@@ -26,7 +26,6 @@ local options = {
 	cmdheight = 2, -- more space in the neovim command line for displaying messages
 	number = true, -- set numbered lines
 	relativenumber = true, -- set relative numbered lines
-	lazyredraw = true, -- do not redraw while running macros (much faster)
 	report = 0, -- always report how many lines where changed
 	laststatus = 2, -- always show the status line
 	scrolloff = 8, -- is one of my fav

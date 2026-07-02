@@ -73,8 +73,8 @@ keymap("n", "<C-c>", "<C-w>c", opts)
 
 -- Else
 keymap("n", "<leader>r", ":!python %<CR>", opts)
-keymap("n", "<Tab>", ":tabNext<CR>", opts)
-keymap("n", "<S-Tab>", ":tabPrev<CR>", opts)
+keymap("n", "<Tab>", ":tabnext<CR>", opts)
+keymap("n", "<S-Tab>", ":tabprevious<CR>", opts)
 keymap("n", "sh", ":split<Return><C-w>w", opts)
 keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
 keymap("n", "tn", ":tabnew<Return>", opts)
@@ -88,5 +88,3 @@ keymap("n", "<C-w><down>", " <C-w>-", opts)
 -- cp file path
 keymap("n", "cp", ":let @+ = expand('%')<cr>", opts)
 -- keymap("n", "cP", ":let @+ = expand('%p')<cr>", opts)
-
-keymap("t", "<C-c>", ":let @+ = expand('%p')<cr>", opts)

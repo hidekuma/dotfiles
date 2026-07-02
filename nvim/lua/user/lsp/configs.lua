@@ -47,11 +47,8 @@ mason_lspconfig.setup({
 -- 	py_path = vim.g.python3_host_prog
 -- end
 
-vim.api.nvim_exec(
-	[[
-	let g:loaded_python_provider = 0
-	let g:python3_host_prog='~/.virtualenvs/neovim3.12/bin/python'
-]], true)
+vim.g.loaded_python_provider = 0
+vim.g.python3_host_prog = vim.fn.expand("~/.virtualenvs/neovim3.12/bin/python")
 
 local handlers = require("user.lsp.handlers")
 if not handlers then

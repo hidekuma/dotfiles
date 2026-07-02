@@ -7,10 +7,6 @@ else
     py_path = vim.g.python3_host_prog
 end
 
-
--- log py_path
-print("py_path: " .. py_path)
-
 -- NOTE
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
 -- ~/.local/share/nvim/mason/bin/pylsp 이쪽에 들어가서 서드파티black 을 pip install 해줘야 black formatting 사용가능
