@@ -241,6 +241,31 @@ setup_doctor() {
   bash "$DOTFILES/bin/doctor.sh"
 }
 
+# ─── GUI 앱 설정 (karabiner / iterm2) ───────────
+setup_gui() {
+  info "Setting up GUI app configs..."
+
+  # Karabiner-Elements — 디렉토리 통째 심볼릭 링크 (설정 변경이 바로 dotfiles 에 반영됨)
+  mkdir -p "$HOME/.config"
+  if [ -d "$HOME/.config/karabiner" ] && [ ! -L "$HOME/.config/karabiner" ]; then
+    warn "Backing up ~/.config/karabiner → ~/.config/karabiner.bak"
+    rm -rf "$HOME/.config/karabiner.bak"
+    mv "$HOME/.config/karabiner" "$HOME/.config/karabiner.bak"
+  fi
+  symlink "$DOTFILES/karabiner" "$HOME/.config/karabiner"
+
+  # iTerm2 — dotfiles/iterm2 를 설정 폴더로 지정 (로드+저장 모두 여기로)
+  if [ -f "$DOTFILES/iterm2/com.googlecode.iterm2.plist" ]; then
+    defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES/iterm2"
+    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+    ok "iTerm2 prefs → $DOTFILES/iterm2"
+  else
+    warn "iterm2 plist 없음, 건너뜀"
+  fi
+
+  ok "GUI configs done — Karabiner/iTerm2 는 앱 재시작 후 반영"
+}
+
 # ─── CLI tools (macOS) ──────────────────────────
 setup_tools() {
   info "Setting up CLI tools..."
@@ -269,7 +294,7 @@ usage() {
   cat <<EOF
 Usage: $0 [OPTIONS] [COMPONENTS...]
 
-Components (default: brew symlinks zsh nvim tmux claude runtime):
+Components (default: brew symlinks zsh nvim tmux claude runtime gui):
   brew        Homebrew + Brewfile (+ Brewfile.local)
   symlinks    Dotfile symlinks (zsh, tmux, nvim)
   zsh         Zsh + Oh-My-Zsh + plugins
@@ -277,6 +302,7 @@ Components (default: brew symlinks zsh nvim tmux claude runtime):
   tmux        tmux + TPM
   claude      Claude Code (--minimal)
   runtime     node(nvm) / virtualenvwrapper / SDKMAN / npm 전역툴
+  gui         Karabiner 심볼릭 링크 + iTerm2 설정 폴더 지정
   tools       CLI tools (fzf, rg, bat, lsd, lazygit)
 
 Opt-in (기본 실행 안 함):
@@ -302,7 +328,7 @@ main() {
   local components=("$@")
 
   if [ ${#components[@]} -eq 0 ]; then
-    components=(brew symlinks zsh nvim tmux claude runtime)
+    components=(brew symlinks zsh nvim tmux claude runtime gui)
   fi
 
   for component in "${components[@]}"; do
@@ -314,6 +340,7 @@ main() {
       tmux)     setup_tmux ;;
       claude)   setup_claude ;;
       runtime)  setup_runtime ;;
+      gui)      setup_gui ;;
       tools)    setup_tools ;;
       macos)    setup_macos ;;
       repos)    setup_repos ;;

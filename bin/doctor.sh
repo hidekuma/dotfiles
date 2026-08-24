@@ -80,6 +80,14 @@ done
 [ -d "$HOME/.tmux/plugins/tpm" ] && pass "tmux TPM" || fail "TPM 없음"
 [ -d "$HOME/.sdkman" ] && pass "SDKMAN" || warn "SDKMAN 없음"
 
+head_ "GUI 설정"
+check_link "$HOME/.config/karabiner" "$DOTFILES/karabiner"
+if [ "$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)" = "$DOTFILES/iterm2" ]; then
+  pass "iTerm2 prefs → dotfiles/iterm2"
+else
+  warn "iTerm2 설정 폴더 미지정 — install.sh gui 실행"
+fi
+
 head_ "Claude Code"
 have claude && pass "claude CLI" || warn "claude CLI 없음 (npm i -g @anthropic-ai/claude-code)"
 [ -e "$HOME/.claude/settings.json" ] && pass "~/.claude/settings.json" || warn "claude 설정 링크 없음 — claude/setup.sh 실행"

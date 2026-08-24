@@ -106,8 +106,9 @@ mas install <id>
 
 ### 1-6. GUI 앱 개별 설정
 
-- **iTerm2**: Preferences → General → Settings → 설정 폴더를 `~/dotfiles` 로 지정하면 동기화됨
-- **Karabiner**: `~/dotfiles/karabiner.json` → `~/.config/karabiner/karabiner.json` 로 복사
+- **iTerm2 / Karabiner**: 자동 — `install.sh gui` 가 Karabiner 를 `~/dotfiles/karabiner` 로 심볼릭 링크하고
+  iTerm2 설정 폴더를 `~/dotfiles/iterm2` 로 지정한다. 앱 재시작 후 반영.
+  (양쪽 맥 모두 이 방식이라 설정 바꾸면 dotfiles 커밋으로 동기화됨)
 - **JetBrains**: Toolbox 로그인 후 Settings Sync, ideavimrc 는 심볼릭 링크됨
 - **폰트**: Brewfile 에서 Nerd Font 설치됨 → 터미널 폰트를 `CaskaydiaCove Nerd Font` 로 지정
 

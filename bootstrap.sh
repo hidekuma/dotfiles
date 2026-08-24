@@ -94,8 +94,8 @@ setup_dotfiles() {
 
 # ─── 4. install.sh ───────────────────────────────────────
 run_install() {
-  info "install.sh 실행 (brew symlinks zsh nvim tmux claude runtime)"
-  bash "$DOTFILES/install.sh" brew symlinks zsh nvim tmux claude runtime
+  info "install.sh 실행 (brew symlinks zsh nvim tmux claude runtime gui)"
+  bash "$DOTFILES/install.sh" brew symlinks zsh nvim tmux claude runtime gui
 }
 
 # ─── 5. doctor ───────────────────────────────────────────
