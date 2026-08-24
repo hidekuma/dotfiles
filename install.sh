@@ -29,6 +29,36 @@ symlink() {
   ok "$dst → $src"
 }
 
+# ─── Homebrew Bundle ────────────────────────────
+setup_brew() {
+  info "Installing Homebrew packages (Brewfile)..."
+
+  if [ "$PLATFORM" != "Darwin" ]; then
+    warn "Brewfile is macOS-only, skipping"
+    return
+  fi
+
+  if ! command -v brew &>/dev/null; then
+    if [ -x /opt/homebrew/bin/brew ]; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+  fi
+
+  brew bundle --file="$DOTFILES/Brewfile" || warn "일부 패키지 설치 실패 — 로그 확인 후 재실행"
+
+  if [ -f "$DOTFILES/Brewfile.local" ]; then
+    info "Brewfile.local 적용"
+    brew bundle --file="$DOTFILES/Brewfile.local" || warn "Brewfile.local 일부 실패"
+  else
+    warn "Brewfile.local 없음 (사내/개인 앱은 수동 설치 — SETUP.md 참조)"
+  fi
+
+  ok "Homebrew bundle done"
+}
+
 # ─── Dotfile Symlinks ───────────────────────────
 setup_symlinks() {
   info "Setting up symlinks..."
@@ -93,7 +123,33 @@ setup_nvim() {
     ok "neovim already installed ($(nvim --version | head -1))"
   fi
 
-  ok "Neovim done — run 'nvim' to trigger lazy.nvim plugin install"
+  # python provider — nvim/lua/user/lsp/configs.lua 가
+  # ~/.virtualenvs/neovim3.12/bin/python 를 python3_host_prog 로 지정함
+  local venv="$HOME/.virtualenvs/neovim3.12"
+  if [ ! -x "$venv/bin/python" ]; then
+    info "Creating neovim python venv → $venv"
+    mkdir -p "$HOME/.virtualenvs"
+    local py
+    py="$(command -v python3.12 || command -v python3)"
+    "$py" -m venv "$venv"
+    "$venv/bin/pip" install --upgrade pip -q
+  fi
+  "$venv/bin/pip" install -q pynvim || warn "pynvim 설치 실패"
+  if [ -f "$DOTFILES/requirements.neovim.txt" ]; then
+    "$venv/bin/pip" install -q -r "$DOTFILES/requirements.neovim.txt" \
+      || warn "requirements.neovim.txt 일부 실패 (핀 버전이 오래됨 — pynvim 만 있으면 동작)"
+  fi
+  ok "python provider: $venv/bin/python"
+
+  # 플러그인 headless 설치 (lazy.nvim)
+  info "Syncing lazy.nvim plugins (headless)..."
+  nvim --headless "+Lazy! sync" +qa 2>&1 | tail -3 || warn "Lazy sync 경고 — nvim 을 한 번 직접 열어 확인"
+
+  # mason LSP/treesitter 는 최초 기동 시 ensure_installed 로 설치됨
+  info "Warming up Mason / treesitter (최대 90초)..."
+  nvim --headless "+TSUpdateSync" +qa 2>&1 | tail -3 || true
+
+  ok "Neovim done — 첫 nvim 실행 시 Mason 이 LSP 서버를 마저 내려받습니다 (:Mason 으로 확인)"
 }
 
 # ─── tmux + TPM ─────────────────────────────────
@@ -130,6 +186,61 @@ setup_claude() {
   ok "Claude Code done"
 }
 
+# ─── Runtimes (node / python / java) ────────────
+setup_runtime() {
+  info "Setting up runtimes..."
+
+  # nvm + node LTS
+  export NVM_DIR="$HOME/.nvm"
+  mkdir -p "$NVM_DIR"
+  if [ -s "$(brew --prefix nvm 2>/dev/null)/nvm.sh" ]; then
+    # shellcheck source=/dev/null
+    . "$(brew --prefix nvm)/nvm.sh"
+    if ! nvm ls --no-colors 2>/dev/null | grep -q 'lts'; then
+      nvm install --lts
+    fi
+    nvm alias default 'lts/*' >/dev/null 2>&1 || true
+    ok "node $(node -v 2>/dev/null || echo '?')"
+
+    # nvim 이 쓰는 전역 npm 도구
+    npm install -g neovim prettier @fsouza/prettierd eslint_d >/dev/null 2>&1 \
+      || warn "npm 전역 패키지 일부 실패"
+  else
+    warn "nvm 미설치 — Brewfile 적용 후 다시 실행하세요"
+  fi
+
+  # virtualenvwrapper (zsh_profile.m1 이 참조)
+  if [ ! -x "$HOME/.local/venvwrapper/bin/python" ]; then
+    bash "$DOTFILES/bin/install-virtualenv.sh" || warn "virtualenvwrapper 설치 실패"
+  else
+    ok "virtualenvwrapper already installed"
+  fi
+
+  # SDKMAN (zshrc 마지막에서 source 함)
+  if [ ! -d "$HOME/.sdkman" ]; then
+    curl -s "https://get.sdkman.io" | bash || warn "SDKMAN 설치 실패"
+  else
+    ok "SDKMAN already installed"
+  fi
+
+  ok "Runtimes done"
+}
+
+# ─── macOS 시스템 설정 ──────────────────────────
+setup_macos() {
+  bash "$DOTFILES/macos.sh"
+}
+
+# ─── 워크스페이스 레포 clone ────────────────────
+setup_repos() {
+  bash "$DOTFILES/bin/clone-repos.sh"
+}
+
+# ─── 점검 ───────────────────────────────────────
+setup_doctor() {
+  bash "$DOTFILES/bin/doctor.sh"
+}
+
 # ─── CLI tools (macOS) ──────────────────────────
 setup_tools() {
   info "Setting up CLI tools..."
@@ -158,13 +269,20 @@ usage() {
   cat <<EOF
 Usage: $0 [OPTIONS] [COMPONENTS...]
 
-Components (default: all):
+Components (default: brew symlinks zsh nvim tmux claude runtime):
+  brew        Homebrew + Brewfile (+ Brewfile.local)
   symlinks    Dotfile symlinks (zsh, tmux, nvim)
   zsh         Zsh + Oh-My-Zsh + plugins
-  nvim        Neovim
+  nvim        Neovim + python provider + lazy.nvim 플러그인
   tmux        tmux + TPM
   claude      Claude Code (--minimal)
+  runtime     node(nvm) / virtualenvwrapper / SDKMAN / npm 전역툴
   tools       CLI tools (fzf, rg, bat, lsd, lazygit)
+
+Opt-in (기본 실행 안 함):
+  macos       macOS 시스템 기본값 (키 리피트, Finder, Dock 등)
+  repos       워크스페이스 레포 clone (repos.local.txt 필요)
+  doctor      설치 상태 점검
 
 Options:
   -h, --help  Show this help
@@ -184,17 +302,22 @@ main() {
   local components=("$@")
 
   if [ ${#components[@]} -eq 0 ]; then
-    components=(symlinks zsh nvim tmux claude tools)
+    components=(brew symlinks zsh nvim tmux claude runtime)
   fi
 
   for component in "${components[@]}"; do
     case "$component" in
+      brew)     setup_brew ;;
       symlinks) setup_symlinks ;;
       zsh)      setup_zsh ;;
       nvim)     setup_nvim ;;
       tmux)     setup_tmux ;;
       claude)   setup_claude ;;
+      runtime)  setup_runtime ;;
       tools)    setup_tools ;;
+      macos)    setup_macos ;;
+      repos)    setup_repos ;;
+      doctor)   setup_doctor ;;
       -h|--help) usage; exit 0 ;;
       *) error "Unknown component: $component"; usage; exit 1 ;;
     esac
