@@ -21,6 +21,10 @@ return {
             pycodestyle = {
                 ignore = { "W391" },
             },
+            -- rope 가 프로젝트 루트마다 .ropeproject 폴더를 만들지 않도록 (vim.NIL -> JSON null)
+            rope = {
+                ropeFolder = vim.NIL,
+            },
             plugins = {
                 jedi = {
                     extra_paths = { py_path }
