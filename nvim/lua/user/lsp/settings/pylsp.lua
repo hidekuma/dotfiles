@@ -30,7 +30,9 @@ return {
                     extra_paths = { py_path }
                 },
                 jedi_completion = { enabled = true },
-                rope_autoimport = { enabled = true },
+                -- rope 계열은 켜면 .ropeproject 를 만든다 (ropeFolder=null, memory=true 로도 못 막음)
+                rope_autoimport = { enabled = false },
+                pylsp_rope = { enabled = false },
             }
         }
     },
