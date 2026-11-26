@@ -134,11 +134,8 @@ setup_nvim() {
     "$py" -m venv "$venv"
     "$venv/bin/pip" install --upgrade pip -q
   fi
-  "$venv/bin/pip" install -q pynvim || warn "pynvim 설치 실패"
-  if [ -f "$DOTFILES/requirements.neovim.txt" ]; then
-    "$venv/bin/pip" install -q -r "$DOTFILES/requirements.neovim.txt" \
-      || warn "requirements.neovim.txt 일부 실패 (핀 버전이 오래됨 — pynvim 만 있으면 동작)"
-  fi
+  # msgpack 은 pynvim 의존성 — -U 로 같이 올려 취약 버전이 남지 않게
+  "$venv/bin/pip" install -q -U pynvim msgpack || warn "pynvim 설치 실패"
   ok "python provider: $venv/bin/python"
 
   # 플러그인 headless 설치 (lazy.nvim)
