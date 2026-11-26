@@ -13,7 +13,7 @@ DRY=false
 [ "${1:-}" = "--dry" ] && DRY=true
 
 run() {
-  if $DRY; then echo "  $*"; else eval "$@"; fi
+  if $DRY; then echo "  $*"; else eval "$*"; fi
 }
 
 echo "▸ 키보드 (vim/neovim 커서 이동 속도 — 이게 제일 중요)"

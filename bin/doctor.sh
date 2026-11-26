@@ -4,6 +4,7 @@
 #
 #   ~/dotfiles/bin/doctor.sh
 #   ~/dotfiles/bin/doctor.sh --no-secrets   # 시크릿 경로 확인 생략
+# shellcheck disable=SC2088  # 따옴표 안 ~ 는 화면 표시용 문구 (실제 경로는 $HOME)
 
 set -uo pipefail
 
