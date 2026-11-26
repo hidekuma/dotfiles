@@ -120,6 +120,25 @@ alias c='claude'
 alias cw='claude --worktree'
 alias cds='claude -dangerously-skip-permissions'
 
+# Querypie
+alias qscp="scp -o ProxyCommand='qpctl ssh-proxy %r %h %p gw.kakaosecure.net' -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+alias qscp2="scp -o ProxyCommand='qpctl ssh-proxy %r %h %p gw-dr.kakaosecure.net' -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+# alias qssh="ssh -o ProxyCommand='qpctl ssh-proxy %r %h %p gw.kakaosecure.net' -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+alias qssh2="ssh -o ProxyCommand='qpctl ssh-proxy %r %h %p gw-dr.kakaosecure.net' -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+
+unalias qssh 2>/dev/null
+function qssh {
+  local term=$TERM
+  [[ "$*" == *craft-web2* ]] && term=xterm-256color
+  TERM=$term ssh -o ProxyCommand='qpctl ssh-proxy %r %h %p gw.kakaosecure.net' \
+    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$@"
+}
+
+# ansible
+# ~/.virtualenvs/ansible3.12/bin/postactivate
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+alias qs=~/Documents/workspace/jotokki/scripts/qs.sh
+
 
 # for auto completion of kubectx, kubens
 # NOTE: compinit is already called by oh-my-zsh, skip duplicate
