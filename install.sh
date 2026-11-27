@@ -167,7 +167,14 @@ setup_tmux() {
     ok "TPM already installed"
   fi
 
-  ok "tmux done — press prefix + I inside tmux to install plugins"
+  # tmux.conf 의 @plugin 설치. 이미 있는 건 건너뛰어 재실행해도 안전, tmux 서버 없어도 동작
+  if "$HOME/.tmux/plugins/tpm/bin/install_plugins" >/dev/null; then
+    ok "tmux plugins installed"
+  else
+    warn "tmux 플러그인 설치 실패 — tmux 안에서 prefix + I"
+  fi
+
+  ok "tmux done"
 }
 
 # ─── Claude Code ────────────────────────────────
