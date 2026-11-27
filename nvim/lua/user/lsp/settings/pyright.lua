@@ -9,11 +9,10 @@ return {
     python = {
       -- pythonPath = python_path,
       analysis = {
-        -- diagnosticMode = "openFilesOnly",
-        diagnosticMode = { "openFilesOnly" },
+        diagnosticMode = "openFilesOnly",
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
-        -- autoImportCompletions = true,
+        autoImportCompletions = true,
         -- diagnosticSeverityOverrides = {
         --   -- reportGeneralTypeIssues = "information",
         --   reportIncompatibleMethodOverride = "information",

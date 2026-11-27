@@ -23,7 +23,7 @@ local SERVERS = {
 	-- "groovyls",
 	"cssls",
 	"lua_ls",
-	"pylsp",
+	"pyright",
 	-- "jdtls", java 11 버전 지원을 위해 수동으로 설치진행 MasonInstall jdtls@0.57
 	"sqlls",
 	"yamlls",
