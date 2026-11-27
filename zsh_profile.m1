@@ -106,6 +106,7 @@ alias tfs='terraform state'
 # alias dkr=nerdctl
 # alias dkrp='nerdctl compose'
 alias ws='cd ~/Documents/workspace'
+alias joto='cd ~/Documents/workspace/jotokki'
 alias dotfiles='cd ~/dotfiles'
 alias k=kubectl
 alias ta='tmux attach'
